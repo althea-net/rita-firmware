@@ -51,9 +51,9 @@ Building the firmware
 If there is an existing hardware profile for your device building the firmware
 should be pretty simple. Here are the existing hardware config names.
 
-Hardware Config | Target Name | Full model name
-----------------|-------------|-----------------
-      n600      |    ar71xx   | WD My Net N600 Model: C3
+| Hardware Config | Target Name | Full model name          |
+|-----------------|-------------|--------------------------|
+|      n600       |    ar71xx   | WD My Net N600 Model: C3 |
 
 To build the firmware for your device run, replacing '<Hardware Config>' with
 the value from the table above:
