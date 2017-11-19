@@ -3,7 +3,7 @@ Althea Firmware Builder
 
 This repo is dedicated to building custom OpenWRT firmware for Althea routers.
 Similar to LibreMesh's [Lime-SDK](https://github.com/libremesh/lime-sdk) or
-SudoMeshe's [SudoWRT](https://github.com/sudomesh/sudowrt-firmware) firmware
+SudoMesh's [SudoWRT](https://github.com/sudomesh/sudowrt-firmware) firmware
 builder. All of these perform much the same function, maintaining a series of
 config files, patches, and packages to insert into a OpenWRT firmware image.
 
