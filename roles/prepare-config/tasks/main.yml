@@ -1,0 +1,43 @@
+---
+# Copies in the deltas for the Firmware
+
+- name: Sync items to be inserted into the root file system
+  synchronize:
+    src: firmware-root/
+    dest: "{{source_dir}}/files/"
+    recursive: yes
+    delete: yes
+
+- name: Check if feeds.conf exists
+  stat:
+    path: "{{source_dir }}/feeds.conf"
+  register: feeds
+
+- name: Create feeds.conf
+  copy:
+    src: "{{source_dir}}/feeds.conf.default"
+    dest: "{{source_dir}}/feeds.conf"
+  when: not feeds.stat.exists
+
+- name: Add custom feeds
+  lineinfile:
+    line: "{{item}}"
+    path: "{{source_dir}}feeds.conf"
+    state: present
+  with_items: "{{feeds_list}}"
+
+- name: Update feeds
+  shell: "cd {{source_dir}}; ./scripts/feeds update -a"
+
+- name: Grab feeds
+  shell: "cd {{source_dir}}; ./scripts/feeds install -a"
+
+- name: Copy in config
+  copy:
+    src: "config/{{conf_to_build}}"
+    dest: "{{source_dir}}/.config"
+
+- name: Build the full config
+  make:
+    chdir: "{{source_dir}}/"
+    target: defconfig

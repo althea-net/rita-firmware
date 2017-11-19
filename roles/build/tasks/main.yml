@@ -1,0 +1,16 @@
+---
+# Builds the firmware
+
+- name: Build the firmware, could take a while
+  shell: "cd {{source_dir}}; nice make V=s -j {{ansible_processor_vcpus}} world"
+  register: build_result
+  ignore_errors: true
+
+- name: Print help on failure
+  fail:
+    msg: "Firmware compliation failed, run 'cd {{source_dir}}; make V=s world' to see why."
+  when: build_result | failed
+
+- name: Print Success
+  debug:
+    msg: "Firmware Successfully built!"

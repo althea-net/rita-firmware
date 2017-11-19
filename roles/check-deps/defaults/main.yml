@@ -1,0 +1,101 @@
+# Known requirements per distro, please expand if you encounter breakage
+known_distros:
+  - CentOS
+  - Fedora
+  - Ubuntu
+  - Debian
+  - Red Hat Enterprise Linux
+
+debian_deps:
+  - build
+  - essential
+  - libncurses5-dev
+  - gawk
+  - git
+  - subversion
+  - libssl-dev
+  - gettext
+  - unzip
+  - zlib1g-dev
+  - file
+  - python
+  - systemtap-std-dev
+
+centos_deps:
+  - subversion
+  - binutils
+  - bzip2
+  - gcc
+  - gcc-c++
+  - gawk
+  - gettext
+  - flex
+  - ncurses-devel
+  - zlib-devel
+  - zlib-static
+  - make
+  - patch
+  - unzip
+  - perl-ExtUtils-MakeMaker
+  - glibc
+  - glibc-devel
+  - glibc-static
+  - quilt
+  - ncurses-libs
+  - sed
+  - sdcc
+  - intltool
+  - sharutils
+  - bison
+  - wget
+  - git-core
+  - openssl-devel
+  - xz
+  - systemtap-sdt-devel
+
+ubuntu_deps:
+  - build-essential
+  - subversion
+  - libncurses5-dev
+  - zlib1g-dev
+  - gawk
+  - gcc-multilib
+  - flex
+  - git-core
+  - gettext
+  - libssl-dev
+  - unzip
+  - systemtap-std-dev
+
+fedora_deps:
+  - subversion
+  - binutils
+  - bzip2
+  - gcc
+  - gcc-c++
+  - gawk
+  - gettext
+  - git-core
+  - flex
+  - ncurses-devel
+  - ncurses-compat-libs
+  - zlib-devel
+  - zlib-static
+  - make
+  - patch
+  - unzip
+  - perl-ExtUtils-MakeMaker
+  - perl-Thread-Queue
+  - glibc
+  - glibc-devel
+  - glibc-static
+  - quilt
+  - sed
+  - sdcc
+  - intltool
+  - sharutils
+  - bison
+  - wget
+  - openssl-devel
+  -systemtap-sdt-devel
+

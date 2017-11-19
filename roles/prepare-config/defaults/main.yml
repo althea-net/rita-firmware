@@ -1,0 +1,4 @@
+source_dir: build/
+feeds_list:
+  - "# dummy feed"
+conf_to_build: n600

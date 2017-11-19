@@ -1,0 +1,15 @@
+---
+# Downloads and prepares the openwrt sources by applying patches
+
+
+- name: Create build directory
+  file:
+    path: "{{source_dir}}"
+    state: directory
+
+- name: Clone OpenWRT
+  git:
+    repo: "{{repo}}"
+    dest: "{{source_dir}}"
+    update: yes
+    version: "{{version}}"

@@ -1,0 +1,34 @@
+---
+# Determines if the required dependencies are installed
+
+- name: Install Debian deps
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items: "{{debian_deps}}"
+  when: ansible_distribution == 'Debian'
+  become: true
+
+- name: Install Ubuntu deps
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items: "{{ubuntu_deps}}"
+  when: ansible_distribution == 'Ubuntu'
+  become: true
+
+- name: Install Fedora deps
+  dnf:
+    name: "{{item}}"
+    state: present
+  with_items: "{{fedora_deps}}"
+  when: ansible_distribution == 'Fedora'
+  become: true
+
+- name: Install CentOS/RHEL deps
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items: "{{centos_deps}}"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Red Hat Enterprise Linux'
+  become: true

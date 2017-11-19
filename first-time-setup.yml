@@ -1,0 +1,7 @@
+---
+# A playbook to install OpenWRT build deps
+
+- hosts: 127.0.0.1
+  connection: local
+  roles:
+    - check-deps

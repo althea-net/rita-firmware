@@ -1,0 +1,3 @@
+repo: https://git.lede-project.org/source.git
+version: master
+source_dir: build/
