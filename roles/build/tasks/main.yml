@@ -2,7 +2,7 @@
 # Builds the firmware
 
 - name: Build the firmware, could take a while
-  shell: "cd {{source_dir}}; nice make V=s -j {{ansible_processor_vcpus}} world"
+  shell: "cd {{source_dir}}; nice make -j{{ansible_processor_vcpus|int * 4}} world"
   register: build_result
   ignore_errors: true
 

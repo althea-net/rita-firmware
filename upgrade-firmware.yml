@@ -1,0 +1,7 @@
+---
+# A firmware upgrade playbook
+
+- hosts: routers
+  user: root
+  roles:
+    - upgrade

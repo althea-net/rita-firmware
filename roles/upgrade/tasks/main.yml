@@ -1,0 +1,32 @@
+---
+# Upgrades LEDE devices to the newly built firmware
+# Use with EXTRAORDINARY CAUTION
+
+- name: Check for correct target
+  shell: "grep {{target}} /etc/openwrt_release"
+  register: target_string
+  ignore_errors: true
+
+- name: Print failure message
+  fail:
+    msg: "The target you are trying to flash was not found on the device!! Refusing to potentially brick it"
+  when: target_string | failed
+
+- name: Copy over new firmware file
+  copy:
+    src: "{{source_dir}}/bin/targets/{{target}}/generic/lede-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin"
+    dest: "/tmp/sysupgrade.bin"
+
+- name: Apply the update, please cross your fingers and wait 5 minutes
+  shell: "sysupgrade -v /tmp/sysupgrade.bin"
+  ignore_errors: true
+
+- name: Wait for router to come back
+  become: false
+  local_action: wait_for
+  args:
+    host: "{{ inventory_hostname }}"
+    port: 22
+    state: started
+    delay: 30
+    timeout: 180

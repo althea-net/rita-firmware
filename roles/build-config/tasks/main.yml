@@ -1,0 +1,28 @@
+---
+# Builds the more sensitive and dynamic parts of the firmware root configuration
+# for example ssh keys are inserted in this role
+
+- name: Create Dropbear folder
+  file:
+    path: "{{source_dir}}/files/etc/dropbear/"
+    state: directory
+
+- name: Add keys to login
+  lineinfile:
+    dest: "{{source_dir}}/files/etc/dropbear/authorized_keys"
+    line: "{{item}}"
+    state: present
+    create: yes
+  with_items: "{{keys_to_insert}}"
+
+# Add disable password login task once ^ works reliably
+
+# - name: Create Wireguard Config folder
+#   lineinfile:
+#     path: "{{source_dir}}/files/etc/config/"
+#     state: directory
+
+# - name: Template network interface configuration
+#   template:
+#     src: "network.j2"
+#     dest: "{{source_dir}}/files/etc/config/network"

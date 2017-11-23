@@ -6,4 +6,5 @@
   roles:
     - prepare-sources
     - prepare-config
+    - build-config
     - build
