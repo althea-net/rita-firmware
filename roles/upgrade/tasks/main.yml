@@ -1,6 +1,9 @@
 ---
 # Upgrades LEDE devices to the newly built firmware
 # Use with EXTRAORDINARY CAUTION
+# The following packages are dependencies to run Ansible on OpenWRT/LEDE
+# python-base python-light python-codecs python-logging python-openssl python-distutils
+# All together these clock in at an appaling 5mb
 
 - name: Check for correct target
   shell: "grep {{target}} /etc/openwrt_release"
@@ -9,7 +12,7 @@
 
 - name: Print failure message
   fail:
-    msg: "The target you are trying to flash was not found on the device!! Refusing to potentially brick it"
+    msg: "The target you are trying to flash was not found on the device!! Refusing to potentially brick it."
   when: target_string | failed
 
 - name: Copy over new firmware file
@@ -18,8 +21,9 @@
     dest: "/tmp/sysupgrade.bin"
 
 - name: Apply the update, please cross your fingers and wait 5 minutes
-  shell: "sysupgrade -v /tmp/sysupgrade.bin"
+  shell: "sysupgrade -v -n /tmp/sysupgrade.bin"
   ignore_errors: true
+  async: 0
 
 - name: Wait for router to come back
   become: false

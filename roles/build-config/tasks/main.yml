@@ -26,3 +26,10 @@
 #   template:
 #     src: "network.j2"
 #     dest: "{{source_dir}}/files/etc/config/network"
+
+- name: Generate Babeld interface configuration from hardware configuration
+  lineinfile:
+    dest: "{{source_dir}}]files/etc/config/babeld"
+    line: "{{item}}"
+    state: present
+  with_items: "{{babeld_interfaces}}"
