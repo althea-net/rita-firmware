@@ -1,11 +1,13 @@
 conf_to_build: n600
 target: "ar71xx"
 device: "mynet-n600"
+mesh_channel: 42
+private_channel: 1
 
 babeld_interfaces:
-  - "config interface \
-        option 'ifname' 'eth1' \
-        option 'hello_interval' '4'"
-  - "config interface \
-        option 'ifname' 'wlan1' \
-        option 'hello_interval' '4'"
+  - "config interface \n\
+        \t option 'ifname' 'eth1' \n\
+        \t option 'hello_interval' '4'\n"
+  - "config interface \n\
+        \t option 'ifname' 'wlan1' \n\
+        \t option 'hello_interval' '4'\n"

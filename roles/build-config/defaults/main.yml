@@ -3,7 +3,5 @@ disable_password_login: false
 insert_keys: false
 keys_to_insert:
   - ""
-setup_wireguard: true
-use_wireguard: true
 babeld_interfaces:
 

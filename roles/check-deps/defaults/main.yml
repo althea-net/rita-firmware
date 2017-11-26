@@ -97,5 +97,4 @@ fedora_deps:
   - bison
   - wget
   - openssl-devel
-  -systemtap-sdt-devel
-
+  - systemtap-sdt-devel
