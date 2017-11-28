@@ -64,9 +64,9 @@ should be pretty simple. Here are the existing hardware config names.
 |-----------------|-------------|--------------------------|
 |      n600       |    ar71xx   | WD My Net N600 Model: C3 |
 
-To build the firmware for your device run, replacing '<Hardware Config>' with
+To build the firmware for your device run, replacing '\<Hardware Config\>' with
 the value from the table above:
-> ansible-playbook firmware-build.yml -e @/profiles/devices/<Hardware Config>.yml
+> ansible-playbook firmware-build.yml -e @/profiles/devices/\<Hardware Config\>.yml
 
 This will take a long time, especially the first run. Nearly an hour on a fast
 machine and several on a slower one. After the first run things should be much
