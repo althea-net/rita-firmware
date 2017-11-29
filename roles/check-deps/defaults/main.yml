@@ -19,7 +19,7 @@ debian_deps:
   - zlib1g-dev
   - file
   - python
-  - systemtap-std-dev
+  - systemtap-sdt-dev
 
 centos_deps:
   - subversion
@@ -65,7 +65,7 @@ ubuntu_deps:
   - gettext
   - libssl-dev
   - unzip
-  - systemtap-std-dev
+  - systemtap-sdt-dev
 
 fedora_deps:
   - subversion
