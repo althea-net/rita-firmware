@@ -5,6 +5,7 @@ known_distros:
   - Ubuntu
   - Debian
   - Red Hat Enterprise Linux
+  - Arch Linux
 
 debian_deps:
   - build
