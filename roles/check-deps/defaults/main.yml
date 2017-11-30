@@ -5,6 +5,7 @@ known_distros:
   - Ubuntu
   - Debian
   - Red Hat Enterprise Linux
+  - Arch Linux
 
 debian_deps:
   - build
@@ -98,3 +99,31 @@ fedora_deps:
   - wget
   - openssl-devel
   - systemtap-sdt-devel
+
+arch_deps:
+  - subversion
+  - binutils
+  - bzip2
+  - gcc
+  - gcc-libs
+  - gawk
+  - gettext
+  - git
+  - flex
+  - ncurses
+  - ncurses5-compat-libs
+  - zlib
+  - automake
+  - patch
+  - unzip
+  - perl
+  - glibc
+  - quilt
+  - sed
+  - sdcc
+  - intltool
+  - sharutils
+  - bison
+  - wget
+  - openssl
+  - systemtap
