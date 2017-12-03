@@ -76,3 +76,9 @@
   template:
     src: "althea-firmware-release.j2"
     dest: "{{source_dir}}/files/etc/althea-firmware-release"
+
+
+- name: Template bootstrapping script
+  template:
+    src: "setup.ash.j2"
+    dest: "{{source_dir}}/files/etc/setup.ash"
