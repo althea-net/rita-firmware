@@ -1,0 +1,12 @@
+#!/bin/ash
+set -eu
+password=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16})
+uci set system.password=$password
+uci set wireless.{{private_radio}}.key=$password
+echo $password
+
+wg_key=$(wg genkey)
+wg_pub_key=$(echo $wg_key | wg pubkey)
+echo $wg_pub_key
+uci set network.wg0.private_key=$wg_key
+/etc/init.d/network reload

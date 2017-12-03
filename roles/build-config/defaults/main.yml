@@ -6,4 +6,4 @@ keys_to_insert:
 babeld_interfaces:
 dropbear_wan_accessible: false
 ssh_port: 22
-password_auth: 1
+password_auth: 0

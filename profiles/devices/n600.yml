@@ -1,6 +1,7 @@
 conf_to_build: n600
 target: "ar71xx"
 device: "mynet-n600"
+private_radio: radio0
 
 # 5ghz note only 20mhz channel widths
 mesh_channel: 165
