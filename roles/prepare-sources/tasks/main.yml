@@ -13,3 +13,4 @@
     dest: "{{source_dir}}"
     update: yes
     version: "{{version}}"
+  register: source_version

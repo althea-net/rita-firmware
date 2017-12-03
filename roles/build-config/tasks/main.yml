@@ -62,3 +62,8 @@
     line: "{{item}}"
     state: present
   with_items: "{{babeld_interfaces}}"
+
+- name: Write out build details
+  template:
+    src: "althea-firmware-release.j2"
+    dest: "{{source_dir}}/files/etc/althea-firmware-release"
