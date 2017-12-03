@@ -1,7 +1,11 @@
 conf_to_build: n600
 target: "ar71xx"
 device: "mynet-n600"
-mesh_channel: 42
+
+# 5ghz note only 20mhz channel widths
+mesh_channel: 165
+
+# 2.4ghz
 private_channel: 1
 
 babeld_interfaces:
