@@ -11,11 +11,15 @@ wg_server: 192.168.1.88
 wg_port: 51820
 
 mesh_wifi_ssid: CascadianMesh
-mesh_wifi_enabled: 0
+mesh_wifi_disabled: 0
 mesh_wifi_encryption: none
 mesh_wifi_key: none
 
 private_wifi_ssid: CascadianHome
-private_wifi_enabled: 0
+private_wifi_disabled: 0
 private_wifi_encryption: psk2+tkip+aes
 private_wifi_key: ChangeMe
+
+password_auth: 1
+# Allows ssh from wan for management
+dropbear_wan_accessible: true

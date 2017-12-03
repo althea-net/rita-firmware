@@ -15,7 +15,16 @@
     create: yes
   with_items: "{{keys_to_insert}}"
 
-# Add disable password login task once ^ works reliably
+- name: Authorized keys only readable by owner
+  file:
+    path: "{{source_dir}}/files/etc/dropbear/authorized_keys"
+    mode: 0600
+
+- name: Template dropbear config
+  template:
+    src: "dropbear.j2"
+    dest: "{{source_dir}}/files/etc/config/dropbear"
+
 
 - name: Create Wireguard Config folder
   file:
