@@ -1,0 +1,13 @@
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option RootPasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'lan'
+
+{% if dropbear_wan_accessible %}
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option RootPasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'wan'
+{% endif %}
