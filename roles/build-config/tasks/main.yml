@@ -25,6 +25,19 @@
     src: "dropbear.j2"
     dest: "{{source_dir}}/files/etc/config/dropbear"
 
+- name: Add wan ssh rule
+  blockinfile:
+    path: "{{source_dir}}/files/etc/fongi/firewall"
+    state: present
+    block: |
+      config rule
+		option name		Allow-Dropbear
+		option src		wan
+		option proto		tcp
+		option family		ipv6
+		option dest_port	22
+		option target		ACCEPT
+  when: dropbear_wan_accessible
 
 - name: Create Wireguard Config folder
   file:
