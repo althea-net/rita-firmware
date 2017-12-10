@@ -1,0 +1,20 @@
+conf_to_build: virtualbox
+target: "x86"
+device: "generic"
+private_radio: radio0
+
+# 5ghz note only 20mhz channel widths
+mesh_channel: 165
+
+# 2.4ghz
+private_channel: 1
+
+babeld_interfaces:
+  - "config interface \n\
+        \t option 'ifname' 'mytunnel1' \n\
+        \t option 'wired' 'true' \n\
+        \t option 'hello_interval' '4'\n"
+  - "config interface \n\
+        \t option 'ifname' 'mytunnel2' \n\
+        \t option 'wired' 'true' \n\
+        \t option 'hello_interval' '4'\n"
