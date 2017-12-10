@@ -1,4 +1,3 @@
 *.retry
 secrets/*
-build/*
-build
+build/
