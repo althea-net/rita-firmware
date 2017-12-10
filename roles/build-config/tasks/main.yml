@@ -44,42 +44,10 @@
     src: "{{conf_to_build}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
 
-- name: Add wireguard interface to network configuration
-  lineinfile:
-    dest: "{{source_dir}}/files/etc/config/network"
-    line: "config interface 'wg0' \n\
-             \t option proto 'wireguard' \n\
-             \t option private_key '{{wg_private_key}}' \n\
-             \t list addresses '10.0.0.0/8'\n"
-    state: present
-
-- name: Add exit server peer to network configuration
-  lineinfile:
-    dest: "{{source_dir}}/files/etc/config/network"
-    line: "config wireguard_wg0 \n\
-             \t option public_key '{{wg_server_public_key}}' \n\
-             \t option preshared_key '{{wg_server_preshared_key}}' \n\
-             \t option route_allowed_ips '1' \n\
-             \t list allowed_ips '10.0.0.0/8' \n\
-             \t option endpoint_host '{{wg_server}}' \n\
-             \t option endpoint_port '{{wg_port}}'\n"
-    state: present
-
-
-- name: Generate Babeld interface configuration from hardware configuration
-  lineinfile:
+- name: Template the babeld configuration
+  template:
+    src: "babeld.j2"
     dest: "{{source_dir}}/files/etc/config/babeld"
-    line: "{{item}}"
-    state: present
-  with_items: "{{babeld_interfaces}}"
-
-- name: Redistribute routes on each babel interface
-  lineinfile:
-  lineinfile:
-    dest: "{{source_dir}}/files/etc/config/babeld"
-    line: "{{item}}"
-    state: present
-  with_items: "{{babeld_filters}}"
 
 - name: Write out build details
   template:
