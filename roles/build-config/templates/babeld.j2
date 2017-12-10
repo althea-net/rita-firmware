@@ -1,0 +1,33 @@
+package babeld
+
+config general
+        option 'random_id' 'true'
+        option 'debug' '0'
+        option 'local_port' '6696'
+        option 'log_file' '/var/log/babeld.log'
+        ## Enable ipv6-subtrees by default since OpenWrt should ship with a
+        ## recent enough kernel for it to work.
+        option 'ipv6_subtrees' 'true'
+        option 'enable-timestamps' 'true'
+        option 'max-rtt-penalty' '1000'
+        option 'price' '{{default_price}}'
+
+## Generated based on the hardware configuration
+{% for interface in babeld_interfaces %}
+config interface
+        option 'ifname' '{{interface}}'
+        option 'hello_interval' '4'
+config filter
+        option 'type' 'redistribute'
+        option 'if' '{{interface}}'
+        ## 'local' means only redistribute a /32
+        option 'local'  'true'
+        option 'action' 'allow'
+{% endfor %}
+
+
+## Does not share internal addresses
+config filter
+        option 'type'   'redistribute'
+        option 'local'  'true'
+        option 'action' 'deny'

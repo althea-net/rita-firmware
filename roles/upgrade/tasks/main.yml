@@ -3,7 +3,7 @@
 # Use with EXTRAORDINARY CAUTION
 
 - name: Copy over new firmware file
-  shell: "scp {{ssh_args}} {{source_dir}}/bin/targets/{{target}}/generic/lede-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/sysupgrade.bin"
+  shell: "scp {{ssh_args}} {{source_dir}}/bin/targets/{{target}}/generic/openwrt-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/sysupgrade.bin"
 
 - name: Apply the update, please cross your fingers and wait 5 minutes
   shell: "ssh {{ssh_args}} root@192.168.1.1 sysupgrade -v -n /tmp/sysupgrade.bin"
@@ -27,9 +27,6 @@
   debug:
     msg: "The password for this router is {{device_keys.stdout_lines[0]}}"
 
-- name: "Store wireguard pubkey"
-  lineinfile:
-    path: wireguard_pubkeys.txt
-    line: "{{device_keys.stdout_lines[1]}}"
-    state: present
-    create: yes
+- name: "Display wireguard pubkey"
+  debug:
+    msg: "Wireguard pubkey {{device_keys.stdout_lines[1]}}"

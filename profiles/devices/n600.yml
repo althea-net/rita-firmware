@@ -10,21 +10,5 @@ mesh_channel: 165
 private_channel: 1
 
 babeld_interfaces:
-  - "config interface \n\
-        \t option 'ifname' 'eth1' \n\
-        \t option 'hello_interval' '4'\n"
-  - "config interface \n\
-        \t option 'ifname' 'wlan1' \n\
-        \t option 'hello_interval' '4'\n"
-
-# essentially a duplicate of above but to make sure it's addressible
-# on the mesh, otherwise you operate in the mesh without a mesh address
-babeld_filters:
-  - "config filter \n\
-        \t option 'type' 'redistribute' \n\
-        \t option 'ifname' 'eth1' \n\
-        \t option 'action' 'allow\n"
-  - "config filter \n\
-        \t option 'type' 'redistribute' \n\
-        \t option 'ifname' 'wlan1' \n\
-        \t option 'action' 'allow\n"
+  - eth1
+  - wlan1

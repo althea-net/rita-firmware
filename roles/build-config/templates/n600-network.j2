@@ -36,6 +36,12 @@ config switch_vlan
 
 config interface 'wg0'
         option proto 'wireguard'
-        option private_key '{{wg_private_key}}'
+        option private_key 'placeholder'
         list addresses 'fd00:13:37:ffff::1/64'
 
+config wireguard_wg0
+        option public_key '{{wg_server_public_key}}'
+        option route_allowed_ips '1'
+        list allowed_ips '10.0.0.0/8'
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{wg_port}}'
