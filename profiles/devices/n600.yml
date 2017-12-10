@@ -10,9 +10,6 @@ mesh_channel: 165
 private_channel: 1
 
 babeld_interfaces:
-  - "config interface \n\
-        \t option 'ifname' 'eth1' \n\
-        \t option 'hello_interval' '4'\n"
-  - "config interface \n\
-        \t option 'ifname' 'wlan1' \n\
-        \t option 'hello_interval' '4'\n"
+  - eth1
+  - wlan1
+  

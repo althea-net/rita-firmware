@@ -5,9 +5,7 @@ keys_to_insert:
 
 # this is bad and you should feel bad, find some way to make them gen keys on
 #  firstboot
-wg_private_key: 8OPXjJEmpt5/zX2cq0fSEXA4UqvCioiyZn2AnlXmkk0=
 wg_server_public_key: gx8p0MtYpKUEMZSBoeFMsa2v4WVt01KZeIHQzlHiBXI=
-wg_server_preshared_key: Mb+qp23Mo9sNPCcRpjJFms/TQYIw6Tp5qx2Ok8ie4wk=
 wg_server: 192.168.1.69
 wg_port: 51820
 
@@ -19,7 +17,6 @@ mesh_wifi_key: none
 private_wifi_ssid: CascadianHome
 private_wifi_disabled: 0
 private_wifi_encryption: psk2+tkip+aes
-private_wifi_key: ChangeMe
 
 password_auth: 0
 # Allows ssh from wan for management

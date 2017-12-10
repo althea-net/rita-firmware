@@ -1,57 +1,32 @@
 ---
 # Upgrades LEDE devices to the newly built firmware
 # Use with EXTRAORDINARY CAUTION
-# The following packages are dependencies to run Ansible on OpenWRT/LEDE
-# python-base python-light python-codecs python-logging python-openssl python-distutils
-# All together these clock in at an appaling 5mb
-
-- name: Check for correct target
-  shell: "grep {{target}} /etc/openwrt_release"
-  register: target_string
-  ignore_errors: true
-
-- name: Print failure message
-  fail:
-    msg: "The target you are trying to flash was not found on the device!! Refusing to potentially brick it."
-  when: target_string | failed
 
 - name: Copy over new firmware file
-  copy:
-    src: "{{source_dir}}/bin/targets/{{target}}/generic/lede-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin"
-    dest: "/tmp/sysupgrade.bin"
-
-- name: template the update script
-  template:
-    src: "upgrade.ash.j2"
-    dest: "/tmp/upgrade.ash"
+  shell: "scp {{ssh_args}} {{source_dir}}/bin/targets/{{target}}/generic/openwrt-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/sysupgrade.bin"
 
 - name: Apply the update, please cross your fingers and wait 5 minutes
-  shell: "ash /tmp/upgrade.ash &"
+  shell: "ssh {{ssh_args}} root@192.168.1.1 sysupgrade -v -n /tmp/sysupgrade.bin"
   ignore_errors: true
   async: 0
   poll: 0
 
 - name: Wait for router to come back
-  local_action: wait_for
-  args:
-    host: "{{ inventory_hostname }}"
+  wait_for:
+    host: "192.168.1.1"
     port: 22
     state: started
     delay: 30
     timeout: 600
 
 - name: "Run setup script"
-  shell: "ash /etc/setup.ash"
+  shell: "ssh {{ssh_args}} root@192.168.1.1 ash /etc/setup.ash"
   register: device_keys
 
 - name: "Print wifi and root pass"
   debug:
     msg: "The password for this router is {{device_keys.stdout_lines[0]}}"
 
-- name: "Store wireguard pubkey"
-  local_action: lineinfile
-  args:
-    path: wireguard_pubkeys
-    line: "{{device_keys.stdout_lines[1]}}"
-    state: present
-    create: yes
+- name: "Display wireguard pubkey"
+  debug:
+    msg: "Wireguard pubkey {{device_keys.stdout_lines[1]}}"
