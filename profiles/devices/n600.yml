@@ -12,4 +12,3 @@ private_channel: 1
 babeld_interfaces:
   - eth1
   - wlan1
-  
