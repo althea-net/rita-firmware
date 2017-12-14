@@ -1,0 +1,7 @@
+conf_to_build: virtualbox
+target: "x86"
+device: "generic"
+
+babeld_interfaces:
+  - "mytunnel2"
+  - "mytunnel1"

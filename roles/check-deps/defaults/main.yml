@@ -111,7 +111,6 @@ arch_deps:
   - git
   - flex
   - ncurses
-  - ncurses5-compat-libs
   - zlib
   - automake
   - patch

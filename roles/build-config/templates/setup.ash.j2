@@ -2,7 +2,9 @@
 set -eu
 password=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16})
 uci set system.password=$password
+{% if private_radio is defined %}
 uci set wireless.{{private_radio}}.key=$password
+{% endif %}
 echo $password
 
 wg_key=$(wg genkey)

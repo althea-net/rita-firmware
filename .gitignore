@@ -1,3 +1,4 @@
 *.retry
 secrets/*
-build/*
+build/
+scripts/virtualbox/vboxDisks/*
