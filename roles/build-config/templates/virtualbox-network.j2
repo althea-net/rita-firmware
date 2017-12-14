@@ -38,7 +38,7 @@ config interface 'lan2'
 
 config interface mytunnel2
 	option proto gre
-	option tunlink lan
+	option tunlink lan2
 	option zone lan
 	option peeraddr 192.168.3.2
 
@@ -48,11 +48,11 @@ config interface mytunnel2_static
 	option ipaddr 10.0.0.4
 	option netmask 255.255.255.254
 
-config interface 'host'
+config interface 'wan'
         option ifname 'eth0'
         option proto 'dhcp'
 
-config interface 'host'
+config interface 'wanv6'
         option ifname 'eth0'
         option proto 'dhcpv6'
 
