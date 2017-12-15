@@ -3,7 +3,7 @@ DIR=$(dirname $0)
 diskPath="$DIR/vboxDisks"
 imagePath="$DIR/../../build/bin/targets/x86/generic/openwrt-x86-generic-combined-squashfs.vdi"
 
-for i in {1..3}
+for i in $(seq 1 $1)
 do
 	hostip="192.168.70.$(expr \( $i - 1 \) \* 8 + 1)"
 	dhcp="192.168.70.$(expr \( $i - 1 \) \* 8 + 6)"

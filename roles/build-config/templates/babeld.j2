@@ -12,6 +12,7 @@ config general
         option 'max-rtt-penalty' '1000'
         option 'price' '{{default_price}}'
 
+{%if babeld_interfaces is defined %}
 ## Generated based on the hardware configuration
 {% for interface in babeld_interfaces %}
 config interface
@@ -24,6 +25,7 @@ config filter
         option 'local'  'true'
         option 'action' 'allow'
 {% endfor %}
+{% endif %}
 
 
 ## Does not share internal addresses
