@@ -14,11 +14,13 @@
     state: present
     create: yes
   with_items: "{{keys_to_insert}}"
+  when: insert_keys
 
 - name: Authorized keys only readable by owner
   file:
     path: "{{source_dir}}/files/etc/dropbear/authorized_keys"
     mode: 0600
+  when: insert_keys
 
 - name: Template dropbear config
   template:
@@ -62,7 +64,7 @@
     src: "{{conf_to_build}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
   when: stat_result.stat.exists
-    
+
 
 - name: Template the babeld configuration
   template:
