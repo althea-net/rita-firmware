@@ -1,0 +1,25 @@
+# Building your own firmware for personal use? This is your profile!
+
+disable_password_login: false
+
+insert_keys: false
+keys_to_insert:
+
+wg_server_public_key: CHANGEME
+wg_server: CHANGEME
+wg_port: 51820
+
+mesh_wifi_ssid: Althea
+mesh_wifi_disabled: 0
+mesh_wifi_encryption: none
+mesh_wifi_key: none
+
+# Key is generated post firmware install, guess hardcoding it could be a useful option for single users
+private_wifi_ssid: Home-wifi
+private_wifi_disabled: 0
+private_wifi_encryption: psk2+tkip+aes
+
+password_auth: 0
+# Allows ssh from wan for management, in our deployments WAN port goes to mesh
+#  which isn't actually exposed to the larger internet.
+dropbear_wan_accessible: true
