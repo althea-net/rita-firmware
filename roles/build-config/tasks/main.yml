@@ -14,11 +14,13 @@
     state: present
     create: yes
   with_items: "{{keys_to_insert}}"
+  when: insert_keys
 
 - name: Authorized keys only readable by owner
   file:
     path: "{{source_dir}}/files/etc/dropbear/authorized_keys"
     mode: 0600
+  when: insert_keys
 
 - name: Template dropbear config
   template:
