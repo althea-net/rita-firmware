@@ -54,16 +54,14 @@
     src: "{{conf_to_build}}-network.j2"
     dest: "{{source_dir}}/files/etc/config/network"
 
-- name: Check if wireless configuration exists
-  stat:
-    path: "{{conf_to_build}}-wireless.j2"
-  register: stat_result
+- debug:
+    msg: "{{wireless_conf_path}}"
 
 - name: Template wifi interface configuration
   template:
     src: "{{conf_to_build}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
-  when: stat_result.stat.exists
+  when: wireless_conf_path | is_file
 
 
 - name: Template the babeld configuration
