@@ -8,3 +8,4 @@ dropbear_wan_accessible: false
 ssh_port: 22
 password_auth: 0
 default_price: 100
+wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
