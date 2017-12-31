@@ -12,3 +12,4 @@ wg_pub_key=$(echo $wg_key | wg pubkey)
 echo $wg_pub_key
 uci set network.wg0.private_key=$wg_key
 /etc/init.d/network reload
+/etc/init.d/service babeld enable
