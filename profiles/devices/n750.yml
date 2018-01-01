@@ -1,6 +1,6 @@
 conf_to_build: n750
 target: "ar71xx"
-device: "mynet-750"
+device: "mynet-n750"
 private_radio: radio0
 
 # 5ghz note only 20mhz channel widths
@@ -10,5 +10,5 @@ mesh_channel: 165
 private_channel: 1
 
 babeld_interfaces:
-  - eth1
   - wlan1
+  - eth0.2
