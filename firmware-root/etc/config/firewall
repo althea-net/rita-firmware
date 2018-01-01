@@ -130,7 +130,7 @@ config rule
 	option target		ACCEPT
 
 config rule
-	name			Allow-Babel-TCP-v4
+	option name		Allow-Babel-TCP-v4
 	option src		wan
 	option proto		tcp
 	option family		ipv4
