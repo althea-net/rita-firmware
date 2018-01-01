@@ -6,7 +6,7 @@ config interface 'loopback'
         option netmask '255.0.0.0'
 
 config globals 'globals'
-        option ula_prefix 'fd44:094c:41e2::/48'
+        option ula_prefix 'fd3c:8a76:b02c::/48'
 
 config interface 'lan'
         option type 'bridge'
@@ -17,12 +17,25 @@ config interface 'lan'
         option ip6assign '60'
 
 config interface 'wan'
-        option ifname 'eth1'
+        option ifname 'eth0.2'
         option proto 'dhcp'
 
+config device 'wan_dev'
+        option name 'eth0.2'
+        option macaddr '00:90:a9:ad:b7:b0'
+
 config interface 'wan6'
-        option ifname 'eth1'
+        option ifname 'eth0.2'
         option proto 'dhcpv6'
+
+{% for interface in babeld_interfaces %}
+config interface 'babel_{{interface}}'
+        option ifname {{interface}}
+        option proto static
+        # Placeholder replaced at setup time
+        option ip6addr fde6:464b:717b:530d:f060:263a:57b0:76ac
+
+{% endfor %}
 
 config switch
         option name 'switch0'
@@ -34,6 +47,11 @@ config switch_vlan
         option vlan '1'
         option ports '1 2 3 4 0t'
 
+config switch_vlan
+        option device 'switch0'
+        option vlan '2'
+        option ports '5 0t'
+
 config interface 'wg0'
         option proto 'wireguard'
         option private_key 'placeholder'
@@ -42,6 +60,7 @@ config interface 'wg0'
 config wireguard_wg0
         option public_key '{{wg_server_public_key}}'
         option route_allowed_ips '1'
-        list allowed_ips '10.0.0.0/8'
+        list allowed_ips '{{wg_internal_gateway}}'
         option endpoint_host '{{wg_server}}'
         option endpoint_port '{{wg_port}}'
+        option persistent_keepalive '25'
