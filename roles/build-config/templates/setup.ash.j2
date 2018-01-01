@@ -1,5 +1,8 @@
 #!/bin/ash
+# This script is used to set all node-specific data at first startup time
 set -eu
+
+# Generate system password
 password=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16})
 uci set system.password=$password
 {% if private_radio is defined %}
@@ -7,11 +10,32 @@ uci set wireless.{{private_radio}}.key=$password
 {% endif %}
 echo $password
 
+# Generate wireguard key
 wg_key=$(wg genkey)
 wg_pub_key=$(echo $wg_key | wg pubkey)
 echo $wg_pub_key
 uci set network.wg0.private_key=$wg_key
+
+# Generate wireguard client ip
+num1=$(awk -v min=1 -v max=253 'BEGIN{srand(); print int(min+rand()*(max-min+1))}')
+sleep 2 # awk uses system time for randomness
+num2=$(awk -v min=1 -v max=253 'BEGIN{srand(); print int(min+rand()*(max-min+1))}')
+ip=172.168.$num1.$num2
+uci set network.wg0.addresses="$ip/16"
+echo $ip
+
+# Generate Mesh ip
+ip=$(generate-ipv6-address -s -r)
+{% for interface in babeld_interfaces %}
+uci set network.babel_{{interface}}.ip6addr=$ip
+{% endfor %}
+echo $ip
+
+# Commit UCI changes
 uci commit
-/etc/init.d/network reload
-/etc/init.d/service babeld enable
-/etc/init.d/service babeld start
+
+# Enable and start services
+/etc/init.d/network enable
+/etc/init.d/network start
+/etc/init.d/babeld enable
+/etc/init.d/babeld start
