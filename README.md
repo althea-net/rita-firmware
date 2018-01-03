@@ -37,10 +37,11 @@ On Centos and RHEL:
 > sudo yum install ansible
 
 Once you have Ansible you can use it to manage the rest of the dependencies:
-> git clone https://github.com/althea-mesh/althea-firmware
-> cd althea-firmware
-> ansible-playbook first-time-setup.yml --ask-sudo-pass
-
+```
+git clone https://github.com/althea-mesh/althea-firmware
+cd althea-firmware
+ansible-playbook first-time-setup.yml --ask-sudo-pass
+```
 Type in your password to give Ansible permissions to install the required
 packages. Or go and look at the dependencies list in
 `althea-firmware/roles/check-deps/defaults/main.yml` and install them manually.
@@ -87,12 +88,12 @@ Or in the case that you already have a version of Althea firmware installed
 you can use the `upgrade-firmware.yml` playbook.
 
 First create a file named `hosts` and format it like so:
-
-> [routers]
-> <ip address of the first router>
-> <ip address of the second router>
-> ....
-
+```
+[routers]
+<ip address of the first router>
+<ip address of the second router>
+....
+```
 Then run the firmware upgrade playbook. You must include a hardware profile and
 flash only one model of router at a time. Even then I don't suggest doing too
 many at once, just incase things go wrong:
