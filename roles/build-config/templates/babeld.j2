@@ -7,11 +7,14 @@ config general
         option 'log_file' '/var/log/babeld.log'
         ## Enable ipv6-subtrees by default since OpenWrt should ship with a
         ## recent enough kernel for it to work.
-        option 'ipv6-subtrees' 'true'
-        option 'enable-timestamps' 'true'
-        option 'max-rtt-penalty' '1000'
+        option 'ipv6_subtrees' 'true'
         option 'price' '{{default_price}}'
-        option 'local-port-readwrite' '6872'
+        option 'local_port_readwrite' '6872'
+
+## default per-interface options
+config interface
+        option 'enable_timestamps' 'true'
+        option 'max-rtt_penalty' '1000'
 
 {%if babeld_interfaces is defined %}
 ## Generated based on the hardware configuration

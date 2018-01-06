@@ -35,7 +35,6 @@ echo $ip
 uci commit
 
 # Enable and start services
-/etc/init.d/network enable
-/etc/init.d/network start
+/etc/init.d/network restart
 /etc/init.d/babeld enable
 /etc/init.d/babeld start
