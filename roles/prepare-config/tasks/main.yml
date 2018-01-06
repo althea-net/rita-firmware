@@ -22,7 +22,7 @@
 - name: Add custom feeds
   lineinfile:
     line: "{{item}}"
-    path: "{{source_dir}}feeds.conf"
+    dest: "{{source_dir}}feeds.conf"
     state: present
   with_items: "{{feeds_list}}"
 
