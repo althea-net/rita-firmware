@@ -16,17 +16,9 @@ config interface 'lan'
         option netmask '255.255.255.0'
         option ip6assign '60'
 
-config interface 'wan'
-        option ifname 'eth0.2'
-        option proto 'dhcp'
-
 config device 'wan_dev'
         option name 'eth0.2'
         option macaddr '00:90:a9:ad:b7:b0'
-
-config interface 'wan6'
-        option ifname 'eth0.2'
-        option proto 'dhcpv6'
 
 {% for interface in babeld_interfaces %}
 config interface 'babel_{{interface}}'

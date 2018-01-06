@@ -8,14 +8,6 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fd44:094c:41e2::/48'
 
-config interface 'wan'
-        option ifname 'eth0'
-        option proto 'dhcp'
-
-config interface 'wanv6'
-        option ifname 'eth0'
-        option proto 'dhcpv6'
-
 config switch
         option name 'switch0'
         option reset '1'

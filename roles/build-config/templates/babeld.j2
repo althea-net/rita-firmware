@@ -1,16 +1,17 @@
 package babeld
 
 config general
-        option 'random_id' 'true'
+        option 'random-id' 'true'
         option 'debug' '0'
-        option 'local_port' '6696'
+        ## Even though babeld wants log-file uci needs log_file
         option 'log_file' '/var/log/babeld.log'
         ## Enable ipv6-subtrees by default since OpenWrt should ship with a
         ## recent enough kernel for it to work.
-        option 'ipv6_subtrees' 'true'
+        option 'ipv6-subtrees' 'true'
         option 'enable-timestamps' 'true'
         option 'max-rtt-penalty' '1000'
         option 'price' '{{default_price}}'
+        option 'local-port-readwrite' '6872'
 
 {%if babeld_interfaces is defined %}
 ## Generated based on the hardware configuration
