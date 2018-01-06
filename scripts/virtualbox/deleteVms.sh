@@ -1,5 +1,12 @@
 #!/bin/bash
-for i in {1..3}
+if [ -z "$1" ]
+then
+	echo "please enter the number of VMs to delete as first argument"
+	exit 1
+fi
+
+
+for i in $(seq 1 $1)
 do
 	vboxmanage controlvm AltheaTest$i poweroff
 	sleep 2
