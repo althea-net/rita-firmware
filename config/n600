@@ -23,6 +23,7 @@ CONFIG_OPENSSL_WITH_PSK=y
 CONFIG_OPENSSL_WITH_SRP=y
 CONFIG_PACKAGE_adblock=y
 CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-rust-binaries=y
 CONFIG_PACKAGE_generate-ipv6-address=y
 CONFIG_PACKAGE_ar=m
 CONFIG_PACKAGE_babel-pinger=m
