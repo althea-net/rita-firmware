@@ -12,3 +12,7 @@ private_channel: 1
 babeld_interfaces:
   - eth1
   - wlan1
+
+rust_targets:
+  - mips-unknown-linux-gnu
+  - mips-unknown-linux-musl
