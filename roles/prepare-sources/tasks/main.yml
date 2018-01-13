@@ -14,3 +14,11 @@
     update: yes
     version: "{{version}}"
   register: source_version
+
+- name: Grab rust targets for hardware profile
+  shell: "rustup target add {{item}}"
+  with_items: "{{rust_targets}}"
+  ignore_errors: true
+
+- name: Update Rust
+  shell: "rustup default nightly; rustup update"
