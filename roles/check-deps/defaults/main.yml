@@ -53,6 +53,7 @@ centos_deps:
   - openssl-devel
   - xz
   - systemtap-sdt-devel
+  - libselinux-python
 
 ubuntu_deps:
   - build-essential
@@ -99,6 +100,7 @@ fedora_deps:
   - wget
   - openssl-devel
   - systemtap-sdt-devel
+  - libselinux-python
 
 arch_deps:
   - subversion
