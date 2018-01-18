@@ -43,8 +43,33 @@ cd althea-firmware
 ansible-playbook first-time-setup.yml --ask-sudo-pass
 ```
 Type in your password to give Ansible permissions to install the required
-packages. Or go and look at the dependencies list in
-`althea-firmware/roles/check-deps/defaults/main.yml` and install them manually.
+packages. This will also install Rust and add it to your PATH in your bashrc.
+We use Rust Nightly, the build script will update it for you. 
+
+If you have a nonstandard setup, or just don't trust Ansible with root
+you may want to install dependencies manually using these commands.
+
+Debian:
+
+	sudo apt-get install build essential libncurses5-dev gawk git subversion libssl-dev gettext unzip zlib1g-dev file python systemtap-sdt-dev
+
+Ubuntu:
+
+	sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core gettext libssl-dev unzip systemtap-sdt-dev
+
+Centos:
+
+	sudo yum install subversion binutils bzip2 gcc gcc-c++ gawk gettext flex ncurses-devel zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker glibc glibc-devel glibc-static quilt ncurses-libs sed sdcc intltool sharutils bison wget git-core openssl-devel xz systemtap-sdt-devel
+
+Fedora:
+
+	sudo dnf install subversion binutils bzip2 gcc gcc-c++ gawk gettext git-core flex ncurses-devel ncurses-compat-libs zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker perl-Thread-Queue glibc glibc-devel glibc-static quilt sed sdcc intltool sharutils bison wget openssl-devel systemtap-sdt-devel
+
+Arch:
+
+	sudo pacman -S subversion binutils bzip2 gcc gcc-libs gawk gettext git flex ncurses zlib automake patch unzip perl glibc quilt sed sdcc intltool sharutils bison wget openssl systemtap
+
+Finally install (Rust)[https://www.rustup.rs/] and add Rustup to your PATH
 
 Profiles
 --------

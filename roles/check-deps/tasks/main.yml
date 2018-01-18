@@ -45,9 +45,4 @@
   shell: "curl https://sh.rustup.rs -sSf | sh -s -- -y "
 
 - name: Set rust default to nightly
-  shell: "rustup default nightly"
-
-- name: Add rust targets for routers
-  shell: "rustup target add {{item}}"
-  with_items: "{{rust_targets}}"
-  ignore_errors: true
+  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default nightly"

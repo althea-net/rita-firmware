@@ -2,3 +2,6 @@ conf_to_build: virtualbox
 target: "x86"
 device: "generic"
 
+rust_targets:
+  - i686-unknown-linux-gnu
+  - i686-unknown-linux-musl
