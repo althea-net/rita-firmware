@@ -29,6 +29,7 @@ First off you need a Linux machine with at least 15gb of free disk space,
 
 On Ubuntu and Debian:
 > sudo apt install python-pip
+
 > sudo pip install ansible
 
 On Fedora:
