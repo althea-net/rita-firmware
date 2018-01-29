@@ -24,8 +24,7 @@ config device 'wan_dev'
 config interface 'babel_{{interface}}'
         option ifname {{interface}}
         option proto static
-        # Placeholder replaced at setup time
-        option ip6addr fde6:464b:717b:530d:f060:263a:57b0:76ac
+        option ip6addr fde6::1
 
 {% endfor %}
 
