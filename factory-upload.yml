@@ -1,0 +1,8 @@
+---
+# A firmware uploading playbook for routers in factory restore mode
+
+- hosts: localhost
+  connection: local
+  roles:
+    - factory
+    - setup

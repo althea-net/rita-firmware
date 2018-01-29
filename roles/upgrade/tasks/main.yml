@@ -18,15 +18,3 @@
     state: started
     delay: 30
     timeout: 600
-
-- name: "Run setup script"
-  shell: "ssh {{ssh_args}} root@192.168.1.1 ash /etc/setup.ash"
-  register: device_keys
-
-- name: "Print wifi and root pass"
-  debug:
-    msg: "The password for this router is {{device_keys.stdout_lines[0]}}"
-
-- name: "Display wireguard pubkey"
-  debug:
-    msg: "Wireguard pubkey {{device_keys.stdout_lines[1]}}"

@@ -1,4 +1,3 @@
 source_dir: build/
 target: "ar71xx"
 device: "mynet-n600"
-ssh_args: '-o "UserKnownHostsFile /dev/null" -o "StrictHostKeyChecking no"'
