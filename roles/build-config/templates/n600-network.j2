@@ -20,9 +20,7 @@ config interface 'lan'
 config interface 'babel_{{interface}}'
         option ifname {{interface}}
         option proto static
-        # Placeholder replaced at setup time
-        option ip6addr fde6:464b:717b:530d:f060:263a:57b0:76ac
-
+        option ip6addr fde6::1
 {% endfor %}
 
 config switch
@@ -35,13 +33,12 @@ config switch_vlan
         option vlan '1'
         option ports '1 2 3 4 0t'
 
-config interface 'wg0'
+config interface 'wgExit'
         option proto 'wireguard'
         option private_key 'placeholder'
-        # Placeholder replaced at setup time
         list addresses '172.168.1.253'
 
-config wireguard_wg0
+config wireguard_wgExit
         option public_key '{{wg_server_public_key}}'
         list allowed_ips '{{wg_internal_gateway}}'
         option endpoint_host '{{wg_server}}'
