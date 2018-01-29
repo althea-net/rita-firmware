@@ -21,4 +21,4 @@ private_wifi_encryption: psk2+tkip+aes
 password_auth: 0
 # Allows ssh from wan for management, in our deployments WAN port goes to mesh
 #  which isn't actually exposed to the larger internet.
-dropbear_wan_accessible: true
+dropbear_externally_accessible: true
