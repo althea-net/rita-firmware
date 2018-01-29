@@ -14,15 +14,11 @@ echo $password
 wg_key=$(wg genkey)
 wg_pub_key=$(echo $wg_key | wg pubkey)
 echo $wg_pub_key
-uci set network.wg0.private_key=$wg_key
+uci set network.wgExit.private_key=$wg_key
 
 # Generate wireguard client ip
-num1=$(awk -v min=1 -v max=253 'BEGIN{srand(); print int(min+rand()*(max-min+1))}')
-sleep 2 # awk uses system time for randomness
-num2=$(awk -v min=1 -v max=253 'BEGIN{srand(); print int(min+rand()*(max-min+1))}')
-ip=172.168.$num1.$num2
-uci set network.wg0.addresses="$ip/16"
-echo $ip
+ip=$internal_ip
+uci set network.wgExit.addresses="$ip/16"
 
 # Generate Mesh ip
 ip=$(generate-ipv6-address -s -r)

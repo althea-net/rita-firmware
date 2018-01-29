@@ -1,0 +1,13 @@
+---
+# Flashes routers in their factory state, only the n600 and 750 series for now
+
+- name: Upload firmware
+  shell: curl -F files=@{{source_dir}}/bin/targets/{{target}}/generic/openwrt-{{target}}-generic-{{device}}-squashfs-factory.bin http://192.168.1.1/up.htm
+
+- name: Wait for router to come back
+  wait_for:
+    host: "192.168.1.1"
+    port: 22
+    state: started
+    delay: 30
+    timeout: 600

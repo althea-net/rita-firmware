@@ -3,10 +3,11 @@ config dropbear
         option Port         '{{ssh_port}}'
         option Interface 'lan'
 
-{% if dropbear_wan_accessible %}
+{% if dropbear_externally_accessible %}
+{% for interface in babeld_interfaces %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
-        option RootPasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'wan'
+        option Interface 'babel_{{interface}}'
+{% endfor %}
 {% endif %}
