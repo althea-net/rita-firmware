@@ -110,6 +110,9 @@ flashing method you use different files in that directory will be appropriate.
 
 Now that you have the firmware file, follow the OpenWRT guide to
 [installing firmware](https://wiki.openwrt.org/doc/howto/generic.flashing).
+If your device is supported by the factory-upload.yml playbook you can put
+it into recovery mode and use it in place of `upgrade-firmware.yml` below.
+Currently only WD n600 and n750 models are supported.
 
 Or in the case that you already have a version of Althea firmware installed
 you can use the `upgrade-firmware.yml` playbook.
@@ -117,10 +120,18 @@ you can use the `upgrade-firmware.yml` playbook.
 First create a file named `hosts` and format it like so:
 ```
 [routers]
-<ip address of the first router>
-<ip address of the second router>
+192.168.1.1 #or different if you change the default
 ....
 ```
+Next create a file called `internal_ip_list.txt` that contains the Wireguard IP
+provided to you. If you're going to flash a bunch of devices go ahead and populate
+the entire list. Generated credentails will be placed into a credentials file created
+when you run the playbook.
+
+```
+172.168.1.54
+```
+
 Then run the firmware upgrade playbook. You must include a hardware profile and
 flash only one model of router at a time. Even then I don't suggest doing too
 many at once, just incase things go wrong:
