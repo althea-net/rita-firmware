@@ -22,6 +22,11 @@
     mode: 0600
   when: insert_keys
 
+- name: Create the UCI config folder
+  file:
+    path: "{{source_dir}}/files/etc/config/"
+    state: directory
+
 - name: Template dropbear config
   template:
     src: "dropbear.j2"
