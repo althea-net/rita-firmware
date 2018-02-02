@@ -2,6 +2,11 @@ conf_to_build: virtualbox
 target: "x86"
 device: "generic"
 
+babeld_interfaces:
+  - ""
+
+wifi_mesh: true
+
 rust_targets:
   - i686-unknown-linux-gnu
   - i686-unknown-linux-musl

@@ -8,6 +8,7 @@ keys_to_insert:
 wg_server_public_key: CHANGEME
 wg_server: CHANGEME
 wg_port: 51820
+wg_internal_gateway: CHANGEME
 
 mesh_wifi_ssid: Althea
 mesh_wifi_disabled: 0

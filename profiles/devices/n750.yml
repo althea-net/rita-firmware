@@ -13,6 +13,8 @@ babeld_interfaces:
   - wlan1
   - eth0.2
 
+wifi_mesh: true
+
 rust_targets:
   - mips-unknown-linux-gnu
   - mips-unknown-linux-musl
