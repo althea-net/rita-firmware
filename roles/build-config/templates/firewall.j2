@@ -7,6 +7,7 @@ config defaults
 config zone
 	option name		lan
 	list   network		'lan'
+	list   network		'wgExit'
 	option input		ACCEPT
 	option output		ACCEPT
 	option forward		ACCEPT
@@ -139,6 +140,11 @@ config rule
 	option dest_port	6696
 	option target		ACCEPT
 
+config rule
+	option name		Allow-Wireguard
+	option src		wan
+	option dest_port	51820
+	option target		ACCEPT
 
 config include
 	option path /etc/firewall.user
