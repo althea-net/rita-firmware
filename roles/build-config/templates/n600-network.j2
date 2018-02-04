@@ -36,11 +36,13 @@ config switch_vlan
 config interface 'wgExit'
         option proto 'wireguard'
         option private_key 'placeholder'
-        list addresses '172.168.1.253'
+        list addresses '1.1.1.1'
+        option listen_port '51820'
 
 config wireguard_wgExit
         option public_key '{{wg_server_public_key}}'
-        list allowed_ips '{{wg_internal_gateway}}'
-        option endpoint_host '{{wg_server}}'
-        option endpoint_port '{{wg_port}}'
+        list allowed_ips '{{wg_internal_gateway}}, ::/0'
+# Omitted as they are not currently required, the exit calls you
+#        option endpoint_host '[{{wg_server}}]'
+#        option endpoint_port '{{wg_port}}'
         option persistent_keepalive '25'
