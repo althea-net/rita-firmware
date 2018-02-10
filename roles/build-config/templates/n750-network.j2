@@ -43,15 +43,23 @@ config switch_vlan
         option vlan '2'
         option ports '5 0t'
 
-config interface 'wg0'
-        option proto 'wireguard'
-        option private_key 'placeholder'
-        list addresses 'fd00:13:37:ffff::1/64'
+config 'route' 'defaultOverWg'
+        option 'interface' 'wgExit'
+        option 'target' '0.0.0.0'
+        option 'netmask' '0.0.0.0'
+        option 'gateway' '{{wg_internal_gateway}}'
 
-config wireguard_wg0
+config interface 'wgExit'
+        option proto 'wireguard'
+        option mtu '1340'
+        option private_key 'placeholder'
+        list addresses '1.1.1.1'
+        option listen_port '{{wg_port}}'
+
+config wireguard_wgExit
         option public_key '{{wg_server_public_key}}'
-        option route_allowed_ips '1'
-        list allowed_ips '{{wg_internal_gateway}}'
-        option endpoint_host '{{wg_server}}'
-        option endpoint_port '{{wg_port}}'
+        list allowed_ips '0.0.0.0/0'
+# TODO: fix init script for openwrt wireguard to allow ipv6 ip's
+#        option endpoint_host '{{wg_server}}'
+#        option endpoint_port '{{wg_port}}'
         option persistent_keepalive '25'

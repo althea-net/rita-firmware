@@ -3,10 +3,13 @@
 set -eu
 
 # Generate system password
-password=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16})
+password=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-8})
 uci set system.password=$password
 {% if private_radio is defined %}
-uci set wireless.{{private_radio}}.key=$password
+{% for radio in private_radio %}
+uci set wireless.{{radio}}.key=$password
+uci set wireless.default_{{radio}}.key=$password
+{% endfor %}
 {% endif %}
 echo $password
 
