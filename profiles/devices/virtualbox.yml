@@ -1,5 +1,6 @@
 conf_to_build: virtualbox
 target: "x86"
+package_id: "i686"
 device: "generic"
 
 babeld_interfaces:

@@ -70,3 +70,8 @@
   template:
     src: "setup.ash.j2"
     dest: "{{source_dir}}/files/etc/setup.ash"
+
+- name: Template package update url
+  template:
+    src: customfeeds.conf.j2
+    dest: "{{source_dir}}/files/etc/opkg/customfeeds.conf"
