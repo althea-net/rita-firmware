@@ -15,6 +15,17 @@ private_5g_channel: 165
 babeld_interfaces:
   - eth1
 
+gateway_interfaces:
+  - wlan0
+  - wlan1
+  - eth0.1 # the .1 indicates vlan tagging, packets straight to eth0 are dropped
+
+extender_interfaces:
+  - wlan0
+  - wlan1
+  - eth1
+  - eth0.1
+
 wifi_mesh: false
 
 rust_targets:

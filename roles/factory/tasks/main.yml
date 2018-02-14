@@ -6,7 +6,7 @@
 
 - name: Wait for router to come back
   wait_for:
-    host: "192.168.1.1"
+    host: "{{router_ip}}"
     port: 22
     state: started
     delay: 30

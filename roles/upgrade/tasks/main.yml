@@ -3,17 +3,17 @@
 # Use with EXTRAORDINARY CAUTION
 
 - name: Copy over new firmware file
-  shell: "scp {{ssh_args}} {{source_dir}}/bin/targets/{{target}}/generic/openwrt-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin root@192.168.1.1:/tmp/sysupgrade.bin"
+  shell: "scp {{ssh_args}} {{source_dir}}/bin/targets/{{target}}/generic/openwrt-{{target}}-generic-{{device}}-squashfs-sysupgrade.bin root@{{router_ip}}:/tmp/sysupgrade.bin"
 
 - name: Apply the update, please cross your fingers and wait 5 minutes
-  shell: "ssh {{ssh_args}} root@192.168.1.1 sysupgrade -v -n /tmp/sysupgrade.bin"
+  shell: "ssh {{ssh_args}} root@{{router_ip}} sysupgrade -v -n /tmp/sysupgrade.bin"
   ignore_errors: true
   async: 0
   poll: 0
 
 - name: Wait for router to come back
   wait_for:
-    host: "192.168.1.1"
+    host: "{{router_ip}}"
     port: 22
     state: started
     delay: 30

@@ -8,6 +8,16 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fd44:094c:41e2::/48'
 
+{% if gateway %}
+config interface 'backhaul'
+        option ifname 'eth1'
+        option proto 'dhcp'
+        option ip6assign '60'
+
+{% elif extender %}
+# extenders don't have a lan or a backhaul
+
+{% else %}
 config interface 'lan'
         option type 'bridge'
         option ifname 'eth0.1'
@@ -15,13 +25,32 @@ config interface 'lan'
         option ipaddr '192.168.1.1'
         option netmask '255.255.255.0'
         option ip6assign '60'
+{% endif %}
 
-{% for interface in babeld_interfaces %}
-config interface 'babel_{{interface}}'
+{% if gateway %}
+{% for interface in gateway_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
         option ip6addr fde6::1
 {% endfor %}
+
+{% elif extender %}
+{% for interface in extender_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+
+{% else %}
+{% for interface in babeld_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+{% endif %}
 
 config switch
         option name 'switch0'
@@ -53,3 +82,18 @@ config wireguard_wgExit
 #        option endpoint_host '{{wg_server}}'
 #        option endpoint_port '{{wg_port}}'
         option persistent_keepalive '25'
+
+{% if gateway %}
+config interface 'wgBridge'
+        option proto 'wireguard'
+        option private_key 'placeholder'
+        list addresses 'fe80::1337/64'
+        option listen_port '{{gateway_port}}'
+
+config wireguard_wgBridge
+        option public_key '{{wg_server_public_key}}'
+        list allowed_ips '::/0'
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{gateway_port}}'
+        option persistent_keepalive '25'
+{% endif %}

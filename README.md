@@ -91,6 +91,7 @@ should be pretty simple. Here are the existing hardware config names.
 | Hardware Config | Target Name | Full model name          |
 |-----------------|-------------|--------------------------|
 |      n600       |    ar71xx   | WD My Net N600 Model: C3 |
+|      n750       |    ar71xx   | WD My Net N750 Model: C3 |
 |   virtualbox    |     x86     | Virtualbox VM            |
 
 To build the firmware for your device run, replacing '\<Hardware Config\>' with
@@ -110,7 +111,7 @@ flashing method you use different files in that directory will be appropriate.
 
 Now that you have the firmware file, follow the OpenWRT guide to
 [installing firmware](https://wiki.openwrt.org/doc/howto/generic.flashing).
-If your device is supported by the factory-upload.yml playbook you can put
+If your device is supported by the `factory-upload.yml` playbook you can put
 it into recovery mode and use it in place of `upgrade-firmware.yml` below.
 Currently only WD n600 and n750 models are supported.
 
