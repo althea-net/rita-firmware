@@ -7,10 +7,18 @@ SudoMesh's [SudoWRT](https://github.com/sudomesh/sudowrt-firmware) firmware
 builder. All of these perform much the same function, maintaining a series of
 config files, patches, and packages to insert into a OpenWRT firmware image.
 
-The Althea firmware builder deviates from existing efforts with a strong focus
-on readability and simplicity. There's no reason for everyone to have their
-own bespoke tooling to do the same thing, but long bash scripts tend to
-encourage that sort of thing by being incomprehensible.
+The Althea firmware builder deviates from existing efforts with a heavy reliance
+on Ansible instead of bash. This creates a pretty readable workflow and makes it
+very easy to apply delta changes onto a modified build directory. Allowing a
+dramatic reduction in build time as well as very flexible build options.
+
+Althea itself is a incentivized mesh system. This bulid system creates a firmware
+image preconfigured with Althea's fork of the Babeld mesh software as well as
+various utilities and tools to automatically pay mesh nodes for bandwidth.
+
+End user traffic over the mesh is secured with WireGuard, this repository also
+includes several helpful features to easily configure devices to work with a
+WireGuard server.
 
 ----------
 
@@ -19,7 +27,8 @@ Is this where I get Althea?
 
 If you just want Althea on your router please download a firmware release from
 our website once it becomes available. This page is for developers who want
-to help improve Althea.
+to help improve Althea. Or technically advanced users who want to try out cutting
+edge changes.
 
 Getting Started
 --------------------
@@ -73,15 +82,6 @@ Arch:
 
 Finally install (Rust)[https://www.rustup.rs/] and add Rustup to your PATH
 
-Profiles
---------
-
-To simplify the process of building and configuring the firmware we use
-composable variable files in the `profiles/` directory. For example, the
-test deployment management profile sets up the firmware for remote administration.
-
-You can easily customize these pofiles for your own needs and the target device.
-
 Building the firmware
 -----------------------------
 
@@ -94,55 +94,107 @@ should be pretty simple. Here are the existing hardware config names.
 |      n750       |    ar71xx   | WD My Net N750 Model: C3 |
 |   virtualbox    |     x86     | Virtualbox VM            |
 
+Profiles
+--------
+
+To simplify the process of building and configuring the firmware we use
+variable files in the `profiles/` directory. These are split into management
+and device categories. One set contains hardware specific variables for supported
+routers the other set contain administrator preferences. These are not meant to
+be taken as gospel, for example if you wanted to have mesh on one of the wireless
+radios you could edit the device profile. Or if you wanted to insert your own ssh
+key you would edit a management profile.
+
+Review and edit the profiles and make whatever changes you would like. By default
+these profiles build a end user router that runs mesh only over the wan nic and
+provides a secured default route over a wireguard endpoint defined in the management
+profile.
+
+Other available flags include `gateway` and `extender` a gateway bridges from a
+backhaul connection over the wan port to mesh devices on the lan port, feeding
+internet over Wireguard tunnels into the mesh.
+
+An extender acts as a sort of mesh hub, all possible ports on an extender are
+mesh enabled, making it a good way to plug together a ton of antennas.
+
+To define a gateway simply add `gateway=true` to your device profile and whatever
+value of `gateway_port` is unused on the wireguard server end.
+
+Likewise for an extender simply add 'extender=true' to the device profile.
+
+Building
+--------
+
 To build the firmware for your device run, replacing '\<Hardware Config\>' with
-the value from the table above:
-> ansible-playbook firmware-build.yml -e @/profiles/devices/\<Hardware Config\>.yml
+the value from the table above and '\<Management Profile\>' with a profile that
+has been customized to your needs:
+> ansible-playbook firmware-build.yml -e @profiles/devices/\<Hardware Config\>.yml -e@profiles/management/\<Management Profile\>.yml
 
 This will take a long time, especially the first run. Nearly an hour on a fast
 machine and several on a slower one. After the first run things should be much
 faster due to cached builds. On the order of 5-10 minutes.
 
 If you need to build for another target, just run again with a different profile
-parameter.
+parameter. The build script will always handle cleanup and updating the source code.
+
+Flashing
+---------
+
 
 When finished your firmware images will be located in
-`althea-firmware/build/bin/targets/<Target Name>/generic/` depending on what
-flashing method you use different files in that directory will be appropriate.
+`althea-firmware/build/bin/targets/<Target Name>/generic/` if you are flashing
+using the factory recovery interface use the factory image, if you are flashing
+using an existing OpenWRT install you want the sysupgrade file. You are looking
+for a file named `openwrt-...-\<Router name\>-squashfs-factory.bin` or
+the same start with `sysupgrade.bin` on the end.
 
-Now that you have the firmware file, follow the OpenWRT guide to
-[installing firmware](https://wiki.openwrt.org/doc/howto/generic.flashing).
-If your device is supported by the `factory-upload.yml` playbook you can put
-it into recovery mode and use it in place of `upgrade-firmware.yml` below.
-Currently only WD n600 and n750 models are supported.
+Next you have two options, you can follow the OpenWRT guide to [installing firmware](https://wiki.openwrt.org/doc/howto/generic.flashing).
+or you can use the integrated tools in this repository for flashing.
 
-Or in the case that you already have a version of Althea firmware installed
-you can use the `upgrade-firmware.yml` playbook.
+In either case the firmware is uploaded, then the file /etc/setup.ash is run.
+This file does stuff like generate WireGuard keys, mesh ip's and passwords.
 
-First create a file named `hosts` and format it like so:
-```
-[routers]
-192.168.1.1 #or different if you change the default
-....
-```
-Next create a file called `internal_ip_list.txt` that contains the Wireguard IP
-provided to you. If you're going to flash a bunch of devices go ahead and populate
-the entire list. Generated credentails will be placed into a credentials file created
-when you run the playbook.
+To do it by hand just flash the router, login and run the following. Replacing `Value`
+with the WireGuard ip you get from the server administrator.
+> internal_ip=\<Value\> ash /etc/setup.ash
 
-```
-172.168.1.54
-```
+you will see a generated wifi password and a WireGuard public key printed to
+the terminal.
 
-Then run the firmware upgrade playbook. You must include a hardware profile and
-flash only one model of router at a time. Even then I don't suggest doing too
-many at once, just incase things go wrong:
-> ansible-playbook -i hosts upgrade-firmware.yml -e @profiles/devices/<Hardware Config>.yml --ask-pass
+The integrated flashing tools are designed to make it easy to handle large numbers
+of devices. They take the same profile arguments as the build firmware build
+playbook.
 
-Follow the instructions carefully, it's possible to destory the device if done
-improperly and rarely even when done properly. Never flash anything you can't
-afford to lose.
+Create a file `internal_ip_list.txt` which contains ip addresses to be assigned
+to WireGuard tunnels for the router. The flashing Ansible playbooks will take
+an IP from this file, assign it to the router at setup time and then save details
+from these routers to `users.txt` and `gateways.txt` the contents of these files
+can then be copy pasted into the [Althea Exit installer's](https://github.com/althea-mesh/installer)
+own profile system. Then it's a one-button operation to setup all these routers on the WireGuard
+server.
 
-Somthing didn't work
+There are two playbooks, `factory-upload.yml` and `upgrade-firmware.yml` the factory
+upload playbook uploads the firmware to the manufacturer recovery webpage this
+only works with the n600 and n750 currently. The upgrade playbook will work with
+any OpenWRT device. But requires that passwordless ssh into the router is possible.
+In the case that the router is not located at `192.168.1.1` specify the ip address
+using the variable `router_ip` in your profile.
+
+As a corner case extenders should be flashed using the factory playbook and require
+the magic router ip value of `router_ip=fde6::1` because they have no lan ports.
+
+In another corner case Gateways will DHCP over the wan port and you may have to
+use nmap to find the router ip. Or use the mesh ip address by running Babel
+on your own machine.
+
+Once you have all of this sorted our in your profiles run.
+
+> ansible-playbook \<Playbook\> -e @profiles/devices/\<Hardware Config\>.yml -e@profiles/management/\<Management Profile\>.yml
+
+You may also find `build-and-upgrade.yml` interesting. It simply runs the build
+and firmware upgrade playbooks back to back for one button testing of changes.
+
+Something didn't work
 ---------------------
 
 Follow the debugging instructions provided by the build playbook. That should
