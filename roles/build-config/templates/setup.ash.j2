@@ -25,9 +25,23 @@ uci set network.wgExit.addresses="$ip/16"
 
 # Generate Mesh ip
 ip=$(generate-ipv6-address -s -r)
-{% for interface in babeld_interfaces %}
-uci set network.babel_{{interface}}.ip6addr=$ip
+
+{% if gateway %}
+uci set network.wgBridge.private_key=$wg_key
+{% for interface in gateway_interfaces %}
+uci set network.babel_{{interface | replace(".","")}}.ip6addr=$ip
 {% endfor %}
+
+{% elif extender %}
+{% for interface in extender_interfaces %}
+uci set network.babel_{{interface | replace(".","")}}.ip6addr=$ip
+{% endfor %}
+
+{% else %}
+{% for interface in babeld_interfaces %}
+uci set network.babel_{{interface | replace(".","")}}.ip6addr=$ip
+{% endfor %}
+{% endif %}
 echo $ip
 
 # Commit UCI changes

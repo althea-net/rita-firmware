@@ -1,3 +1,36 @@
+{% if gateway %}
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'wgExit'
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'wgBridge'
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'backhaul'
+{% for interface in gateway_interfaces %}
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'babel_{{interface| replace(".","")}}'
+{% endfor %}
+
+{% elif extender %}
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'wgExit'
+{% for interface in extender_interfaces %}
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'babel_{{interface| replace(".","")}}'
+{% endfor %}
+
+{% else %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
@@ -12,6 +45,7 @@ config dropbear
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'babel_{{interface}}'
+        option Interface 'babel_{{interface| replace(".","")}}'
 {% endfor %}
+{% endif %}
 {% endif %}

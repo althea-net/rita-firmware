@@ -45,9 +45,6 @@
     src: "{{conf_to_build}}-network.j2"
     dest: "{{source_dir}}/files/etc/config/network"
 
-- debug:
-    msg: "{{wireless_conf_path}}"
-
 - name: Template wifi interface configuration
   template:
     src: "{{conf_to_build}}-wireless.j2"
