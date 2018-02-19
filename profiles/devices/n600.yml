@@ -2,6 +2,8 @@ conf_to_build: n600
 target: "ar71xx"
 device: "mynet-n600"
 package_id: mips_24kc
+image_name: generic
+extension: bin
 private_radio:
  - radio0
  - radio1
