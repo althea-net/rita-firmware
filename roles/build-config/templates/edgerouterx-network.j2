@@ -1,0 +1,129 @@
+config interface 'loopback'
+        option ifname 'lo'
+        option proto 'static'
+        option ipaddr '127.0.0.1'
+        option netmask '255.0.0.0'
+
+config globals 'globals'
+        option ula_prefix 'fdb2:4a8f:fc1e::/48'
+
+
+{% if gateway %}
+config interface 'backhaul'
+        option ifname 'eth0.2'
+        option proto 'dhcp'
+        option ip6assign '60'
+
+config device 'backhaul_dev'
+        option name 'eth0.2'
+        option macaddr '78:8a:20:bb:7e:4f'
+
+{% elif extender %}
+# extenders don't have a lan or a backhaul
+
+{% else %}
+config interface 'lan'
+        option type 'bridge'
+        option ifname 'eth0.1'
+        option proto 'static'
+        option ipaddr '192.168.1.1'
+        option netmask '255.255.255.0'
+        option ip6assign '60'
+
+config device 'lan_dev'
+        option name 'eth0.1'
+        option macaddr '78:8a:20:bb:7e:4e'
+{% endif %}
+
+# Due to the device requirements the loop is pretty
+# pointless, #TODO figure out how to generalize
+# or just admit defeat and hardcode
+{% if gateway %}
+{% for interface in gateway_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+config device 'babeld_eth01_dev'
+        option name 'eth0.1'
+        option macaddr '78:8a:20:bb:7e:4e'
+
+{% elif extender %}
+{% for interface in extender_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+config device 'babeld_eth01_dev'
+        option name 'eth0.1'
+        option macaddr '78:8a:20:bb:7e:4e'
+config device 'babeld_eth02_dev'
+        option name 'eth0.2'
+        option macaddr '78:8a:20:bb:7e:4f'
+
+{% else %}
+{% for interface in babeld_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+config device 'babeld_eth02_dev'
+        option name 'eth0.2'
+        option macaddr '78:8a:20:bb:7e:4f'
+
+{% endif %}
+
+
+config switch
+        option name 'switch0'
+        option reset '1'
+        option enable_vlan '1'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '1'
+        option ports '1 2 3 4 6t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '2'
+        option ports '0 6t'
+
+config 'route' 'defaultOverWg'
+        option 'interface' 'wgExit'
+        option 'target' '0.0.0.0'
+        option 'netmask' '0.0.0.0'
+        option 'gateway' '{{wg_internal_gateway}}'
+
+config interface 'wgExit'
+        option proto 'wireguard'
+        option mtu '1340'
+        option private_key 'placeholder'
+        list addresses '1.1.1.1'
+        option listen_port '{{wg_port}}'
+
+config wireguard_wgExit
+        option public_key '{{wg_server_public_key}}'
+        list allowed_ips '0.0.0.0/0'
+# TODO: fix init script for openwrt wireguard to allow ipv6 ip's
+#        option endpoint_host '{{wg_server}}'
+#        option endpoint_port '{{wg_port}}'
+        option persistent_keepalive '25'
+
+{% if gateway %}
+config interface 'wgBridge'
+        option proto 'wireguard'
+        option private_key 'placeholder'
+        list addresses 'fe80::1337/64'
+        option listen_port '{{gateway_port}}'
+
+config wireguard_wgBridge
+        option public_key '{{wg_server_public_key}}'
+        list allowed_ips '::/0'
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{gateway_port}}'
+        option persistent_keepalive '25'
+{% endif %}
