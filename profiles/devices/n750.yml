@@ -2,6 +2,8 @@ conf_to_build: n750
 target: "ar71xx"
 device: "mynet-n750"
 package_id: mips_24kc
+image_name: generic
+extension: bin
 private_radio:
   - radio0
 

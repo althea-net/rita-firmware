@@ -1,0 +1,22 @@
+conf_to_build: edgerouterx
+target: "ramips"
+device: "ubnt-erx"
+package_id: mipsel_24kc
+image_name: "mt7621"
+extension: tar
+
+babeld_interfaces:
+  - eth0.2
+
+gateway_interfaces:
+  - eth0.1 # the .1 indicates vlan tagging, packets straight to eth0 are dropped
+
+extender_interfaces:
+  - eth0.1
+  - eth0.2
+
+wifi_mesh: false
+
+rust_targets:
+  - mipsel-unknown-linux-gnu
+  - mipsel-unknown-linux-musl
