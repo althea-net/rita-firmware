@@ -22,6 +22,10 @@ env:
   - DEVICE=n750.yml PROFILE=enthusiast.yml
   - DEVICE=virtualbox.yml PROFILE=althea-test-deployments.yml
   - DEVICE=virtualbox.yml PROFILE=enthusiast.yml
+  - DEVICE=edgerouterx.yml PROFILE=althea-test-deployments.yml
+  - DEVICE=edgerouterx.yml PROFILE=enthusiast.yml
+  - DEVICE=ar750.yml PROFILE=althea-test-deployments.yml
+  - DEVICE=ar750.yml PROFILE=enthusiast.yml
 
 script:
   - ansible-lint -x ANSIBLE0012,ANSIBLE0013,ANSIBLE0006 *.yml

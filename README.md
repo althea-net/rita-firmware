@@ -92,6 +92,8 @@ should be pretty simple. Here are the existing hardware config names.
 |-----------------|-------------|--------------------------|
 |      n600       |    ar71xx   | WD My Net N600 Model: C3 |
 |      n750       |    ar71xx   | WD My Net N750 Model: C3 |
+|   edgerouterx   |    ramips   |  Ubiquiti EdgeRouter  X  |
+|      ar750      |    ar71xx   |     GL.iNet GL-AR750     |
 |   virtualbox    |     x86     | Virtualbox VM            |
 
 Profiles
