@@ -1,0 +1,5 @@
+---
+
+- import_playbook: firmware-build.yml
+
+- import_playbook: factory-upload.yml

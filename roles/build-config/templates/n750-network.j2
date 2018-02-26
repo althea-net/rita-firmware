@@ -38,6 +38,30 @@ config interface 'babel_{{interface | replace(".","")}}'
         option proto static
         option ip6addr fde6::1
 {% endfor %}
+config switch
+        option name 'switch0'
+        option reset '1'
+        option enable_vlan '1'
+config switch_vlan
+        option device 'switch0'
+        option vlan '1'
+        option ports '1 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '2'
+        option ports '5 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '3'
+        option ports '4 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '4'
+        option ports '2 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '5'
+        option ports '3 0t'
 
 {% elif extender %}
 {% for interface in extender_interfaces %}
@@ -46,6 +70,30 @@ config interface 'babel_{{interface | replace(".","")}}'
         option proto static
         option ip6addr fde6::1
 {% endfor %}
+config switch
+        option name 'switch0'
+        option reset '1'
+        option enable_vlan '1'
+config switch_vlan
+        option device 'switch0'
+        option vlan '1'
+        option ports '1 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '2'
+        option ports '5 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '3'
+        option ports '4 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '4'
+        option ports '2 0t'
+config switch_vlan
+        option device 'switch0'
+        option vlan '5'
+        option ports '3 0t'
 
 {% else %}
 {% for interface in babeld_interfaces %}
@@ -54,9 +102,6 @@ config interface 'babel_{{interface | replace(".","")}}'
         option proto static
         option ip6addr fde6::1
 {% endfor %}
-{% endif %}
-
-
 config switch
         option name 'switch0'
         option reset '1'
@@ -65,12 +110,24 @@ config switch
 config switch_vlan
         option device 'switch0'
         option vlan '1'
-        option ports '1 2 3 4 0t'
+        option ports '1 2 3 0t'
 
 config switch_vlan
         option device 'switch0'
         option vlan '2'
         option ports '5 0t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '3'
+        option ports '4 0t'
+{% endif %}
+
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '3'
+        option ports '4 0t'
 
 config 'route' 'defaultOverWg'
         option 'interface' 'wgExit'
