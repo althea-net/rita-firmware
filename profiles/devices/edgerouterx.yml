@@ -6,14 +6,23 @@ image_name: "mt7621"
 extension: tar
 
 babeld_interfaces:
-  - eth0.2
+  - eth0.2 # port 1
+  - eth0.3 # port 2
+  - eth0.4 # port 3
+  - eth0.5 # port 4
 
 gateway_interfaces:
-  - eth0.1 # the .1 indicates vlan tagging, packets straight to eth0 are dropped
+  - eth0.2 # port 1
+  - eth0.3 # port 2
+  - eth0.4 # port 3
+  - eth0.5 # port 4
 
 extender_interfaces:
   - eth0.1
   - eth0.2
+  - eth0.3
+  - eth0.4
+  - eth0.5
 
 wifi_mesh: false
 

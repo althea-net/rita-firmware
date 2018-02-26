@@ -10,13 +10,13 @@ config globals 'globals'
 
 {% if gateway %}
 config interface 'backhaul'
-        option ifname 'eth0.2'
+        option ifname 'eth0.1'
         option proto 'dhcp'
         option ip6assign '60'
 
 config device 'backhaul_dev'
-        option name 'eth0.2'
-        option macaddr '78:8a:20:bb:7e:4f'
+        option name 'eth0.1'
+        option macaddr '78:8a:20:bb:7e:4e'
 
 {% elif extender %}
 # extenders don't have a lan or a backhaul
@@ -45,9 +45,18 @@ config interface 'babel_{{interface | replace(".","")}}'
         option proto static
         option ip6addr fde6::1
 {% endfor %}
-config device 'babeld_eth01_dev'
-        option name 'eth0.1'
-        option macaddr '78:8a:20:bb:7e:4e'
+config device 'babeld_eth02_dev'
+        option name 'eth0.2'
+        option macaddr '78:8a:20:bb:7e:4f'
+config device 'babeld_eth03_dev'
+        option name 'eth0.3'
+        option macaddr '78:8a:20:bb:7e:50'
+config device 'babeld_eth04_dev'
+        option name 'eth0.4'
+        option macaddr '78:8a:20:bb:7e:51'
+config device 'babeld_eth05_dev'
+        option name 'eth0.5'
+        option macaddr '78:8a:20:bb:7e:52'
 
 {% elif extender %}
 {% for interface in extender_interfaces %}
@@ -62,6 +71,15 @@ config device 'babeld_eth01_dev'
 config device 'babeld_eth02_dev'
         option name 'eth0.2'
         option macaddr '78:8a:20:bb:7e:4f'
+config device 'babeld_eth03_dev'
+        option name 'eth0.3'
+        option macaddr '78:8a:20:bb:7e:50'
+config device 'babeld_eth04_dev'
+        option name 'eth0.4'
+        option macaddr '78:8a:20:bb:7e:51'
+config device 'babeld_eth05_dev'
+        option name 'eth0.5'
+        option macaddr '78:8a:20:bb:7e:52'
 
 {% else %}
 {% for interface in babeld_interfaces %}
@@ -73,6 +91,15 @@ config interface 'babel_{{interface | replace(".","")}}'
 config device 'babeld_eth02_dev'
         option name 'eth0.2'
         option macaddr '78:8a:20:bb:7e:4f'
+config device 'babeld_eth03_dev'
+        option name 'eth0.3'
+        option macaddr '78:8a:20:bb:7e:50'
+config device 'babeld_eth04_dev'
+        option name 'eth0.4'
+        option macaddr '78:8a:20:bb:7e:51'
+config device 'babeld_eth05_dev'
+        option name 'eth0.5'
+        option macaddr '78:8a:20:bb:7e:52'
 
 {% endif %}
 
@@ -85,12 +112,27 @@ config switch
 config switch_vlan
         option device 'switch0'
         option vlan '1'
-        option ports '1 2 3 4 6t'
+        option ports '0 6t'
 
 config switch_vlan
         option device 'switch0'
         option vlan '2'
-        option ports '0 6t'
+        option ports '1 6t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '3'
+        option ports '2 6t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '4'
+        option ports '3 6t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '5'
+        option ports '4 6t'
 
 config 'route' 'defaultOverWg'
         option 'interface' 'wgExit'
