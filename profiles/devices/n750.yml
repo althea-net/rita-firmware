@@ -16,13 +16,18 @@ private_5g_channel: 165
 babeld_interfaces:
   - wlan1
   - eth0.2 # There is only one port on this device, so all ethernet ports needs
-           # <port-name>.<vlan number> 2 is WAN 1 is LAN
+  - eth0.3 # <port-name>.<vlan number> 2 is WAN, 1 is LAN1 count up from there
+           # for gateway/extender for home version VLAN 3 is LAN 4 and VLAN 1 is
+           # all other eth ports.
 
 # babel interfaces for gateway operation
 gateway_interfaces:
   - wlan0
   - wlan1
   - eth0.1
+  - eth0.3
+  - eth0.4
+  - eth0.5
 
 wifi_mesh: true
 
