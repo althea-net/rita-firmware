@@ -4,8 +4,6 @@ device: "mynet-n750"
 package_id: mips_24kc
 image_name: generic
 extension: bin
-private_radio:
-  - radio0
 
 # 5ghz note only 20mhz channel widths
 mesh_channel: 165
@@ -14,17 +12,16 @@ private_channel: 1
 private_5g_channel: 165
 
 babeld_interfaces:
-  - wlan1
   - eth0.2 # There is only one port on this device, so all ethernet ports needs
   - eth0.3 # <port-name>.<vlan number> 2 is WAN, 1 is LAN1 count up from there
            # for gateway/extender for home version VLAN 3 is LAN 4 and VLAN 1 is
            # all other eth ports.
+  - "{%if wifi_mesh %}wlan1{%endif%}"
 
 # babel interfaces for gateway operation
 gateway_interfaces:
   - wlan0
   - wlan1
-  - eth0.1
   - eth0.3
   - eth0.4
   - eth0.5
