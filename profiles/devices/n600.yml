@@ -22,19 +22,16 @@ babeld_interfaces:
 gateway_interfaces:
   - wlan0
   - wlan1
-  - eth0.1 # the .1 indicates vlan tagging, packets straight to eth0 are dropped
-  - eth0.2
-  - eth0.3
   - eth0.4
+  - eth0.3
+  - eth0.2
 
 extender_interfaces:
   - wlan0
   - wlan1
   - eth1
-  - eth0.1
   - eth0.2
   - eth0.3
-  - eth0.4
 
 wifi_mesh: false
 

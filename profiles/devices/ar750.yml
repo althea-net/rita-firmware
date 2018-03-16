@@ -4,9 +4,6 @@ device: "gl-ar750"
 package_id: mips_24kc
 image_name: generic
 extension: bin
-private_radio:
- - radio0
- - radio1
 
 mesh_channel: 36
 

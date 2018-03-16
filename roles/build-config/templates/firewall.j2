@@ -40,9 +40,9 @@ config zone
 	option input		REJECT
 	option output		ACCEPT
 	option forward		REJECT
-{% elif extender %}
+{% endif %}
+
 # Extender has no lan or backhaul
-{% else %}
 config zone
 	option name		lan
 	list   network		'lan'
@@ -53,7 +53,6 @@ config zone
 config forwarding
 	option src		lan
 	option dest		wan
-{% endif %}
 
 config rule
 	option name		Allow-Ping
@@ -200,7 +199,6 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
-{% if not gateway %}
 config rule
 	option name		Allow-IPSec-ESP
 	option src		wan
@@ -215,7 +213,6 @@ config rule
 	option dest_port	500
 	option proto		udp
 	option target		ACCEPT
-{% endif %}
 
 config rule
 	option name		Allow-Babel
