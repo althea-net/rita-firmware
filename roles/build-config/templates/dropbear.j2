@@ -1,3 +1,8 @@
+config dropbear
+        option PasswordAuth '{{password_auth}}'
+        option Port         '{{ssh_port}}'
+        option Interface 'lan'
+
 {% if gateway %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
@@ -31,11 +36,6 @@ config dropbear
 {% endfor %}
 
 {% else %}
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'lan'
-
 {% if dropbear_externally_accessible %}
 config dropbear
         option PasswordAuth '{{password_auth}}'

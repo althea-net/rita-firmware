@@ -14,10 +14,8 @@ config interface 'backhaul'
         option proto 'dhcp'
         option ip6assign '60'
 
-{% elif extender %}
-# extenders don't have a lan or a backhaul
+{% endif %}
 
-{% else %}
 config interface 'lan'
         option type 'bridge'
         option ifname 'eth0.1'
@@ -25,7 +23,6 @@ config interface 'lan'
         option ipaddr '192.168.1.1'
         option netmask '255.255.255.0'
         option ip6assign '60'
-{% endif %}
 
 {% if gateway %}
 {% for interface in gateway_interfaces %}
@@ -100,6 +97,11 @@ config switch
 config switch_vlan
         option device 'switch0'
         option vlan '1'
+        option ports '1 0t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '1'
         option ports '1 4 3 0t'
 
 config switch_vlan
@@ -124,9 +126,14 @@ config interface 'wgExit'
 config wireguard_wgExit
         option public_key '{{wg_server_public_key}}'
         list allowed_ips '0.0.0.0/0'
+{% if gateway %} #Gateways can exit directly
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{wg_port}}'
+{% else %}
 # TODO: fix init script for openwrt wireguard to allow ipv6 ip's
 #        option endpoint_host '{{wg_server}}'
 #        option endpoint_port '{{wg_port}}'
+{% endif %}
         option persistent_keepalive '25'
 
 {% if gateway %}

@@ -67,9 +67,14 @@ config interface 'wgExit'
 config wireguard_wgExit
         option public_key '{{wg_server_public_key}}'
         list allowed_ips '0.0.0.0/0'
+{% if gateway %} #Gateways can exit directly
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{wg_port}}'
+{% else %}
 # TODO: fix init script for openwrt wireguard to allow ipv6 ip's
 #        option endpoint_host '{{wg_server}}'
 #        option endpoint_port '{{wg_port}}'
+{% endif %}
         option persistent_keepalive '25'
 
 {% if gateway %}
