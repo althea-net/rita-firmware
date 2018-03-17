@@ -1,0 +1,148 @@
+CONFIG_TARGET_ar71xx=y
+CONFIG_TARGET_ar71xx_generic=y
+CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wdr3600-v1=y
+CONFIG_DEVEL=y
+CONFIG_CCACHE=y
+CONFIG_IB=y
+CONFIG_IB_STANDALONE=y
+CONFIG_IMAGEOPT=y
+# CONFIG_KERNEL_MAGIC_SYSRQ is not set
+# CONFIG_KERNEL_SWAP is not set
+CONFIG_LIBCURL_COOKIES=y
+CONFIG_LIBCURL_FILE=y
+CONFIG_LIBCURL_FTP=y
+CONFIG_LIBCURL_HTTP=y
+CONFIG_LIBCURL_MBEDTLS=y
+CONFIG_LIBCURL_NO_SMB="!"
+CONFIG_LIBCURL_PROXY=y
+CONFIG_MAKE_TOOLCHAIN=y
+CONFIG_OPENSSL_WITH_DEPRECATED=y
+CONFIG_OPENSSL_WITH_EC=y
+CONFIG_OPENSSL_WITH_NPN=y
+CONFIG_OPENSSL_WITH_PSK=y
+CONFIG_OPENSSL_WITH_SRP=y
+CONFIG_PACKAGE_adblock=y
+CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-rust-binaries=y
+CONFIG_PACKAGE_ar=m
+CONFIG_PACKAGE_babel-pinger=m
+CONFIG_PACKAGE_fwknopd=m
+CONFIG_PACKAGE_gdb=m
+CONFIG_PACKAGE_generate-ipv6-address=y
+CONFIG_PACKAGE_glib2=y
+CONFIG_PACKAGE_grep=y
+CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_kmod-ipt-ipset=y
+CONFIG_PACKAGE_kmod-nfnetlink=y
+CONFIG_PACKAGE_kmod-udptunnel4=y
+CONFIG_PACKAGE_kmod-udptunnel6=y
+CONFIG_PACKAGE_kmod-usb-ohci=y
+CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_libattr=y
+CONFIG_PACKAGE_libbfd=m
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_libeventlog=y
+CONFIG_PACKAGE_libexpat=m
+CONFIG_PACKAGE_libffi=y
+CONFIG_PACKAGE_libfko=m
+CONFIG_PACKAGE_libipset=y
+CONFIG_PACKAGE_libiwinfo-lua=y
+CONFIG_PACKAGE_liblua=y
+CONFIG_PACKAGE_libmbedtls=y
+CONFIG_PACKAGE_libmnl=y
+CONFIG_PACKAGE_libmpdclient=m
+CONFIG_PACKAGE_libncurses=y
+CONFIG_PACKAGE_libopcodes=m
+CONFIG_PACKAGE_libopenssl=y
+CONFIG_PACKAGE_libpcap=m
+CONFIG_PACKAGE_libpcre=y
+CONFIG_PACKAGE_libqrencode=m
+CONFIG_PACKAGE_libreadline=m
+CONFIG_PACKAGE_librt=y
+CONFIG_PACKAGE_libsqlite3=y
+CONFIG_PACKAGE_libstdcpp=m
+CONFIG_PACKAGE_libubus-lua=y
+CONFIG_PACKAGE_libuci-lua=y
+CONFIG_PACKAGE_libupnp=m
+CONFIG_PACKAGE_libupnpp=m
+CONFIG_PACKAGE_libuuid=y
+CONFIG_PACKAGE_lua=y
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_luci-app-adblock=y
+CONFIG_PACKAGE_luci-app-firewall=y
+CONFIG_PACKAGE_luci-app-fwknopd=m
+CONFIG_PACKAGE_luci-app-wireguard=y
+CONFIG_PACKAGE_luci-base=y
+CONFIG_PACKAGE_luci-lib-ip=y
+CONFIG_PACKAGE_luci-lib-jsonc=y
+CONFIG_PACKAGE_luci-lib-nixio=y
+CONFIG_PACKAGE_luci-mod-admin-full=y
+CONFIG_PACKAGE_luci-proto-ipv6=y
+CONFIG_PACKAGE_luci-proto-ppp=y
+CONFIG_PACKAGE_luci-proto-wireguard=y
+CONFIG_PACKAGE_luci-theme-bootstrap=y
+CONFIG_PACKAGE_make=m
+CONFIG_PACKAGE_objdump=m
+CONFIG_PACKAGE_qrencode=m
+CONFIG_PACKAGE_rpcd=y
+CONFIG_PACKAGE_rpcd-mod-rrdns=y
+CONFIG_PACKAGE_syslog-ng=y
+CONFIG_PACKAGE_terminfo=y
+CONFIG_PACKAGE_uhttpd=y
+CONFIG_PACKAGE_uhttpd-mod-ubus=y
+CONFIG_PACKAGE_upmpdcli=m
+CONFIG_PACKAGE_valgrind=m
+CONFIG_PACKAGE_wireguard=y
+CONFIG_PACKAGE_wireguard-tools=y
+CONFIG_PACKAGE_zlib=y
+CONFIG_SQLITE_FTS3=y
+CONFIG_SQLITE_RTREE=y
+# CONFIG_TARGET_ath25_DEVICE_generic is not set
+# CONFIG_TARGET_ath25_DEVICE_ubnt2 is not set
+# CONFIG_TARGET_ath25_DEVICE_ubnt2-pico2 is not set
+# CONFIG_TARGET_ath25_DEVICE_ubnt5 is not set
+# CONFIG_TARGET_ath25_Default is not set
+# CONFIG_TARGET_ramips_mt7620 is not set
+# CONFIG_TARGET_ramips_mt7621 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_11acnas is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_dir-860l-b1 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_ew1200 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_firewrt is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_gb-pc1 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_gnubee_gb-pc2 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_hc5962 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_k2p is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_mediatek_ap-mt7621a-v60 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_mir3g is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_mt7621 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_newifi-d1 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_pbr-m1 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_r6220 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_rb750gr3 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_re350-v1 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_re6500 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_sap-g3200u3 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_sk-wb8 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_timecloud is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_u7621-06-256M-16M is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt-erx is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt-erx-sfp is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_vr500 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_w2914nsv2 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_wf-2881 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_witi is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_wndr3700v5 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_wsr-1166 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_wsr-600 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_zbt-we1326 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_zbt-wg2626 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_zbt-wg3526-16M is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_zbt-wg3526-32M is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_zbtlink_zbt-we3526 is not set
+# CONFIG_TARGET_ramips_mt7621_Default is not set
+# CONFIG_TARGET_ramips_mt76x8 is not set
+# CONFIG_TARGET_ramips_rt288x is not set
+# CONFIG_TARGET_ramips_rt305x is not set
+# CONFIG_TARGET_ramips_rt3883 is not set

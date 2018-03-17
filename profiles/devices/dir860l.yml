@@ -1,0 +1,29 @@
+conf_to_build: dir860l
+target: "ramips"
+device: "dir-860l-b1"
+package_id: mipsel_24kc
+image_name: "mt7621"
+extension: tar
+
+babeld_interfaces:
+  - eth0.4
+  - eth0.5
+  - "{%if wifi_mesh %}wlan1{%endif%}"
+
+gateway_interfaces:
+  - eth0.2
+  - eth0.3
+  - eth0.4
+  - eth0.5
+
+extender_interfaces:
+  - eth0.2
+  - eth0.3
+  - eth0.4
+  - eth0.5
+
+wifi_mesh: false
+
+rust_targets:
+  - mipsel-unknown-linux-gnu
+  - mipsel-unknown-linux-musl
