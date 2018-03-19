@@ -50,6 +50,7 @@ config interface 'babel_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
         option ip6addr fde6::1
+{% endfor %}
 {% endif %}
 
 config switch
