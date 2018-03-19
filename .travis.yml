@@ -16,14 +16,14 @@ install:
 sudo: required
 
 env:
-  - DEVICE=n600.yml
-  - DEVICE=n750.yml
-  - DEVICE=virtualbox.yml
-  - DEVICE=edgerouterx.yml
-  - DEVICE=ar750.yml
-  - DEVICE=dir860l.yml
-  - DEVICE=wdr3600.yml
-  - PROFILE=althea-dev.yml
+  - DEVICE=n600.yml PROFILE=althea-dev.yml
+  - DEVICE=n750.yml PROFILE=althea-dev.yml
+  - DEVICE=virtualbox.yml PROFILE=althea-dev.yml
+  - DEVICE=edgerouterx.yml PROFILE=althea-dev.yml
+  - DEVICE=ar750.yml PROFILE=althea-dev.yml
+  - DEVICE=dir860l.yml PROFILE=althea-dev.yml
+  - DEVICE=wdr3600.yml PROFILE=althea-dev.yml
+
 
 script:
   - ansible-lint -x ANSIBLE0012,ANSIBLE0013,ANSIBLE0006 *.yml
