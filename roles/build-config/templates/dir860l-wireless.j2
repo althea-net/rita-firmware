@@ -1,38 +1,5 @@
 {% if dual_radio_mesh %}
 config wifi-device 'radio0'
-	option type 'mac80211'
-	option channel '36'
-	option hwmode '11ac'
-	option path 'pci0000:00/0000:00:00.0/0000:01:00.0'
-	option htmode 'VHT80'
-	option disabled '1'
-
-config wifi-iface 'default_radio0'
-	option device 'radio0'
-	option network 'lan'
-	option mode 'ap'
-	option ssid 'OpenWrt'
-	option encryption 'none'
-
-config wifi-device 'radio1'
-	option type 'mac80211'
-	option channel '11'
-	option hwmode '11n'
-	option path 'pci0000:00/0000:00:01.0/0000:02:00.0'
-	option htmode 'HT20'
-	option disabled '1'
-
-config wifi-iface 'default_radio1'
-	option device 'radio1'
-	option network 'lan'
-	option mode 'ap'
-	option ssid 'OpenWrt'
-	option encryption 'none'
-
-
-{% if gateway or extender %}
-
-config wifi-device 'radio0'
         option type 'mac80211'
         option channel '{{private_channel}}'
         option hwmode '11n'

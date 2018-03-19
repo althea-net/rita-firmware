@@ -5,6 +5,11 @@ package_id: mipsel_24kc
 image_name: "mt7621"
 extension: tar
 
+mesh_channel: 165
+
+private_channel: 1
+private_5g_channel: 165
+
 babeld_interfaces:
   - eth0.4
   - eth0.5
