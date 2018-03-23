@@ -1,0 +1,33 @@
+conf_to_build: omnia
+target: "mvebu"
+device: "turris-omnia"
+package_id: arm_cortex-a9_vfpv3
+image_name: cortexa9
+extension: img.gz
+squashfs: ""
+
+mesh_channel: 36
+
+private_channel: 11
+private_5g_channel: 36
+
+babeld_interfaces:
+  - eth2
+
+gateway_interfaces:
+  - lan4
+  - lan3
+  - lan2
+  - lan1
+
+extender_interfaces:
+  - eth2
+  - lan4
+  - lan3
+  - lan2
+  - lan1
+
+wifi_mesh: false
+
+rust_targets:
+  - arm-unknown-linux-musleabihf

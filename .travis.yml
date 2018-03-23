@@ -23,6 +23,7 @@ env:
   - DEVICE=ar750.yml PROFILE=althea-dev.yml
   - DEVICE=dir860l.yml PROFILE=althea-dev.yml
   - DEVICE=wdr3600.yml PROFILE=althea-dev.yml
+  - DEVICE=omnia.yml PROFILE=althea-dev.yml
 
 
 script:
