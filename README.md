@@ -55,7 +55,7 @@ ansible-playbook first-time-setup.yml --ask-sudo-pass
 ```
 Type in your password to give Ansible permissions to install the required
 packages. This will also install Rust and add it to your PATH in your bashrc.
-We use Rust Nightly, the build script will update it for you. 
+We use Rust Nightly, the build script will update it for you.
 
 If you have a nonstandard setup, or just don't trust Ansible with root
 you may want to install dependencies manually using these commands.
@@ -105,7 +105,11 @@ and device categories. One set contains hardware specific variables for supporte
 routers the other set contain administrator preferences. These are not meant to
 be taken as gospel, for example if you wanted to have mesh on one of the wireless
 radios you could edit the device profile. Or if you wanted to insert your own ssh
-key you would edit a management profile.
+key every time you would edit a management profile (the `keys_to_insert` list).
+If you'd like to temporarily overwrite a profile's SSH key list, add
+`-e keys_to_insert="['$(cat <keyfile1>)', '$(cat <keyfile2)', ...]"` to your
+command line when using one of the `build*` playbooks. Most users might want
+to set it to `-e keys_to_insert=['$(cat ~/.ssh/id_rsa.pub)']`.
 
 Review and edit the profiles and make whatever changes you would like. By default
 these profiles build a end user router that runs mesh only over the wan nic and
