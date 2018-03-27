@@ -4,7 +4,7 @@
 
 - block:
     - name: Build the firmware, could take a while
-      shell: "cd {{source_dir}}; nice make -j{{ansible_processor_vcpus|int * 4}} world"
+      shell: "cd {{source_dir}}; make -j10 download && nice make -j{{ansible_processor_vcpus|int * 4}} world"
       register: build_result
       ignore_errors: true
 
