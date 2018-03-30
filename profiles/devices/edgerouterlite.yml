@@ -1,0 +1,23 @@
+conf_to_build: edgerouterlite
+target: "ramips"
+device: "ubnt-erx"
+package_id: mipsel_24kc
+image_name: "mt7621"
+extension: tar
+
+babeld_interfaces:
+  - eth1
+  - eth2
+
+gateway_interfaces:
+  - eth2
+
+extender_interfaces:
+  - eth1
+  - eth2
+
+wifi_mesh: false
+
+rust_targets:
+  - mips64-unknown-linux-gnuabi64
+  - mips64-unknown-linux-gnuabi64
