@@ -1,0 +1,94 @@
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd28:4720:0843::/48'
+
+config interface 'lan'
+	option ifname 'eth0'
+	option force_link '1'
+	option type 'bridge'
+	option proto 'static'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+
+
+{% if gateway %}
+config interface 'backhaul'
+        option ifname 'eth1'
+        option proto 'dhcp'
+        option ip6assign '60'
+config interface 'backhaul6'
+	option ifname '@backhaul'
+	option proto 'dhcpv6'
+
+{% endif %}
+
+{% if gateway %}
+{% for interface in gateway_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+{% elif extender %}
+{% for interface in extender_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+{% else %}
+{% for interface in babeld_interfaces %}
+config interface 'babel_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+        option ip6addr fde6::1
+{% endfor %}
+{% endif %}
+
+
+config 'route' 'defaultOverWg'
+        option 'interface' 'wgExit'
+        option 'target' '0.0.0.0'
+        option 'netmask' '0.0.0.0'
+        option 'gateway' '{{wg_internal_gateway}}'
+
+config interface 'wgExit'
+        option proto 'wireguard'
+        option mtu '1340'
+        option private_key 'placeholder'
+        list addresses '1.1.1.1'
+        option listen_port '{{wg_port}}'
+
+config wireguard_wgExit
+        option public_key '{{wg_server_public_key}}'
+        list allowed_ips '0.0.0.0/0'
+{% if gateway %} #Gateways can exit directly
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{wg_port}}'
+{% else %}
+# TODO: fix init script for openwrt wireguard to allow ipv6 ip's
+#        option endpoint_host '{{wg_server}}'
+#        option endpoint_port '{{wg_port}}'
+{% endif %}
+        option persistent_keepalive '25'
+
+{% if gateway %}
+config interface 'wgBridge'
+        option proto 'wireguard'
+        option private_key 'placeholder'
+        list addresses 'fe80::1337/64'
+        option listen_port '{{gateway_port}}'
+
+config wireguard_wgBridge
+        option public_key '{{wg_server_public_key}}'
+        list allowed_ips '::/0'
+        option endpoint_host '{{wg_server}}'
+        option endpoint_port '{{gateway_port}}'
+        option persistent_keepalive '25'
+{% endif %}
