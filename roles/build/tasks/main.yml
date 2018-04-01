@@ -1,8 +1,17 @@
 ---
 # Builds the firmware
 
-
 - block:
+    - name: Download files required for build
+      shell: "cd {{source_dir}}; make -j{{ansible_processor_vcpus|int}} download"
+      register: download_result
+      ignore_errors: true
+
+    - name: Print help on failure
+      fail:
+        msg: "Dependency download failed, run 'cd {{source_dir}}; make V=s world' to see why."
+      when: download_result | failed
+
     - name: Build the firmware, could take a while
       shell: "cd {{source_dir}}; nice make -j{{ansible_processor_vcpus|int * 4}} world"
       register: build_result
