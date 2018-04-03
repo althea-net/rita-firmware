@@ -156,7 +156,6 @@ config wireguard_wgExit
 config interface 'wgBridge'
         option proto 'wireguard'
         option private_key 'placeholder'
-        list addresses 'fe80::1337/64'
         option listen_port '{{gateway_port}}'
 
 config wireguard_wgBridge

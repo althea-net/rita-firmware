@@ -83,6 +83,7 @@ config interface 'wgBridge'
         option proto 'wireguard'
         option private_key 'placeholder'
         option listen_port '{{gateway_port}}'
+        option addresses 'fe80::1/64'
 
 config wireguard_wgBridge
         option public_key '{{wg_server_public_key}}'
