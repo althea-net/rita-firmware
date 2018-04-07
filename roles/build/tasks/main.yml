@@ -10,7 +10,7 @@
     - name: Print help on failure
       fail:
         msg: "Dependency download failed, run 'cd {{source_dir}}; make V=s world' to see why."
-      when: download_result | failed
+      when: download_result is failed
 
     - name: Build the firmware, could take a while
       shell: "cd {{source_dir}}; nice make -j{{ansible_processor_vcpus|int * 4}} world"
@@ -20,7 +20,7 @@
     - name: Print help on failure
       fail:
         msg: "Firmware compliation failed, run 'cd {{source_dir}}; make V=s world' to see why."
-      when: build_result | failed
+      when: build_result is failed
 
     - name: Print Success
       debug:

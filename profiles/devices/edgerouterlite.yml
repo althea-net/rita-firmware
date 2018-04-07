@@ -5,14 +5,14 @@ package_id: mipsel_24kc
 image_name: "mt7621"
 extension: tar
 
-babeld_interfaces:
+listen_interfaces_client:
   - eth1
   - eth2
 
-gateway_interfaces:
+listen_interfaces_gateway:
   - eth2
 
-extender_interfaces:
+listen_interfaces_extender:
   - eth1
   - eth2
 

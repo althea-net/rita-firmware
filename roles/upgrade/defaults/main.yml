@@ -1,4 +1,4 @@
 source_dir: build/
 router_ip: 192.168.1.1
 squashfs: "squashfs-"
-
+ssh_args: '-o "UserKnownHostsFile /dev/null" -o "StrictHostKeyChecking no"'

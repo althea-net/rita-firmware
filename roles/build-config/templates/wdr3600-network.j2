@@ -22,25 +22,22 @@ config interface 'backhaul'
         option proto 'dhcp'
         option ip6assign '60'
 
-{% for interface in gateway_interfaces %}
-config interface 'babel_{{interface | replace(".","")}}'
+{% for interface in listen_interfaces_gateway %}
+config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
-        option ip6addr fde6::1
 {% endfor %}
 {% elif extender %}
-{% for interface in extender_interfaces %}
-config interface 'babel_{{interface | replace(".","")}}'
+{% for interface in listen_interfaces_extender %}
+config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
-        option ip6addr fde6::1
 {% endfor %}
 {% else %}
-{% for interface in babeld_interfaces %}
-config interface 'babel_{{interface | replace(".","")}}'
+{% for interface in listen_interfaces_client %}
+config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
-        option ip6addr fde6::1
 {% endfor %}
 {% endif %}
 
@@ -83,44 +80,3 @@ config switch_vlan
 	option device 'switch0'
 	option vlan '1'
 	option ports '0t 1'
-
-config 'route' 'defaultOverWg'
-        option 'interface' 'wgExit'
-        option 'target' '0.0.0.0'
-        option 'netmask' '0.0.0.0'
-        option 'gateway' '{{wg_internal_gateway}}'
-
-config interface 'wgExit'
-        option proto 'wireguard'
-        option mtu '1340'
-        option private_key 'placeholder'
-        list addresses '1.1.1.1'
-        option listen_port '{{wg_port}}'
-
-config wireguard_wgExit
-        option public_key '{{wg_server_public_key}}'
-        list allowed_ips '0.0.0.0/0'
-{% if gateway %} #Gateways can exit directly
-        option endpoint_host '{{wg_server}}'
-        option endpoint_port '{{wg_port}}'
-{% else %}
-# TODO: fix init script for openwrt wireguard to allow ipv6 ip's
-#        option endpoint_host '{{wg_server}}'
-#        option endpoint_port '{{wg_port}}'
-{% endif %}
-        option persistent_keepalive '25'
-
-{% if gateway %}
-config interface 'wgBridge'
-        option proto 'wireguard'
-        option private_key 'placeholder'
-        option listen_port '{{gateway_port}}'
-        option addresses 'fe80::1/64'
-
-config wireguard_wgBridge
-        option public_key '{{wg_server_public_key}}'
-        list allowed_ips '::/0'
-        option endpoint_host '{{wg_server}}'
-        option endpoint_port '{{gateway_port}}'
-        option persistent_keepalive '25'
-{% endif %}

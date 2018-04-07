@@ -38,7 +38,7 @@
     dest: "{{source_dir}}/files/etc/config/firewall"
 
 # Network and wifi stuff is hardware specific, so we keep templates for each
-# supported device. it really shouldn't ever change much
+# supported device. it really shouldn't ever change much in upstream LEDE
 # but do remember it's possible
 - name: Template network interface configuration
   template:
@@ -52,21 +52,20 @@
   when: wireless_conf_path | is_file
 
 
-- name: Template the babeld configuration
+- name: Template the Babeld configuration
   template:
     src: "babeld.j2"
     dest: "{{source_dir}}/files/etc/config/babeld"
+
+- name: Template the Rita configuration
+  template:
+    src: "rita.toml.j2"
+    dest: "{{source_dir}}/files/etc/rita.toml"
 
 - name: Write out build details
   template:
     src: "althea-firmware-release.j2"
     dest: "{{source_dir}}/files/etc/althea-firmware-release"
-
-
-- name: Template bootstrapping script
-  template:
-    src: "setup.ash.j2"
-    dest: "{{source_dir}}/files/etc/setup.ash"
 
 - name: Template package update url
   template:
