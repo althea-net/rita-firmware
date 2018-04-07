@@ -80,7 +80,7 @@ Arch:
 
 	sudo pacman -S subversion binutils bzip2 gcc gcc-libs gawk gettext git flex ncurses zlib automake patch unzip perl glibc quilt sed sdcc intltool sharutils bison wget openssl systemtap
 
-Finally install (Rust)[https://www.rustup.rs/] and add Rustup to your PATH
+Finally install [Rust](https://www.rustup.rs/) and add Rustup to your PATH
 
 Building the firmware
 -----------------------------
@@ -88,13 +88,16 @@ Building the firmware
 If there is an existing device profile building the firmware
 should be pretty simple. Here are the existing hardware config names.
 
-| Hardware Config | Target Name | Full model name          |
-|-----------------|-------------|--------------------------|
-|      n600       |    ar71xx   | WD My Net N600 Model: C3 |
-|      n750       |    ar71xx   | WD My Net N750 Model: C3 |
-|   edgerouterx   |    ramips   |  Ubiquiti EdgeRouter  X  |
-|      ar750      |    ar71xx   |     GL.iNet GL-AR750     |
-|   virtualbox    |     x86     | Virtualbox VM            |
+| Hardware Config | Target Name | Full model name          | Price    |  Features/Comments                | Buy Link                                                                                      | Firmware Download                                                                                                     | OpenWRT Wiki / Flashing Instructions         |
+|-----------------|-------------|--------------------------|----------|---------------------------------- |-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+|      n600       |    ar71xx   | WD My Net N600 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev |[Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBEAV0000NWTRECF/)        | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin)  | [link](https://openwrt.org/toh/wd/n600)                                                                 |
+|      n750       |    ar71xx   | WD My Net N750 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev |[Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBAJA0000NWTRECF/)        | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin)  | [link](https://openwrt.org/toh/wd/n750)                                                                 |
+|   edgerouterx   |    ramips   |  Ubiquiti EdgeRouter Lite  | $95 new| Even faster than the x, less ports|[Amazon](https://www.amazon.com/Ubiquiti-EdgeMax-EdgeRouter-ERLite-3-Ethernet/dp/B00CPRVF5K)   | [link](https://updates.altheamesh.com/targets/octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar)     | [link](https://openwrt.org/toh/ubiquiti/edgerouter.lite)                                                |
+|  edgerouterlite |    octeon   | Ubiquiti Edgerouter X | $55 new     | Fast, no wifi                     |[Amazon](https://www.amazon.com/Ubiquiti-EdgeRouter-Advanced-Gigabit-Ethernet/dp/B00YFJT29C/)  | [link](https://updates.altheamesh.com/targets/ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar)   | [link](https://openwrt.org/toh/ubiquiti/ubiquiti_edgerouter_x_er-x_ka)                                  |
+|      ar750      |    ar71xx   |     GL.iNet GL-AR750     | $45 new  | Slow CPU 30mpbs max, buy an n750  |[Amazon](https://www.amazon.com/dp/B07712LKJM)                                                 | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-gl-ar750-squashfs-sysupgrade.bin) | [link](https://openwrt.org/toh/hwdata/gl.inet/gl.inet_gl-ar750)                                         |
+|     dir860l     |    ramips   |  D-Link Dir 860L Rev B3  | $40 used | AC wifi, fast, if you can find it |[Amazon](https://www.amazon.com/D-Link-DIR-860L-802-11ac-Wireless-Router/dp/B00CCIL9NU)        | [link](https://updates.altheamesh.com/targets/ramips/mt7621/openwrt-ramips-mt7621-dir-860l-b1-squashfs-factory.bin)   | [link](https://openwrt.org/toh/d-link/dir-860l)                                                         |
+|      omnia      |     mvebu   |       Turris Omnia       | $300 new | expensive, no other compromises   |[Turris](https://omnia.turris.cz/en/)                                                          | [link](https://updates.altheamesh.com/targets/mvebu/cortexa9/openwrt-mvebu-cortexa9-turris-omnia-sysupgrade.img.gz)   | [link](https://github.com/lede-project/source/commit/9f3f61a0d968fbe7b93899f948f3c34612683ba6)          | 
+|     wdr3600     |    ar71xx   |      TP-Link wdr3600     | $60 new  | too old to buy, lots lying around |[Amazon](https://www.amazon.com/2PU1951-TP-LINK-TL-WDR3600-Wireless-802-11n/dp/B008RV51EE)     | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-vmlinux.bin)                      | [link](https://openwrt.org/toh/tp-link/tl-wdr3600)                                                      |
 
 Profiles
 --------
