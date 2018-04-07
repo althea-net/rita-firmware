@@ -16,56 +16,9 @@ config interface
         option 'enable_timestamps' 'true'
         option 'max-rtt_penalty' '1000'
 
-{% if gateway %}
-{% for interface in gateway_interfaces %}
 config interface
-        option 'ifname' '{{interface}}'
+        option 'ifname' 'lo'
         option 'hello_interval' '4'
-config filter
-        option 'type' 'redistribute'
-        option 'if' '{{interface}}'
-        ## 'local' means only redistribute a /32
-        option 'local'  'true'
-        option 'action' 'allow'
-{% endfor %}
-config interface
-        option 'ifname' 'wgBridge'
-        option 'hello_interval' '4'
-config filter
-        option 'type' 'redistribute'
-        option 'if' 'wgBridge'
-        ## 'local' means only redistribute a /32
-        option 'local'  'true'
-        option 'action' 'allow'
-
-{% elif extender %}
-{% for interface in extender_interfaces %}
-config interface
-        option 'ifname' '{{interface}}'
-        option 'hello_interval' '4'
-config filter
-        option 'type' 'redistribute'
-        option 'if' '{{interface}}'
-        ## 'local' means only redistribute a /32
-        option 'local'  'true'
-        option 'action' 'allow'
-{% endfor %}
-
-{% elif babeld_interfaces is defined %}
-## Generated based on the hardware configuration
-{% for interface in babeld_interfaces %}
-config interface
-        option 'ifname' '{{interface}}'
-        option 'hello_interval' '4'
-config filter
-        option 'type' 'redistribute'
-        option 'if' '{{interface}}'
-        ## 'local' means only redistribute a /32
-        option 'local'  'true'
-        option 'action' 'allow'
-{% endfor %}
-{% endif %}
-
 
 ## Does not share internal addresses
 config filter

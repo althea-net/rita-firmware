@@ -7,32 +7,28 @@ config dropbear
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'wgExit'
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'wgBridge'
+        option Interface 'wg_exit'
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
         option Interface 'backhaul'
-{% for interface in gateway_interfaces %}
+{% for interface in listen_interfaces_gateway %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'babel_{{interface| replace(".","")}}'
+        option Interface 'rita_{{interface| replace(".","")}}'
 {% endfor %}
 
 {% elif extender %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'wgExit'
-{% for interface in extender_interfaces %}
+        option Interface 'wg_exit'
+{% for interface in listen_interfaces_extender %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'babel_{{interface| replace(".","")}}'
+        option Interface 'rita_{{interface| replace(".","")}}'
 {% endfor %}
 
 {% else %}
@@ -40,12 +36,12 @@ config dropbear
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'wgExit'
-{% for interface in babeld_interfaces %}
+        option Interface 'wg_exit'
+{% for interface in listen_interfaces_client %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
-        option Interface 'babel_{{interface| replace(".","")}}'
+        option Interface 'rita_{{interface| replace(".","")}}'
 {% endfor %}
 {% endif %}
 {% endif %}

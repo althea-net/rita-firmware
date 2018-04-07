@@ -7,17 +7,17 @@ config defaults
 config zone
 	option name		mesh
 {% if gateway %}
-{% for interface in gateway_interfaces %}
-	list   network		'babel_{{interface | replace(".","")}}'
+{% for interface in listen_interfaces_gateway %}
+	list   network		'rita_{{interface | replace(".","")}}'
 {% endfor %}
 	list   network          'wgBridge'
 {% elif extender %}
-{% for interface in extender_interfaces %}
-	list   network		'babel_{{interface | replace(".","")}}'
+{% for interface in listen_interfaces_extender %}
+	list   network		'rita_{{interface | replace(".","")}}'
 {% endfor %}
 {% else %}
-{% for interface in babeld_interfaces %}
-	list   network		'babel_{{interface | replace(".","")}}'
+{% for interface in listen_interfaces_client %}
+	list   network		'rita_{{interface | replace(".","")}}'
 {% endfor %}
 {% endif %}
 	option input		REJECT
@@ -26,7 +26,7 @@ config zone
 
 config zone
 	option name		wan
-	list   network		'wgExit'
+	list   network		'wg_exit'
 	option input		REJECT
 	option output		ACCEPT
 	option forward		REJECT
@@ -230,6 +230,24 @@ config rule
 	option name		Allow-Wireguard
 	option src		mesh
 	option dest_port	51820
+	option target		ACCEPT
+
+config rule
+	option name		Allow-Rita
+	option src		wan
+	option dest_port	4876
+	option target		ACCEPT
+
+config rule
+	option name		Allow-Rita
+	option src		mesh
+	option dest_port	4876
+	option target		ACCEPT
+
+config rule
+	option name		Allow-Rita-Tunnels
+	option src		mesh
+	option dest_port	60000-65535
 	option target		ACCEPT
 
 {% if gateway %}

@@ -1,3 +1,0 @@
-ssh_args: '-o "UserKnownHostsFile /dev/null" -o "StrictHostKeyChecking no"'
-router_ip: 192.168.1.1
-gateway: false
