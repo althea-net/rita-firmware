@@ -252,12 +252,6 @@ config rule
 
 {% if gateway %}
 config rule
-	option name		Allow-Wireguard
-	option src		backhaul
-	option dest_port	{{gateway_port}}
-	option target		ACCEPT
-
-config rule
 	option name		Allow-SSH
 	option src		backhaul
 	option dest_port	22
