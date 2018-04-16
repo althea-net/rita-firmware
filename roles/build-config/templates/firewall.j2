@@ -4,35 +4,6 @@ config defaults
 	option output		REJECT
 	option forward		REJECT
 
-config zone
-	option name		mesh
-{% if gateway %}
-{% for interface in listen_interfaces_gateway %}
-	list   network		'rita_{{interface | replace(".","")}}'
-{% endfor %}
-	list   network          'wgBridge'
-{% elif extender %}
-{% for interface in listen_interfaces_extender %}
-	list   network		'rita_{{interface | replace(".","")}}'
-{% endfor %}
-{% else %}
-{% for interface in listen_interfaces_client %}
-	list   network		'rita_{{interface | replace(".","")}}'
-{% endfor %}
-{% endif %}
-	option input		REJECT
-	option output		ACCEPT
-	option forward		ACCEPT
-
-config zone
-	option name		wan
-	list   network		'wg_exit'
-	option input		REJECT
-	option output		ACCEPT
-	option forward		REJECT
-	option masq		1
-	option mtu_fix		1
-
 {% if gateway %}
 config zone
 	option name		backhaul
@@ -42,7 +13,6 @@ config zone
 	option forward		REJECT
 {% endif %}
 
-# Extender has no lan or backhaul
 config zone
 	option name		lan
 	list   network		'lan'
@@ -50,72 +20,35 @@ config zone
 	option output		ACCEPT
 	option forward		ACCEPT
 
-config forwarding
-	option src		lan
-	option dest		wan
-
-config rule
-	option name		Allow-Ping
-	option src		wan
-	option proto		icmp
-	option target		ACCEPT
-
-config rule
-	option name		Allow-IGMP
-	option src		wan
-	option proto		igmp
-	option family		ipv4
-	option target		ACCEPT
+config zone
+	option name		mesh
+	list   subnet		'fd::/8'
+	list   subnet		'fe80::/10'
+	option input		REJECT
+	option output		ACCEPT
+	option forward		ACCEPT
 
 config rule
 	option name		Allow-Ping
 	option src		mesh
 	option proto		icmp
-	option target		ACCEPT
-
-config rule
-	option name		Allow-IGMP
-	option src		mesh
-	option proto		igmp
-	option family		ipv4
 	option target		ACCEPT
 
 {% if dropbear_externally_accessible %}
 config rule
-	option name		Allow-SSH-wan
-	option src		wan
-	option dest_port	22
-	option target		ACCEPT
-
-config rule
-	option name		Allow-SSH-mesh
+	option name		Allow-SSH
 	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
 	option dest_port	22
 	option target		ACCEPT
 {% endif %}
 
 config rule
-	option name		Allow-DHCP
-	option src		wan
-	option proto		udp
-	option dest_port	68
-	option target		ACCEPT
-
-# Allow DHCPv6 replies
-# see https://dev.openwrt.org/ticket/10381
-config rule
-	option name		Allow-DHCPv6
-	option src		wan
-	option proto		udp
-	option src_ip		fc00::/6
-	option dest_ip		fc00::/6
-	option dest_port	546
-	option family		ipv6
-	option target		ACCEPT
-
-config rule
 	option name		Allow-MLD
-	option src		wan
+	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
 	option proto		icmp
 	option src_ip		fe80::/10
 	list icmp_type		'130/0'
@@ -125,48 +58,14 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
-# Allow essential incoming IPv6 ICMP traffic
-config rule
-	option name		Allow-ICMPv6-Input
-	option src		wan
-	option proto	icmp
-	list icmp_type		echo-request
-	list icmp_type		echo-reply
-	list icmp_type		destination-unreachable
-	list icmp_type		packet-too-big
-	list icmp_type		time-exceeded
-	list icmp_type		bad-header
-	list icmp_type		unknown-header-type
-	list icmp_type		router-solicitation
-	list icmp_type		neighbour-solicitation
-	list icmp_type		router-advertisement
-	list icmp_type		neighbour-advertisement
-	option limit		1000/sec
-	option family		ipv6
-	option target		ACCEPT
-
-# Allow essential forwarded IPv6 ICMP traffic
-config rule
-	option name		Allow-ICMPv6-Forward
-	option src		wan
-	option dest		*
-	option proto		icmp
-	list icmp_type		echo-request
-	list icmp_type		echo-reply
-	list icmp_type		destination-unreachable
-	list icmp_type		packet-too-big
-	list icmp_type		time-exceeded
-	list icmp_type		bad-header
-	list icmp_type		unknown-header-type
-	option limit		1000/sec
-	option family		ipv6
-	option target		ACCEPT
 
 # Allow essential incoming IPv6 ICMP traffic
 config rule
 	option name		Allow-ICMPv6-Input
 	option src		mesh
-	option proto	icmp
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
+	option proto		icmp
 	list icmp_type		echo-request
 	list icmp_type		echo-reply
 	list icmp_type		destination-unreachable
@@ -186,6 +85,8 @@ config rule
 config rule
 	option name		Allow-ICMPv6-Forward
 	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
 	option dest		*
 	option proto		icmp
 	list icmp_type		echo-request
@@ -200,54 +101,43 @@ config rule
 	option target		ACCEPT
 
 config rule
-	option name		Allow-IPSec-ESP
-	option src		wan
-	option dest		lan
-	option proto		esp
-	option target		ACCEPT
-
-config rule
-	option name		Allow-ISAKMP
-	option src		wan
-	option dest		lan
-	option dest_port	500
-	option proto		udp
-	option target		ACCEPT
-
-config rule
-	option name		Allow-Babel
-	option src		wan
-	option dest_port	6696
-	option target		ACCEPT
-
-config rule
 	option name		Allow-Babel
 	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
 	option dest_port	6696
 	option target		ACCEPT
 
 config rule
 	option name		Allow-Wireguard
 	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
 	option dest_port	51820
 	option target		ACCEPT
 
 config rule
 	option name		Allow-Rita
-	option src		wan
-	option dest_port	4876
-	option target		ACCEPT
-
-config rule
-	option name		Allow-Rita
 	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
 	option dest_port	4876
 	option target		ACCEPT
 
 config rule
 	option name		Allow-Rita-Tunnels
 	option src		mesh
-	option dest_port	60000-65535
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
+	option dest_port	59999-65535
+	option target		ACCEPT
+
+config rule
+	option name		Allow-Rita-Autosetup
+	option src		mesh
+	option src_ip		'fd::/8'
+	option src_ip		'fe80::/10'
+	option dest_port	4876
 	option target		ACCEPT
 
 {% if gateway %}
@@ -276,37 +166,6 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
-config rule
-	option name		Allow-MLD
-	option src		backhaul
-	option proto		icmp
-	option src_ip		fe80::/10
-	list icmp_type		'130/0'
-	list icmp_type		'131/0'
-	list icmp_type		'132/0'
-	list icmp_type		'143/0'
-	option family		ipv6
-	option target		ACCEPT
-
-# Allow essential incoming IPv6 ICMP traffic
-config rule
-	option name		Allow-ICMPv6-Input
-	option src		backhaul
-	option proto	icmp
-	list icmp_type		echo-request
-	list icmp_type		echo-reply
-	list icmp_type		destination-unreachable
-	list icmp_type		packet-too-big
-	list icmp_type		time-exceeded
-	list icmp_type		bad-header
-	list icmp_type		unknown-header-type
-	list icmp_type		router-solicitation
-	list icmp_type		neighbour-solicitation
-	list icmp_type		router-advertisement
-	list icmp_type		neighbour-advertisement
-	option limit		1000/sec
-	option family		ipv6
-	option target		ACCEPT
 {% endif %}
 
 config include
