@@ -21,6 +21,7 @@ debian_deps:
   - file
   - python
   - systemtap-sdt-dev
+  - npm
 
 centos_deps:
   - subversion
@@ -54,6 +55,7 @@ centos_deps:
   - xz
   - systemtap-sdt-devel
   - libselinux-python
+  - npm
 
 ubuntu_deps:
   - build-essential
@@ -68,6 +70,7 @@ ubuntu_deps:
   - libssl-dev
   - unzip
   - systemtap-sdt-dev
+  - npm
 
 fedora_deps:
   - subversion
@@ -101,6 +104,7 @@ fedora_deps:
   - openssl-devel
   - systemtap-sdt-devel
   - libselinux-python
+  - npm
 
 arch_deps:
   - subversion
@@ -128,3 +132,4 @@ arch_deps:
   - wget
   - openssl
   - systemtap
+  - npm

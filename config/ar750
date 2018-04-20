@@ -24,6 +24,8 @@ CONFIG_OPENSSL_WITH_PSK=y
 CONFIG_OPENSSL_WITH_SRP=y
 CONFIG_PACKAGE_adblock=y
 CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-dash=y
+CONFIG_PACKAGE_althea-rust-binaries=y
 CONFIG_PACKAGE_ar=m
 # CONFIG_PACKAGE_ath10k-firmware-qca9887 is not set
 CONFIG_PACKAGE_babel-pinger=m

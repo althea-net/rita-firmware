@@ -23,6 +23,7 @@ CONFIG_OPENSSL_WITH_SRP=y
 CONFIG_PACKAGE_ar=m
 CONFIG_PACKAGE_babel-pinger=m
 CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-dash=y
 CONFIG_PACKAGE_althea-rust-binaries=y
 CONFIG_PACKAGE_generate-ipv6-address=y
 CONFIG_PACKAGE_python-base=y
