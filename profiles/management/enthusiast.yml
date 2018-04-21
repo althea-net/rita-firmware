@@ -5,10 +5,7 @@ disable_password_login: false
 insert_keys: false
 keys_to_insert:
 
-wg_server_public_key: CHANGEME
-wg_server: CHANGEME
-wg_port: 51820
-wg_internal_gateway: CHANGEME
+exit_server_address: CHANGEME
 
 mesh_wifi_ssid: Althea
 mesh_wifi_disabled: 0
