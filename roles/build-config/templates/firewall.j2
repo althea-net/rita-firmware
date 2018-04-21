@@ -1,7 +1,7 @@
 config defaults
 	option syn_flood	1
 	option input		REJECT
-	option output		REJECT
+	option output		ACCEPT
 	option forward		REJECT
 
 {% if gateway %}
@@ -20,10 +20,12 @@ config zone
 	option output		ACCEPT
 	option forward		ACCEPT
 
+# We need this zone to recieve mesh traffic
 config zone
 	option name		mesh
-	list   subnet		'fd::/8'
-	list   subnet		'fe80::/10'
+{% for subnet in mesh_subnets %}
+	list   subnet		'{{subnet}}'
+{% endfor %}
 	option input		REJECT
 	option output		ACCEPT
 	option forward		ACCEPT
@@ -35,22 +37,30 @@ config rule
 	option target		ACCEPT
 
 {% if dropbear_externally_accessible %}
+
 config rule
 	option name		Allow-SSH
 	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
+	option dest_port	22
+	option target		ACCEPT
+{% endif %}
+
+# We need these rules to send mesh traffic, don't know why the zone does not
+# allow for it
+{% for subnet in mesh_subnets %}
+
+{% if dropbear_externally_accessible %}
+config rule
+	option name		Allow-SSH
+	option src_ip		'{{subnet}}'
 	option dest_port	22
 	option target		ACCEPT
 {% endif %}
 
 config rule
 	option name		Allow-MLD
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
+	option src_ip		'{{subnet}}'
 	option proto		icmp
-	option src_ip		fe80::/10
 	list icmp_type		'130/0'
 	list icmp_type		'131/0'
 	list icmp_type		'132/0'
@@ -58,13 +68,10 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
-
 # Allow essential incoming IPv6 ICMP traffic
 config rule
 	option name		Allow-ICMPv6-Input
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
+	option src_ip		'{{subnet}}'
 	option proto		icmp
 	list icmp_type		echo-request
 	list icmp_type		echo-reply
@@ -84,9 +91,7 @@ config rule
 # Allow essential forwarded IPv6 ICMP traffic
 config rule
 	option name		Allow-ICMPv6-Forward
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
+	option src_ip		'{{subnet}}'
 	option dest		*
 	option proto		icmp
 	list icmp_type		echo-request
@@ -102,42 +107,105 @@ config rule
 
 config rule
 	option name		Allow-Babel
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
+	option src_ip		'{{subnet}}'
 	option dest_port	6696
 	option target		ACCEPT
 
 config rule
-	option name		Allow-Wireguard
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
-	option dest_port	51820
-	option target		ACCEPT
-
-config rule
-	option name		Allow-Rita
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
-	option dest_port	4876
-	option target		ACCEPT
-
-config rule
 	option name		Allow-Rita-Tunnels
-	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
+	option src_ip		'{{subnet}}'
 	option dest_port	59999-65535
 	option target		ACCEPT
 
 config rule
+	option name		Allow-Rita
+	option src_ip		'{{subnet}}'
+	option dest_port	4876
+	option target		ACCEPT
+
+config rule
+	option name		Allow-Rita-Autosetup
+	option src_ip		'{{subnet}}'
+	option dest_port	4875
+	option target		ACCEPT
+{% endfor %}
+
+config rule
+	option name		Allow-MLD
+	option src		mesh
+	option proto		icmp
+	list icmp_type		'130/0'
+	list icmp_type		'131/0'
+	list icmp_type		'132/0'
+	list icmp_type		'143/0'
+	option family		ipv6
+	option target		ACCEPT
+
+
+# Allow essential incoming IPv6 ICMP traffic
+config rule
+	option name		Allow-ICMPv6-Input
+	option src		mesh
+	option proto		icmp
+	list icmp_type		echo-request
+	list icmp_type		echo-reply
+	list icmp_type		destination-unreachable
+	list icmp_type		packet-too-big
+	list icmp_type		time-exceeded
+	list icmp_type		bad-header
+	list icmp_type		unknown-header-type
+	list icmp_type		router-solicitation
+	list icmp_type		neighbour-solicitation
+	list icmp_type		router-advertisement
+	list icmp_type		neighbour-advertisement
+	option limit		1000/sec
+	option family		ipv6
+	option target		ACCEPT
+
+
+# Allow essential forwarded IPv6 ICMP traffic
+config rule
+	option name		Allow-ICMPv6-Forward
+	option src		mesh
+	option dest		*
+	option proto		icmp
+	list icmp_type		echo-request
+	list icmp_type		echo-reply
+	list icmp_type		destination-unreachable
+	list icmp_type		packet-too-big
+	list icmp_type		time-exceeded
+	list icmp_type		bad-header
+	list icmp_type		unknown-header-type
+	option limit		1000/sec
+	option family		ipv6
+	option target		ACCEPT
+
+
+config rule
+	option name		Allow-Babel
+	option src		mesh
+	option dest_port	6696
+	option target		ACCEPT
+
+
+config rule
+	option name		Allow-Rita
+	option src		mesh
+	option dest_port	4876
+	option target		ACCEPT
+
+
+config rule
+	option name		Allow-Rita-Tunnels
+	option src		mesh
+	option dest_port	59999-65535
+	option target		ACCEPT
+
+
+config rule
 	option name		Allow-Rita-Autosetup
 	option src		mesh
-	option src_ip		'fd::/8'
-	option src_ip		'fe80::/10'
-	option dest_port	4876
+	option dest_port	4875
 	option target		ACCEPT
 
 {% if gateway %}

@@ -23,14 +23,19 @@ peer_interfaces = [{% for interface in listen_interfaces_extender %}"{{interface
 {% else %}
 peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% endif %}
-manual_peers = [""]
+manual_peers = ["{{exit_server_address}}"]
 global_non_mesh_ip = ""
+conf_link_local = true
+default_route = []
 
 [exit_client]
-exit_ip = "fd96::1337:0e1f"
-exit_registration_port = 4876
+exit_ip = "{{exit_internal_ip}}"
+exit_registration_port = 4875
 wg_listen_port = 59999
 
 [exit_client.reg_details]
 zip_code = "1234"
 email = "1234@gmail.com"
+
+[exit_tunnel_settings]
+lan_nics = ["eth0.1"]
