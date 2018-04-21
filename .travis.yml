@@ -18,7 +18,6 @@ sudo: required
 env:
   - DEVICE=n600.yml PROFILE=althea-dev.yml
   - DEVICE=n750.yml PROFILE=althea-dev.yml
-  - DEVICE=virtualbox.yml PROFILE=althea-dev.yml
   - DEVICE=edgerouterx.yml PROFILE=althea-dev.yml
   - DEVICE=ar750.yml PROFILE=althea-dev.yml
   - DEVICE=dir860l.yml PROFILE=althea-dev.yml
