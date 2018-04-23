@@ -1,0 +1,44 @@
+conf_to_build: tplinkc7v2
+target: "ar71xx"
+device: "archer-c7-v2"
+package_id: mips_24kc
+image_name: generic
+extension: bin
+private_radio:
+ - radio0
+ - radio1
+
+# 5ghz note only 20mhz channel widths
+mesh_channel: 36
+
+private_channel: 11
+private_5g_channel: 36
+
+listen_interfaces_client:
+  - eth0.1
+  - eth1.2
+  - "{%if wifi_mesh %}wlan1{%endif%}"
+
+listen_interfaces_gateway:
+  - wlan0
+  - wlan1
+  - eth1.2
+  - eth1.3
+  - eth1.4
+
+listen_interfaces_extender:
+  - wlan0
+  - wlan1
+  - eth0.1
+  - eth1.2
+  - eth1.3
+  - eth1.4
+
+lan_interfaces:
+  - eth1.5
+
+wifi_mesh: false
+
+rust_targets:
+  - mips-unknown-linux-gnu
+  - mips-unknown-linux-musl
