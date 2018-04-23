@@ -16,3 +16,7 @@ mesh_subnets:
   - 'fd96::/10'
   - 'fe80::/10'
   - 'ff01::/10'
+
+exit_internal_ip: "fd96::1337:e1f"
+
+private_wifi_key: "ChangeMe"

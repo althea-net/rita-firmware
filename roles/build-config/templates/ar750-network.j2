@@ -12,29 +12,18 @@ config interface 'backhaul'
         option ifname 'eth0'
         option proto 'dhcp'
         option ip6assign '60'
+{% endif %}
 
-{% elif extender %}
-# extenders don't have a lan or a backhaul
-
-{% else %}
 config interface 'lan'
         option type 'bridge'
-        option ifname 'eth1'
+        option ifname 'eth2'
         option proto 'static'
         option ipaddr '192.168.1.1'
         option netmask '255.255.255.0'
         option ip6assign '60'
-{% endif %}
 
 {% if gateway %}
 {% for interface in listen_interfaces_gateway %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-{% endfor %}
-
-{% elif extender %}
-{% for interface in listen_interfaces_extender %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static

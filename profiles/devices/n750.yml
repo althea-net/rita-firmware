@@ -26,6 +26,9 @@ listen_interfaces_gateway:
   - eth0.4
   - eth0.5
 
+lan_interfaces:
+  - eth0.1
+
 wifi_mesh: true
 
 rust_targets:
