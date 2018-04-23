@@ -12,7 +12,7 @@ mesh_wifi_key: none
 private_wifi_ssid: AltheaHome
 private_wifi_disabled: 0
 private_wifi_encryption: psk2+tkip+aes
-private_wifi_key: none
+private_wifi_key: ChangeMe
 
 password_auth: 1
 # Allows ssh from wan for management, in our deployments WAN port goes to mesh
