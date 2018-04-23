@@ -38,4 +38,4 @@ zip_code = "1234"
 email = "1234@gmail.com"
 
 [exit_tunnel_settings]
-lan_nics = ["{% for interface in lan_interfaces %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]"]
+lan_nics = ["{% for interface in lan_interfaces %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}"]
