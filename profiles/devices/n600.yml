@@ -33,6 +33,9 @@ listen_interfaces_extender:
   - eth0.2
   - eth0.3
 
+lan_interfaces:
+  - eth0.1
+
 wifi_mesh: false
 
 rust_targets:

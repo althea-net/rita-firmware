@@ -18,10 +18,7 @@ listen_interfaces_gateway:
   - wlan1
   - eth1
 
-listen_interfaces_extender:
-  - wlan0
-  - wlan1
-  - eth1
+lan_interfaces:
   - eth2
 
 wifi_mesh: false

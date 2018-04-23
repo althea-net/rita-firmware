@@ -27,6 +27,9 @@ listen_interfaces_extender:
   - lan2
   - lan1
 
+lan_interfaces:
+  - lan0
+
 wifi_mesh: false
 
 rust_targets:
