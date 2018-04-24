@@ -3,7 +3,7 @@ target: "ramips"
 device: "dir-860l-b1"
 package_id: mipsel_24kc
 image_name: "mt7621"
-extension: tar
+extension: bin
 
 mesh_channel: 165
 
@@ -11,24 +11,24 @@ private_channel: 1
 private_5g_channel: 165
 
 listen_interfaces_client:
-  - eth0.4
-  - eth0.5
+  - eth0.1
+  - eth0.2
   - "{%if wifi_mesh %}wlan1{%endif%}"
 
 listen_interfaces_gateway:
+  - eth0.1
   - eth0.2
   - eth0.3
   - eth0.4
-  - eth0.5
 
 listen_interfaces_extender:
+  - eth0.1
   - eth0.2
   - eth0.3
   - eth0.4
-  - eth0.5
 
 lan_interfaces:
-  - eth0.1
+  - eth0.5
 
 wifi_mesh: false
 

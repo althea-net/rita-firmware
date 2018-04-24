@@ -1,4 +1,5 @@
-
+# Port numbers for this device start at 0 with the WAN port and count going up
+# from there, so the port labeled '1' will be reffered to as '4' in this switch config
 
 config interface 'loopback'
 	option ifname 'lo'
@@ -11,22 +12,25 @@ config globals 'globals'
 
 config interface 'lan'
 	option type 'bridge'
-	option ifname 'eth0.1'
+	option ifname 'eth0.5'
 	option proto 'static'
 	option ipaddr '192.168.1.1'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
 
 config device 'lan_dev'
-	option name 'eth0.1'
+	option name 'eth0.5'
 	option macaddr '54:b8:0a:a6:3e:1c'
 
 
 {% if gateway %}
 config interface 'backhaul'
-        option ifname 'eth0.5'
+        option ifname 'eth0.1'
         option proto 'dhcp'
-        option ip6assign '60'
+
+config interface 'backhaul6'
+        option ifname 'eth0.1'
+        option proto 'dhcp6'
 
 {% for interface in listen_interfaces_gateway %}
 config interface 'rita_{{interface | replace(".","")}}'
@@ -55,33 +59,33 @@ config switch
 {% if gateway or extender %}
 config switch_vlan
 	option device 'switch0'
-	option vlan '1'
+	option vlan '2'
 	option ports '1 6t'
 config switch_vlan
 	option device 'switch0'
-	option vlan '2'
+	option vlan '3'
 	option ports '2 6t'
 config switch_vlan
 	option device 'switch0'
-	option vlan '3'
+	option vlan '4'
 	option ports '3 6t'
 config switch_vlan
 	option device 'switch0'
-	option vlan '4'
-	option ports '2 6t'
+	option vlan '5'
+	option ports '4 6t'
 {% else %}
 config switch_vlan
 	option device 'switch0'
-	option vlan '1'
-	option ports '1 2 3 6t'
+	option vlan '5'
+	option ports '2 3 4 6t'
 config switch_vlan
 	option device 'switch0'
-	option vlan '4'
-	option ports '4 6t'
+	option vlan '2'
+	option ports '1 6t'
 {% endif %}
 
 # WAN port
 config switch_vlan
 	option device 'switch0'
-	option vlan '5'
+	option vlan '1'
 	option ports '0 6t'
