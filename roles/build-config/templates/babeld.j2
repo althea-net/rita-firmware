@@ -20,6 +20,21 @@ config interface
         option 'ifname' 'lo'
         option 'hello_interval' '4'
 
+config filter
+        option 'type'   'redistribute'
+        option 'if'     'lo'
+        option 'action' 'deny'
+
+config filter
+        option 'type'   'redistribute'
+        option 'eq'     '128'
+        option 'action' 'allow'
+
+config filter
+        option 'type'   'out'
+        option 'eq'     '128'
+        option 'action' 'allow'
+
 ## Does not share internal addresses
 config filter
         option 'type'   'redistribute'
