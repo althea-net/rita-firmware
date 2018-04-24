@@ -7,12 +7,18 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fdb0:0614:acb7::/48'
 
-# Gateway and extender make no sense for this device and will be ignored
+{% if gateway %}
+config interface 'backhaul'
+        option ifname 'eth0'
+        option proto 'dhcp'
+        option ip6assign '60'
+{% else %}
 {% for interface in listen_interfaces_client %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
 {% endfor %}
+{% endif %}
 
 config interface 'lan'
         option type 'bridge'
