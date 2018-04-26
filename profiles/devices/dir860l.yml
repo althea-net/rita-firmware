@@ -5,10 +5,10 @@ package_id: mipsel_24kc
 image_name: "mt7621"
 extension: bin
 
-mesh_channel: 165
+mesh_channel: 36
 
-private_channel: 1
-private_5g_channel: 165
+private_channel: 11
+private_5g_channel: 36
 
 listen_interfaces_client:
   - eth0.1
