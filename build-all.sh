@@ -4,7 +4,7 @@ export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
 for file in profiles/devices/* 
 do
-	ansible-playbook -e @$file -e @profiles/management/althea-dev.yml firmware-build.yml
+	ansible-playbook -e @$file -e @profiles/management/althea-dev.yml -e gateway=ture firmware-build.yml
 done
 
 
