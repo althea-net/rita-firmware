@@ -54,7 +54,7 @@
   template:
     src: "{{conf_to_build}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
-  when: wireless_conf_path | is_file
+  when: wireless_conf_path is file
 
 
 - name: Template the Babeld configuration
