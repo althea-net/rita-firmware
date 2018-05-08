@@ -12,15 +12,15 @@ private_5g_channel: 36
 
 listen_interfaces_client:
   - eth0
-  - eth1.1
+  - eth1.2
 
 listen_interfaces_gateway:
   - wlan0
   - wlan1
-  - eth1.1
+  - eth1.2
 
 lan_interfaces:
-  - eth1.2
+  - eth1.1
 
 wifi_mesh: false
 
