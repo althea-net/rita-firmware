@@ -122,6 +122,10 @@ these profiles build a end user router that runs mesh only over the wan nic and
 provides a secured default route over a wireguard endpoint defined in the management
 profile.
 
+Note that while the firmware builder will build you a `mesh client` firmware by
+default, the download links in the table above are for the `gateway` firmares
+because that's what people seem to expect.
+
 Other available flags include `gateway` and `extender` a gateway bridges from a
 backhaul connection over the wan port to mesh devices on the lan port, feeding
 internet over Wireguard tunnels into the mesh.
@@ -176,6 +180,17 @@ I suggest using the `build-and-upgrade.yml` playbook. It will ssh into the defau
 router ip and use the appropriate sysupgrade image. Automated flashing from a factory
 stock device can be done from `build-and-factory.yml` but only supports devices with
 emergency room based recovery modes. So the n600, n750, and dir860l.
+
+### Flashing Gotchas
+
+There's a known but in the Edgerouterx where the file system is not synced and corruption
+can occur. When you flash the EdgerouterX and boot it for the first time *do not* cut power
+without first logging in and running the commands `sync` and `halt` in that order. Failure
+to do this before unplugging the EdgerouterX will result in corrupt files, that will have to
+be corrected over serial. A process that requires special hardware and is somewhat involved.
+
+We hope to track down the relevent OpenWRT bug and have this fixed upstream soon.
+
 
 ## Building the firmware didn't work
 
