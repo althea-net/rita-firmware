@@ -26,13 +26,6 @@ listen_interfaces_gateway:
   - eth0.3
   - eth0.2
 
-listen_interfaces_extender:
-  - wlan0
-  - wlan1
-  - eth1
-  - eth0.2
-  - eth0.3
-
 lan_interfaces:
   - eth0.1
 

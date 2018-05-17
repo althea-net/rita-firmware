@@ -37,12 +37,6 @@ config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
 {% endfor %}
-{% elif extender %}
-{% for interface in listen_interfaces_extender %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-{% endfor %}
 {% else %}
 {% for interface in listen_interfaces_client %}
 config interface 'rita_{{interface | replace(".","")}}'
