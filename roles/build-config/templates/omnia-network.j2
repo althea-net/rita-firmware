@@ -7,7 +7,7 @@ config interface 'loopback'
 config globals 'globals'
 	option ula_prefix 'fd97:9c8c:c3f2::/48'
 
-{% if gateway or extender %}
+{% if gateway %}
 config interface 'lan'
 	option type 'bridge'
 	option ifname 'lan0'
@@ -40,13 +40,6 @@ config interface 'backhaul6'
 
 {% if gateway %}
 {% for interface in listen_interfaces_gateway %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-        option ip6addr fde6::1
-{% endfor %}
-{% elif extender %}
-{% for interface in listen_interfaces_extender %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static

@@ -1,5 +1,4 @@
-gateway: false
-extender: false
+gateway: true
 source_dir: build
 disable_password_login: false
 insert_keys: false
