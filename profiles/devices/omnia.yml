@@ -20,13 +20,6 @@ listen_interfaces_gateway:
   - lan2
   - lan1
 
-listen_interfaces_extender:
-  - eth2
-  - lan4
-  - lan3
-  - lan2
-  - lan1
-
 lan_interfaces:
   - lan0
 

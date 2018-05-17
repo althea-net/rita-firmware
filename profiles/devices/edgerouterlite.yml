@@ -12,10 +12,6 @@ listen_interfaces_client:
 listen_interfaces_gateway:
   - eth2
 
-listen_interfaces_extender:
-  - eth1
-  - eth2
-
 lan_interfaces:
   - eth0
 

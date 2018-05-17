@@ -21,12 +21,6 @@ listen_interfaces_gateway:
   - eth0.3
   - eth0.4
 
-listen_interfaces_extender:
-  - eth0.1
-  - eth0.2
-  - eth0.3
-  - eth0.4
-
 lan_interfaces:
   - eth0.5
 
