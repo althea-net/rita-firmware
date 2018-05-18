@@ -378,3 +378,7 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-wr8305rt is not set
 # CONFIG_TARGET_ramips_mt7620_DEVICE_zte-q7 is not set
 # CONFIG_TARGET_ramips_mt7620_Default is not set
+CONFIG_PACKAGE_libustream-openssl=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_althea-cron-jobs=y
