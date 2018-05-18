@@ -139,3 +139,7 @@ CONFIG_USE_STRIP=y
 # CONFIG_USE_LIBSTDCXX is not set
 # CONFIG_USE_SSTRIP is not set
 CONFIG_USE_UCLIBCXX=y
+CONFIG_PACKAGE_libustream-openssl=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_althea-cron-jobs=y
