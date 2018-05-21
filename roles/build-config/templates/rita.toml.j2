@@ -7,7 +7,7 @@ eth_address = "0x0101010101010101010101010101010101010101"
 
 [network]
 own_ip = "0.0.0.0"
-bounty_ip = "fd96::1337:0e1f"
+bounty_ip = fd96::1337:0e1f"
 babel_port = 6872
 rita_hello_port = 4876
 rita_dashboard_port = 4877
@@ -23,17 +23,58 @@ peer_interfaces = [{% for interface in listen_interfaces_extender %}"{{interface
 {% else %}
 peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% endif %}
-manual_peers = ["{{exit_server_address}}"]
+manual_peers = ["test.altheamesh.com", "apac.altheamesh.com", "exit.altheamesh.com", "apac.altheamesh.com", "aus.altheamesh.com"]
 global_non_mesh_ip = ""
 conf_link_local = true
 default_route = []
 
 [exit_client]
-exit_ip = "{{exit_internal_ip}}"
-exit_registration_port = 4875
 wg_listen_port = 59999
 
+[exit_client.exits.test]
+registration_port = 4875
+message = "The Althea testing exit. Unstable!"
+[exit_client.exits.test.id]
+mesh_ip = "fd96::1337:0e1f"
+eth_address = "0x0101010101010101010101010101010101010101"
+wg_public_key = "hw2rXXaIOfbcOXbvejB3AyuoSAb3QhPXjC5MwxRqkls="
+
+[exit_client.exits.us_west]
+registration_port = 4875
+message = "The Althea Production US exit"
+[exit_client.exits.us_west.id]
+mesh_ip = "fd96::1337:0e2f"
+eth_address = "0x0101010101010101010101010101010101010101"
+wg_public_key = "jkIodvXKgij/rAEQXFEPJpls6ooxXJEC5XlWA1uUPUg="
+
+[exit_client.exits.canada_east]
+registration_port = 4875
+message = "Althea production Canada Exit"
+[exit_client.exits.canada_east.id]
+mesh_ip = "fd96::1337:0e3f"
+eth_address = "0x0101010101010101010101010101010101010101"
+wg_public_key = "sA76hy4X2nPhccGJeBClVUzZ6bntGrUD0GjBJDjVYBE="
+
+[exit_client.exits.apac]
+registration_port = 4875
+message = "In Singapore"
+[exit_client.exits.apac.id]
+mesh_ip = "fd96::1337:0e4f"
+eth_address = "0x0101010101010101010101010101010101010101"
+wg_public_key = "1kKSpzdhI4kfqeMqch9I1bXqOUXeKN7EQBecVzW60ys="
+
+[exit_client.exits.aus]
+registration_port = 4875
+message = "Althea testing exit in Australia"
+[exit_client.exits.aus.id]
+mesh_ip = "fd96::1337:0e5f"
+eth_address = "0x0101010101010101010101010101010101010101"
+wg_public_key = "z3aS2DNWWrbpMYZra2BuoV4gjcVTHVxinKAi4H8t7m8="
+
 [exit_client.reg_details]
+country_code = "NA"
+zip_code = "1234"
+email = "placeholder@domain.com"
 
 [exit_tunnel_settings]
 lan_nics = ['lan']
