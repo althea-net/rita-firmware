@@ -8,7 +8,7 @@ config globals 'globals'
 	option ula_prefix 'fd28:4720:0843::/48'
 
 config interface 'lan'
-	option ifname 'eth0'
+	option ifname 'eth2'
 	option force_link '1'
 	option type 'bridge'
 	option proto 'static'
@@ -19,7 +19,7 @@ config interface 'lan'
 
 {% if gateway %}
 config interface 'backhaul'
-        option ifname 'eth1'
+        option ifname 'eth0'
         option proto 'dhcp'
         option ip6assign '60'
 config interface 'backhaul6'
