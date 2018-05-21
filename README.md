@@ -237,7 +237,8 @@ port selection setting. Since this seems to be what people want most often right
 mode every device has a WAN port (to peer to the exit/internet), some mesh ports, and a LAN port.
 If the router has a yellow or otherwise marked WAN port Althea keeps that as the WAN interface.
 The last LAN port (physically furthest away from the WAN port) is the new Althea LAN. All other ports
-are repurposed for meshing.
+are repurposed for meshing. In the case that a device has only numbered ports, the lowest number is the
+WAN port.
 
 There are some exceptions to these rules, for example the aclite has only one physical port. Which is
 either mesh, or WAN depending on your settings.

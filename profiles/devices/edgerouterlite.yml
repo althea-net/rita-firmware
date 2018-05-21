@@ -6,14 +6,13 @@ image_name: "mt7621"
 extension: tar
 
 listen_interfaces_client:
-  - eth1
-  - eth2
+  - eth0
 
 listen_interfaces_gateway:
-  - eth2
+  - eth1
 
 lan_interfaces:
-  - eth0
+  - eth2
 
 wifi_mesh: false
 
