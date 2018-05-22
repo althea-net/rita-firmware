@@ -9,7 +9,6 @@ CONFIG_OPENSSL_WITH_SRP=y
 CONFIG_PACKAGE_althea-babeld=y
 CONFIG_PACKAGE_althea-dash=y
 CONFIG_PACKAGE_althea-rust-binaries=y
-CONFIG_PACKAGE_generate-ipv6-address=y
 CONFIG_PACKAGE_grep=y
 CONFIG_PACKAGE_ip-tiny=y
 CONFIG_PACKAGE_ipset=y
