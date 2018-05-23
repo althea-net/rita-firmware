@@ -34,7 +34,7 @@ config wifi-iface 'default_radio1'
 {% else %}
 config wifi-device 'radio1'
         option type 'mac80211'
-        option channel '{{private_5g_channel}}'
+        option channel '{{private_channel}}'
         option path 'platform/qca953x_wmac'
         option htmode 'HT20'
         option hwmode '11ng'
