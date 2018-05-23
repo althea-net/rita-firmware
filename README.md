@@ -245,7 +245,7 @@ either mesh, or WAN depending on your settings.
 
 Now that you know what to plug in where you can plugin to the LAN port or login to the wifi SSID
 `AltheaHome` and use the default password `ChangeMe` (note the capitals). Once you're connected
-you can ssh into the router using `ssh root@192.168.1.1` this is passwordless, I strongly suggest
+you can ssh into the router using `ssh root@192.168.10.1` this is passwordless, I strongly suggest
 running `passwd` and setting a proper password if you plan to use the device for a while.
 
 If an existing internet connection is plugged into the WAN port or the device is connected by the
@@ -264,7 +264,7 @@ whatever device on the mesh is connected with the WAN port and see if it has a `
 and connectivity.
 
 As of this writing the graphical user interface is installed on the routers but not integrated
-with the actual on router software. So `http://192.168.1.1/althea` will return a router settings
+with the actual on router software. So `http://192.168.10.1/althea` will return a router settings
 page, but only show fake placeholder info. We hope to resolve that and add more functionality
 for debugging there in the near future.
 
