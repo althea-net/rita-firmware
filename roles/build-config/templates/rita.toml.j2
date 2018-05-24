@@ -30,6 +30,7 @@ default_route = []
 
 [exit_client]
 wg_listen_port = 59999
+lan_nics = ['lan']
 
 [exit_client.exits.test]
 registration_port = 4875
@@ -75,6 +76,3 @@ wg_public_key = "z3aS2DNWWrbpMYZra2BuoV4gjcVTHVxinKAi4H8t7m8="
 country_code = "NA"
 zip_code = "1234"
 email = "placeholder@domain.com"
-
-[exit_tunnel_settings]
-lan_nics = ['lan']
