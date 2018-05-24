@@ -183,9 +183,9 @@ emergency room based recovery modes. So the n600, n750, and dir860l.
 
 There's a known but in the Edgerouterx where the file system is not synced and corruption
 can occur. When you flash the EdgerouterX and boot it for the first time _do not_ cut power
-without first logging in and running the commands `sync` and `halt` in that order. Failure
-to do this before unplugging the EdgerouterX will result in corrupt files, that will have to
-be corrected over serial. A process that requires special hardware and is somewhat involved.
+until it's been running for at least a minute. This will give Rita time to sync to the disk.
+It should really take only a few seconds, but restoring a bricked device is enough of a pain
+to just wait. 
 
 We hope to track down the relevent OpenWRT bug and have this fixed upstream soon.
 
