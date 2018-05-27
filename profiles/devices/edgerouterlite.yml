@@ -1,8 +1,8 @@
 conf_to_build: edgerouterlite
-target: "ramips"
-device: "ubnt-erx"
+target: "octeon"
+device: "erlite"
 package_id: mipsel_24kc
-image_name: "mt7621"
+image_name: "generic-glibc"
 extension: tar
 
 listen_interfaces_client:
