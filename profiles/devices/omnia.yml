@@ -27,3 +27,4 @@ wifi_mesh: false
 
 rust_targets:
   - arm-unknown-linux-musleabihf
+  - armv7-unknown-linux-musleabihf
