@@ -8,28 +8,6 @@ config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
         option Interface 'wg_exit'
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'backhaul'
-{% for interface in listen_interfaces_gateway %}
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'rita_{{interface| replace(".","")}}'
-{% endfor %}
-
-{% elif extender %}
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'wg_exit'
-{% for interface in listen_interfaces_extender %}
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'rita_{{interface| replace(".","")}}'
-{% endfor %}
 
 {% else %}
 {% if dropbear_externally_accessible %}
@@ -37,11 +15,5 @@ config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
         option Interface 'wg_exit'
-{% for interface in listen_interfaces_client %}
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'rita_{{interface| replace(".","")}}'
-{% endfor %}
 {% endif %}
 {% endif %}
