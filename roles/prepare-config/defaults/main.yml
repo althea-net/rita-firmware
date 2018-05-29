@@ -1,4 +1,4 @@
 source_dir: build/
 feeds_list:
-  - "src-git althea https://github.com/althea-mesh/althea-packages.git"
+  - "src-git althea https://github.com/althea-mesh/althea-packages.git;release"
 conf_to_build: n600
