@@ -1,4 +1,4 @@
-{% if dual_radio_mesh %}
+{% if wifi_mesh %}
 config wifi-device 'radio0'
         option type 'mac80211'
         option channel '{{private_channel}}'
@@ -9,28 +9,12 @@ config wifi-device 'radio0'
 
 config wifi-iface 'default_radio0'
         option device 'radio0'
-        option network 'babel_wlan0'
+        option network 'rita_wlan0'
         option mode 'adhoc'
         option ssid '{{mesh_wifi_ssid}}'
         option encryption '{{mesh_wifi_encryption}}'
         option key '{{mesh_wifi_key}}'
 
-
-config wifi-device 'radio1'
-        option type 'mac80211'
-        option channel '{{mesh_channel}}'
-	option hwmode '11a'
-	option path 'soc/soc:pcie/pci0000:00/0000:00:02.0/0000:02:00.0'
-	option htmode 'VHT80'
-        option disabled '{{mesh_wifi_disabled}}'
-
-config wifi-iface 'default_radio1'
-        option device 'radio1'
-        option network 'babel_wlan1'
-        option mode 'adhoc'
-        option ssid '{{mesh_wifi_ssid}}'
-        option encryption '{{mesh_wifi_encryption}}'
-        option key '{{mesh_wifi_key}}'
 
 {% else %}
 config wifi-device 'radio0'
@@ -49,24 +33,7 @@ config wifi-iface 'default_radio0'
         option encryption '{{private_wifi_encryption}}'
         option key 'ChangeMe'
 
-{% if wifi_mesh %}
-config wifi-device 'radio1'
-        option type 'mac80211'
-        option channel '{{mesh_channel}}'
-	option hwmode '11a'
-	option path 'soc/soc:pcie/pci0000:00/0000:00:02.0/0000:02:00.0'
-	option htmode 'VHT80'
-        option disabled '{{mesh_wifi_disabled}}'
-
-config wifi-iface 'default_radio1'
-        option device 'radio1'
-        option network 'babel_wlan1'
-        option mode 'adhoc'
-        option ssid '{{mesh_wifi_ssid}}'
-        option encryption '{{mesh_wifi_encryption}}'
-        option key '{{mesh_wifi_key}}'
-
-{% else %}
+{% endif %}
 config wifi-device 'radio1'
         option type 'mac80211'
         option channel '{{private_5g_channel}}'
@@ -83,5 +50,3 @@ config wifi-iface 'default_radio1'
         option encryption '{{private_wifi_encryption}}'
         option key '{{private_wifi_key}}'
 
-{% endif %}
-{% endif %}

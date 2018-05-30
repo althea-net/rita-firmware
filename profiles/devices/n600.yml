@@ -17,14 +17,15 @@ private_5g_channel: 165
 listen_interfaces_client:
   - eth1
   - eth0.4
-  - "{%if wifi_mesh %}wlan1{%endif%}"
+  - "{%if dual_radio_mesh %}wlan0{%endif%}"
+  - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 listen_interfaces_gateway:
-  - wlan0
-  - wlan1
   - eth0.4
   - eth0.3
   - eth0.2
+  - "{%if dual_radio_mesh %}wlan0{%endif%}"
+  - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 lan_interfaces:
   - eth0.1

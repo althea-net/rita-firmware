@@ -2,6 +2,7 @@ gateway: true
 source_dir: build
 disable_password_login: false
 insert_keys: false
+wifi_mesh: false
 dual_radio_mesh: false
 keys_to_insert:
   - ""
