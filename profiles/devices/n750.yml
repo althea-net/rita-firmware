@@ -16,15 +16,16 @@ listen_interfaces_client:
   - eth0.3 # <port-name>.<vlan number> 2 is WAN, 1 is LAN1 count up from there
            # for gateway/extender for home version VLAN 3 is LAN 4 and VLAN 1 is
            # all other eth ports.
-  - "{%if wifi_mesh %}wlan1{%endif%}"
+  - "{%if dual_radio_mesh %}wlan0{%endif%}"
+  - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 # babel interfaces for gateway operation
 listen_interfaces_gateway:
-  - wlan0
-  - wlan1
   - eth0.3
   - eth0.4
   - eth0.5
+  - "{%if dual_radio_mesh %}wlan0{%endif%}"
+  - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 lan_interfaces:
   - eth0.1
