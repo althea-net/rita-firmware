@@ -23,7 +23,7 @@ peer_interfaces = [{% for interface in listen_interfaces_extender %}"{{interface
 {% else %}
 peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% endif %}
-manual_peers = ["test.altheamesh.com", "apac.altheamesh.com", "exit.altheamesh.com", "canada-east.altheamesh.com", "aus.altheamesh.com"]
+manual_peers = ["test.altheamesh.com", "apac.altheamesh.com", "exit.altheamesh.com", "canada-east.altheamesh.com", "aus.altheamesh.com", "borked.altheamesh.com"]
 global_non_mesh_ip = ""
 conf_link_local = true
 default_route = []
@@ -40,6 +40,14 @@ message = "The Althea testing exit. Unstable!"
 mesh_ip = "fd00::1337:0e1f"
 eth_address = "0x0101010101010101010101010101010101010101"
 wg_public_key = "hw2rXXaIOfbcOXbvejB3AyuoSAb3QhPXjC5MwxRqkls="
+
+[exit_client.exits.borked]
+registration_port = 4875
+message = "Borked! For developers only!"
+[exit_client.exits.borked.id]
+mesh_ip = "fd00::1337:0e6f"
+eth_address = "0x0101010101010101010101010101010101010101"
+wg_public_key = "4f3TBCL2HxxPreajT+FsAYzmQa0ZmeYYNHvpORX9tm8="
 
 [exit_client.exits.us_west]
 registration_port = 4875
