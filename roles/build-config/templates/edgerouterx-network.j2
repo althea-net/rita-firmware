@@ -18,6 +18,10 @@ config device 'backhaul_dev'
         option name 'eth0.1'
         option macaddr '78:8a:20:bb:7e:4e'
 
+config interface 'backhaul6'
+	option ifname '@backhaul'
+	option proto 'dhcpv6'
+
 {% endif %}
 
 config interface 'lan'
