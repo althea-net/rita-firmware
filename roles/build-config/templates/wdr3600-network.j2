@@ -22,6 +22,9 @@ config interface 'backhaul'
         option proto 'dhcp'
         option ip6assign '60'
 
+config interface 'backhaul6'
+	option ifname '@backhaul'
+	option proto 'dhcpv6'
 {% for interface in listen_interfaces_gateway %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
