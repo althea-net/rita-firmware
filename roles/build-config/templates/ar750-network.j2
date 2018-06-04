@@ -12,11 +12,9 @@ config interface 'backhaul'
         option ifname 'eth0'
         option proto 'dhcp'
         option ip6assign '60'
-
 config interface 'backhaul6'
-        option ifname 'eth0'
-        option proto 'dhcp6'
-        option ip6assign '60'
+	option ifname '@backhaul'
+	option proto 'dhcpv6'
 {% endif %}
 
 config interface 'lan'

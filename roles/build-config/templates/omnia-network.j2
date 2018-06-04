@@ -33,7 +33,7 @@ config interface 'backhaul'
 	option proto 'dhcp'
 
 config interface 'backhaul6'
-	option ifname 'eth2'
+	option ifname '@backhaul'
 	option proto 'dhcpv6'
 {% endif %}
 
