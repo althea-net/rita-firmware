@@ -1,0 +1,14 @@
+{% for interface in real_interfaces %}
+config queue 'sqm_{{interface}}'
+        option download '{{est_max_throughput}}'
+        option upload '{{est_max_throughput}}'
+        option qdisc_advanced '0'
+        option linklayer 'ethernet'
+        option enabled '1'
+        option interface '{{interface}}'
+        option debug_logging '0'
+        option verbosity '5'
+        option qdisc 'cake'
+        option script 'piece_of_cake.qos'
+
+{% endfor %}

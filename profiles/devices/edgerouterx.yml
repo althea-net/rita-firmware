@@ -16,8 +16,15 @@ listen_interfaces_gateway:
   - eth0.3 # port 2
   - eth0.4 # port 3
 
+# Reference value, see network.j2 to modify
 lan_interfaces:
   - eth0.5
+
+# For sqm tuning
+real_interfaces: 
+  - eth0
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 300000 
 
 wifi_mesh: false
 
