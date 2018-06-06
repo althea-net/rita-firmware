@@ -22,8 +22,17 @@ listen_interfaces_gateway:
   - lan1
   - "{%if wifi_mesh %}wlan1{%endif%}" #unlike other devices this is 2.4ghz
 
+# Reference value, see network.j2 to modify
 lan_interfaces:
   - lan0
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+  - eth2
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 300000
 
 wifi_mesh: false
 
