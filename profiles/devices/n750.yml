@@ -27,10 +27,17 @@ listen_interfaces_gateway:
   - "{%if dual_radio_mesh %}wlan0{%endif%}"
   - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
+# Reference value, see network.j2 to modify
 lan_interfaces:
   - eth0.1
 
-wifi_mesh: true
+# For sqm tuning
+real_interfaces: 
+  - eth0
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 40000 
+
+wifi_mesh: false
 
 rust_targets:
   - mips-unknown-linux-gnu

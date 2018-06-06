@@ -42,6 +42,11 @@
     src: "dhcp.j2"
     dest: "{{source_dir}}/files/etc/config/dhcp"
 
+- name: Template SQM config
+  template:
+    src: "sqm.j2"
+    dest: "{{source_dir}}/files/etc/config/sqm"
+
 # Network and wifi stuff is hardware specific, so we keep templates for each
 # supported device. it really shouldn't ever change much in upstream LEDE
 # but do remember it's possible
