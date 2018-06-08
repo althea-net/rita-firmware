@@ -23,6 +23,9 @@ listen_interfaces_gateway:
 lan_interfaces:
   - eth1.1
 
+# Reference value, see network.j2 to modify
+wan_interface: "eth0"
+
 # For sqm tuning
 real_interfaces:
   - eth0

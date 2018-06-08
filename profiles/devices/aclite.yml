@@ -13,12 +13,16 @@ private_5g_channel: 36
 listen_interfaces_client:
   - eth0
 
-listen_interfaces_gateway: []
+listen_interfaces_gateway:
+  - eth0
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
   - wlan0
   - wlan1
+
+# Reference value, see network.j2 to modify
+wan_interface: "{% if gateway %}eth0{% endif %}"
 
 # For sqm tuning
 real_interfaces:
