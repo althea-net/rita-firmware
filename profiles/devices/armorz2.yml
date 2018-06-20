@@ -1,0 +1,43 @@
+conf_to_build: armorz2
+target: "ipq806x"
+device: "zyxel_nbg6817"
+package_id: arm_cortex-a15_neon-vfpv4
+image_name: "generic"
+extension: "bin"
+squashfs: "squashfs-"
+
+mesh_channel:
+
+private_channel:
+private_5g_channel:
+
+listen_interfaces_client:
+  - eth0.5
+  #  - "{%if wifi_mesh %}wlan0{%endif%}"
+
+listen_interfaces_gateway:
+  - eth0.5
+  - eth1.4
+  - eth1.3
+  - eth1.2
+  #  - "{%if wifi_mesh %}wlan0{%endif%}" #unlike other devices this is 2.4ghz
+
+# Reference value, see network.j2 to modify
+lan_interfaces:
+  - eth1.1
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth0.5"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 300000
+
+wifi_mesh: false
+
+rust_targets:
+  - arm-unknown-linux-musleabihf
+  - armv7-unknown-linux-musleabihf
