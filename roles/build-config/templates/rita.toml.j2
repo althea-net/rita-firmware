@@ -25,7 +25,9 @@ peer_interfaces = [{% for interface in listen_interfaces_extender %}"{{interface
 {% else %}
 peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% endif %}
+{% if gateway %}
 external_nic = "{{wan_interface}}"
+{% endif %}
 manual_peers = ["test.altheamesh.com", "apac.altheamesh.com", "exit.altheamesh.com", "canada-east.altheamesh.com", "aus.altheamesh.com", "borked.altheamesh.com"]
 global_non_mesh_ip = ""
 conf_link_local = true
