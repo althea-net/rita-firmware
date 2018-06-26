@@ -4,6 +4,8 @@ device: "mynet-n600"
 package_id: mips_24kc
 image_name: generic
 extension: bin
+image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin"
+
 private_radio:
  - radio0
  - radio1
