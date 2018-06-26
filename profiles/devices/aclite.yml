@@ -4,6 +4,7 @@ device: "ubnt-unifiac-lite"
 package_id: mips_24kc
 image_name: generic
 extension: bin
+image_path: "ar71xx/generic/openwrt-ar71xx-generic-ubnt-unifiac-lite-squashfs-sysupgrade.bin"
 
 mesh_channel: 36
 

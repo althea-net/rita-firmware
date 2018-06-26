@@ -4,6 +4,7 @@ device: "erlite"
 package_id: mipsel_24kc
 image_name: "generic-glibc"
 extension: tar
+image_path: "octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar"
 
 listen_interfaces_client:
   - eth0

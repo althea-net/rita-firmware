@@ -5,6 +5,7 @@ package_id: arm_cortex-a15_neon-vfpv4
 image_name: "generic"
 extension: "bin"
 squashfs: "squashfs-"
+image_path: "ipq806x/generic/openwrt-ipq806x-zyxel_nbg6817-squashfs-sysupgrade.bin"
 
 mesh_channel:
 

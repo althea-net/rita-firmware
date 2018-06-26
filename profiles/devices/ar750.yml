@@ -4,6 +4,7 @@ device: "gl-ar750"
 package_id: mips_24kc
 image_name: generic
 extension: bin
+image_path: "ar71xx/generic/openwrt-ar71xx-generic-gl-ar750-squashfs-sysupgrade.bin"
 
 mesh_channel: 36
 
