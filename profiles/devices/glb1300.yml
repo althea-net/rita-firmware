@@ -1,0 +1,35 @@
+conf_to_build: glb1300
+target: "ipq40xx"
+device: "gl-b1300"
+package_id: arm_cortex-a7_neon-vfpv4
+image_name: ""
+extension: bin
+image_path: "ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin"
+
+channel: 11
+# 5ghz note only 20mhz channel widths
+five_ghz_channel: 36
+
+listen_interfaces_client:
+  - eth1
+
+# babel interfaces for gateway operation
+listen_interfaces_gateway: ""
+
+# Reference value, see network.j2 to modify
+lan_interfaces:
+  - eth0
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth1"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 40000
+
+rust_targets:
+  - arm-unknown-linux-musleabihf
+  - armv7-unknown-linux-musleabihf
