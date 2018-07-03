@@ -12,3 +12,6 @@ password_auth: 1
 #  which isn't actually exposed to the larger internet.
 dropbear_externally_accessible: true
 default_exit: "test"
+
+stats_enabled: true
+stats_server: "stats.altheamesh.com"
