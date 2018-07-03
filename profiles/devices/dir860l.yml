@@ -6,23 +6,17 @@ image_name: "mt7621"
 extension: bin
 image_path: "ramips/mt7621/openwrt-ramips-mt7621-dir-860l-b1-squashfs-factory.bin"
 
-mesh_channel: 36
-
-private_channel: 11
-private_5g_channel: 36
+channel: 11
+five_ghz_channel: 36
 
 listen_interfaces_client:
   - eth0.1
   - eth0.2
-    #- "{%if dual_radio_mesh %}wlan0{%endif%}"
-    #- "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 listen_interfaces_gateway:
   - eth0.2
   - eth0.3
   - eth0.4
-    #- "{%if dual_radio_mesh %}wlan0{%endif%}"
-    #- "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
@@ -36,8 +30,6 @@ real_interfaces:
   - eth0
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 500000
-
-wifi_mesh: false
 
 rust_targets:
   - mipsel-unknown-linux-gnu

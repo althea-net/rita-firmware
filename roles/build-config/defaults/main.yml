@@ -2,8 +2,6 @@ gateway: true
 source_dir: build
 disable_password_login: false
 insert_keys: false
-wifi_mesh: false
-dual_radio_mesh: false
 keys_to_insert:
   - ""
 dropbear_wan_accessible: false
@@ -17,6 +15,6 @@ mesh_subnets:
   - 'fe80::/10'
   - 'ff01::/10'
 
-private_wifi_key: "ChangeMe"
+wifi_key: "ChangeMe"
 
 lan_ip: "192.168.10.1"

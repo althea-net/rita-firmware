@@ -7,21 +7,17 @@ extension: img.gz
 squashfs: ""
 image_path: "mvebu/cortexa9/openwrt-mvebu-cortexa9-turris-omnia-sysupgrade.img.gz"
 
-mesh_channel: 36
-
-private_channel: 11
-private_5g_channel: 36
+channel: 11
+five_ghz_channel: 36
 
 listen_interfaces_client:
   - eth2
-  #  - "{%if wifi_mesh %}wlan1{%endif%}"
 
 listen_interfaces_gateway:
   - lan4
   - lan3
   - lan2
   - lan1
-  #  - "{%if wifi_mesh %}wlan1{%endif%}" #unlike other devices this is 2.4ghz
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
@@ -37,8 +33,6 @@ real_interfaces:
   - eth2
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 300000
-
-wifi_mesh: false
 
 rust_targets:
   - arm-unknown-linux-musleabihf
