@@ -6,10 +6,8 @@ image_name: generic
 extension: bin
 image_path: "ar71xx/generic/openwrt-ar71xx-generic-gl-ar750-squashfs-sysupgrade.bin"
 
-mesh_channel: 36
-
-private_channel: 11
-private_5g_channel: 36
+channel: 11
+five_ghz_channel: 36
 
 listen_interfaces_client:
   - eth0
@@ -33,8 +31,6 @@ real_interfaces:
   - eth1
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 50000 
-
-wifi_mesh: false
 
 rust_targets:
   - mips-unknown-linux-gnu
