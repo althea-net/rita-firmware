@@ -12,13 +12,15 @@ five_ghz_channel: 36
 
 listen_interfaces_client:
   - eth1
+  - eth0.4
 
 # babel interfaces for gateway operation
-listen_interfaces_gateway: ""
+listen_interfaces_gateway:
+  - eth0.4
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
-  - eth0
+  - eth0.3
 
 # Reference value, see network.j2 to modify
 wan_interface: "eth1"
