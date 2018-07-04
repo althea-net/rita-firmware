@@ -9,7 +9,7 @@ config globals 'globals'
 
 config interface 'lan'
 	option type 'bridge'
-	option ifname 'eth0'
+	option ifname 'eth0.3'
 	option proto 'static'
 	option ipaddr '{{lan_ip}}'
 	option netmask '255.255.255.0'
@@ -43,5 +43,15 @@ config switch
 
 config switch_vlan
         option device 'switch0'
-        option vlan '1'
-        option ports '3 4 0'
+        option vlan '3'
+        option ports '3 0t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '4'
+        option ports '4 0t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '2'
+        option ports '5 0t'
