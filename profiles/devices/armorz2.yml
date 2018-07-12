@@ -7,21 +7,17 @@ extension: "bin"
 squashfs: "squashfs-"
 image_path: "ipq806x/generic/openwrt-ipq806x-zyxel_nbg6817-squashfs-sysupgrade.bin"
 
-mesh_channel:
-
-private_channel:
-private_5g_channel:
+channel: 11
+five_ghz_channel: 36
 
 listen_interfaces_client:
   - eth0.5
-  #  - "{%if wifi_mesh %}wlan0{%endif%}"
 
 listen_interfaces_gateway:
   - eth0.5
   - eth1.4
   - eth1.3
   - eth1.2
-  #  - "{%if wifi_mesh %}wlan0{%endif%}" #unlike other devices this is 2.4ghz
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
@@ -36,8 +32,6 @@ real_interfaces:
   - eth1
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 300000 
-
-wifi_mesh: false
 
 rust_targets:
   - arm-unknown-linux-musleabihf

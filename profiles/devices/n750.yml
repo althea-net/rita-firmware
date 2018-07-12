@@ -6,27 +6,21 @@ image_name: generic
 extension: bin
 image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin"
 
+channel: 1
 # 5ghz note only 20mhz channel widths
-mesh_channel: 165
-
-private_channel: 1
-private_5g_channel: 165
+five_ghz_channel: 165
 
 listen_interfaces_client:
   - eth0.2 # There is only one port on this device, so all ethernet ports needs
   - eth0.3 # <port-name>.<vlan number> 2 is WAN, 1 is LAN1 count up from there
            # for gateway/extender for home version VLAN 3 is LAN 4 and VLAN 1 is
            # all other eth ports.
-  #  - "{%if dual_radio_mesh %}wlan0{%endif%}"
-  #  - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 # babel interfaces for gateway operation
 listen_interfaces_gateway:
   - eth0.3
   - eth0.4
   - eth0.5
-  #  - "{%if dual_radio_mesh %}wlan0{%endif%}"
-  #  - "{%if wifi_mesh or dual_radio_mesh %}wlan1{%endif%}"
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
@@ -40,8 +34,6 @@ real_interfaces:
   - eth0
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 40000 
-
-wifi_mesh: false
 
 rust_targets:
   - mips-unknown-linux-gnu
