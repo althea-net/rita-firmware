@@ -85,7 +85,6 @@ CONFIG_PACKAGE_objdump=m
 CONFIG_PACKAGE_qrencode=m
 CONFIG_PACKAGE_rpcd=y
 CONFIG_PACKAGE_rpcd-mod-rrdns=y
-CONFIG_PACKAGE_syslog-ng=y
 CONFIG_PACKAGE_terminfo=y
 CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
