@@ -1,7 +1,7 @@
 ---
 # A playbook to build Althea firmware
 
-- hosts: 127.0.0.1
+- hosts: localhost
   connection: local
   roles:
     - prepare-sources

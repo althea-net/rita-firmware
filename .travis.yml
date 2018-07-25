@@ -1,31 +1,29 @@
-language:
-  - c
-  - python
-  - rust
-rust:
-  - nightly
-cache:
-  - ccache
-  - pip
-  - cargo
+sudo: required
+language: shell
+services: 
+  - docker
+
 install:
   - sudo apt-get install python-pip
   - sudo pip install ansible
   - sudo pip install ansible-lint
 
-sudo: required
-
 env:
-  - DEVICE=n600.yml PROFILE=althea-dev.yml
-  - DEVICE=n750.yml PROFILE=althea-dev.yml
-  - DEVICE=edgerouterx.yml PROFILE=althea-dev.yml
-  - DEVICE=ar750.yml PROFILE=althea-dev.yml
-  - DEVICE=dir860l.yml PROFILE=althea-dev.yml
-  - DEVICE=wdr3600.yml PROFILE=althea-dev.yml
-  - DEVICE=omnia.yml PROFILE=althea-dev.yml
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=n600
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=n750
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=edgerouterx
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=ar750
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=dir860l 
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=wdr3600
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=omnia
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=dir860l
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=armorz2
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=aclite
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=edgerouterlite
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=tplinkc7v2
+  - TEST_COMMAND="travis_wait 110 bash docker-builder.sh" DEVICE=glb1110
+  - TEST_COMMAND="ansible-lint -x ANSIBLE0012,ANSIBLE0013,ANSIBLE0006 *.yml"
 
 
 script:
-  - ansible-lint -x ANSIBLE0012,ANSIBLE0013,ANSIBLE0006 *.yml
-  - ansible-playbook first-time-setup.yml
-  - ansible-playbook -e @profiles/devices/$DEVICE -e @profiles/management/$PROFILE -e ci=True firmware-build.yml
+- (eval "$TEST_COMMAND")
