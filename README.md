@@ -87,7 +87,7 @@ you may want to install dependencies manually using these commands.
 
 Debian:
 
-    sudo apt-get install build essential libncurses5-dev gawk git subversion libssl-dev gettext unzip zlib1g-dev file python systemtap-sdt-dev npm time
+    sudo apt-get install build-essential libncurses5-dev gawk git subversion libssl-dev gettext unzip zlib1g-dev file python systemtap-sdt-dev npm time
 
 Ubuntu:
 
