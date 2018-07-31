@@ -183,7 +183,7 @@ emergency room based recovery modes. So the n600, n750, and dir860l.
 
 ### Flashing Gotchas
 
-There's a known but in the Edgerouterx where the file system is not synced and corruption
+There's a known bug in the Edgerouterx where the file system is not synced and corruption
 can occur. When you flash the EdgerouterX and boot it for the first time _do not_ cut power
 until it's been running for at least a minute. This will give Rita time to sync to the disk.
 It should really take only a few seconds, but restoring a bricked device is enough of a pain
