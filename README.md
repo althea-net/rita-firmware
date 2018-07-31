@@ -214,7 +214,7 @@ To add support for a device download the OpenWRT repository and run `make menuco
 select your target device as well as Althea's required packages. Wireguard (the metapackage)
 , ipset, althea-rust-binaries, althea-babeld, and luci (also the metapackage).
 
-Then run `make -j <num cores>' to build the firmware, this will take a while. When it's finished flash the resulting image. Login via ssh and copy`/etc/config/network`and`/etc/config/wireless`, you will edit these files into Althea templates that will reside in`roles/build-config/templates`. Look in that folder for existing examples. The requirements
+Then run `make -j <num cores>` to build the firmware, this will take a while. When it's finished flash the resulting image. Login via ssh and copy `/etc/config/network`and`/etc/config/wireless`, you will edit these files into Althea templates that will reside in `roles/build-config/templates`. Look in that folder for existing examples. The requirements
 are pretty simple, gateway mode has at least one dhcp wan port, every device must have at least
 one 'LAN' port if possible. To simplify debugging.
 
