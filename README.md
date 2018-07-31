@@ -31,7 +31,7 @@ nightly build download links in the table below.
 
 Here are the existing hardware config names. As well as download
 links for nightly builds, please see the [flashing](#flashing) and [what do
-I do now?](#so-i-flashed-the-firmware,-what-do-i-do-now?)
+I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
 sections for details on what to expect flashing and using a nightly build.
 
 | Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                          | Firmware Download                                                                                                              | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
