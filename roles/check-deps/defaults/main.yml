@@ -8,8 +8,7 @@ known_distros:
   - Ubuntu
 
 debian_deps:
-  - build
-  - essential
+  - build-essential
   - file
   - gawk
   - gettext
