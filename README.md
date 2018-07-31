@@ -11,7 +11,7 @@ on Ansible instead of bash. This creates a pretty readable workflow and makes it
 very easy to apply delta changes onto a modified build directory. Allowing a
 dramatic reduction in build time as well as very flexible build options.
 
-Althea itself is an incentivized mesh system. This bulid system creates a firmware
+Althea itself is an incentivized mesh system. This build system creates a firmware
 image preconfigured with Althea's fork of the Babeld mesh software as well as
 various utilities and tools to automatically pay mesh nodes for bandwidth.
 
