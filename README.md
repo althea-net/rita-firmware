@@ -23,18 +23,19 @@ WireGuard server.
 
 ## Is this where I get Althea?
 
-This page is for developers who want to help improve Althea.
-Or technically advanced users who want to try out cutting
-edge changes. If you're willing to deal with a less stable version
-of Althea or want to try the latest and greatest features use the
-nightly build download links in the table below.
+For stable builds visit the [releases](https://github.com/althea-mesh/althea-firmware/releases) page.
+
+The table below is for reference and **unstable nightly firmware!!** if a link 404's the latest nightly
+build for that device has failed. Please visit the releases page if you want images that are garunteed
+(or even likley to) work!
+
 
 Here are the existing hardware config names. As well as download
 links for nightly builds, please see the [flashing](#flashing) and [what do
 I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
 sections for details on what to expect flashing and using a nightly build.
 
-| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                          | Firmware Download                                                                                                              | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
+| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                          | Nightly Firmware Download                                                                                                      | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
 | --------------- | ----------- | ------------------------ | -------- | ------------------------------------|---------------------|-------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | n600            | ar71xx      | WD My Net N600 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBEAV0000NWTRECF/)           | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin)           | [link](https://openwrt.org/toh/wd/n600)                                                        | N/A                                                                                                                                                                                                                                                           |
 | n750            | ar71xx      | WD My Net N750 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBAJA0000NWTRECF/)           | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin)           | [link](https://openwrt.org/toh/wd/n750)                                                        | N/A                                                                                                                                                                                                                                                           |
