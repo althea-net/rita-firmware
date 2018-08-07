@@ -43,6 +43,3 @@
 
 - name: Download rust setup script
   shell: "curl https://sh.rustup.rs -sSf | sh -s -- -y "
-
-- name: Set rust default to nightly
-  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default nightly"
