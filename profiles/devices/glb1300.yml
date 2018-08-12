@@ -30,7 +30,7 @@ real_interfaces:
   - eth0
   - eth1
 # Estimated max wireguard throughput in kbits/s
-est_max_throughput: 40000
+est_max_throughput: 200000
 
 rust_targets:
   - arm-unknown-linux-musleabihf
