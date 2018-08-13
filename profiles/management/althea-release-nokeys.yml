@@ -11,3 +11,5 @@ password_auth: 0
 # Allows ssh from wan for management, in our deployments WAN port goes to mesh
 #  which isn't actually exposed to the larger internet.
 dropbear_externally_accessible: false
+
+release_feed: ""
