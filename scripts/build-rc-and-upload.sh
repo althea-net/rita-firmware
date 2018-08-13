@@ -8,4 +8,4 @@ do
 	ansible-playbook -e @$file -e @profiles/management/althea-release.yml -e gateway=true firmware-build.yml
 done
 
-rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/
+rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/rc/
