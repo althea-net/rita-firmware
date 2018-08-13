@@ -104,7 +104,9 @@ wg_public_key = "V0tgdQ2Ljx5xyw4UMQ6a7ZztQmyvqrUp/4jrFcCeG1w="
 [exit_client.reg_details]
 email = "placeholder@domain.com"
 
+{% if stats_enabled %}
 [stats_server]
 stats_address = "{{stats_server}}"
 stats_port = 8080
 stats_enabled = {{stats_enabled | lower}}
+{% endif %}
