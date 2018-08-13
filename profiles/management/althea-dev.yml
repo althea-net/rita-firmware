@@ -15,3 +15,5 @@ default_exit: "test"
 
 stats_enabled: true
 stats_server: "stats.altheamesh.com"
+
+release_feed: "rc/"
