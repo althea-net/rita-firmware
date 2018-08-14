@@ -11,7 +11,7 @@ on Ansible instead of bash. This creates a pretty readable workflow and makes it
 very easy to apply delta changes onto a modified build directory. Allowing a
 dramatic reduction in build time as well as very flexible build options.
 
-Althea itself is a incentivized mesh system. This bulid system creates a firmware
+Althea itself is an incentivized mesh system. This build system creates a firmware
 image preconfigured with Althea's fork of the Babeld mesh software as well as
 various utilities and tools to automatically pay mesh nodes for bandwidth.
 
@@ -23,18 +23,19 @@ WireGuard server.
 
 ## Is this where I get Althea?
 
-This page is for developers who want to help improve Althea.
-Or technically advanced users who want to try out cutting
-edge changes. If you're willing to deal with a less stable version
-of Althea or want to try the latest and greatest features use the
-nightly build download links in the table below.
+For stable builds visit the [releases](https://github.com/althea-mesh/althea-firmware/releases) page.
+
+The table below is for reference and **unstable nightly firmware!!** if a link 404's the latest nightly
+build for that device has failed. Please visit the releases page if you want images that are garunteed
+(or even likley to) work!
+
 
 Here are the existing hardware config names. As well as download
 links for nightly builds, please see the [flashing](#flashing) and [what do
-I do now?](#so-i-flashed-the-firmware,-what-do-i-do-now?)
+I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
 sections for details on what to expect flashing and using a nightly build.
 
-| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                          | Firmware Download                                                                                                              | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
+| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                          | Nightly Firmware Download                                                                                                      | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
 | --------------- | ----------- | ------------------------ | -------- | ------------------------------------|---------------------|-------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | n600            | ar71xx      | WD My Net N600 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBEAV0000NWTRECF/)           | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin)           | [link](https://openwrt.org/toh/wd/n600)                                                        | N/A                                                                                                                                                                                                                                                           |
 | n750            | ar71xx      | WD My Net N750 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBAJA0000NWTRECF/)           | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin)           | [link](https://openwrt.org/toh/wd/n750)                                                        | N/A                                                                                                                                                                                                                                                           |
@@ -48,19 +49,26 @@ sections for details on what to expect flashing and using a nightly build.
 | tplinkc7v2      | ar71xx      | TP Link Archer C7 V2     | $85 new  | Best medium budget choice           | Easy, webpage       | [Ebay](https://www.ebay.com/itm/401001274989)                                                     | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-archer-c7-v2-squashfs-factory-us.bin)      | [link](https://wiki.openwrt.org/toh/tp-link/archer-c5-c7-wdr7500)                              | N/A                                                                                                                                                                                                                                                           |
 | armorv2         | ipq806x     | Zyxel Armor V2 (nbg6817) | $160 new | Serious software perf issues        | Hard, ssh           | [Amazon](https://www.amazon.com/Wireless-StreamBoost-Beamforming-Antennas-NBG6817/dp/B01I4223HS/) | [link](https://updates.altheamesh.com/targets/ipq806x/generic/openwrt-ipq806x-zyxel_nbg6817-squashfs-sysupgrade.bin)           | [link](https://openwrt.org/toh/zyxel/nbg6817)                                                  | Yes [kernel](https://updates.altheamesh.com/targets/ipq806x/generic/openwrt-ipq806x-zyxel_nbg6817-squashfs-mmcblk0p4-kernel.bin) [rootfs](https://updates.altheamesh.com/targets/ipq806x/generic/openwrt-ipq806x-zyxel_nbg6817-squashfs-mmcblk0p5-rootfs.bin) |                                                                                                                                  
 | glb1300         | ipq40xx     | GL.iNet GL-B1300         | $90  new | AC wifi, 100mbps perf, easy to find | Easy, webpage       | [Amazon](https://www.amazon.com/GL-iNet-GL-B1300-Gigabit-Networking-pre-installed/dp/B079FJKZV8)  | [link](https://updates.altheamesh.com/targets/ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin)         | [link](https://github.com/lede-project/source/commit/04d3308b6248ef21a6f0bc3378b342906c2d2865) | N/A                                                                                                                                                                                                                                                           |
+| x86_64          | x86_64      | Any 64 bit x86 processor | varies   | Essentially any desktop or laptop   | Moderate, USB       | N/A                                                                                               | [link](https://updates.altheamesh.com/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz)                                         | Unzip, write to flash drive, boot from flash drive                                             | N/A                                                                                                                                                                                                                                                           |
 
 ---
 
 ## Getting Started Building Firmware
 
 First off you need a Linux machine with at least 15gb of free disk space,
-4gb of free ram and Ansible.
+4gb of free ram and Ansible >=2.5.
 
-On Ubuntu and Debian:
+On Ubuntu < 18.04 and Debian:
 
-> sudo apt install python-pip
+> curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
-> sudo pip install ansible
+> python get-pip.py
+
+> pip install --user ansible
+
+On Ubuntu >= 18.04:
+
+> sudo apt-get install ansible
 
 On Fedora:
 
@@ -75,35 +83,34 @@ Once you have Ansible you can use it to manage the rest of the dependencies:
 ```
 git clone https://github.com/althea-mesh/althea-firmware
 cd althea-firmware
-ansible-playbook first-time-setup.yml --ask-sudo-pass
+ansible-playbook first-time-setup.yml --become
 ```
 
 Type in your password to give Ansible permissions to install the required
 packages. This will also install Rust and add it to your PATH in your bashrc.
-We use Rust Nightly, the build script will update it for you.
 
 If you have a nonstandard setup, or just don't trust Ansible with root
 you may want to install dependencies manually using these commands.
 
 Debian:
 
-    sudo apt-get install build essential libncurses5-dev gawk git subversion libssl-dev gettext unzip zlib1g-dev file python systemtap-sdt-dev npm time
+    sudo apt-get install build-essential libncurses5-dev gawk git subversion libssl-dev gettext unzip zlib1g-dev file python systemtap-sdt-dev npm time curl
 
 Ubuntu:
 
-    sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core gettext libssl-dev unzip systemtap-sdt-dev npm time
+    sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core gettext libssl-dev unzip systemtap-sdt-dev npm time curl
 
 Centos:
 
-    sudo yum install subversion binutils bzip2 gcc gcc-c++ gawk gettext flex ncurses-devel zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker glibc glibc-devel glibc-static quilt ncurses-libs sed sdcc intltool sharutils bison wget git-core openssl-devel xz systemtap-sdt-devel npm time
+    sudo yum install subversion binutils bzip2 gcc gcc-c++ gawk gettext flex ncurses-devel zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker glibc glibc-devel glibc-static quilt ncurses-libs sed sdcc intltool sharutils bison wget git-core openssl-devel xz systemtap-sdt-devel npm time curl
 
 Fedora:
 
-    sudo dnf install subversion binutils bzip2 gcc gcc-c++ gawk gettext git-core flex ncurses-devel ncurses-compat-libs zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker perl-Thread-Queue glibc glibc-devel glibc-static quilt sed sdcc intltool sharutils bison wget openssl-devel systemtap-sdt-devel npm time
+    sudo dnf install subversion binutils bzip2 gcc gcc-c++ gawk gettext git-core flex ncurses-devel ncurses-compat-libs zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker perl-Thread-Queue glibc glibc-devel glibc-static quilt sed sdcc intltool sharutils bison wget openssl-devel systemtap-sdt-devel npm time curl
 
 Arch:
 
-    sudo pacman -S subversion binutils bzip2 gcc gcc-libs gawk gettext git flex ncurses zlib automake patch unzip perl glibc quilt sed sdcc intltool sharutils bison wget openssl systemtap npm time
+    sudo pacman -S subversion binutils bzip2 gcc gcc-libs gawk gettext git flex ncurses zlib automake patch unzip perl glibc quilt sed sdcc intltool sharutils bison wget openssl systemtap npm time curl
 
 Finally install [Rust](https://www.rustup.rs/) and add Rustup to your PATH
 
@@ -183,7 +190,7 @@ emergency room based recovery modes. So the n600, n750, and dir860l.
 
 ### Flashing Gotchas
 
-There's a known but in the Edgerouterx where the file system is not synced and corruption
+There's a known bug in the Edgerouterx where the file system is not synced and corruption
 can occur. When you flash the EdgerouterX and boot it for the first time _do not_ cut power
 until it's been running for at least a minute. This will give Rita time to sync to the disk.
 It should really take only a few seconds, but restoring a bricked device is enough of a pain
@@ -214,7 +221,7 @@ To add support for a device download the OpenWRT repository and run `make menuco
 select your target device as well as Althea's required packages. Wireguard (the metapackage)
 , ipset, althea-rust-binaries, althea-babeld, and luci (also the metapackage).
 
-Then run `make -j <num cores>' to build the firmware, this will take a while. When it's finished flash the resulting image. Login via ssh and copy`/etc/config/network`and`/etc/config/wireless`, you will edit these files into Althea templates that will reside in`roles/build-config/templates`. Look in that folder for existing examples. The requirements
+Then run `make -j <num cores>` to build the firmware, this will take a while. When it's finished flash the resulting image. Login via ssh and copy `/etc/config/network`and`/etc/config/wireless`, you will edit these files into Althea templates that will reside in `roles/build-config/templates`. Look in that folder for existing examples. The requirements
 are pretty simple, gateway mode has at least one dhcp wan port, every device must have at least
 one 'LAN' port if possible. To simplify debugging.
 

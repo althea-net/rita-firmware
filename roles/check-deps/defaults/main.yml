@@ -8,8 +8,7 @@ known_distros:
   - Ubuntu
 
 debian_deps:
-  - build
-  - essential
+  - build-essential
   - file
   - gawk
   - gettext
@@ -23,6 +22,7 @@ debian_deps:
   - time
   - unzip
   - zlib1g-dev
+  - curl
 
 centos_deps:
   - binutils
@@ -58,6 +58,7 @@ centos_deps:
   - xz
   - zlib-devel
   - zlib-static
+  - curl
 
 ubuntu_deps:
   - build-essential
@@ -74,6 +75,7 @@ ubuntu_deps:
   - time
   - unzip
   - zlib1g-dev
+  - curl
 
 fedora_deps:
   - binutils
@@ -109,6 +111,7 @@ fedora_deps:
   - wget
   - zlib-devel
   - zlib-static
+  - curl
 
 arch_deps:
   - automake
@@ -138,3 +141,4 @@ arch_deps:
   - unzip
   - wget
   - zlib
+  - curl
