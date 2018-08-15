@@ -10,7 +10,7 @@ config globals 'globals'
 {% if gateway %}
 config interface 'lan'
 	option type 'bridge'
-	option ifname 'eth4'
+	option ifname 'eth1'
 	option proto 'static'
 	option ipaddr '{{lan_ip}}'
 	option netmask '255.255.255.0'

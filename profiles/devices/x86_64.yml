@@ -16,16 +16,16 @@ channel: 11
 five_ghz_channel: 36
 
 listen_interfaces_client:
-  - eth04
+  - eth4
 
 listen_interfaces_gateway:
-  - eth1
   - eth2
   - eth3
+  - eth4
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
-  - eth4
+  - eth1
 
 # Reference value, see network.j2 to modify
 wan_interface: "eth0"
