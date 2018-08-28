@@ -112,7 +112,14 @@ Arch:
 
     sudo pacman -S subversion binutils bzip2 gcc gcc-libs gawk gettext git flex ncurses zlib automake patch unzip perl glibc quilt sed sdcc intltool sharutils bison wget openssl systemtap npm time curl
 
-Finally install [Rust](https://www.rustup.rs/) and add Rustup to your PATH
+Finally install [Rust](https://www.rustup.rs/)
+
+    curl https://sh.rustup.rs -sSf | sh
+
+Follow the onscreen instructions. Then add Rustup to your PATH. For a default install:
+
+    export PATH="$HOME/.cargo/bin:$PATH"
+    
 
 ## Building the firmware
 
