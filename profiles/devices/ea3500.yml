@@ -1,0 +1,37 @@
+
+conf_to_build: ea3500
+target: "kirkwood"
+device: "gl-b1300"
+package_id: arm_xscale
+image_name: "generic"
+extension: bin
+image_path: "kirkwood/generic/openwrt-kirkwood-linksys_audi-squashfs-factory.bin"
+
+channel: 11
+# 5ghz note only 20mhz channel widths
+five_ghz_channel: 36
+
+listen_interfaces_client:
+  - eth0.4
+
+# babel interfaces for gateway operation
+listen_interfaces_gateway:
+  - eth0.4
+  - eth0.5
+  - eth0.6
+
+# Reference value, see network.j2 to modify
+lan_interfaces:
+  - eth0.3
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth1"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 200000
+
+rust_target: armv5te-unknown-linux-musleabi
