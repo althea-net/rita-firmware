@@ -274,13 +274,13 @@ and connectivity.
 
 As of this writing the graphical user interface can be accessed at `http://192.168.10.1/althea` and will give you four options: Neighbors, Router Settings, Network, and Payments.
 
-Router Settings is probably the best place to start by changing the SSID and Passphrase defaults to something more suitable to your network setup. The 'Advanced Settings' is still under development and is only a placeholder at this time. 
+- Router Settings is probably the best place to start by changing the SSID and Passphrase defaults to something more suitable to your network setup. The Advanced Settings section is still under development and is only a placeholder at this time. 
 
-Network will present to you a list of Exit Nodes to register with. The Althea Mesh network uses secure tunnelling to keep traffic private and these nodes are where your traffic will exit. It is best to choose a node near your physical location. In order to register for an Exit Node you must enter a valid email address. A confirmation code will be sent to the email provided. Input the code into the registration field when asked. After confirmation you should see the list sort itself with your active exit at the top of the list. Nodes with a connection to the server will have green bars next to their name.
+- Network will present to you a list of Exit Nodes to register with. The Althea Mesh network uses secure tunnelling to keep traffic private and these nodes are where your traffic will exit. It is best to choose a node near your physical location. In order to register for an Exit Node you must enter a valid email address. A confirmation code will be sent to the email provided. Input the code into the registration field when asked. After confirmation you should see the list sort itself with your active exit at the top of the list. Nodes with a connection to the server will have green bars next to their name.
 
-Neighbors has a list of other devices on the network. The current page has no settings to change, but is purely informative.
+- Neighbors has a list of other devices on the network. The current page has no settings to change, but is purely informative.
 
-Payments page is under development and has no settings to change. Eventually, this will be the portal to adjust all payment metrics on the Althea Mesh network. The current network does not transfer payments or have any bandwidth costs associated with connectivity.
+- Payments page is under development and has no settings to change. Eventually, this will be the portal to adjust all payment metrics on the Althea Mesh network. The current network does not transfer payments or have any bandwidth costs associated with connectivity.
 
 ### The meshing, how does that work?
 
