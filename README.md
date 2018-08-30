@@ -260,19 +260,23 @@ WAN port.
 There are some exceptions to these rules, for example the aclite has only one physical port. Which is
 either mesh, or WAN depending on your settings.
 
-Now that you know what to plug in where you can plugin to the LAN port or login to the wifi SSID
-`AltheaHome` and use the default password `ChangeMe` (note the capitals). Once you're connected
-you can ssh into the router using `ssh root@192.168.10.1` this is passwordless, I strongly suggest
-running `passwd` and setting a proper password if you plan to use the device for a while.
+Now that you know what to plug in where you can plugin to the LAN port or login to the default wifi using SSID `AltheaHome` and password `ChangeMe` (note the capitals). As of this writing the graphical user interface can be accessed at `http://192.168.10.1/althea` and will give you four options: Neighbors, Router Settings, Network, and Payments.
+
+- Router Settings is probably the best place to start by changing the SSID and Passphrase defaults to something more suitable to your network setup. The Advanced Settings section is still under development and is only a placeholder at this time. 
+
+- Network will present to you a list of Exit Nodes to register with. The Althea Mesh network is proxied over a Wireguard VPN and is secure from inspection or attack by other nodes in
+the mesh or the backhaul connection provider. This security keeps traffic private and the nodes are where your traffic will exit. It is best to choose a node near your physical location. In order to register for an Exit Node you must enter a valid email address. A confirmation code will be sent to the email provided. Input the code into the registration field when asked. After confirmation you should see the list sort itself with your active exit at the top of the list. Nodes with a connection to the server will have green bars next to their name.
+
+- Neighbors has a list of other devices on the network. The current page has no settings to change, but is purely informative.
+
+- Payments page is under development and has no settings to change. Eventually, this will be the portal to adjust all payment metrics on the Althea Mesh network. The current network does not transfer payments or have any bandwidth costs associated with connectivity.
 
 If an existing internet connection is plugged into the WAN port or the device is connected by the
 mesh port to any other device with a WAN connection you should get proper internet access over the
-LAN. This is proxied over a Wireguard VPN and is secure from inspection or attack by other nodes in
-the mesh or the backhaul connection provider.
+LAN and through the exit node's tunnel.
 
-In the very possible case that this doesn't work right away you can run the `wg` command via ssh.
-If you see a tunnel called `wg_exit` everything has come online neatly. If you don't see any tunnels
-running (defined recent handshakes) you should debug the local tunnel/billing daemon. Run top and
+In the very possible case that this doesn't work right away you can ssh using `ssh root@192.168.10.1`. This connection is passwordless and I strongly suggest
+running `passwd` and setting a proper password if you plan to use the device for a while. Once logged into ssh, run the `wg` command. If you see a tunnel called `wg_exit` everything has come online neatly. If you don't see any tunnels running (defined recent handshakes) you should debug the local tunnel/billing daemon. Run top and
 see if `rita` is on the list. If it's not check /var/log/rita.log for the crash error.
 
 If you see successful Wireguard interfaces but no `wg_exit` then the problem is not on your router
@@ -280,31 +284,17 @@ but either in the path from the network to the exit server or with the exit serv
 whatever device on the mesh is connected with the WAN port and see if it has a `wg_exit` interface
 and connectivity.
 
-As of this writing the graphical user interface can be accessed at `http://192.168.10.1/althea` and will give you four options: Neighbors, Router Settings, Network, and Payments.
-
-- Router Settings is probably the best place to start by changing the SSID and Passphrase defaults to something more suitable to your network setup. The Advanced Settings section is still under development and is only a placeholder at this time. 
-
-- Network will present to you a list of Exit Nodes to register with. The Althea Mesh network uses secure tunnelling to keep traffic private and these nodes are where your traffic will exit. It is best to choose a node near your physical location. In order to register for an Exit Node you must enter a valid email address. A confirmation code will be sent to the email provided. Input the code into the registration field when asked. After confirmation you should see the list sort itself with your active exit at the top of the list. Nodes with a connection to the server will have green bars next to their name.
-
-- Neighbors has a list of other devices on the network. The current page has no settings to change, but is purely informative.
-
-- Payments page is under development and has no settings to change. Eventually, this will be the portal to adjust all payment metrics on the Althea Mesh network. The current network does not transfer payments or have any bandwidth costs associated with connectivity.
-
 ### The meshing, how does that work?
 
 Babel, and by extension Althea works by building a L3 network out of L2 links, 'mesh ports' on
-your router will have any link plugged into them searched for peers and connections made. For
+your router will have any link plugged into them search for peers and connect. For
 example if you simply use an ethernet cable to link the mesh ports of a set of routers they will
 connect to each other and pass connections between each other.
 
 In a real network point to point wireless links will be used. You can find instructions on how
-to both select radios and set htem up in [the Althea network getting started guide](https://docs.google.com/document/d/1TeFIUjqG1I4DYxRrkpxk4yEUQoxhIVxkccYWwT5VQD8/edit)
+to both select radios and set them up in [the Althea network getting started guide](https://docs.google.com/document/d/1TeFIUjqG1I4DYxRrkpxk4yEUQoxhIVxkccYWwT5VQD8/edit)
 
-While point to point links are insurmountably superior to meshing with the built in device
-radios there may be some situations where you may want to do that for a hop or two to reduce
-the number of point to point links or otherwise make life easier. In that case you'll need
-to build a firmware with the flag `mesh_wifi=true` you can pass it with `-e` to the firmware
-builder or set it in a management profile.
+While point to point links are insurmountably superior to meshing with the built in device radios there may be some situations where you may want to do that for a hop or two to reduce the number of point to point links or otherwise make life easier. In that case you'll need to access the Router Settings page at `http://192.168.10.1/althea` and select advanced settings. Checkmark 'Enable Mesh Over Wifi', close the modal, and save your work.
 
-We may switch the nightly firmwares to meshing on built in wifi if there's a larget demand
+We may switch the nightly firmwares to meshing on built in wifi if there's a larger demand
 for that.
