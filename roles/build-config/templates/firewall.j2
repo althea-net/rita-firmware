@@ -36,15 +36,6 @@ config rule
 	option proto		icmp
 	option target		ACCEPT
 
-{% if dropbear_externally_accessible %}
-
-config rule
-	option name		Allow-SSH
-	option src		mesh
-	option dest_port	22
-	option target		ACCEPT
-{% endif %}
-
 config rule
 	option name		Allow-MLD
 	option src		mesh

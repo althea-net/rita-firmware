@@ -8,9 +8,6 @@ wifi_encryption: psk2+tkip+aes
 wifi_key: ChangeMe
 
 password_auth: 1
-# Allows ssh from wan for management, in our deployments WAN port goes to mesh
-#  which isn't actually exposed to the larger internet.
-dropbear_externally_accessible: true
 default_exit: "test"
 
 stats_enabled: false
