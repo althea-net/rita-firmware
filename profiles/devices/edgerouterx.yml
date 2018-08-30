@@ -30,6 +30,4 @@ real_interfaces:
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 300000 
 
-rust_targets:
-  - mipsel-unknown-linux-gnu
-  - mipsel-unknown-linux-musl
+rust_target: mipsel-unknown-linux-musl
