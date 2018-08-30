@@ -16,8 +16,7 @@
   register: source_version
 
 - name: Grab rust targets for hardware profile
-  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup target add {{item}}"
-  with_items: "{{rust_targets}}"
+  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup target add {{rust_target}}"
   ignore_errors: true
 
 - name: Update Rust
