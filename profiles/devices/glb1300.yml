@@ -32,6 +32,4 @@ real_interfaces:
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 200000
 
-rust_targets:
-  - arm-unknown-linux-musleabihf
-  - armv7-unknown-linux-musleabihf
+rust_target: armv7-unknown-linux-musleabihf
