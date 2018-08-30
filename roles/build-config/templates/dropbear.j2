@@ -8,12 +8,4 @@ config dropbear
         option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
         option Interface 'wg_exit'
-
-{% else %}
-{% if dropbear_externally_accessible %}
-config dropbear
-        option PasswordAuth '{{password_auth}}'
-        option Port         '{{ssh_port}}'
-        option Interface 'wg_exit'
-{% endif %}
 {% endif %}
