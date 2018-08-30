@@ -18,6 +18,7 @@ wg_private_key = ""
 wg_private_key_path = "/tmp/priv"
 wg_public_key = ""
 wg_start_port = 60000
+tunnel_timeout_seconds = 900
 {% if gateway %}
 peer_interfaces = [{% for interface in listen_interfaces_gateway %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% elif extender %}
@@ -103,6 +104,13 @@ wg_public_key = "V0tgdQ2Ljx5xyw4UMQ6a7ZztQmyvqrUp/4jrFcCeG1w="
 
 [exit_client.reg_details]
 email = "placeholder@domain.com"
+
+[dao]
+dao_enforcement = true
+cache_timeout_seconds = 600
+node_list = ["http://sasquatch.network:9545"]
+dao_addresses = []
+
 
 {% if stats_enabled %}
 [stats_server]
