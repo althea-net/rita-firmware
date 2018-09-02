@@ -85,7 +85,7 @@ Once you have Ansible you can use it to manage the rest of the dependencies:
 ```
 git clone https://github.com/althea-mesh/althea-firmware
 cd althea-firmware
-ansible-playbook first-time-setup.yml --become
+ansible-playbook first-time-setup.yml -bK
 ```
 
 Type in your password to give Ansible permissions to install the required
