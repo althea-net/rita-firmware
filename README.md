@@ -114,6 +114,10 @@ Arch:
 
     sudo pacman -S subversion binutils bzip2 gcc gcc-libs gawk gettext git flex ncurses zlib automake patch unzip perl glibc quilt sed sdcc intltool sharutils bison wget openssl systemtap npm time curl
 
+You can then install Yarn using npm
+
+sudo npm -g install yarn
+
 Finally install [Rust](https://www.rustup.rs/)
 
     curl https://sh.rustup.rs -sSf | sh

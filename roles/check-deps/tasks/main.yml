@@ -43,3 +43,6 @@
 
 - name: Download rust setup script
   shell: "curl https://sh.rustup.rs -sSf | sh -s -- -y "
+
+- name: Install yarn
+  shell: "npm -g install yarn"
