@@ -13,13 +13,13 @@
       when: download_result is failed
 
     - name: Build the firmware, could take a while
-      shell: "cd {{source_dir}}; nice make -j{{ansible_processor_vcpus|int * 4}} world"
+      shell: "cd {{source_dir}}; export RUST_TRIPLE={{rust_target}}; nice make -j{{ansible_processor_vcpus|int * 4}} world"
       register: build_result
       ignore_errors: true
 
     - name: Print help on failure
       fail:
-        msg: "Firmware compliation failed, run 'cd {{source_dir}}; make V=s world' to see why."
+        msg: "Firmware compliation failed, run 'cd {{source_dir}}; export RUST_TRIPLE={{rust_target}}; make V=s world' to see why."
       when: build_result is failed
 
     - name: Print Success

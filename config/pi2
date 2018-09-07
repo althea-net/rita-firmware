@@ -1,36 +1,94 @@
-CONFIG_TARGET_ramips=y
-CONFIG_TARGET_ramips_mt7621=y
-CONFIG_TARGET_ramips_mt7621_DEVICE_ubnt-erx=y
+CONFIG_TARGET_brcm2708=y
+CONFIG_TARGET_brcm2708_bcm2709=y
+CONFIG_TARGET_brcm2708_bcm2709_DEVICE_rpi-2=y
+CONFIG_DEVEL=y
+CONFIG_CCACHE=y
+# CONFIG_FEED_althea is not set
+CONFIG_IB=y
+CONFIG_IB_STANDALONE=y
+CONFIG_IMAGEOPT=y
+# CONFIG_KERNEL_MAGIC_SYSRQ is not set
+# CONFIG_KERNEL_SWAP is not set
+CONFIG_LIBCURL_COOKIES=y
+CONFIG_LIBCURL_FILE=y
+CONFIG_LIBCURL_FTP=y
+CONFIG_LIBCURL_HTTP=y
+CONFIG_LIBCURL_MBEDTLS=y
+CONFIG_LIBCURL_NO_SMB="!"
+CONFIG_LIBCURL_PROXY=y
+CONFIG_MAKE_TOOLCHAIN=y
 CONFIG_OPENSSL_WITH_DEPRECATED=y
 CONFIG_OPENSSL_WITH_EC=y
 CONFIG_OPENSSL_WITH_NPN=y
 CONFIG_OPENSSL_WITH_PSK=y
 CONFIG_OPENSSL_WITH_SRP=y
+CONFIG_PACKAGE_adblock=y
 CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-cron-jobs=y
 CONFIG_PACKAGE_althea-dash=y
 CONFIG_PACKAGE_althea-rust-binaries=y
-CONFIG_PACKAGE_grep=y
+CONFIG_PACKAGE_ar=m
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_fwknopd=m
+CONFIG_PACKAGE_gdb=m
+CONFIG_PACKAGE_glib2=y
+CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_ip-tiny=y
 CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
+CONFIG_PACKAGE_iptables-mod-ipopt=y
+CONFIG_PACKAGE_kmod-ifb=y
+CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
+CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-ipt-ipset=y
 CONFIG_PACKAGE_kmod-nfnetlink=y
+CONFIG_PACKAGE_kmod-sched-cake=y
+CONFIG_PACKAGE_kmod-sched-core=y
 CONFIG_PACKAGE_kmod-udptunnel4=y
 CONFIG_PACKAGE_kmod-udptunnel6=y
+CONFIG_PACKAGE_kmod-usb-ledtrig-usbport=y
+CONFIG_PACKAGE_kmod-usb-ohci=y
 CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_libattr=y
+CONFIG_PACKAGE_libbfd=m
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_libexpat=m
+CONFIG_PACKAGE_libffi=y
+CONFIG_PACKAGE_libfko=m
 CONFIG_PACKAGE_libipset=y
-CONFIG_PACKAGE_libiwinfo=y
 CONFIG_PACKAGE_libiwinfo-lua=y
 CONFIG_PACKAGE_liblua=y
+CONFIG_PACKAGE_libmbedtls=y
 CONFIG_PACKAGE_libmnl=y
+CONFIG_PACKAGE_libmpdclient=m
+CONFIG_PACKAGE_libncurses=y
+CONFIG_PACKAGE_libopcodes=m
 CONFIG_PACKAGE_libopenssl=y
+CONFIG_PACKAGE_libpcap=m
 CONFIG_PACKAGE_libpcre=y
+CONFIG_PACKAGE_libqrencode=m
+CONFIG_PACKAGE_libreadline=m
 CONFIG_PACKAGE_libsqlite3=y
+CONFIG_PACKAGE_libstdcpp=m
 CONFIG_PACKAGE_libubus-lua=y
+CONFIG_PACKAGE_libuci-lua=y
+CONFIG_PACKAGE_libupnp=m
+CONFIG_PACKAGE_libupnpp=m
+CONFIG_PACKAGE_libustream-openssl=y
 CONFIG_PACKAGE_lua=y
+CONFIG_PACKAGE_make=m
+CONFIG_PACKAGE_objdump=m
+CONFIG_PACKAGE_qrencode=m
 CONFIG_PACKAGE_rpcd=y
 CONFIG_PACKAGE_rpcd-mod-rrdns=y
+CONFIG_PACKAGE_sqm-scripts=y
+CONFIG_PACKAGE_tc=y
+CONFIG_PACKAGE_terminfo=y
 CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
+CONFIG_PACKAGE_upmpdcli=m
+CONFIG_PACKAGE_valgrind=m
 CONFIG_PACKAGE_wireguard=y
 CONFIG_PACKAGE_wireguard-tools=y
 CONFIG_PACKAGE_zlib=y
@@ -126,6 +184,7 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_archer-c7-v2 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_archer-c7-v2-il is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_archer-c7-v4 is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_archer-c7-v5 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_arduino-yun is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_bhr-4grv2 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_bsb is not set
@@ -144,6 +203,7 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_cf-e520n is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_cf-e530n is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_cpe210-220-v1 is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_cpe210-v2 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_cpe505n is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_cpe510-520-v1 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_cpe830 is not set
@@ -163,10 +223,16 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_dragino2 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_e1700ac-v2-16M is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_e1700ac-v2-8M is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_e558-v2-16M is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_e558-v2-8M is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_e600g-v2-16M is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_e600g-v2-8M is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_e600gac-v2-16M is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_e600gac-v2-8M is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_e750a-v4-16M is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_e750a-v4-8M is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_e750g-v8-16M is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_e750g-v8-8M is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_eap120-v1 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_el-m150 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_el-mini is not set
@@ -175,6 +241,8 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ew-dorin is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ew-dorin-router is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_fritz300e is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_fritz4020 is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_fritz450e is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_gl-ar150 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_gl-ar300 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_gl-ar300m is not set
@@ -186,6 +254,7 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_gl-usb150 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_hiwifi-hc6361 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_jwap230 is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_koala is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_lan-turtle is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_lima is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_mc-mac1200r is not set
@@ -245,6 +314,7 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wr842n-v3 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wr902ac-v1 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wr942n-v1 is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_ts-d084 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubdev01 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-air-gateway is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-air-gateway-pro is not set
@@ -291,82 +361,4 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_mikrotik is not set
 # CONFIG_TARGET_ar71xx_nand is not set
 # CONFIG_TARGET_ar71xx_tiny is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_ArcherC20i is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_ArcherC50v1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_ArcherMR200 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_ai-br100 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_alfa-network_ac1200rm is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_c108 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_cf-wr800n is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_cs-qr10 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_d240 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_db-wrt01 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_dch-m225 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_dir-810l is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_dlink_dwr-116-a1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_dlink_dwr-921-c1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_dlink_dwr-921-c3 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_e1700 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_ex2700 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_ex3700-ex3800 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_gl-mt300a is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_gl-mt300n is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_gl-mt750 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_hc5661 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_hc5761 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_hc5861 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_kn_rc is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_kn_rf is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_kng_rc is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_microwrt is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_miwifi-mini is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mlw221 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mlwg2 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mt7620a is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mt7620a_mt7530 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mt7620a_mt7610e is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mt7620a_v22sg is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mzk-750dhp is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mzk-ex300np is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_mzk-ex750np is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_na930 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_oy-0001 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_psg1208 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_psg1218a is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_psg1218b is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_rp-n53 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_rt-ac51u is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_rt-n12p is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_rt-n14u is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_tiny-ac is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_tplink_c20-v1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_u25awf-h1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_vonets_var11n-300 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_we1026-5g-16m is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_whr-1166d is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_whr-300hp2 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_whr-600d is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_wmr-300 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_wn3000rpv3 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_wrh-300cr is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_wrtnode is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_wt3020-4M is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_wt3020-8M is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_y1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_y1s is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_youku-yk1 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-ape522ii is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-cpe102 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-wa05 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-we2026 is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-we826-16M is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-we826-32M is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zbt-wr8305rt is not set
-# CONFIG_TARGET_ramips_mt7620_DEVICE_zte-q7 is not set
-# CONFIG_TARGET_ramips_mt7620_Default is not set
-CONFIG_PACKAGE_libustream-openssl=y
-CONFIG_PACKAGE_ca-bundle=y
-CONFIG_PACKAGE_ca-certificates=y
-CONFIG_PACKAGE_althea-cron-jobs=y
-CONFIG_FEED_althea=n
-CONFIG_PACKAGE_sqm-scripts=y
+# CONFIG_TARGET_brcm2708_bcm2708_DEVICE_rpi is not set

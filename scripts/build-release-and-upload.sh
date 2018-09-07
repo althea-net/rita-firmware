@@ -9,4 +9,3 @@ do
 done
 
 rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/
-rsync -ahz --delete build/bin/targets $SERVER:$HTTP_DIR/
