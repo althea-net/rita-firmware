@@ -3,7 +3,6 @@ keys_to_insert: []
 
 wifi_ssid: AltheaHome
 wifi_disabled: 0
-wifi_encryption: psk2+tkip+aes
 wifi_key: ChangeMe
 
 password_auth: 1
