@@ -21,3 +21,4 @@ lan_ip: "192.168.10.1"
 
 stats_enabled: false
 stats_server: "nope.nope"
+wifi_encryption: psk2+tkip+aes

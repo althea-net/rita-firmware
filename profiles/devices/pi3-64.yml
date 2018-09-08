@@ -30,3 +30,6 @@ real_interfaces:
 est_max_throughput: 300000
 
 rust_target: aarch64-unknown-linux-gnu
+
+# Rpi seems to have trouble with encryption for some reason
+wifi_encryption: none
