@@ -21,8 +21,6 @@ wg_start_port = 60000
 tunnel_timeout_seconds = 900
 {% if gateway %}
 peer_interfaces = [{% for interface in listen_interfaces_gateway %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
-{% elif extender %}
-peer_interfaces = [{% for interface in listen_interfaces_extender %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% else %}
 peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% endif %}
