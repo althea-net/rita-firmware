@@ -1,7 +1,7 @@
 
 conf_to_build: ea3500
 target: "kirkwood"
-device: "gl-b1300"
+device: "ea3500"
 package_id: arm_xscale
 image_name: "generic"
 extension: bin
