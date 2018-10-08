@@ -13,14 +13,16 @@ five_ghz_channel: 165
 listen_interfaces_client:
   - eth0.2 # There is only one port on this device, so all ethernet ports needs
   - eth0.3 # <port-name>.<vlan number> 2 is WAN, 1 is LAN1 count up from there
-           # for gateway/extender for home version VLAN 3 is LAN 4 and VLAN 1 is
-           # all other eth ports.
+  - wlan2  # for gateway/extender for home version VLAN 3 is LAN 4 and VLAN 1 is
+  - wlan3  # all other eth ports.
 
 # babel interfaces for gateway operation
 listen_interfaces_gateway:
   - eth0.3
   - eth0.4
   - eth0.5
+  - wlan2
+  - wlan3
 
 # Reference value, see network.j2 to modify
 lan_interfaces:

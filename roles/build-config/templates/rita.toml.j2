@@ -21,8 +21,6 @@ wg_start_port = 60000
 tunnel_timeout_seconds = 900
 {% if gateway %}
 peer_interfaces = [{% for interface in listen_interfaces_gateway %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
-{% elif extender %}
-peer_interfaces = [{% for interface in listen_interfaces_extender %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% else %}
 peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% endif %}
@@ -33,6 +31,7 @@ manual_peers = ["test.altheamesh.com", "apac.altheamesh.com", "exit.altheamesh.c
 global_non_mesh_ip = ""
 conf_link_local = true
 default_route = []
+device = "{{device}}"
 
 [exit_client]
 wg_listen_port = 59999
