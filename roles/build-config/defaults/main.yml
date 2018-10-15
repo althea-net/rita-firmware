@@ -1,4 +1,6 @@
 gateway: true
+logging_enabled: false
+logging_level: "WARN"
 source_dir: build
 disable_password_login: false
 insert_keys: false

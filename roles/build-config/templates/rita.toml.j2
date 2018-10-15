@@ -111,9 +111,10 @@ node_list = ["http://sasquatch.network:9545"]
 dao_addresses = []
 
 
-{% if stats_enabled %}
-[stats_server]
-stats_address = "{{stats_server}}"
-stats_port = 8080
-stats_enabled = {{stats_enabled | lower}}
+[log]
+{% if logging_enabled %}
+enabled = true
+{% else %}
+enabled = true
 {% endif %}
+level = {{logging_level}}

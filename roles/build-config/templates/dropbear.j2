@@ -3,9 +3,20 @@ config dropbear
         option Port         '{{ssh_port}}'
         option Interface 'lan'
 
+{% if insert_keys %}
 {% if gateway %}
+{% for interface in listen_interfaces_gateway %}
 config dropbear
-        option PasswordAuth '{{password_auth}}'
+        option PasswordAuth '0'
         option Port         '{{ssh_port}}'
-        option Interface 'wg_exit'
+        option Interface '{{interface}}'
+{% endfor %}
+{% else %}
+{% for interface in listen_interfaces_client %}
+config dropbear
+        option PasswordAuth '0'
+        option Port         '{{ssh_port}}'
+        option Interface '{{interface}}'
+{% endfor %}
+{% endif %}
 {% endif %}
