@@ -7,7 +7,7 @@
 conf_to_build: x86_64
 target: "x86_64"
 device: "64"
-package_id: x86_64/
+package_id: x86_64
 image_name: "64"
 extension: img.gz
 image_path: "x86_64/64/openwrt-x86-64-rootfs-ext4.img.gz"
