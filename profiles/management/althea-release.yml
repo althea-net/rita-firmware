@@ -1,7 +1,8 @@
 default_exit: "test"
 insert_keys: false
 keys_to_insert: []
-wifi_ssid: AltheaHome
+wifi_ssid_two_ghz: AltheaHome
+wifi_ssid_five_ghz: AltheaHome-Fast
 wifi_disabled: 0
 wifi_key: ChangeMe
 
