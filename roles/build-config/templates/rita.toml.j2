@@ -6,7 +6,6 @@ buffer_period = 3
 eth_address = "0x0101010101010101010101010101010101010101"
 
 [network]
-mesh_ip = "0.0.0.0"
 bounty_ip = "fd00::1337:0e1f"
 babel_port = 6872
 rita_contact_port = 4874
@@ -14,9 +13,7 @@ rita_hello_port = 4876
 rita_dashboard_port = 4877
 rita_tick_interval = 5
 bounty_port = 8888
-wg_private_key = ""
 wg_private_key_path = "/tmp/priv"
-wg_public_key = ""
 wg_start_port = 60000
 tunnel_timeout_seconds = 900
 {% if gateway %}
@@ -28,7 +25,6 @@ peer_interfaces = [{% for interface in listen_interfaces_client %}"{{interface}}
 external_nic = "{{wan_interface}}"
 {% endif %}
 manual_peers = ["test.altheamesh.com", "apac.altheamesh.com", "exit.altheamesh.com", "canada-east.altheamesh.com", "aus.altheamesh.com", "borked.altheamesh.com", "bogota.altheamesh.com"]
-global_non_mesh_ip = ""
 conf_link_local = true
 default_route = []
 device = "{{device}}"
