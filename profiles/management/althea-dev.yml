@@ -15,5 +15,5 @@ stats_server: "stats.altheamesh.com"
 release_feed: "rc/"
 
 node_list:
-        - "sasquatch.network:19545"
-        - "192.99.7.115:8545"
+        - "http://sasquatch.network:19545"
+        - "http://192.99.7.115:8545"
