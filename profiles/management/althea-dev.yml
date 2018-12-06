@@ -13,3 +13,7 @@ stats_enabled: false
 stats_server: "stats.altheamesh.com"
 
 release_feed: "rc/"
+
+node_list:
+        - "sasquatch.network:19545"
+        - "192.99.7.115:8545"
