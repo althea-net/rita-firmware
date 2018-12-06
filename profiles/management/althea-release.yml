@@ -11,5 +11,5 @@ password_auth: 0
 release_feed: ""
 
 node_list:
-        - "sasquatch.network:19545"
-        - "192.99.7.115:8545"
+        - "http://sasquatch.network:19545"
+        - "http://192.99.7.115:8545"
