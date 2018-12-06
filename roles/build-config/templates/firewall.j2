@@ -100,6 +100,11 @@ config rule
 	option dest_port	4876
 	option target		ACCEPT
 
+config rule
+	option name		Allow-Rita-Payments
+	option src		mesh
+	option dest_port	4874
+	option target		ACCEPT
 
 config rule
 	option name		Allow-Rita-Tunnels

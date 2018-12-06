@@ -1,9 +1,6 @@
 [payment]
-pay_threshold = "0"
-close_threshold = "-1000000000"
-close_fraction = "100"
 buffer_period = 3
-eth_address = "0x0101010101010101010101010101010101010101"
+node_list = [{% for node in node_list %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
 
 [network]
 bounty_ip = "fd00::1337:0e1f"
@@ -40,7 +37,7 @@ description = "The Althea testing exit. Unstable!"
 state = "New"
 [exit_client.exits.test.id]
 mesh_ip = "fd00::1337:0e1f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "hw2rXXaIOfbcOXbvejB3AyuoSAb3QhPXjC5MwxRqkls="
 
 [exit_client.exits.borked]
@@ -49,7 +46,7 @@ description = "Borked! For developers only!"
 state = "New"
 [exit_client.exits.borked.id]
 mesh_ip = "fd00::1337:0e6f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "4f3TBCL2HxxPreajT+FsAYzmQa0ZmeYYNHvpORX9tm8="
 
 [exit_client.exits.us_west]
@@ -58,7 +55,7 @@ description = "The Althea Production US exit"
 state = "New"
 [exit_client.exits.us_west.id]
 mesh_ip = "fd00::1337:0e2f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "jkIodvXKgij/rAEQXFEPJpls6ooxXJEC5XlWA1uUPUg="
 
 [exit_client.exits.canada_east]
@@ -67,7 +64,7 @@ description = "Althea production Canada Exit"
 state = "New"
 [exit_client.exits.canada_east.id]
 mesh_ip = "fd00::1337:0e3f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "sA76hy4X2nPhccGJeBClVUzZ6bntGrUD0GjBJDjVYBE="
 
 [exit_client.exits.apac]
@@ -76,7 +73,7 @@ description = "In Singapore"
 state = "New"
 [exit_client.exits.apac.id]
 mesh_ip = "fd00::1337:0e4f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "1kKSpzdhI4kfqeMqch9I1bXqOUXeKN7EQBecVzW60ys="
 
 [exit_client.exits.aus]
@@ -85,7 +82,7 @@ description = "Althea testing exit in Australia"
 state = "New"
 [exit_client.exits.aus.id]
 mesh_ip = "fd00::1337:0e5f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "z3aS2DNWWrbpMYZra2BuoV4gjcVTHVxinKAi4H8t7m8="
 
 [exit_client.exits.bogota]
@@ -94,7 +91,7 @@ description = "Bogota Colombia!"
 state = "New"
 [exit_client.exits.bogota.id]
 mesh_ip = "fd00::1337:0e7f"
-eth_address = "0x0101010101010101010101010101010101010101"
+eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
 wg_public_key = "V0tgdQ2Ljx5xyw4UMQ6a7ZztQmyvqrUp/4jrFcCeG1w="
 
 [exit_client.reg_details]
@@ -103,7 +100,7 @@ email = "placeholder@domain.com"
 [dao]
 dao_enforcement = true
 cache_timeout_seconds = 600
-node_list = ["http://sasquatch.network:9545"]
+node_list = [{% for node in node_list %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
 dao_addresses = []
 
 
