@@ -1,3 +1,3 @@
 repo: https://github.com/openwrt/openwrt
-version: v18.06.1
+version: 6e104c63d678518f93425e5e34f6caf75228024c
 source_dir: build/
