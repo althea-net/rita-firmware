@@ -81,7 +81,6 @@ CONFIG_PACKAGE_terminfo=y
 CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
 CONFIG_PACKAGE_upmpdcli=m
-CONFIG_PACKAGE_valgrind=m
 CONFIG_PACKAGE_wireguard=y
 CONFIG_PACKAGE_wireguard-tools=y
 CONFIG_PACKAGE_zlib=y
