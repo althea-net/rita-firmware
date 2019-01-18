@@ -3,8 +3,8 @@ target: "ramips"
 device: "ubnt-erx"
 package_id: mipsel_24kc
 image_name: "mt7621"
-extension: tar
-image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar"
+extension: bin
+image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.bin"
 
 listen_interfaces_client:
   - eth0.1 # port 0
