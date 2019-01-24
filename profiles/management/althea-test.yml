@@ -1,6 +1,6 @@
 # This profile is for testing of Althea networks and as such enables remote management features
-# if you are deploying many devices under your control consider changing the keys and default 
-# exit in order to redirect logs and allow universal access. 
+# if you are deploying many devices under your control consider changing the keys and default
+# exit in order to redirect logs and allow universal access.
 
 default_exit: "test"
 insert_keys: true
@@ -13,10 +13,8 @@ wifi_ssid_five_ghz: AltheaHome-5
 wifi_disabled: 0
 wifi_key: ChangeMe
 
-password_auth: 0
+password_auth: "yes"
 
 release_feed: ""
 
-node_list:
-        - "http://sasquatch.network:19545"
-        - "http://192.99.7.115:8545"
+remote_mesh_access: true
