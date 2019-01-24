@@ -79,6 +79,7 @@ dao_addresses = []
 {% if logging_enabled %}
 enabled = true
 {% else %}
-enabled = true
+enabled = false
 {% endif %}
 level = "{{logging_level}}"
+dest_url = "{{logging_url}}"
