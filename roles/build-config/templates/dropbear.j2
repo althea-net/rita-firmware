@@ -1,8 +1,8 @@
 config dropbear
-        option PasswordAuth '0'
+        option PasswordAuth 'no'
         option Port         '{{ssh_port}}'
 
 config dropbear
-        option PasswordAuth '1' # useful but not always great
+        option PasswordAuth '{{password_auth}}'
         option Port         '{{ssh_port}}'
         option Interface 'lan'

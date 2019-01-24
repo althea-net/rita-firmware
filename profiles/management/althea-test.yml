@@ -13,10 +13,8 @@ wifi_ssid_five_ghz: AltheaHome-5
 wifi_disabled: 0
 wifi_key: ChangeMe
 
-password_auth: 0
+password_auth: "yes"
 
 release_feed: ""
 
-node_list:
-        - "http://sasquatch.network:19545"
-        - "http://192.99.7.115:8545"
+remote_mesh_access: true

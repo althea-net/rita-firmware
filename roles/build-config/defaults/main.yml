@@ -3,6 +3,7 @@ logging_enabled: false
 logging_level: "WARN"
 source_dir: build
 disable_password_login: false
+remote_mesh_access: false
 insert_keys: false
 keys_to_insert:
   - ""
@@ -14,8 +15,8 @@ wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
 
 # literally everything
 mesh_subnets:
-  - '8000::/1'
-  - '0000::/1'
+  - "8000::/1"
+  - "0000::/1"
 
 wifi_key: "ChangeMe"
 
