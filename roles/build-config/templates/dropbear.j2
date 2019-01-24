@@ -1,22 +1,8 @@
 config dropbear
+        option PasswordAuth '0'
+        option Port         '{{ssh_port}}'
+
+config dropbear
         option PasswordAuth '1' # useful but not always great
         option Port         '{{ssh_port}}'
         option Interface 'lan'
-
-{% if insert_keys %}
-{% if gateway %}
-{% for interface in listen_interfaces_gateway %}
-config dropbear
-        option PasswordAuth '0'
-        option Port         '{{ssh_port}}'
-        option Interface '{{interface}}'
-{% endfor %}
-{% else %}
-{% for interface in listen_interfaces_client %}
-config dropbear
-        option PasswordAuth '0'
-        option Port         '{{ssh_port}}'
-        option Interface '{{interface}}'
-{% endfor %}
-{% endif %}
-{% endif %}
