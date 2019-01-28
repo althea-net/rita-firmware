@@ -15,46 +15,44 @@ Althea itself is an incentivized mesh system. This build system creates a firmwa
 image preconfigured with Althea's fork of the Babeld mesh software as well as
 various utilities and tools to automatically pay mesh nodes for bandwidth.
 
-End user traffic over the mesh is secured with WireGuard, this repository also
-includes several helpful features to easily configure devices to work with a
-WireGuard server.
 
 ---
 
 ## Is this where I get Althea?
 
-For stable builds visit the [releases](https://github.com/althea-mesh/althea-firmware/releases) page.
+If you are an Althea user, talk to your local network organizer or buy a [preflashed-device](https://althea-routers.myshopify.com/)
+this page is for advanced users and network organizers.
 
-The table below is for reference and **unstable nightly firmware!!** if a link 404's the latest nightly
-build for that device has failed. Please visit the releases page if you want images that are garunteed
-(or even likley to) work!
+If you are an advanced user or a network organizer yes, this is where you get the firmware images
+to install Althea on routers. For supported devices we have special supported images, these firmware
+images send some non-identifying data such as bug reports, crashes, and mesh status logs to Althea.
 
+They also allow for easy remote access to the router by staff or network organizers. We've found these
+to be very useful in fixing problems in our test networks. This is of course not included in the primary download links.
 
-Here are the existing hardware config names. As well as download
-links for nightly builds, please see the [flashing](#flashing) and [what do
-I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
-sections for details on what to expect flashing and using a nightly build.
+Please see the [flashing](#flashing) and [what do I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
+sections for details on what to expect flashing and using a firmware.
 
 ### Supported device targets
 
 These devices recieve first class citizen testing and support
 
-| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                             | Nightly Firmware Download                                                                                                      | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
-| --------------- | ----------- | ------------------------ | -------- | ------------------------------------|---------------------|----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| n750            | ar71xx      | WD My Net N750 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBAJA0000NWTRECF/)              | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin)           | [link](https://forum.altheamesh.com/t/a-humans-illustrated-router-flashing-guide/113/3?u=ttk2) | N/A                                                                                                                                                                                                                                                           |
-| x86_64          | x86_64      | Any 64 bit x86 processor | varies   | Essentially any desktop or laptop   | Moderate, USB       | N/A                                                                                                  | [link](https://updates.altheamesh.com/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz)                                      | Unzip, write to flash drive, boot from flash drive                                             | N/A                                                                                                                                                                                                                                                           |
-| glb1300         | ipq40xx     | GL.iNet GL-B1300         | $90  new | AC wifi, 100mbps perf, easy to find | Easy, webpage       | [Amazon](https://www.amazon.com/GL-iNet-GL-B1300-Gigabit-Networking-pre-installed/dp/B079FJKZV8)     | [link](https://updates.altheamesh.com/targets/ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin)         | [link](https://forum.altheamesh.com/t/a-humans-illustrated-router-flashing-guide/113/3?u=ttk2) | N/A                                                                                                                                                                                                                                                           |
-| pi3-64          | brcm2710    | Raspberry PI 3B+         | $35 new  | good to start with                  | Moderate, USB       | [Amazon](https://www.amazon.com/Raspberry-Pi-RASPBERRYPI3-MODB-1GB-Model-Motherboard/dp/B01CD5VC92/) | [link](https://updates.altheamesh.com/targets/brcm2708/bcm2710-glibc/openwrt-brcm2708-bcm2710-rpi-3-ext4-factory.img.gz)       | Unzip, write to sd card, insert into pi and boot                                               | N/A                                                                                                                                                                                                                                                           |
+| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                             | Latest Release Firmware Download                                                                                               | Latest Release Plus Remote Monitoring/Suppport Firmware Download                                                                | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                |
+| --------------- | ----------- | ------------------------ | -------- | ------------------------------------|---------------------|----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| n750            | ar71xx      | WD My Net N750 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBAJA0000NWTRECF/)              | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin)           | [link](https://updates.altheamesh.com/supported/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin)  | [link](https://forum.altheamesh.com/t/a-humans-illustrated-router-flashing-guide/113/3?u=ttk2) | N/A                                                                                                             |
+| x86_64          | x86_64      | Any 64 bit x86 processor | varies   | Essentially any desktop or laptop   | Moderate, USB       | N/A                                                                                                  | [link](https://updates.altheamesh.com/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz)                                      | [link](https://updates.altheamesh.com/supported/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz)                             |Unzip, write to flash drive, boot from flash drive                                              | N/A                                                                                                             |
+| glb1300         | ipq40xx     | GL.iNet GL-B1300         | $90  new | AC wifi, 100mbps perf, easy to find | Easy, webpage       | [Amazon](https://www.amazon.com/GL-iNet-GL-B1300-Gigabit-Networking-pre-installed/dp/B079FJKZV8)     | [link](https://updates.altheamesh.com/targets/ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin)         | [link](https://updates.altheamesh.com/supported/targets/ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin)| [link](https://forum.altheamesh.com/t/a-humans-illustrated-router-flashing-guide/113/3?u=ttk2) | N/A                                                                                                             |
+| edgerouterx     | ramips      | Ubiquiti Edgerouter X    | $55 new  | Fast (100mbps), no wifi             | Hard, ssh           | [Amazon](https://www.amazon.com/Ubiquiti-EdgeRouter-Advanced-Gigabit-Ethernet/dp/B00YFJT29C/)        | [link](https://updates.altheamesh.com/targets/ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar)            | [link](https://updates.altheamesh.com/supported/targets/ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar)   | [link](https://openwrt.org/toh/ubiquiti/ubiquiti_edgerouter_x_er-x_ka)                         | intermediary [link](https://updates.altheamesh.com/special/openwrt-ramips-mt7621-ubnt-erx-initramfs-factory.tar)|
 
 ### Best best effort device targets
 
 These devices have hardware profies and are confirmed to have worked at least once. But they may
 or may not work now.
 
-| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                             | Nightly Firmware Download                                                                                                      | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
+| Hardware Config | Target Name | Full model name          | Price    | Features/Comments                   | Flashing Difficulty | Buy Link                                                                                             | Latest Release Download                                                                                                        | OpenWRT Wiki / Flashing Instructions                                                           | Special Firmware to escape stock                                                                                                                                                                                                                              |
 | --------------- | ----------- | ------------------------ | -------- | ------------------------------------|---------------------|----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | n600            | ar71xx      | WD My Net N600 Model: C3 | $30 new  | Slow CPU 30mbps max, good for dev   | Easy, webpage       | [Rakuten](https://www.rakuten.com/shop/grassroots-computers/product/WDBEAV0000NWTRECF/)              | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin)           | [link](https://openwrt.org/toh/wd/n600)                                                        | N/A                                                                                                                                                                                                                                                           |
-| edgerouterlite  | octeon      | Ubiquiti EdgeRouter Lite | $95 new  | HW acceleration not enabled 50mbps  | Medium, drive image | [Amazon](https://www.amazon.com/Ubiquiti-EdgeMax-EdgeRouter-ERLite-3-Ethernet/dp/B00CPRVF5K)         | [link](https://updates.altheamesh.com/targets/octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar)              | [link](https://openwrt.org/toh/ubiquiti/edgerouter.lite)                                       | N/A                                                                                                                                                                                                                                                           |
+| edgerouterlite  | octeon      | Ubiquiti EdgeRouter Lite | $95 new  | HW acceleration not enabled 50mbps  | Medium, drive image | [Amazon](https://www.amazon.com/Ubiquiti-EdgeMax-EdgeRouter-ERLite-3-Ethernet/dp/B00CPRVF5K)         | [link](https://updates.altheamesh.com/targets/octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar)              | [link](https://openwrt.org/toh/ubiquiti/edgerouter.lite)                                       | N/A                                                                                                                                                                |
 | ar750           | ar71xx      | GL.iNet GL-AR750         | $45 new  | Slow CPU 30mbps max, buy an n750    | Easy, webpage       | [Amazon](https://www.amazon.com/dp/B07712LKJM)                                                       | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-gl-ar750-squashfs-sysupgrade.bin)          | [link](https://openwrt.org/toh/hwdata/gl.inet/gl.inet_gl-ar750)                                | N/A                                                                                                                                                                                                                                                           |
 | dir860l         | ramips      | D-Link Dir 860L Rev B3   | $40 used | hard to find, must be exactly rev b3| Easy, webpage       | [Amazon](https://www.amazon.com/D-Link-DIR-860L-802-11ac-Wireless-Router/dp/B00CCIL9NU)              | [link](https://updates.altheamesh.com/targets/ramips/mt7621/openwrt-ramips-mt7621-dir-860l-b1-squashfs-factory.bin)            | [link](https://openwrt.org/toh/d-link/dir-860l)                                                | N/A                                                                                                                                                                                                                                                           |
 | omnia           | mvebu       | Turris Omnia             | $300 new | Very fast 300mbps, very finicky     | Expert, serial/ssh  | [Turris](https://omnia.turris.cz/en/)                                                                | [link](https://updates.altheamesh.com/targets/mvebu/cortexa9/openwrt-mvebu-cortexa9-turris-omnia-sysupgrade.img.gz)            | [link](https://github.com/lede-project/source/commit/9f3f61a0d968fbe7b93899f948f3c34612683ba6) | full [link](https://updates.altheamesh.com/targets/mvebu/cortexa9/omnia-medkit-openwrt-mvebu-cortexa9-turris-omnia-initramfs.tar.gz)                                                                                                                          |
@@ -64,7 +62,7 @@ or may not work now.
 | ea3500          | kirkwood    | Linksys ea3500 'audi'    |$30 refurb| Low ram, may or may not work now    | Moderate, webpage   | [Amazon](https://www.amazon.com/Linksys-EA3500-Dual-Band-Certified-Refurbished/dp/B00L4HWY3E/)       | [link](https://updates.altheamesh.com/targets/kirkwood/generic/openwrt-kirkwood-linksys_audi-squashfs-factory.bin)             | [link](https://forum.openwrt.org/t/installing-lede-on-ea3500/4460/12)                          | intermediary [link](https://downloads.openwrt.org/snapshots/trunk/kirkwood/generic/openwrt-kirkwood-linksys-audi-squashfs-factory.bin)                                                                                                                        |
 | aclite          | ar71xx      | UniFi AP AC LITE         | $85 new  | great for clients not for much else | Hard, ssh           | [Amazon](https://www.amazon.com/Ubiquiti-Unifi-Ap-AC-Lite-UAPACLITEUS/dp/B015PR20GY/)                | [link](https://updates.altheamesh.com/targets/ar71xx/generic/openwrt-ar71xx-generic-ubnt-unifiac-lite-squashfs-sysupgrade.bin) | [link](https://wiki.openwrt.org/toh/ubiquiti/unifiac)                                          | N/A                                                                                                                                                                                                                                                           |
 | pi2             | brcm2708    | Raspberry PI 2B/3B/+     | $35 new  | good to start with                  | Moderate, USB       | [Amazon](https://www.amazon.com/Raspberry-Pi-RASPBERRYPI3-MODB-1GB-Model-Motherboard/dp/B01CD5VC92/) | [link](https://updates.altheamesh.com/targets/brcm2708/bcm2709/openwrt-brcm2708-bcm2709-rpi-2-ext4-sdcard.img.gz)              | Unzip, write to sd card, insert into pi and boot                                               | N/A                                                                                                                                                                                                                                                           |
-| edgerouterx     | ramips      | Ubiquiti Edgerouter X    | $55 new  | Fast (100mbps), no wifi             | Hard, ssh           | [Amazon](https://www.amazon.com/Ubiquiti-EdgeRouter-Advanced-Gigabit-Ethernet/dp/B00YFJT29C/)        | [link](https://updates.altheamesh.com/targets/ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar)            | [link](https://openwrt.org/toh/ubiquiti/ubiquiti_edgerouter_x_er-x_ka)                         | intermediary [link](https://updates.altheamesh.com/special/openwrt-ramips-mt7621-ubnt-erx-initramfs-factory.tar)                                                                                                                                              |
+| pi3-64          | brcm2710    | Raspberry PI 3B+         | $35 new  | good to start with                  | Moderate, USB       | [Amazon](https://www.amazon.com/Raspberry-Pi-RASPBERRYPI3-MODB-1GB-Model-Motherboard/dp/B01CD5VC92/) | [link](https://updates.altheamesh.com/targets/brcm2708/bcm2710-glibc/openwrt-brcm2708-bcm2710-rpi-3-ext4-factory.img.gz)       | Unzip, write to sd card, insert into pi and boot                                               | N/A                                                                                                                                                                                                                                                           |
 | wrt3200acm      | mvebu       | Linksys WRT 3200 ACM     | $200 new | Fast (400mbps), solid construction  | Easy, webpage       | [Amazon](https://www.amazon.com/Linksys-Dual-Band-Wireless-Tri-Stream-WRT3200ACM/dp/B01JOXW3YE/)     | [link](https://updates.altheamesh.com/targets/mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys-wrt3200acm-squashfs-sysupgrade.bin)| [link](https://oldwiki.archive.openwrt.org/toh/linksys/wrt_ac_series)                          |                                                                                                                                                                                                                                                               |
 
 ---
@@ -215,16 +213,6 @@ router ip and use the appropriate sysupgrade image. Automated flashing from a fa
 stock device can be done from `build-and-factory.yml` but only supports devices with
 emergency room based recovery modes. So the n600, n750, and dir860l.
 
-### Flashing Gotchas
-
-There's a known bug in the Edgerouterx where the file system is not synced and corruption
-can occur. When you flash the EdgerouterX and boot it for the first time _do not_ cut power
-until it's been running for at least a minute. This will give Rita time to sync to the disk.
-It should really take only a few seconds, but restoring a bricked device is enough of a pain
-to just wait.
-
-We hope to track down the relevent OpenWRT bug and have this fixed upstream soon.
-
 ## Building the firmware didn't work
 
 Follow the debugging instructions provided by the build playbook. That should
@@ -248,7 +236,9 @@ To add support for a device download the OpenWRT repository and run `make menuco
 select your target device as well as Althea's required packages. Wireguard (the metapackage)
 , ipset, althea-rust-binaries, althea-babeld, and luci (also the metapackage).
 
-Then run `make -j <num cores>` to build the firmware, this will take a while. When it's finished flash the resulting image. Login via ssh and copy `/etc/config/network`and`/etc/config/wireless`, you will edit these files into Althea templates that will reside in `roles/build-config/templates`. Look in that folder for existing examples. The requirements
+Then run `make -j <num cores>` to build the firmware, this will take a while. When it's finished flash the resulting image.
+Login via ssh and copy `/etc/config/network`and`/etc/config/wireless`, you will edit these files into Althea templates that
+will reside in `roles/build-config/templates`. Look in that folder for existing examples. The requirements
 are pretty simple, gateway mode has at least one dhcp wan port, every device must have at least
 one 'LAN' port if possible. To simplify debugging.
 
@@ -264,44 +254,26 @@ know. We'll do our best to add support.
 
 ## So I flashed the firmware, what do I do now?
 
-First things first, the Althea firmware repurposes some ports for meshing. So those ports will
-no longer work to access the LAN of your device. If you plug in and get no results that's
-probably what's happening.
+For typical use cases see the [Setting up your Althea router](https://forum.altheamesh.com/t/setting-up-your-new-althea-router/) guide.
 
-The provided nightly builds use the the `althea-dev.yml` management profile and the `gateway`
-port selection setting. Since this seems to be what people want most often right now. In gateway
-mode every device has a WAN port (to peer to the exit/internet), some mesh ports, and a LAN port.
-If the router has a yellow or otherwise marked WAN port Althea keeps that as the WAN interface.
-The last LAN port (physically furthest away from the WAN port) is the new Althea LAN. All other ports
-are repurposed for meshing. In the case that a device has only numbered ports, the lowest number is the
-WAN port.
+If you would like to do techncial debugging here are some tips and tricks.
 
-There are some exceptions to these rules, for example the aclite has only one physical port. Which is
-either mesh, or WAN depending on your settings.
+You can ssh into the  rotuer using `ssh root@192.168.10.1` from the lan port of the WiFi networks.
+This connection is passwordless and I strongly suggest running `passwd` and setting a proper password if you plan to use the device for a while.
 
-Now that you know what to plug in where you can plugin to the LAN port or login to the default wifi using SSID `AltheaHome` and password `ChangeMe` (note the capitals). As of this writing the graphical user interface can be accessed at `http://192.168.10.1/althea` and will give you four options: Neighbors, Router Settings, Network, and Payments.
+Once logged into ssh, run the `top` command and look for a process called `rita` this is our primary network and payment daemon. If it's crashed
+you can try to restart it with `service rita start` (there will be a 30 wait period on startup). If it crashes again after checking top you can
+use this debugging trick to get a stack trace.
 
-- Router Settings is probably the best place to start by changing the SSID and Passphrase defaults to something more suitable to your network setup. The Advanced Settings section is still under development and is only a placeholder at this time.
+`ssh root@192.168.10.1 RUST_BACKTRACE=full RUST_LOG=trace rita --config=/etc/rita.toml --platform=linux &> out.log`
 
-- Network will present to you a list of Exit Nodes to register with. The Althea Mesh network is proxied over a Wireguard VPN and is secure from inspection or attack by other nodes in
-the mesh or the backhaul connection provider. This security keeps traffic private and the nodes are where your traffic will exit. It is best to choose a node near your physical location. In order to register for an Exit Node you must enter a valid email address. A confirmation code will be sent to the email provided. Input the code into the registration field when asked. After confirmation you should see the list sort itself with your active exit at the top of the list. Nodes with a connection to the server will have green bars next to their name.
+What this line does is execude Rita as a one off command over ssh, allow the logging output to be redirected into a local file on your computer
+for easy inspection.
 
-- Neighbors has a list of other devices on the network. The current page has no settings to change, but is purely informative.
+If Rita is running properly but you can't see any peers on the dashboard (see the setup guide above) then run the command `wg` you should
+see at least one active tunnel or several if you have a connection plugged into the WAN port. If you don't you should either debug your
+WAN connection or your mesh neighbors router respectively.
 
-- Payments page is under development and has no settings to change. Eventually, this will be the portal to adjust all payment metrics on the Althea Mesh network. The current network does not transfer payments or have any bandwidth costs associated with connectivity.
-
-If an existing internet connection is plugged into the WAN port or the device is connected by the
-mesh port to any other device with a WAN connection you should get proper internet access over the
-LAN and through the exit node's tunnel.
-
-In the very possible case that this doesn't work right away you can ssh using `ssh root@192.168.10.1`. This connection is passwordless and I strongly suggest
-running `passwd` and setting a proper password if you plan to use the device for a while. Once logged into ssh, run the `wg` command. If you see a tunnel called `wg_exit` everything has come online neatly. If you don't see any tunnels running (defined recent handshakes) you should debug the local tunnel/billing daemon. Run top and
-see if `rita` is on the list. If it's not check /var/log/rita.log for the crash error.
-
-If you see successful Wireguard interfaces but no `wg_exit` then the problem is not on your router
-but either in the path from the network to the exit server or with the exit server itself. Go find
-whatever device on the mesh is connected with the WAN port and see if it has a `wg_exit` interface
-and connectivity.
 
 ### The meshing, how does that work?
 
@@ -313,7 +285,10 @@ connect to each other and pass connections between each other.
 In a real network point to point wireless links will be used. You can find instructions on how
 to both select radios and set them up in [the Althea network getting started guide](https://docs.google.com/document/d/1TeFIUjqG1I4DYxRrkpxk4yEUQoxhIVxkccYWwT5VQD8/edit)
 
-While point to point links are insurmountably superior to meshing with the built in device radios there may be some situations where you may want to do that for a hop or two to reduce the number of point to point links or otherwise make life easier. In that case you'll need to access the Router Settings page at `http://192.168.10.1/althea` and select advanced settings. Checkmark 'Enable Mesh Over Wifi', close the modal, and save your work.
+While point to point links are insurmountably superior to meshing with the built in device radios there may be some situations
+where you may want to do that for a hop or two to reduce the number of point to point links or otherwise make life easier.
+In that case you'll need to ssh in and edit `/etc/config/wireless` and enable the `AltheaMesh` SSID by flipping `enabled` form `0` to `1`
 
-We may switch the nightly firmwares to meshing on built in wifi if there's a larger demand
-for that.
+followed by `wifi restart`
+
+We may switch the firmwares to meshing on built in wifi by default if there's a larger demand for that.
