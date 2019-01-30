@@ -9,10 +9,7 @@ image_path: "ar71xx/generic/openwrt-ar71xx-generic-ubnt-unifiac-lite-squashfs-sy
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth0
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0
 
 # Reference value, see network.j2 to modify
@@ -24,9 +21,9 @@ lan_interfaces:
 wan_interface: "{% if gateway %}eth0{% endif %}"
 
 # For sqm tuning
-real_interfaces: 
+real_interfaces:
   - eth0
 # Estimated max wireguard throughput in kbits/s
-est_max_throughput: 50000 
+est_max_throughput: 50000
 
 rust_target: mips-unknown-linux-musl

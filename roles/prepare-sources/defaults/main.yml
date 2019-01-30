@@ -1,3 +1,3 @@
 repo: https://github.com/openwrt/openwrt
-version: 27be78ef461af31015a6c9cfc334b3c5c69b3953
+version: master
 source_dir: build/

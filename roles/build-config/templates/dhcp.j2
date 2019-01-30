@@ -28,11 +28,9 @@ config dhcp 'lan'
         option dhcpv6 'server'
         option ra 'server'    
 
-{% if gateway %}                              
 config dhcp 'backhaul'             
         option interface 'backhaul'
         option ignore '1'
-{% endif %}
                                                      
 config odhcpd 'odhcpd'                               
         option maindhcp '0'         

@@ -10,11 +10,8 @@ image_path: "brcm2708/bcm2709/openwrt-brcm2708-bcm2709-rpi-2-ext4-sdcard.img.gz"
 
 channel: 11
 
-listen_interfaces_client:
+listen_interfaces:
   - eth0
-
-# unused
-listen_interfaces_gateway: ""
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
@@ -30,5 +27,3 @@ real_interfaces:
 est_max_throughput: 300000
 
 rust_target: armv7-unknown-linux-musleabihf
-
-

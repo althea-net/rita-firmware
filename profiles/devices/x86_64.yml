@@ -1,5 +1,5 @@
 # Config for generic x86_64 pc's, setup for 5 ports currently.
-# as a note PCI cards seem to start with eth0 as the first port on the 
+# as a note PCI cards seem to start with eth0 as the first port on the
 # lowest number pci slot card, counting down, then returning to the mobo port
 # this may not always hold true
 
@@ -15,10 +15,7 @@ image_path: "x86/64/openwrt-x86-64-combined-squashfs.img.gz"
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth4
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth2
   - eth3
   - eth4
@@ -31,13 +28,13 @@ lan_interfaces:
 wan_interface: "eth0"
 
 # For sqm tuning
-real_interfaces: 
+real_interfaces:
   - eth0
   - eth1
   - eth2
   - eth3
   - eth4
 # Estimated max wireguard throughput in kbits/s
-est_max_throughput: 10000000 
+est_max_throughput: 10000000
 
 rust_target: x86_64-unknown-linux-musl

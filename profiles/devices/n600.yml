@@ -7,20 +7,14 @@ extension: bin
 image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin"
 
 private_radio:
- - radio0
- - radio1
+  - radio0
+  - radio1
 
 channel: 1
 # 5ghz note only 20mhz channel widths
 five_ghz_channel: 165
 
-listen_interfaces_client:
-  - eth1
-  - eth0.4
-  - wlan2
-  - wlan3
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0.4
   - eth0.3
   - eth0.2
@@ -35,10 +29,10 @@ lan_interfaces:
 wan_interface: "eth1"
 
 # For sqm tuning
-real_interfaces: 
+real_interfaces:
   - eth0
   - eth1
 # Estimated max wireguard throughput in kbits/s
-est_max_throughput: 30000 
+est_max_throughput: 30000
 
 rust_target: mips-unknown-linux-musl

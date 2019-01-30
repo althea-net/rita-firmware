@@ -6,10 +6,7 @@ image_name: "generic-glibc"
 extension: tar
 image_path: "octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar"
 
-listen_interfaces_client:
-  - eth0
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth1
 
 # Reference value, see network.j2 to modify
@@ -20,11 +17,11 @@ lan_interfaces:
 wan_interface: "eth0"
 
 # For sqm tuning
-real_interfaces: 
+real_interfaces:
   - eth0
   - eth1
   - eth2
 # Estimated max wireguard throughput in kbits/s
-est_max_throughput: 500000 
+est_max_throughput: 500000
 
 rust_target: mips64-unknown-linux-gnuabi64

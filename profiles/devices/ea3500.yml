@@ -1,4 +1,3 @@
-
 conf_to_build: ea3500
 target: "kirkwood"
 device: "ea3500"
@@ -11,11 +10,7 @@ channel: 11
 # 5ghz note only 20mhz channel widths
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth0.4
-
-# babel interfaces for gateway operation
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0.4
   - eth0.5
   - eth0.6
@@ -28,7 +23,7 @@ lan_interfaces:
 wan_interface: "eth1"
 
 # For sqm tuning
-real_interfaces: 
+real_interfaces:
   - eth0
   - eth1
 # Estimated max wireguard throughput in kbits/s

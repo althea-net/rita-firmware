@@ -7,7 +7,6 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fdb0:0614:acb7::/48'
 
-{% if gateway %}
 config interface 'backhaul'
         option ifname 'eth0'
         option proto 'dhcp'
@@ -15,13 +14,6 @@ config interface 'backhaul'
 config interface 'backhaul6'
 	option ifname '@backhaul'
 	option proto 'dhcpv6'
-{% else %}
-{% for interface in listen_interfaces_client %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-{% endfor %}
-{% endif %}
 
 config interface 'lan'
         option type 'bridge'

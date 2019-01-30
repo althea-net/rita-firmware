@@ -1,7 +1,6 @@
-gateway: true
 logging_enabled: false
 logging_level: "WARN"
-logging_url : "https://stats.altheamesh.com:9999/sink/"
+logging_url: "https://stats.altheamesh.com:9999/sink/"
 source_dir: build
 disable_password_login: false
 remote_mesh_access: false
