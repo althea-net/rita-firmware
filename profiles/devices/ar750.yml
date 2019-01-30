@@ -9,11 +9,7 @@ image_path: "ar71xx/generic/openwrt-ar71xx-generic-gl-ar750-squashfs-sysupgrade.
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth0
-  - eth1.2
-
-listen_interfaces_gateway:
+listen_interfaces:
   - wlan0
   - wlan1
   - eth1.2

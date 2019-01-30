@@ -10,10 +10,7 @@ image_path: "ipq806x/generic/openwrt-ipq806x-zyxel_nbg6817-squashfs-sysupgrade.b
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth0.5
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0.5
   - eth1.4
   - eth1.3

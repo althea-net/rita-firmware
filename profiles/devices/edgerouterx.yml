@@ -6,13 +6,7 @@ image_name: "mt7621"
 extension: bin
 image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.bin"
 
-listen_interfaces_client:
-  - eth0.1 # port 0
-  - eth0.2 # port 1
-  - eth0.3 # port 2
-  - eth0.4 # port 3
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0.2 # port 1
   - eth0.3 # port 2
   - eth0.4 # port 3

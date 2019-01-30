@@ -9,10 +9,7 @@ image_path: "ar71xx/generic/openwrt-ar71xx-generic-ubnt-unifiac-lite-squashfs-sy
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth0
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0
 
 # Reference value, see network.j2 to modify

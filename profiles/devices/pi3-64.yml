@@ -10,11 +10,8 @@ image_path: "brcm2708/bcm2710-glibc/openwrt-brcm2708-bcm2710-rpi-3-ext4-factory.
 
 channel: 11
 
-listen_interfaces_client:
+listen_interfaces:
   - eth0
-
-# unused
-listen_interfaces_gateway: ""
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
@@ -30,4 +27,3 @@ real_interfaces:
 est_max_throughput: 300000
 
 rust_target: aarch64-unknown-linux-gnu
-

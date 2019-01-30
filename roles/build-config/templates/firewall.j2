@@ -4,14 +4,12 @@ config defaults
 	option output		ACCEPT
 	option forward		ACCEPT
 
-{% if gateway %}
 config zone
 	option name		backhaul
 	list   network		'backhaul'
 	option input		REJECT
 	option output		ACCEPT
 	option forward		REJECT
-{% endif %}
 
 config zone
 	option name		lan
@@ -126,7 +124,6 @@ config rule
 	option dest_port	4875
 	option target		ACCEPT
 
-{% if gateway %}
 config rule
 	option name		Allow-SSH
 	option src		backhaul
@@ -151,8 +148,6 @@ config rule
 	option dest_port	546
 	option family		ipv6
 	option target		ACCEPT
-
-{% endif %}
 
 config include
 	option path /etc/firewall.user

@@ -7,7 +7,6 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fd2d:ac91:f240::/48'
 
-{% if gateway %}
 config interface 'backhaul'
         option ifname 'eth0'
         option proto 'dhcp'
@@ -15,7 +14,6 @@ config interface 'backhaul'
 config interface 'backhaul6'
 	option ifname '@backhaul'
 	option proto 'dhcpv6'
-{% endif %}
 
 config interface 'lan'
         option type 'bridge'
@@ -25,20 +23,11 @@ config interface 'lan'
         option netmask '255.255.255.0'
         option ip6assign '60'
 
-{% if gateway %}
-{% for interface in listen_interfaces_gateway %}
+{% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
 {% endfor %}
-
-{% else %}
-{% for interface in listen_interfaces_client %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-{% endfor %}
-{% endif %}
 
 config switch
         option name 'switch0'

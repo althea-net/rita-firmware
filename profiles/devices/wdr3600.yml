@@ -9,11 +9,7 @@ image_path: "ar71xx/generic/openwrt-ar71xx-generic-vmlinux.bin"
 channel: 1
 five_ghz_channel: 165
 
-listen_interfaces_client:
-  - eth0.1
-  - eth0.2
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0.2
   - eth0.3
   - eth0.4

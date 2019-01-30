@@ -8,7 +8,6 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fd3c:8a76:b02c::/48'
 
-{% if gateway %}
 config interface 'backhaul'
         option ifname 'eth0.2'
         option proto 'dhcp'
@@ -20,7 +19,6 @@ config device 'backhaul_dev'
 config interface 'backhaul6'
 	option ifname '@backhaul'
 	option proto 'dhcpv6'
-{% endif %}
 
 config interface 'lan'
         option type 'bridge'
@@ -31,8 +29,7 @@ config interface 'lan'
         option ip6assign '60'
 
 
-{% if gateway %}
-{% for interface in listen_interfaces_gateway %}
+{% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
@@ -61,36 +58,3 @@ config switch_vlan
         option device 'switch0'
         option vlan '5'
         option ports '3 0t'
-
-{% else %}
-{% for interface in listen_interfaces_client %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-{% endfor %}
-config switch
-        option name 'switch0'
-        option reset '1'
-        option enable_vlan '1'
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '1'
-        option ports '1 2 3 0t'
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '2'
-        option ports '5 0t'
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '3'
-        option ports '4 0t'
-{% endif %}
-
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '3'
-        option ports '4 0t'

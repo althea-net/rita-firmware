@@ -10,12 +10,7 @@ image_path: "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys-wrt3200acm-squashfs-s
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth1.2
-  - wlan3
-  - wlan4
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth0.3
   - eth0.4
   - eth0.5

@@ -7,18 +7,14 @@ extension: bin
 image_path: "ar71xx/generic/openwrt-ar71xx-generic-archer-c7-v2-squashfs-factory-us.bin"
 
 private_radio:
- - radio0
- - radio1
+  - radio0
+  - radio1
 
 channel: 11
 # 5ghz note only 20mhz channel widths
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth0.1
-  - eth1.2
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth1.2
   - eth1.3
   - eth1.4

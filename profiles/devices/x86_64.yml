@@ -15,10 +15,7 @@ image_path: "x86/64/openwrt-x86-64-combined-squashfs.img.gz"
 channel: 11
 five_ghz_channel: 36
 
-listen_interfaces_client:
-  - eth4
-
-listen_interfaces_gateway:
+listen_interfaces:
   - eth2
   - eth3
   - eth4

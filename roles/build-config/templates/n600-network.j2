@@ -8,7 +8,6 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fd44:094c:41e2::/48'
 
-{% if gateway %}
 config interface 'backhaul'
         option ifname 'eth1'
         option proto 'dhcp'
@@ -17,7 +16,6 @@ config interface 'backhaul'
 config interface 'backhaul6'
 	option ifname '@backhaul'
 	option proto 'dhcpv6'
-{% endif %}
 
 config interface 'lan'
         option type 'bridge'
@@ -27,8 +25,7 @@ config interface 'lan'
         option netmask '255.255.255.0'
         option ip6assign '60'
 
-{% if gateway %}
-{% for interface in listen_interfaces_gateway %}
+{% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
@@ -54,30 +51,3 @@ config switch_vlan
         option device 'switch0'
         option vlan '4'
         option ports '4 0t'
-
-{% else %}
-{% for interface in listen_interfaces_client %}
-config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-{% endfor %}
-config switch
-        option name 'switch0'
-        option reset '1'
-        option enable_vlan '1'
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '1'
-        option ports '1 0t'
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '1'
-        option ports '1 4 3 0t'
-
-config switch_vlan
-        option device 'switch0'
-        option vlan '4'
-        option ports '2 0t' #port four.... somehow
-{% endif %}
