@@ -27,9 +27,6 @@ If you are an advanced user or a network organizer yes, this is where you get th
 to install Althea on routers. For supported devices we have special supported images, these firmware
 images send some non-identifying data such as bug reports, crashes, and mesh status logs to Althea.
 
-They also allow for easy remote access to the router by staff or network organizers. We've found these
-to be very useful in fixing problems in our test networks. This is of course not included in the primary download links.
-
 Please see the [flashing](#flashing) and [what do I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
 sections for details on what to expect flashing and using a firmware.
 
