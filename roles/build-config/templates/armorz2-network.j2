@@ -36,6 +36,7 @@ config device 'lan_dev'
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
+{% endfor %}}
 
 config switch
 	option name 'switch0'
