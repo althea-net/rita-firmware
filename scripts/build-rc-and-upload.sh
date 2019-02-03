@@ -5,7 +5,7 @@ export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
 for file in profiles/devices/*
 do
-	ansible-playbook -e @$file -e @profiles/management/althea-test.yml -e gateway=true firmware-build.yml
+	ansible-playbook -e @$file -e @profiles/management/althea-release.yml -e gateway=true firmware-build.yml
 done
 
 rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/rc/
