@@ -15,9 +15,9 @@
     version: "{{version}}"
   register: source_version
 
+- name: Update Rust
+  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default nightly; {{ansible_env.HOME}}/.cargo/bin/rustup update"
+
 - name: Grab rust targets for hardware profile
   shell: "{{ansible_env.HOME}}/.cargo/bin/rustup target add {{rust_target}}"
   ignore_errors: true
-
-- name: Update Rust
-  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default nightly; {{ansible_env.HOME}}/.cargo/bin/rustup update"
