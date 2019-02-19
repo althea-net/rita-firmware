@@ -5,6 +5,13 @@ CONFIG_ALL_KMODS=y
 CONFIG_ALL_NONSHARED=y
 CONFIG_BUILD_PATENTED=y
 # CONFIG_DRIVER_WEXT_SUPPORT is not set
+CONFIG_LIBCURL_COOKIES=y
+CONFIG_LIBCURL_FILE=y
+CONFIG_LIBCURL_FTP=y
+CONFIG_LIBCURL_HTTP=y
+CONFIG_LIBCURL_MBEDTLS=y
+CONFIG_LIBCURL_NO_SMB="!"
+CONFIG_LIBCURL_PROXY=y
 CONFIG_OPENSSL_WITH_DEPRECATED=y
 CONFIG_OPENSSL_WITH_EC=y
 CONFIG_OPENSSL_WITH_NPN=y
@@ -21,13 +28,17 @@ CONFIG_PACKAGE_althea-rust-binaries=y
 # CONFIG_PACKAGE_blockd is not set
 # CONFIG_PACKAGE_bnx2-firmware is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-usb is not set
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
 # CONFIG_PACKAGE_carl9170-firmware is not set
 # CONFIG_PACKAGE_chat is not set
 # CONFIG_PACKAGE_comgt is not set
 # CONFIG_PACKAGE_comgt-directip is not set
 # CONFIG_PACKAGE_comgt-ncm is not set
+CONFIG_PACKAGE_curl=y
 # CONFIG_PACKAGE_e100-firmware is not set
 # CONFIG_PACKAGE_edgeport-firmware is not set
+CONFIG_PACKAGE_hostapd=y
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_ip-tiny=y
 # CONFIG_PACKAGE_ip6tables-extra is not set
@@ -55,6 +66,8 @@ CONFIG_PACKAGE_iptables-mod-ipopt=y
 # CONFIG_PACKAGE_iptables-mod-trace is not set
 # CONFIG_PACKAGE_iptables-mod-u32 is not set
 # CONFIG_PACKAGE_iptables-mod-ulog is not set
+# CONFIG_PACKAGE_iw is not set
+CONFIG_PACKAGE_iw-full=y
 # CONFIG_PACKAGE_iwl3945-firmware is not set
 # CONFIG_PACKAGE_iwl4965-firmware is not set
 # CONFIG_PACKAGE_kmod-3c59x is not set
@@ -339,7 +352,6 @@ CONFIG_PACKAGE_kmod-lib-zstd=y
 # CONFIG_PACKAGE_kmod-mppe is not set
 # CONFIG_PACKAGE_kmod-mrf24j40 is not set
 # CONFIG_PACKAGE_kmod-mt76 is not set
-# CONFIG_PACKAGE_kmod-mt76-core is not set
 # CONFIG_PACKAGE_kmod-mt7601u is not set
 # CONFIG_PACKAGE_kmod-mt7603 is not set
 # CONFIG_PACKAGE_kmod-mt76x2 is not set
@@ -365,7 +377,6 @@ CONFIG_PACKAGE_kmod-nfnetlink=y
 # CONFIG_PACKAGE_kmod-nfnetlink-queue is not set
 # CONFIG_PACKAGE_kmod-nft-arp is not set
 # CONFIG_PACKAGE_kmod-nft-bridge is not set
-# CONFIG_PACKAGE_kmod-nft-core is not set
 # CONFIG_PACKAGE_kmod-nft-nat is not set
 # CONFIG_PACKAGE_kmod-nft-nat6 is not set
 # CONFIG_PACKAGE_kmod-nft-offload is not set
@@ -527,6 +538,7 @@ CONFIG_PACKAGE_kmod-wireguard=y
 # CONFIG_PACKAGE_kmod-zd1211rw is not set
 # CONFIG_PACKAGE_kmod-zram is not set
 # CONFIG_PACKAGE_libatomic is not set
+CONFIG_PACKAGE_libcurl=y
 # CONFIG_PACKAGE_libertas-sdio-firmware is not set
 # CONFIG_PACKAGE_libertas-spi-firmware is not set
 # CONFIG_PACKAGE_libertas-usb-firmware is not set
@@ -534,7 +546,8 @@ CONFIG_PACKAGE_kmod-wireguard=y
 CONFIG_PACKAGE_libipset=y
 # CONFIG_PACKAGE_libiptc is not set
 # CONFIG_PACKAGE_libiwinfo-lua is not set
-# CONFIG_PACKAGE_liblua is not set
+CONFIG_PACKAGE_liblua=y
+CONFIG_PACKAGE_libmbedtls=y
 CONFIG_PACKAGE_libmnl=y
 CONFIG_PACKAGE_libncurses=y
 CONFIG_PACKAGE_libopenssl=y
@@ -542,6 +555,9 @@ CONFIG_PACKAGE_libpcap=y
 # CONFIG_PACKAGE_librt is not set
 CONFIG_PACKAGE_libsqlite3=y
 # CONFIG_PACKAGE_libstdcpp is not set
+CONFIG_PACKAGE_libubus-lua=y
+CONFIG_PACKAGE_libuci-lua=y
+CONFIG_PACKAGE_libustream-openssl=y
 # CONFIG_PACKAGE_mt7601u-firmware is not set
 # CONFIG_PACKAGE_mwifiex-pcie-firmware is not set
 # CONFIG_PACKAGE_mwl8k-firmware is not set
@@ -550,6 +566,10 @@ CONFIG_PACKAGE_libsqlite3=y
 # CONFIG_PACKAGE_p54-usb-firmware is not set
 # CONFIG_PACKAGE_prism54-firmware is not set
 # CONFIG_PACKAGE_r8169-firmware is not set
+CONFIG_PACKAGE_rpcd=y
+CONFIG_PACKAGE_rpcd-mod-file=y
+CONFIG_PACKAGE_rpcd-mod-iwinfo=y
+CONFIG_PACKAGE_rpcd-mod-rpcsys=y
 # CONFIG_PACKAGE_rs9113-firmware is not set
 # CONFIG_PACKAGE_rt2800-pci-firmware is not set
 # CONFIG_PACKAGE_rt2800-usb-firmware is not set
@@ -568,19 +588,18 @@ CONFIG_PACKAGE_tc=y
 CONFIG_PACKAGE_tcpdump=y
 CONFIG_PACKAGE_terminfo=y
 CONFIG_PACKAGE_uhttpd=y
+CONFIG_PACKAGE_uhttpd-mod-lua=y
+CONFIG_PACKAGE_uhttpd-mod-ubus=y
 # CONFIG_PACKAGE_umbim is not set
 # CONFIG_PACKAGE_uqmi is not set
 CONFIG_PACKAGE_wireguard=y
 CONFIG_PACKAGE_wireguard-tools=y
 # CONFIG_PACKAGE_wl12xx-firmware is not set
 # CONFIG_PACKAGE_wl18xx-firmware is not set
-CONFIG_PACKAGE_wpad=y
+CONFIG_PACKAGE_wpad=m
 # CONFIG_PACKAGE_wpad-mini is not set
 # CONFIG_PACKAGE_wwan is not set
 CONFIG_PACKAGE_zlib=y
 CONFIG_SQLITE_FTS3=y
 CONFIG_SQLITE_RTREE=y
-CONFIG_WPA_SUPPLICANT_INTERNAL=y
-CONFIG_PACKAGE_libustream-openssl=y
-CONFIG_PACKAGE_ca-bundle=y
-CONFIG_PACKAGE_ca-certificates=y
+CONFIG_uhttpd_lua=y
