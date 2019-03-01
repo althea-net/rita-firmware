@@ -16,7 +16,7 @@ peer_interfaces = [{% for interface in listen_interfaces %}"{{interface}}"{{ ","
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
 {% endif %}
-manual_peers = ["test.altheamesh.com", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
+manual_peers = ["test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
 conf_link_local = true
 default_route = []
 device = "{{device}}"
@@ -28,12 +28,12 @@ current_exit = "{{default_exit}}"
 
 [exit_client.exits.test]
 registration_port = 4875
-description = "The Althea testing exit. Unstable!"
+description = "The Althea testing exit cluster. Unstable!"
 state = "New"
 [exit_client.exits.test.id]
-mesh_ip = "fd00::1337:0e1f"
-eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
-wg_public_key = "hw2rXXaIOfbcOXbvejB3AyuoSAb3QhPXjC5MwxRqkls="
+mesh_ip = "fd00::1337:1e0f"
+eth_address = "0x5aee3dff733f56cfe7e5390b9cc3a46a90ca1cfa"
+wg_public_key = "jkIodvXKgij/rAEQXFEPJpls6ooxXJEC5XlWA1uUPUg="
 
 [exit_client.exits.borked]
 registration_port = 4875
@@ -41,7 +41,7 @@ description = "Borked! For developers only!"
 state = "New"
 [exit_client.exits.borked.id]
 mesh_ip = "fd00::1337:0e6f"
-eth_address = "0x72d9e579f691d62aa7e0703840db6dd2fa9fae21"
+eth_address = "0x9ca95e6180738a2adbd4bea31bd6563c5dfbd045"
 wg_public_key = "4f3TBCL2HxxPreajT+FsAYzmQa0ZmeYYNHvpORX9tm8="
 
 [exit_client.exits.us_west]
