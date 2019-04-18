@@ -1,4 +1,5 @@
 insert_keys: false
+default_exit: "test"
 keys_to_insert: []
 
 wifi_ssid_two_ghz: AltheaHome-2.4
