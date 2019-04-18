@@ -26,6 +26,5 @@ env:
 
 
 script:
-  - ansible-lint -x ANSIBLE0012,ANSIBLE0013,ANSIBLE0006 *.yml
   - ansible-playbook first-time-setup.yml
   - ansible-playbook -e @profiles/devices/$DEVICE -e @profiles/management/$PROFILE -e ci=True firmware-build.yml
