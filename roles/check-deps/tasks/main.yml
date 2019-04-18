@@ -3,41 +3,36 @@
 
 - name: Install Debian deps
   apt:
-    name: "{{item}}"
+    name: "{{debian_deps}}"
     state: present
-  with_items: "{{debian_deps}}"
   when: ansible_distribution == 'Debian'
   become: true
 
 - name: Install Ubuntu deps
   apt:
-    name: "{{item}}"
+    name: "{{ubuntu_deps}}"
     state: present
-  with_items: "{{ubuntu_deps}}"
   when: ansible_distribution == 'Ubuntu'
   become: true
 
 - name: Install Fedora deps
   dnf:
-    name: "{{item}}"
+    name: "{{fedora_deps}}"
     state: present
-  with_items: "{{fedora_deps}}"
   when: ansible_distribution == 'Fedora'
   become: true
 
 - name: Install CentOS/RHEL deps
   yum:
-    name: "{{item}}"
+    name: "{{centos_deps}}"
     state: present
-  with_items: "{{centos_deps}}"
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Red Hat Enterprise Linux'
   become: true
 
 - name: Install Archlinux Deps
   pacman:
-    name: "{{item}}"
+    name: "{{arch_deps}}"
     state: present
-  with_items: "{{arch_deps}}"
   when: ansible_distribution == 'Archlinux'
   become: true
 
