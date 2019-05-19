@@ -1,0 +1,40 @@
+# Config for generic x86 pc's, setup for 5 ports currently.
+# as a note PCI cards seem to start with eth0 as the first port on the
+# lowest number pci slot card, counting down, then returning to the mobo port
+# this may not always hold true
+
+# To flash just untar the ext4 image and write it to a flash drive
+conf_to_build: x86
+target: "x86"
+device: "generic"
+package_id: i386_pentium4
+image_name: ""
+extension: img.gz
+image_path: "x86/generic/openwrt-x86-generic-combined-squashfs.img.gz"
+
+channel: 11
+five_ghz_channel: 36
+
+listen_interfaces:
+  - eth2
+  - eth3
+  - eth4
+
+# Reference value, see network.j2 to modify
+lan_interfaces:
+  - eth1
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth0"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+  - eth2
+  - eth3
+  - eth4
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 1000000
+
+rust_target: i586-unknown-linux-musl
