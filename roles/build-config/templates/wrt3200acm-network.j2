@@ -15,13 +15,6 @@ config interface 'lan'
         option netmask '255.255.255.0'
         option ip6assign '60'
 
-config interface 'backhaul'
-        option ifname '{{wan_interface}}'
-        option proto 'dhcp'
-config interface 'backhaul6'
-	option ifname '@backhaul'
-	option proto 'dhcpv6'
-
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
