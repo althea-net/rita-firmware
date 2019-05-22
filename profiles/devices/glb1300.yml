@@ -11,6 +11,7 @@ channel: 11
 five_ghz_channel: 36
 
 listen_interfaces:
+  - eth1
   - eth0.4
   - wlan2
   - wlan3

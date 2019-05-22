@@ -8,18 +8,6 @@ config interface 'loopback'
 config globals 'globals'
         option ula_prefix 'fd3c:8a76:b02c::/48'
 
-config interface 'backhaul'
-        option ifname 'eth0.2'
-        option proto 'dhcp'
-        option ip6assign '60'
-config device 'backhaul_dev'
-        option name 'eth0.2'
-        option macaddr '00:90:a9:ad:b7:b0'
-
-config interface 'backhaul6'
-	option ifname '@backhaul'
-	option proto 'dhcpv6'
-
 config interface 'lan'
         option type 'bridge'
         option ifname 'eth0.1'

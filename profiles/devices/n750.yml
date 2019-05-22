@@ -12,6 +12,7 @@ five_ghz_channel: 165
 
 # babel interfaces for gateway operation
 listen_interfaces:
+  - eth0.2
   - eth0.3
   - eth0.4
   - eth0.5
@@ -23,7 +24,7 @@ lan_interfaces:
   - eth0.1
 
 # Reference value, see network.j2 to modify
-wan_interface: "eth0.2"
+#wan_interface: "eth0.2"
 
 # For sqm tuning
 real_interfaces:
