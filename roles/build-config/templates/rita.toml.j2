@@ -16,7 +16,7 @@ peer_interfaces = [{% for interface in listen_interfaces %}"{{interface}}"{{ ","
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
 {% endif %}
-manual_peers = ["sa-eth.althea.org", "apac.altheamesh.com", "test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
+manual_peers = ["ca.althea.net", "sa-eth.althea.org", "apac.altheamesh.com", "test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
 conf_link_local = true
 default_route = []
 device = "{{device}}"
@@ -79,6 +79,15 @@ state = "New"
 mesh_ip = "fd00::1337:0e4f"
 eth_address = "0xe4ad1f9aa23957d294d869b70fc8f28774df896e"
 wg_public_key = "1kKSpzdhI4kfqeMqch9I1bXqOUXeKN7EQBecVzW60ys="
+
+[exit_client.exits.ca]
+registration_port = 4875
+description = "Canada Althea Exit"
+state = "New"
+[exit_client.exits.ca.id]
+mesh_ip = "fd00::1337:3e9f"
+eth_address = "0x90b82ed41dcd867df7d2aedab62280e82fcd64f3"
+wg_public_key = "D0z23bOTn5RQgM87nuxx6zgmFMMAKBHXSOXopHtZhTc="
 
 [exit_client.reg_details]
 email = "placeholder@domain.com"
