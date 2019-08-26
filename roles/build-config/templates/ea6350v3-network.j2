@@ -1,0 +1,66 @@
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd13:d39f:0fc9::/48'
+
+config interface 'lan'
+	option type 'bridge'
+	option ifname 'eth0.5'
+	option proto 'static'
+	option ipaddr '{{lan_ip}}'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+
+config device 'lan1_dev'
+	option name 'eth0.5'
+	option macaddr '60:38:e0:a6:4f:73'
+config device 'lan2_dev'
+	option name 'eth0.2'
+	option macaddr '60:38:e0:a6:4f:74'
+config device 'lan3_dev'
+	option name 'eth0.3'
+	option macaddr '60:38:e0:a6:4f:75'
+config device 'lan4_dev'
+	option name 'eth0.4'
+	option macaddr '60:38:e0:a6:4f:76'
+
+config device 'wan_dev'
+    option name 'eth1'
+    option macaddr '60:38:e0:a6:4f:72'
+
+
+{% for interface in listen_interfaces %}
+config interface 'rita_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+{% endfor %}
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+
+# you can't use vlan 1 on this device, so we put port 1 on vlan 5
+config switch_vlan
+	option device 'switch0'
+	option vlan '5'
+	option ports '1 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '2'
+	option ports '2 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '3'
+	option ports '3 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '4'
+	option ports '4 0t'

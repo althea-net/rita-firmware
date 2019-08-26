@@ -26,4 +26,3 @@
       debug:
         msg: "Firmware Successfully built!"
   when: ci == False
-
