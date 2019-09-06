@@ -84,13 +84,11 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
-{% if remote_mesh_access %}
 config rule
 	option name		Allow-Mesh-SSH
 	option src		mesh
 	option dest_port	22
 	option target		ACCEPT
-{% endif %}
 
 config rule
 	option name		Allow-Babel
