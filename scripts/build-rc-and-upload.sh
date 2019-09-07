@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -ux
 cd $(dirname $0)/..
 export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
