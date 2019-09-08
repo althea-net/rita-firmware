@@ -15,6 +15,17 @@ listen_interfaces:
   - eth0.4
   - wlan2
   - wlan3
+  - eth0.50
+  - eth0.51
+  - eth0.52
+  - eth0.53
+  - eth0.54
+  - eth0.55
+  - eth0.56
+  - eth0.57
+  - eth0.58
+  - eth0.59
+  - eth0.60
 
 # Reference value, see network.j2 to modify
 lan_interfaces:
