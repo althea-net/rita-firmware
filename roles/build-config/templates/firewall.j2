@@ -84,6 +84,8 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
+# Dropbear does not listen here by default it may be enabled
+# by the user
 config rule
 	option name		Allow-Mesh-SSH
 	option src		mesh
@@ -122,6 +124,8 @@ config rule
 	option dest_port	4875
 	option target		ACCEPT
 
+# Dropbear does not listen here by default, it
+# may be enabled by the user
 config rule
 	option name		Allow-SSH
 	option src		backhaul
