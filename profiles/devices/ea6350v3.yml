@@ -4,7 +4,7 @@ device: "linksys_ea6350v3"
 package_id: arm_cortex-a7_neon-vfpv4
 image_name:
 extension: .bin
-image_path: "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea6350v3-squashfs-sysupgrade.bin"
+image_path: "ipq40xx/generic/openwrt-ipq40xx-linksys_ea6350v3-squashfs-sysupgrade.bin"
 version: openwrt-19.07
 
 channel: 11
@@ -12,9 +12,9 @@ five_ghz_channel: 36
 
 listen_interfaces:
   - eth1
-  - eth0.2
   - eth0.3
   - eth0.4
+  - eth0.5
   - wlan2
   - wlan3
 
