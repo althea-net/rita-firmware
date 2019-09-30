@@ -5,28 +5,19 @@ config interface 'loopback'
 	option netmask '255.0.0.0'
 
 config globals 'globals'
-	option ula_prefix 'fd13:d39f:0fc9::/48'
+	option ula_prefix 'fd71:1719:8822::/48'
 
 config interface 'lan'
 	option type 'bridge'
-	option ifname 'eth0.5'
+	option ifname 'eth0.6'
 	option proto 'static'
 	option ipaddr '{{lan_ip}}'
 	option netmask '255.255.255.0'
 	option ip6assign '60'
 
-config device 'lan1_dev'
-	option name 'eth0.5'
+config device 'lan_dev'
+	option name 'eth0'
 	option macaddr '60:38:e0:a6:4f:73'
-config device 'lan2_dev'
-	option name 'eth0.2'
-	option macaddr '60:38:e0:a6:4f:74'
-config device 'lan3_dev'
-	option name 'eth0.3'
-	option macaddr '60:38:e0:a6:4f:75'
-config device 'lan4_dev'
-	option name 'eth0.4'
-	option macaddr '60:38:e0:a6:4f:76'
 
 config device 'wan_dev'
     option name 'eth1'
@@ -47,20 +38,20 @@ config switch
 # you can't use vlan 1 on this device, so we put port 1 on vlan 5
 config switch_vlan
 	option device 'switch0'
-	option vlan '5'
+	option vlan '6'
 	option ports '1 0t'
 
 config switch_vlan
 	option device 'switch0'
-	option vlan '2'
+	option vlan '3'
 	option ports '2 0t'
 
 config switch_vlan
 	option device 'switch0'
-	option vlan '3'
+	option vlan '4'
 	option ports '3 0t'
 
 config switch_vlan
 	option device 'switch0'
-	option vlan '4'
+	option vlan '5'
 	option ports '4 0t'
