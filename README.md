@@ -159,15 +159,13 @@ If you'd like to temporarily overwrite a profile's SSH key list, add
 command line when using one of the `build*` playbooks. Most users might want
 to set it to `-e keys_to_insert=['$(cat ~/.ssh/id_rsa.pub)']`.
 
-Review and edit the profiles and make whatever changes you would like. By default
-these profiles build a `gateway` router that can accept WAN connections over the WAN
-nic (or the lowest numbered in the absence of a labeled WAN), LAN devices on the NIC
-physically furthest from the WAN nic and mesh connections on all NIC's in between.
+By default most devices come with all mesh ports and a single lan port, or in cases
+like the Raspberry pi where only a single port is available they will have that port
+assigned as mesh and wifi assigned as the only way to access LAN.
 
-Other available flags include `client` (implied by setting `-e gateawy=false`)
-a client device has a single mesh port on the WAN NIC and all other ports are LAN.
-While originally the default we found that most users didn't want this, so it's now
-a hidden option.
+Port assignment can be changed live once the router is built. But it does take some time.
+If you want a device to have a gateway port by default for example you can simply move
+a given interface from mesh interfaces into the wan interface slot.
 
 All versions of the firmware will connect to a user defined 'exit server' and create
 a secure Wireguard tunnel over which to route traffic.
