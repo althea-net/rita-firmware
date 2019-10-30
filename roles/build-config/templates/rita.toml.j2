@@ -16,7 +16,7 @@ peer_interfaces = [{% for interface in listen_interfaces %}"{{interface}}"{{ ","
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
 {% endif %}
-manual_peers = ["ca.althea.net", "sa-eth.althea.org", "apac.altheamesh.com", "test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
+manual_peers = ["lagos.althea.net", "ca.althea.net", "sa-eth.althea.org", "apac.altheamesh.com", "test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
 conf_link_local = true
 default_route = []
 device = "{{device}}"
@@ -88,6 +88,15 @@ state = "New"
 mesh_ip = "fd00::1337:3e9f"
 eth_address = "0x90b82ed41dcd867df7d2aedab62280e82fcd64f3"
 wg_public_key = "D0z23bOTn5RQgM87nuxx6zgmFMMAKBHXSOXopHtZhTc="
+
+[exit_client.exits.lagos]
+registration_port = 4875
+description = "Althea Lagos Exit"
+state = "New"
+[exit_client.exits.lagos.id]
+mesh_ip = "fd00::1337:1e9f"
+eth_address = "0x04e704fc011ee2da891d00450484389ec8d67fd7"
+wg_public_key = "NGyUcdBkeGHR5fjtG1VWAbpkkBowi0zflFMCbIoGf2A="
 
 [exit_client.reg_details]
 email = "placeholder@domain.com"
