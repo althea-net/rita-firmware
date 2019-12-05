@@ -22,12 +22,9 @@ listen_interfaces:
   - eth0.4
   - eth0.3
   - eth0.2
-  - wlan2
-  - wlan3
+  - mesh
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - eth0.1
+lan_interfaces: "eth0.1"
 
 # Reference value, see network.j2 to modify
 #wan_interface: "eth1"
