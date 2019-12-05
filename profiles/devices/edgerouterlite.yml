@@ -7,14 +7,10 @@ extension: tar
 image_path: "octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar"
 
 listen_interfaces:
+  - eth0
   - eth1
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - eth2
-
-# Reference value, see network.j2 to modify
-wan_interface: "eth0"
+lan_interfaces: "eth2"
 
 # For sqm tuning
 real_interfaces:

@@ -17,12 +17,9 @@ five_ghz_channel: 36
 listen_interfaces:
   - eth1
   - eth0.4
-  - wlan2
-  - wlan3
+  - mesh
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - eth0.3
+lan_interfaces: "eth0.3"
 
 # Reference value, see network.j2 to modify
 wan_interface: "eth1"

@@ -19,9 +19,7 @@ listen_interfaces:
   - eth1.3
   - eth1.4
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - eth1.5
+lan_interfaces: "eth1.5"
 
 # Reference value, see network.j2 to modify
 wan_interface: "eth0.1"

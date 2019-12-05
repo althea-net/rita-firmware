@@ -1,34 +1,12 @@
 # Port numbers for this device start at 0 with the WAN port and count going up
 # from there, so the port labeled '1' will be reffered to as '4' in this switch config
 
-config interface 'loopback'
-	option ifname 'lo'
-	option proto 'static'
-	option ipaddr '127.0.0.1'
-	option netmask '255.0.0.0'
-
 config globals 'globals'
 	option ula_prefix 'fdb3:825a:9f14::/48'
 
-config interface 'lan'
-	option type 'bridge'
-	option ifname 'eth0.5'
-	option proto 'static'
-	option ipaddr '{{lan_ip}}'
-	option netmask '255.255.255.0'
-	option ip6assign '60'
-
 config device 'lan_dev'
-	option name 'eth0.5'
+	option name '{{lan_nic}}'
 	option macaddr '54:b8:0a:a6:3e:1c'
-
-
-config interface 'backhaul'
-        option ifname 'eth0.1'
-        option proto 'dhcp'
-config interface 'backhaul6'
-	option ifname '@backhaul'
-	option proto 'dhcpv6'
 
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'

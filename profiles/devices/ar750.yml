@@ -13,13 +13,9 @@ listen_interfaces:
   - wlan0
   - wlan1
   - eth1.2
+  - eth0
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - eth1.1
-
-# Reference value, see network.j2 to modify
-wan_interface: "eth0"
+lan_interfaces: "eth1.1"
 
 # For sqm tuning
 real_interfaces:
