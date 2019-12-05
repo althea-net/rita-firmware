@@ -55,10 +55,84 @@
     src: "{{conf_to_build}}-network.j2"
     dest: "{{source_dir}}/files/etc/config/network"
 
+# Light client (phone) bootstrap network, used for phones to connect and open per-hop tunnels
+# once a tunnel is opened they are attached to a Rita created and managed bridge which nats
+# the traffic out the door
+- name: Insert Phone bootstrap network
+  blockinfile:
+    insertbefore: BOF
+    path: "{{source_dir}}/files/etc/config/network"
+    block: |
+        config interface 'pbs'
+	        option type 'bridge'
+	        option ifname '{{pbs_wlan}}'
+	        option proto 'static'
+	        option ipaddr '{{pbs_ip}}'
+	        option netmask '255.255.255.0'
+            option ip6assign '60'
+
+- name: Insert Lan network
+  blockinfile:
+    insertbefore: BOF
+    path: "{{source_dir}}/files/etc/config/network"
+    block: |
+        config interface 'lan'
+	        option type 'bridge'
+	        option ifname '{{lan_interfaces}}'
+	        option proto 'static'
+	        option ipaddr '{{lan_ip}}'
+	        option netmask '255.255.255.0'
+            option ip6assign '60'
+
+# we insert boilerplate stuff into the network configs here for the sake of de-duplication
+- name: Insert Loopback network
+  blockinfile:
+    insertbefore: BOF
+    path: "{{source_dir}}/files/etc/config/network"
+    block: |
+        config interface 'loopback'
+            option ifname 'lo'
+            option proto 'static'
+            option ipaddr '127.0.0.1'
+            option netmask '255.0.0.0'
+
 - name: Template wifi interface configuration
   template:
     src: "{{conf_to_build}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
+  when: wireless_conf_path is file
+
+- name: Insert Mesh interface for radio0
+  blockinfile:
+    insertbefore: BOF
+    dest: "{{source_dir}}/files/etc/config/wireless"
+    block: |
+        config wifi-iface 'mesh'
+            option device 'radio0'
+            option network 'rita_mesh'
+            option mode 'mesh'
+            option mesh_id 'AltheaMesh'
+            option ssid 'AltheaMesh'
+            option encryption 'none'
+            option mesh_fwding '0'
+            option ifname 'mesh'
+            option disabled '1'
+  when: wireless_conf_path is file
+
+- name: Insert Light client interface for radio0
+  blockinfile:
+    insertbefore: BOF
+    dest: "{{source_dir}}/files/etc/config/wireless"
+    block: |
+        config wifi-iface 'lightclient'
+            option device 'radio0'
+            option network 'pbs'
+            option mode 'AP'
+            option ssid 'AltheaPhone'
+            option encryption 'none'
+            option mesh_fwding '0'
+            option ifname 'pbs'
+            option disabled '0'
   when: wireless_conf_path is file
 
 

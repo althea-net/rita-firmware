@@ -20,9 +20,7 @@ listen_interfaces:
   - eth3
   - eth4
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - eth1
+lan_interfaces: "eth1"
 
 # Reference value, see network.j2 to modify
 wan_interface: "eth0"

@@ -1,35 +1,8 @@
-
-config interface 'loopback'
-	option ifname 'lo'
-	option proto 'static'
-	option ipaddr '127.0.0.1'
-	option netmask '255.0.0.0'
-
 config globals 'globals'
 	option ula_prefix 'fdb1:b494:f0ad::/48'
 
-config interface 'backhaul'
-        option ifname 'eth0.5'
-        option proto 'dhcp'
-        option ip6assign '60'
-config device 'backhaul_dev'
-	option name 'eth0.5'
-	    option macaddr '5c:e2:8c:f1:a6:7b'
-
-config interface 'backhaul6'
-	option ifname '@backhaul'
-	option proto 'dhcpv6'
-
-config interface 'lan'
-	option type 'bridge'
-	option ifname 'eth1.1'
-	option proto 'static'
-	option ipaddr '{{lan_ip}}'
-	option netmask '255.255.255.0'
-	option ip6assign '60'
-
 config device 'lan_dev'
-	option name 'eth1.1'
+	option name '{{lan_nic}}'
 	option macaddr '5c:e2:8c:f1:a6:7a'
 
 {% for interface in listen_interfaces %}

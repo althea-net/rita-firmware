@@ -1,20 +1,5 @@
-
-config interface 'loopback'
-        option ifname 'lo'
-        option proto 'static'
-        option ipaddr '127.0.0.1'
-        option netmask '255.0.0.0'
-
 config globals 'globals'
         option ula_prefix 'fd44:094c:41e2::/48'
-
-config interface 'lan'
-        option type 'bridge'
-        option ifname 'eth0.1'
-        option proto 'static'
-        option ipaddr '{{lan_ip}}'
-        option netmask '255.255.255.0'
-        option ip6assign '60'
 
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'

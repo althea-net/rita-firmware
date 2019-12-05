@@ -16,9 +16,7 @@ listen_interfaces:
   - lan2
   - lan1
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - lan0
+lan_interfaces: "lan0"
 
 # Reference value, see network.j2 to modify
 wan_interface: "eth2"

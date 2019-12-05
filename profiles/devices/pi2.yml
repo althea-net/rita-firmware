@@ -13,9 +13,7 @@ channel: 11
 listen_interfaces:
   - eth0
 
-# Reference value, see network.j2 to modify
-lan_interfaces:
-  - wlan0
+lan_interfaces: "wlan0"
 
 # Reference value, see network.j2 to modify
 wan_interface: ""
