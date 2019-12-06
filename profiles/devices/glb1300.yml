@@ -5,7 +5,7 @@ package_id: arm_cortex-a7_neon-vfpv4
 image_name: ""
 extension: bin
 image_path: "ipq40xx/generic/openwrt-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
-version: openwrt-19.07
+version: openwrt-18.06
 
 channel: 11
 # 5ghz note only 20mhz channel widths
