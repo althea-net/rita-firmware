@@ -20,8 +20,8 @@ various utilities and tools to automatically pay mesh nodes for bandwidth.
 
 ## Is this where I get Althea?
 
-If you are an Althea user, talk to your local network organizer or buy a [preflashed-device](https://althea-routers.myshopify.com/)
-this page is for advanced users and network organizers. 
+If you are an Althea user, talk to your local network organizer or [contact us](mailto:hello@althea.net) to buy a pre-flashed device.
+This page is for advanced users and network organizers. 
 
 If you are an advanced user or a network organizer yes, this is where you get the firmware images
 to install Althea on routers. For supported devices we have special supported images, these firmware
