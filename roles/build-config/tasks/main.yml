@@ -61,6 +61,7 @@
 - name: Insert Phone bootstrap network
   blockinfile:
     insertbefore: BOF
+    marker: "#PBS"
     path: "{{source_dir}}/files/etc/config/network"
     block: |
       config interface 'pbs'
@@ -74,6 +75,7 @@
 - name: Insert Lan network
   blockinfile:
     insertbefore: BOF
+    marker: "#LAN"
     path: "{{source_dir}}/files/etc/config/network"
     block: |
       config interface 'lan'
@@ -88,6 +90,7 @@
 - name: Insert Loopback network
   blockinfile:
     insertbefore: BOF
+    marker: "#LO"
     path: "{{source_dir}}/files/etc/config/network"
     block: |
       config interface 'loopback'
@@ -104,7 +107,8 @@
 
 - name: Insert Mesh interface for radio0
   blockinfile:
-    insertbefore: BOF
+    insertafter: EOF
+    marker: "#MESH"
     dest: "{{source_dir}}/files/etc/config/wireless"
     block: |
       config wifi-iface 'mesh'
@@ -121,7 +125,8 @@
 
 - name: Insert Light client interface for radio0
   blockinfile:
-    insertbefore: BOF
+    insertafter: EOF
+    marker: "#PBS"
     dest: "{{source_dir}}/files/etc/config/wireless"
     block: |
       config wifi-iface 'lightclient'
