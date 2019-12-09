@@ -1,2 +1,3 @@
 source_dir: build/
 ci: False
+supported: false

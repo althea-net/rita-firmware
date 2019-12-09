@@ -5,7 +5,10 @@ package_id: arm_cortex-a7_neon-vfpv4
 image_name:
 extension: .bin
 image_path: "ipq40xx/generic/openwrt-ipq40xx-linksys_ea6350v3-squashfs-sysupgrade.bin"
-version: openwrt-19.07
+image_paths:
+  - "ipq40xx/generic/openwrt-ipq40xx-linksys_ea6350v3-squashfs-sysupgrade.bin"
+supported: true
+version: v19.07.0-rc2
 
 channel: 11
 five_ghz_channel: 36

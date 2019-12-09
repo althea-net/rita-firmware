@@ -4,7 +4,12 @@ device: "mynet-n750"
 package_id: mips_24kc
 image_name: generic
 extension: bin
-image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin"
+image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-sysupgrade.bin"
+image_paths:
+   - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-sysupgrade.bin"
+   - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin"
+supported: true
+
 
 channel: 1
 # 5ghz note only 20mhz channel widths
