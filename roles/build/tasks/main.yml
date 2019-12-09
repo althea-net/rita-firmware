@@ -25,4 +25,17 @@
     - name: Print Success
       debug:
         msg: "Firmware Successfully built!"
+
+    - name: Create staging folder
+      file:
+        path: completed-images/
+        state: directory
+
+    - name: Copy image to staging folder
+      copy:
+        src: "build/bin/targets/{{item}}"
+        dest: "completed-images/{{ansible_date_time.date}}-{{item | basename}}"
+      with_items: "{{image_paths}}"
+      when: supported
+
   when: ci == False

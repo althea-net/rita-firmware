@@ -11,6 +11,9 @@ package_id: x86_64
 image_name: "64"
 extension: img.gz
 image_path: "x86/64/openwrt-x86-64-combined-squashfs.img.gz"
+image_paths:
+  - "x86/64/openwrt-x86-64-combined-squashfs.img.gz"
+supported: true
 
 channel: 11
 five_ghz_channel: 36

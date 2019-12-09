@@ -6,6 +6,10 @@ image_name: cortexa9
 extension: img.gz
 squashfs: ""
 image_path: "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys-wrt3200acm-squashfs-sysupgrade.bin"
+image_paths:
+  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys-wrt3200acm-squashfs-sysupgrade.bin"
+  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys-wrt3200acm-squashfs-factory.img"
+supported: true
 
 channel: 11
 five_ghz_channel: 36
