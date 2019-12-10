@@ -36,6 +36,6 @@
         src: "build/bin/targets/{{item}}"
         dest: "completed-images/{{ansible_date_time.date}}-{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-{{ansible_hostname}}-{{item | basename}}"
       with_items: "{{image_paths}}"
-      when: supported
+      when: supported and copy_images
 
   when: ci == False
