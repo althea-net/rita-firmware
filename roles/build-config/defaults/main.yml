@@ -24,3 +24,9 @@ lan_ip: "192.168.10.1"
 pbs_ip: "192.168.30.1"
 
 wifi_encryption: psk2+tkip+aes
+
+hardcoded_interfaces:
+  - "mesh"
+  - "br-pbs"
+
+listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"

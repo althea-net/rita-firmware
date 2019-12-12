@@ -17,7 +17,6 @@ five_ghz_channel: 36
 listen_interfaces:
   - eth1
   - eth0.4
-  - mesh
 
 lan_interfaces: "eth0.3"
 

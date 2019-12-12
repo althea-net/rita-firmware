@@ -19,7 +19,6 @@ listen_interfaces:
   - eth0.3
   - eth0.4
   - eth0.5
-  - mesh
 
 lan_interfaces: "eth0.5"
 

@@ -12,7 +12,7 @@ bounty_port = 8888
 wg_private_key_path = "/tmp/priv"
 wg_start_port = 60000
 tunnel_timeout_seconds = 900
-peer_interfaces = [{% for interface in listen_interfaces %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
+peer_interfaces = [{% for interface in listen_interfaces_extended %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
 {% endif %}
