@@ -21,9 +21,9 @@ config zone
 config zone
 	option name		pbs
 	list   network		'pbs'
-	option input		REJECT
+	option input		ACCEPT
 	option output		ACCEPT
-	option forward		REJECT
+	option forward		ACCEPT
 
 # We need this zone to recieve mesh traffic
 config zone
@@ -151,6 +151,20 @@ config rule
 	option src		pbs
 	option proto		udp
 	option dest_port	67
+	option target		ACCEPT
+
+config rule
+	option name		Allow-DHCP-pbs
+	option src		pbs-wlan
+	option proto		udp
+	option dest_port	67
+	option target		ACCEPT
+
+config rule
+	option name		Allow-DNS-server
+	option src		pbs-wlan
+	option proto		udp
+	option dest_port	5353
 	option target		ACCEPT
 
 # Allow DHCPv6 replies
