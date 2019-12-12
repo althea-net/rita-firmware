@@ -66,6 +66,7 @@
     block: |
       config interface 'pbs'
           option type 'bridge'
+          option ifname 'pbs-wlan'
           option proto 'static'
           option ipaddr '{{pbs_ip}}'
           option netmask '255.255.255.0'
@@ -134,7 +135,7 @@
           option mode 'ap'
           option ssid 'AltheaPhone'
           option encryption 'none'
-          option ifname 'pbs_wlan'
+          option ifname 'pbs-wlan'
           option disabled '0'
   when: wireless_conf_path is file
 
