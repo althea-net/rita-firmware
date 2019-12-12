@@ -9,6 +9,7 @@ image_paths:
    - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-sysupgrade.bin"
    - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin"
 supported: true
+version: v19.07.0-rc2
 
 
 channel: 1
@@ -21,7 +22,6 @@ listen_interfaces:
   - eth0.3
   - eth0.4
   - eth0.5
-  - mesh
 
 lan_interfaces: "eth0.1"
 
