@@ -4,10 +4,6 @@
 config globals 'globals'
 	option ula_prefix 'fdb3:825a:9f14::/48'
 
-config device 'lan_dev'
-	option name '{{lan_nic}}'
-	option macaddr '54:b8:0a:a6:3e:1c'
-
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
