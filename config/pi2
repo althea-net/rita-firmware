@@ -1,14 +1,6 @@
 CONFIG_TARGET_brcm2708=y
 CONFIG_TARGET_brcm2708_bcm2709=y
 CONFIG_TARGET_brcm2708_bcm2709_DEVICE_rpi-2=y
-CONFIG_DEVEL=y
-CONFIG_CCACHE=y
-# CONFIG_FEED_althea is not set
-CONFIG_IB=y
-CONFIG_IB_STANDALONE=y
-CONFIG_IMAGEOPT=y
-# CONFIG_KERNEL_MAGIC_SYSRQ is not set
-# CONFIG_KERNEL_SWAP is not set
 CONFIG_LIBCURL_COOKIES=y
 CONFIG_LIBCURL_FILE=y
 CONFIG_LIBCURL_FTP=y
@@ -16,80 +8,49 @@ CONFIG_LIBCURL_HTTP=y
 CONFIG_LIBCURL_MBEDTLS=y
 CONFIG_LIBCURL_NO_SMB="!"
 CONFIG_LIBCURL_PROXY=y
-CONFIG_MAKE_TOOLCHAIN=y
 CONFIG_OPENSSL_WITH_DEPRECATED=y
 CONFIG_OPENSSL_WITH_EC=y
 CONFIG_OPENSSL_WITH_NPN=y
 CONFIG_OPENSSL_WITH_PSK=y
 CONFIG_OPENSSL_WITH_SRP=y
-CONFIG_PACKAGE_adblock=y
 CONFIG_PACKAGE_althea-babeld=y
 CONFIG_PACKAGE_althea-cron-jobs=y
 CONFIG_PACKAGE_althea-dash=y
 CONFIG_PACKAGE_althea-rust-binaries=y
-CONFIG_PACKAGE_ar=m
 CONFIG_PACKAGE_ca-bundle=y
 CONFIG_PACKAGE_ca-certificates=y
-CONFIG_PACKAGE_fwknopd=m
-CONFIG_PACKAGE_gdb=m
-CONFIG_PACKAGE_glib2=y
+CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_ip-tiny=y
 CONFIG_PACKAGE_ipset=y
-CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
-CONFIG_PACKAGE_iptables-mod-ipopt=y
-CONFIG_PACKAGE_kmod-ifb=y
-CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
-CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-ipt-ipset=y
 CONFIG_PACKAGE_kmod-nfnetlink=y
 CONFIG_PACKAGE_kmod-sched-cake=y
 CONFIG_PACKAGE_kmod-sched-core=y
 CONFIG_PACKAGE_kmod-udptunnel4=y
 CONFIG_PACKAGE_kmod-udptunnel6=y
-CONFIG_PACKAGE_kmod-usb-ledtrig-usbport=y
-CONFIG_PACKAGE_kmod-usb-ohci=y
 CONFIG_PACKAGE_kmod-wireguard=y
-CONFIG_PACKAGE_libattr=y
-CONFIG_PACKAGE_libbfd=m
 CONFIG_PACKAGE_libcurl=y
-CONFIG_PACKAGE_libexpat=m
-CONFIG_PACKAGE_libffi=y
-CONFIG_PACKAGE_libfko=m
 CONFIG_PACKAGE_libipset=y
-CONFIG_PACKAGE_libiwinfo-lua=y
-CONFIG_PACKAGE_liblua=y
 CONFIG_PACKAGE_libmbedtls=y
 CONFIG_PACKAGE_libmnl=y
-CONFIG_PACKAGE_libmpdclient=m
 CONFIG_PACKAGE_libncurses=y
-CONFIG_PACKAGE_libopcodes=m
 CONFIG_PACKAGE_libopenssl=y
-CONFIG_PACKAGE_libpcap=m
-CONFIG_PACKAGE_libpcre=y
-CONFIG_PACKAGE_libqrencode=m
-CONFIG_PACKAGE_libreadline=m
 CONFIG_PACKAGE_libsqlite3=y
-CONFIG_PACKAGE_libstdcpp=m
-CONFIG_PACKAGE_libubus-lua=y
-CONFIG_PACKAGE_libuci-lua=y
-CONFIG_PACKAGE_libupnp=m
-CONFIG_PACKAGE_libupnpp=m
 CONFIG_PACKAGE_libustream-openssl=y
-CONFIG_PACKAGE_lua=y
 CONFIG_PACKAGE_rpcd=y
-CONFIG_PACKAGE_rpcd-mod-rrdns=y
-CONFIG_PACKAGE_sqm-scripts=y
 CONFIG_PACKAGE_tc=y
 CONFIG_PACKAGE_terminfo=y
 CONFIG_PACKAGE_uhttpd=y
-CONFIG_PACKAGE_uhttpd-mod-ubus=y
-CONFIG_PACKAGE_upmpdcli=m
 CONFIG_PACKAGE_wireguard=y
 CONFIG_PACKAGE_wireguard-tools=y
 CONFIG_PACKAGE_zlib=y
-CONFIG_SQLITE_FTS3=y
-CONFIG_SQLITE_RTREE=y
+CONFIG_SQLITE3_DYNAMIC_EXTENSIONS=y
+CONFIG_SQLITE3_FTS3=y
+CONFIG_SQLITE3_FTS4=y
+CONFIG_SQLITE3_FTS5=y
+CONFIG_SQLITE3_JSON1=y
+CONFIG_SQLITE3_RTREE=y
 # CONFIG_TARGET_ar71xx_generic is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_A60 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ALFAAP120C is not set
@@ -332,6 +293,7 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-unifi-outdoor-plus is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-unifiac-lite is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-unifiac-mesh is not set
+# CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-unifiac-mesh-pro is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_ubnt-unifiac-pro is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_wam250 is not set
 # CONFIG_TARGET_ar71xx_generic_DEVICE_wbs210-v1 is not set
@@ -357,4 +319,23 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_mikrotik is not set
 # CONFIG_TARGET_ar71xx_nand is not set
 # CONFIG_TARGET_ar71xx_tiny is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_asus-rt-ac56u is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_asus-rt-ac68u is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_asus-rt-ac87u is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_asus-rt-n18u is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_buffalo-wxr-1900dhp is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_buffalo-wzr-1750dhp is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_buffalo-wzr-600dhp2 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_buffalo-wzr-900dhp is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_dlink-dir-885l is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_netgear-r6250 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_netgear-r6300-v2 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_netgear-r7000 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_netgear-r7900 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_netgear-r8000 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_smartrg-sr400ac is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_tenda-ac9 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_tplink-archer-c5-v2 is not set
+# CONFIG_TARGET_bcm53xx_DEVICE_tplink-archer-c9-v1 is not set
+# CONFIG_TARGET_bcm53xx_Generic is not set
 # CONFIG_TARGET_brcm2708_bcm2708_DEVICE_rpi is not set
