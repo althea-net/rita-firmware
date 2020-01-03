@@ -4,7 +4,7 @@ device: "mynet-n600"
 package_id: mips_24kc
 image_name: generic
 extension: bin
-image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin"
+image_path: "ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-sysupgrade.bin"
 image_paths:
   - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-factory.bin"
   - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n600-squashfs-sysupgrade.bin"
