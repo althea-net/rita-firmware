@@ -13,11 +13,10 @@ password_auth: 0
 default_price: 100
 wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
 
-# literally everything ipv6 and some ipv4
+# literally everything
 mesh_subnets:
   - "8000::/1"
   - "0000::/1"
-  - "192.168.100.0/18"
 
 wifi_key: "ChangeMe"
 
