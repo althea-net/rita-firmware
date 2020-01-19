@@ -27,6 +27,5 @@ wifi_encryption: psk2+tkip+aes
 
 hardcoded_interfaces:
   - "mesh"
-  - "br-pbs"
 
 listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"

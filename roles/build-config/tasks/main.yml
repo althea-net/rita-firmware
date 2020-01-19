@@ -133,7 +133,7 @@
           option device 'radio0'
           option network 'pbs'
           option mode 'ap'
-          option ssid 'AltheaPhone'
+          option ssid 'AltheaMobile'
           option encryption 'none'
           option ifname 'pbs-wlan'
           option disabled '0'
