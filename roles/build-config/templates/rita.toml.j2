@@ -12,6 +12,7 @@ bounty_port = 8888
 wg_private_key_path = "/tmp/priv"
 wg_start_port = 60000
 tunnel_timeout_seconds = 900
+light_client_router_ip = "{{pbs_ip}}"
 peer_interfaces = [{% for interface in listen_interfaces_extended %}"{{interface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
@@ -34,15 +35,6 @@ state = "New"
 mesh_ip = "fd00::1337:1e0f"
 eth_address = "0x5aee3dff733f56cfe7e5390b9cc3a46a90ca1cfa"
 wg_public_key = "zgAlhyOQy8crB0ewrsWt3ES9SvFguwx5mq9i2KiknmA="
-
-[exit_client.exits.borked]
-registration_port = 4875
-description = "Borked! For developers only!"
-state = "New"
-[exit_client.exits.borked.id]
-mesh_ip = "fd00::1337:0e6f"
-eth_address = "0x9ca95e6180738a2adbd4bea31bd6563c5dfbd045"
-wg_public_key = "4f3TBCL2HxxPreajT+FsAYzmQa0ZmeYYNHvpORX9tm8="
 
 [exit_client.exits.us_west]
 registration_port = 4875
