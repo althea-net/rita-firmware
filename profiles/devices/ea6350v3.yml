@@ -9,7 +9,6 @@ image_paths:
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea6350v3-squashfs-sysupgrade.bin"
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea6350v3-squashfs-factory.bin"
 supported: true
-version: v19.07.0
 
 channel: 11
 five_ghz_channel: 36

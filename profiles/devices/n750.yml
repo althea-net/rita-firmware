@@ -9,8 +9,6 @@ image_paths:
    - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-sysupgrade.bin"
    - "ar71xx/generic/openwrt-ar71xx-generic-mynet-n750-squashfs-factory.bin"
 supported: true
-version: v19.07.0-rc2
-
 
 channel: 1
 # 5ghz note only 20mhz channel widths

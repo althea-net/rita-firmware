@@ -8,7 +8,6 @@ image_path: "ipq40xx/generic/openwrt-ipq40xx-generic-glinet_gl-b1300-squashfs-sy
 image_paths:
   - "ipq40xx/generic/openwrt-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
 supported: true
-version: v19.07.0
 
 channel: 11
 # 5ghz note only 20mhz channel widths
