@@ -4,9 +4,9 @@ device: "ubnt-erx"
 package_id: mipsel_24kc
 image_name: "mt7621"
 extension: bin
-image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar"
+image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade"
 image_paths:
-  - "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade.tar"
+  - "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-squashfs-sysupgrade"
 supported: true
 
 listen_interfaces:
