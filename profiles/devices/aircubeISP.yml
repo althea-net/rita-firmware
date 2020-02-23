@@ -1,0 +1,29 @@
+conf_to_build: aircube
+target: "ath79"
+device: "ubnt_acb-isp"
+package_id: ath79
+image_name: generic
+extension: bin
+image_path: "ath79/generic/openwrt-ath79-generic-ubnt_acb-isp-squashfs-sysupgrade.bin"
+image_paths:
+   - "ath79/generic/openwrt-ath79-generic-ubnt_acb-isp-squashfs-sysupgrade.bin"
+supported: false
+
+channel: 11
+
+# babel interfaces for gateway operation
+listen_interfaces:
+  - eth1
+  - eth0.3
+  - eth0.4
+
+lan_interfaces: "eth0.2"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 100000
+
+rust_target: mips-unknown-linux-musl
