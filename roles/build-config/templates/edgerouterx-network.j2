@@ -7,34 +7,15 @@ config interface 'backhaul'
         option proto 'dhcp'
         option ip6assign '60'
 
-config device 'backhaul_dev'
-        option name 'eth0.1'
-        option macaddr '78:8a:20:bb:7e:4e'
-
 config interface 'backhaul6'
 	option ifname '@backhaul'
 	option proto 'dhcpv6'
 
-# Due to the device requirements the loop is pretty
-# pointless, #TODO figure out how to generalize
-# or just admit defeat and hardcode
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
 {% endfor %}
-config device 'ritad_eth02_dev'
-        option name 'eth0.2'
-        option macaddr '78:8a:20:bb:7e:4f'
-config device 'ritad_eth03_dev'
-        option name 'eth0.3'
-        option macaddr '78:8a:20:bb:7e:50'
-config device 'ritad_eth04_dev'
-        option name 'eth0.4'
-        option macaddr '78:8a:20:bb:7e:51'
-config device 'ritad_eth05_dev'
-        option name 'eth0.5'
-        option macaddr '78:8a:20:bb:7e:52'
 
 config switch
         option name 'switch0'
