@@ -21,9 +21,12 @@ various utilities and tools to automatically pay mesh nodes for bandwidth.
 ## Is this where I get Althea?
 
 If you are an Althea user, talk to your local network organizer or [contact us](mailto:hello@althea.net) to buy a pre-flashed device.
-This page is for advanced users and network organizers.
+This page is for developers or advanced users.
 
-If you are an advanced user or a network organizer yes, this is where you get the firmware images
+If you are a network operator looking to flash routers please visit [althea.net/firmware](https://althea.net/firmware)
+to download tested images. The images on this page are the latest from our development team, which is great for testing but not good for rolling into production. 
+
+If you are an advanced user or a developer yes, this is where you get the absolute latest firmware images
 to install Althea on routers. For supported devices we have special supported images, these firmware
 images send some non-identifying data such as bug reports, crashes, and mesh status logs to Althea.
 
