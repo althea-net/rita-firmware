@@ -1,9 +1,11 @@
 config defaults
 	option syn_flood_protect   1
-	option tcp_ecn      1
-	option input		REJECT
-	option output		ACCEPT
-	option forward		ACCEPT
+	option tcp_ecn             1
+	option flow_offloading     1
+	option flow_offloading_hw  1
+	option input		       REJECT
+	option output		       ACCEPT
+	option forward		       ACCEPT
 
 config zone
 	option name		backhaul
