@@ -14,13 +14,11 @@ default_price: 100
 wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
 
 mesh_subnets:
-  - "fc00::/7" # our currently generated addresses
-  - "ff00::/8" # global multicast
+  - "f000::/4" # locally routable address and link local addresses, link local isn't forwarded anyways
   - "2000::/4" # most assigned unicast addresses
   - "3000::/4" # some depricated stuff
   - "4000::/4" # some depricated stuff
   - "5000::/4" # some depricated stuff
-
 
 wifi_key: "ChangeMe"
 
