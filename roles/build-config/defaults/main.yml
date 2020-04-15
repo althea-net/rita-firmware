@@ -13,10 +13,14 @@ password_auth: 0
 default_price: 100
 wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
 
-# literally everything
 mesh_subnets:
-  - "8000::/1"
-  - "0000::/1"
+  - "fc00::/7" # our currently generated addresses
+  - "ff00::/8" # global multicast
+  - "2000::/4" # most assigned unicast addresses
+  - "3000::/4" # some depricated stuff
+  - "4000::/4" # some depricated stuff
+  - "5000::/4" # some depricated stuff
+
 
 wifi_key: "ChangeMe"
 
