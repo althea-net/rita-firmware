@@ -34,7 +34,7 @@ config dhcp 'pbs'
         option interface 'pbs'
         option start '100'
         option limit '150'
-        option leasetime '5d'
+        option leasetime '1d'
         option dhcpv6 'server'
         option ra 'server'
 
