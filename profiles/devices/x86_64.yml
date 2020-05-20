@@ -14,7 +14,6 @@ image_path: "x86/64/openwrt-x86-64-combined-squashfs.img.gz"
 image_paths:
   - "x86/64/openwrt-x86-64-combined-squashfs.img.gz"
 supported: true
-version: v18.06.7
 
 channel: 11
 five_ghz_channel: 36
