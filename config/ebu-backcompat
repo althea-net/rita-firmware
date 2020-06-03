@@ -1,0 +1,83 @@
+CONFIG_TARGET_mvebu=y
+CONFIG_TARGET_mvebu_cortexa9=y
+CONFIG_TARGET_mvebu_cortexa9_DEVICE_linksys-wrt3200acm=y
+CONFIG_LIBCURL_COOKIES=y
+CONFIG_LIBCURL_FILE=y
+CONFIG_LIBCURL_FTP=y
+CONFIG_LIBCURL_HTTP=y
+CONFIG_LIBCURL_MBEDTLS=y
+CONFIG_LIBCURL_NO_SMB="!"
+CONFIG_LIBCURL_PROXY=y
+CONFIG_OPENSSL_WITH_DEPRECATED=y
+CONFIG_OPENSSL_WITH_EC=y
+CONFIG_OPENSSL_WITH_NPN=y
+CONFIG_OPENSSL_WITH_PSK=y
+CONFIG_OPENSSL_WITH_SRP=y
+CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-cron-jobs=y
+CONFIG_PACKAGE_althea-dash=y
+CONFIG_PACKAGE_althea-rust-binaries=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ca-certificates=y
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_e2fsprogs=y
+CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_ip-tiny=y
+CONFIG_PACKAGE_ipset=y
+# CONFIG_PACKAGE_kmod-bluetooth is not set
+# CONFIG_PACKAGE_kmod-btmrvl is not set
+# CONFIG_PACKAGE_kmod-crypto-aead is not set
+# CONFIG_PACKAGE_kmod-crypto-cmac is not set
+CONFIG_PACKAGE_kmod-crypto-crc32c=y
+# CONFIG_PACKAGE_kmod-crypto-ecb is not set
+# CONFIG_PACKAGE_kmod-crypto-ecdh is not set
+# CONFIG_PACKAGE_kmod-crypto-manager is not set
+# CONFIG_PACKAGE_kmod-crypto-null is not set
+# CONFIG_PACKAGE_kmod-crypto-pcompress is not set
+# CONFIG_PACKAGE_kmod-hid is not set
+# CONFIG_PACKAGE_kmod-i2c-core is not set
+# CONFIG_PACKAGE_kmod-input-core is not set
+# CONFIG_PACKAGE_kmod-input-evdev is not set
+CONFIG_PACKAGE_kmod-ipt-ipset=y
+# CONFIG_PACKAGE_kmod-lib-crc16 is not set
+CONFIG_PACKAGE_kmod-lib-crc32c=y
+# CONFIG_PACKAGE_kmod-mmc is not set
+# CONFIG_PACKAGE_kmod-mwifiex-sdio is not set
+CONFIG_PACKAGE_kmod-netem=y
+CONFIG_PACKAGE_kmod-nfnetlink=y
+# CONFIG_PACKAGE_kmod-nls-base is not set
+# CONFIG_PACKAGE_kmod-regmap is not set
+CONFIG_PACKAGE_kmod-sched=y
+CONFIG_PACKAGE_kmod-sched-cake=y
+CONFIG_PACKAGE_kmod-sched-core=y
+CONFIG_PACKAGE_kmod-udptunnel4=y
+CONFIG_PACKAGE_kmod-udptunnel6=y
+# CONFIG_PACKAGE_kmod-usb-core is not set
+CONFIG_PACKAGE_kmod-wireguard=y
+CONFIG_PACKAGE_libblkid=y
+CONFIG_PACKAGE_libcomerr=y
+CONFIG_PACKAGE_libcurl=y
+CONFIG_PACKAGE_libext2fs=y
+CONFIG_PACKAGE_libf2fs=y
+CONFIG_PACKAGE_libipset=y
+CONFIG_PACKAGE_libmbedtls=y
+CONFIG_PACKAGE_libmnl=y
+CONFIG_PACKAGE_libncurses=y
+CONFIG_PACKAGE_libopenssl=y
+CONFIG_PACKAGE_librt=y
+CONFIG_PACKAGE_libsqlite3=y
+CONFIG_PACKAGE_libss=y
+CONFIG_PACKAGE_libustream-openssl=y
+CONFIG_PACKAGE_libuuid=y
+CONFIG_PACKAGE_mkf2fs=y
+# CONFIG_PACKAGE_mwifiex-sdio-firmware is not set
+CONFIG_PACKAGE_mwlwifi-firmware-88w8864=y
+CONFIG_PACKAGE_rpcd=y
+CONFIG_PACKAGE_tc=y
+CONFIG_PACKAGE_terminfo=y
+CONFIG_PACKAGE_uhttpd=y
+CONFIG_PACKAGE_wireguard=y
+CONFIG_PACKAGE_wireguard-tools=y
+CONFIG_PACKAGE_zlib=y
+CONFIG_SQLITE_FTS3=y
+CONFIG_SQLITE_RTREE=y
