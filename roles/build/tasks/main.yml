@@ -31,10 +31,22 @@
         path: completed-images/
         state: directory
 
+    - name: Create archive folder
+      file:
+        path: images-archive/
+        state: directory
+
     - name: Copy image to staging folder
       copy:
         src: "build/bin/targets/{{item}}"
         dest: "completed-images/{{ansible_date_time.date}}-{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-{{item | basename}}"
+      with_items: "{{image_paths}}"
+      when: supported and copy_images
+
+    - name: Copy image to archive folder
+      copy:
+        src: "build/bin/targets/{{item}}"
+        dest: "images-archive/{{ansible_date_time.date}}-{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-{{item | basename}}"
       with_items: "{{image_paths}}"
       when: supported and copy_images
 
