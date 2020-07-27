@@ -199,14 +199,6 @@ config rule
     option dest_port    4878
     option target    ACCEPT
 
-# Dropbear does not listen here by default, it
-# may be enabled by the user
-config rule
-	option name		Allow-SSH
-	option src		backhaul
-	option dest_port	22
-	option target		ACCEPT
-
 config rule
 	option name		Allow-DHCP
 	option src		backhaul
