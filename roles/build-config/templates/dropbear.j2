@@ -1,7 +1,10 @@
 {% if remote_mesh_access and insert_keys %}
 config dropbear
         option PasswordAuth 'no'
-        option Port         '{{ssh_port}}'
+        option Port         '2200'
+config dropbear
+        option Port         '22'
+        option Interface 'lan'
 {% else %}
 config dropbear
         option PasswordAuth '{{password_auth}}'
