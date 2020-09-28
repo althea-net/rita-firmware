@@ -131,7 +131,7 @@
           option ssid 'AltheaMobile'
           option encryption 'none'
           option ifname 'pbs-wlan'
-          option disabled '0'
+          option disabled '1'
   when: wireless_conf_path is file
 
 - name: Template the Babeld configuration
