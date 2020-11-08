@@ -1,0 +1,35 @@
+conf_to_build: wrt1900acs
+target: "mvebu"
+device: "linksys_wrt1900acs"
+package_id: arm_cortex-a9_vfpv3
+image_name: cortexa9
+extension: img.gz
+squashfs: ""
+image_path: "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900acs-squashfs-sysupgrade.bin"
+image_paths:
+  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900ac-squashfs-sysupgrade.bin"
+  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900ac-squashfs-factory.img"
+supported: true
+
+channel: 11
+five_ghz_channel: 36
+
+listen_interfaces:
+  - eth1.2
+  - eth0.3
+  - eth0.4
+  - eth0.5
+
+lan_interfaces: "eth0.1"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 300000
+
+rust_target: armv7-unknown-linux-musleabihf
+
+# tkip backwards compat causes issues with the driver
+wifi_encryption: "psk2+ccmp"
