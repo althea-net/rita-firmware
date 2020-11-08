@@ -1,0 +1,38 @@
+config globals 'globals'
+        option ula_prefix 'fdc0:a3ee:8970::/48'
+
+{% for interface in listen_interfaces %}
+config interface 'rita_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+{% endfor %}
+
+config switch
+        option name 'switch0'
+        option reset '1'
+        option enable_vlan '1'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '1'
+        option ports '0 5t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '3'
+        option ports '1 5t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '4'
+        option ports '2 5t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '5'
+        option ports '3 5t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '2'
+        option ports '4 6t'
