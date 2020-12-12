@@ -365,3 +365,4 @@ CONFIG_SQLITE_RTREE=y
 # CONFIG_TARGET_ar71xx_mikrotik is not set
 # CONFIG_TARGET_ar71xx_nand is not set
 # CONFIG_TARGET_ar71xx_tiny is not set
+CONFIG_DROPBEAR_ED25519=y

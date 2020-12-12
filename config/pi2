@@ -339,3 +339,4 @@ CONFIG_SQLITE3_RTREE=y
 # CONFIG_TARGET_bcm53xx_DEVICE_tplink-archer-c9-v1 is not set
 # CONFIG_TARGET_bcm53xx_Generic is not set
 # CONFIG_TARGET_brcm2708_bcm2708_DEVICE_rpi is not set
+CONFIG_DROPBEAR_ED25519=y
