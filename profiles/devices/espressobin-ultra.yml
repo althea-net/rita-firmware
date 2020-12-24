@@ -1,0 +1,34 @@
+conf_to_build: espressobin-ultra
+target: "mvebu"
+device: "globalscale_espressobin_ultra"
+package_id: aarch64_cortex-a53
+image_name: "globalscale_spressobin_ultra"
+extension: img.gz
+image_path: "mvebu/cortexa53/openwrt-mvebu-cortexa53-globalscale_espressobin-ultra-squashfs-sdcard.img.gz"
+image_paths:
+  - "mvebu/cortexa53/openwrt-mvebu-cortexa53-globalscale_espressobin-ultra-squashfs-sdcard.img.gz"
+supported: false
+
+listen_interfaces:
+  - lan2
+  - lan1
+  - lan0
+
+lan_interfaces: "lan3"
+
+# Reference value, see network.j2 to modify
+wan_interface: "wan"
+
+# For sqm tuning
+real_interfaces:
+  - lan0
+  - lan1
+  - lan2
+  - lan3
+  - wan
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 500000
+
+rust_target: aarch64-unknown-linux-musl
+
+version: bc99b56d7ea05f59a6fc3401508d28130f9cec90
