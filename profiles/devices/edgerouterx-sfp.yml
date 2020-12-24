@@ -1,0 +1,29 @@
+conf_to_build: edgerouterx-sfp
+target: "ramips"
+device: "ubnt-erx"
+package_id: mipsel_24kc
+image_name: "mt7621"
+extension: bin
+image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-sfp-squashfs-sysupgrade.bin"
+image_paths:
+  - "ramips/mt7621/openwrt-ramips-mt7621-ubnt-erx-sfp-squashfs-sysupgrade.bin"
+supported: true
+
+listen_interfaces:
+  - eth0.2 # port 1
+  - eth0.3 # port 2
+  - eth0.4 # port 3
+  - eth0.6 # sfp
+
+lan_interfaces: "eth0.5"
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth0.1"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 300000
+
+rust_target: mipsel-unknown-linux-musl
