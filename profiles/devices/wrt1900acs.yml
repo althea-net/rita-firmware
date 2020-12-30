@@ -7,8 +7,8 @@ extension: img.gz
 squashfs: ""
 image_path: "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900acs-squashfs-sysupgrade.bin"
 image_paths:
-  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900ac-squashfs-sysupgrade.bin"
-  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900ac-squashfs-factory.img"
+  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900acs-squashfs-sysupgrade.bin"
+  - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900acs-squashfs-factory.img"
 supported: true
 
 channel: 11
