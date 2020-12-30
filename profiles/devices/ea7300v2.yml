@@ -33,4 +33,4 @@ est_max_throughput: 150000
 
 rust_target: mipsel-unknown-linux-musl
 
-version: a3e5b24d430a752caebf513aaacce707204b5def
+version: master
