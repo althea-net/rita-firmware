@@ -30,6 +30,3 @@ real_interfaces:
 est_max_throughput: 400000
 
 rust_target: armv7-unknown-linux-musleabihf
-
-# tkip backwards compat causes issues with the driver
-wifi_encryption: "psk2+ccmp"
