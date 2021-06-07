@@ -30,5 +30,3 @@ real_interfaces:
 est_max_throughput: 500000
 
 rust_target: aarch64-unknown-linux-musl
-
-version: bc99b56d7ea05f59a6fc3401508d28130f9cec90
