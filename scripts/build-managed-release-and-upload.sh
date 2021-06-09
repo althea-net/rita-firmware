@@ -28,4 +28,8 @@ ansible-playbook -e @profiles/devices/n750.yml -e @profiles/management/althea-ma
 ansible-playbook -e @profiles/devices/edgerouterx.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/edgerouterx-sfp.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
+# required to update older wrt series devices by building a non -d16 version of their packages, this build also must
+# succeed
+ansible-playbook -e @profiles/devices/wrt-backwards-compat.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+
 rsync -ahz --delete build/bin/targets $SERVER:$HTTP_DIR/supported
