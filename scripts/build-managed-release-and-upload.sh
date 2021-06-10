@@ -4,6 +4,10 @@ cd $(dirname $0)/..
 export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
 
+# ramips
+ansible-playbook -e @profiles/devices/edgerouterx.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/edgerouterx-sfp.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+
 # desktops / servers
 ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
@@ -24,9 +28,6 @@ ansible-playbook -e @profiles/devices/ea6350v3.yml -e @profiles/management/althe
 # ath79
 ansible-playbook -e @profiles/devices/n750.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
-# ramips
-ansible-playbook -e @profiles/devices/edgerouterx.yml -e @profiles/management/althea-managed.yml firmware-build.yml
-ansible-playbook -e @profiles/devices/edgerouterx-sfp.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
 # required to update older wrt series devices by building a non -d16 version of their packages, this build also must
 # succeed
