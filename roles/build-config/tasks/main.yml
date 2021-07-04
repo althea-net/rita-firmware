@@ -149,6 +149,12 @@
     src: "althea-firmware-release.j2"
     dest: "{{source_dir}}/files/etc/althea-firmware-release"
 
+- name: Template any device specific scripts
+  template:
+    src: "{{custom_script}}.j2"
+    dest: "{{source_dir}}/files/etc/{{custom_script}}"
+  when: custom_script is defined
+
 - name: Template package update url
   template:
     src: customfeeds.conf.j2

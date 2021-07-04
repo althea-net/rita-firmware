@@ -15,6 +15,9 @@ listen_interfaces:
   - eth0.4 # port 3
   - eth0.6 # sfp
 
+# provides poe control
+custom_script: erx-sfp-poe.sh
+
 lan_interfaces: "eth0.5"
 
 # Reference value, see network.j2 to modify

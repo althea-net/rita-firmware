@@ -1,0 +1,29 @@
+#!/bin/ash
+#
+# This is a utility script to enable the POE features of this
+# edgerouter-x SFP. To enable this script add a line running it
+# to /etc/rc.local
+
+#  kernel >= 5.4.33  496 .. 500 become 400 .. 404
+
+# Turn on POE all ports except eth4(LAN)
+# eth0 WAN port
+echo "496" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio496/direction
+echo "1" > /sys/class/gpio/gpio496/value
+#eth1
+echo "497" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio497/direction
+echo "1" > /sys/class/gpio/gpio497/value
+#eth2
+echo "498" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio498/direction
+echo "1" > /sys/class/gpio/gpio498/value
+#eth3
+echo "499" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio499/direction
+echo "0" > /sys/class/gpio/gpio499/value
+#eth4
+echo "500" > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio500/direction
+echo "0" > /sys/class/gpio/gpio500/value
