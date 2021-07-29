@@ -1,0 +1,10 @@
+config globals 'globals'
+        option ula_prefix 'fd3a:2a63:ef9f::/48'
+
+{% for interface in listen_interfaces %}
+config interface 'rita_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+{% endfor %}
+
+

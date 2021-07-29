@@ -1,3 +1,4 @@
 repo: https://github.com/openwrt/openwrt
-version: 00d7a459f3ebb2a0d5f806cc3f95e171b42600e9
+#version: openwrt-21.02
+version: 55d9c020a1d7bcf1f7dceebfc9417de1eb448d41
 source_dir: build/
