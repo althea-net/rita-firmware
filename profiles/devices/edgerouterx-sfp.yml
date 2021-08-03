@@ -1,6 +1,6 @@
 conf_to_build: edgerouterx-sfp
 target: "ramips"
-device: "ubnt-erx"
+device: "ubnt-erx-sfp"
 package_id: mipsel_24kc
 image_name: "mt7621"
 extension: bin
