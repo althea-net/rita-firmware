@@ -5,3 +5,5 @@ build/
 scripts/virtualbox/vboxDisks/*
 images-archive/
 completed-images/
+
+workspace.code-workspace
