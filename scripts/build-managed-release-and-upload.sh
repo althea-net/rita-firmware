@@ -7,9 +7,13 @@ export HTTP_DIR=/usr/share/nginx/html/
 # ramips
 ansible-playbook -e @profiles/devices/edgerouterx.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/edgerouterx-sfp.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/tplinka6v3.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
 # desktops / servers
 ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+
+# rockchip
+ansible-playbook -e @profiles/devices/nanopi-r2s.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
 # mvebu
 ansible-playbook -e @profiles/devices/wrt3200acm.yml -e @profiles/management/althea-managed.yml firmware-build.yml
@@ -27,10 +31,5 @@ ansible-playbook -e @profiles/devices/ea6350v3.yml -e @profiles/management/althe
 
 # ath79
 ansible-playbook -e @profiles/devices/n750.yml -e @profiles/management/althea-managed.yml firmware-build.yml
-
-
-# required to update older wrt series devices by building a non -d16 version of their packages, this build also must
-# succeed
-ansible-playbook -e @profiles/devices/wrt-backwards-compat.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
 rsync -ahz --delete build/bin/targets $SERVER:$HTTP_DIR/supported
