@@ -1,8 +1,0 @@
-CONFIG_TARGET_ar71xx=y
-CONFIG_TARGET_ar71xx_generic=y
-CONFIG_TARGET_ar71xx_generic_DEVICE_tl-wdr3600-v1=y
-CONFIG_PACKAGE_althea-babeld=y
-CONFIG_PACKAGE_althea-cron-jobs=y
-CONFIG_PACKAGE_althea-dash=y
-CONFIG_PACKAGE_althea-rust-binaries=y
-CONFIG_PACKAGE_althea-tools=y

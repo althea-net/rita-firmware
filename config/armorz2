@@ -1,8 +1,0 @@
-CONFIG_TARGET_ipq806x=y
-CONFIG_TARGET_ipq806x_DEVICE_zyxel_nbg6817=y
-CONFIG_TARGET_BOARD="ipq806x"
-CONFIG_PACKAGE_althea-babeld=y
-CONFIG_PACKAGE_althea-cron-jobs=y
-CONFIG_PACKAGE_althea-dash=y
-CONFIG_PACKAGE_althea-rust-binaries=y
-CONFIG_PACKAGE_althea-tools=y
