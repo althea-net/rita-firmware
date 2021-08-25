@@ -15,11 +15,8 @@ five_ghz_channel: 36
 
 listen_interfaces:
   - wan
-  - lan1
-  - lan2
-  - lan3
 
-lan_interfaces: "lan4"
+lan_interfaces: "lan1 lan2 lan3 lan4"
 
 # For sqm tuning
 real_interfaces:

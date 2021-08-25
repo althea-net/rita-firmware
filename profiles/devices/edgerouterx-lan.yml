@@ -11,14 +11,12 @@ image_paths:
 supported: true
 
 listen_interfaces:
-  - eth3
-  - eth2
-  - eth1
+  - eth4
 
-lan_interfaces: "eth4"
+lan_interfaces: "eth0 eth1 eth2 eth3"
 
 # Reference value, see network.j2 to modify
-wan_interface: "eth0"
+#wan_interface: "eth0"
 
 # For sqm tuning
 real_interfaces:

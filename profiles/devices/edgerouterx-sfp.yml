@@ -9,23 +9,24 @@ image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-ubnt_edgerouter-x-sfp-squashfs-sysupgrade.bin"
 supported: true
 
-listen_interfaces:
-  - eth0.2 # port 1
-  - eth0.3 # port 2
-  - eth0.4 # port 3
-  - eth0.6 # sfp
-
 # provides poe control
 custom_script: erx-sfp-poe.sh
 
-lan_interfaces: "eth0.5"
+listen_interfaces:
+  - eth3
+  - eth2
+  - eth1
+  - eth5 # SFP port
+
+lan_interfaces: "eth4"
 
 # Reference value, see network.j2 to modify
-wan_interface: "eth0.1"
+wan_interface: "eth0"
 
 # For sqm tuning
 real_interfaces:
-  - eth0
+  - dsa
+
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 300000
 

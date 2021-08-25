@@ -12,11 +12,8 @@ five_ghz_channel: 36
 
 listen_interfaces:
   - eth0.5
-  - eth1.4
-  - eth1.3
-  - eth1.2
 
-lan_interfaces: "eth1.1"
+lan_interfaces: "eth1.1 eth1.2 eth1.3 eth1.4"
 
 # For sqm tuning
 real_interfaces:
