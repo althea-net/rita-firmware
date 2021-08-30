@@ -14,6 +14,8 @@ supported: true
 channel: 11
 five_ghz_channel: 36
 
+wifi_encryption: "psk2+ccmp"
+
 listen_interfaces:
   - wan
 
