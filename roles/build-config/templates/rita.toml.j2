@@ -17,7 +17,7 @@ peer_interfaces = [{% for interface in listen_interfaces_extended %}"{{interface
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
 {% endif %}
-manual_peers = ["africa.althea.net", "ca.althea.net", "sa-eth.althea.org", "apac.altheamesh.com", "test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org", "10.45.0.1"]
+manual_peers = ["africa.althea.net", "ca.althea.net", "sa-eth.althea.org", "apac.altheamesh.com", "test.althea.org", "exit.altheamesh.com", "borked.altheamesh.com", "sa.althea.org"]
 conf_link_local = true
 default_route = []
 device = "{{device}}"
