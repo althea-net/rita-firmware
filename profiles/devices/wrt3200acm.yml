@@ -1,7 +1,7 @@
 conf_to_build: wrt3200acm
 target: "mvebu"
 device: "linksys_wrt3200acm"
-package_id: arm_cortex-a9_vfpv3
+package_id: arm_cortex-a9_vfpv3-d16
 image_name: cortexa9
 extension: img.gz
 squashfs: ""

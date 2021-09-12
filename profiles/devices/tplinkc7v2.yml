@@ -1,6 +1,6 @@
 conf_to_build: tplinkc7v2
 target: "ar71xx"
-device: "archer-c7-v2"
+device: "tplink_archer-c7-v2"
 package_id: mips_24kc
 image_name: generic
 extension: bin
