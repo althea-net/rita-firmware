@@ -48,4 +48,4 @@ real_interfaces:
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 10000000
 
-rust_target: x86_64-unknown-linux-musl
+rust_target: x86_64-unknown-linux-gnu
