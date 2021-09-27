@@ -1,4 +1,4 @@
-conf_to_build: glb1300
+conf_to_build: "{{ 'glb1300-lte' if rita_lte else 'glb1300' }}"
 target: "ipq40xx"
 device: "gl-b1300"
 package_id: arm_cortex-a7_neon-vfpv4

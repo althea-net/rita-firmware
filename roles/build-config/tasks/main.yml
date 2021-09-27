@@ -139,10 +139,17 @@
     src: "babeld.j2"
     dest: "{{source_dir}}/files/etc/config/babeld"
 
-- name: Template the Rita configuration
+- name: Template the rita configuration
   template:
     src: "rita.toml.j2"
     dest: "{{source_dir}}/files/etc/rita.toml"
+  when: not rita_lte
+
+- name: Template the Rita Tower configuration
+  template:
+    src: "rita_tower.toml.j2"
+    dest: "{{source_dir}}/files/etc/rita_tower.toml"
+  when: rita_lte
 
 - name: Write out build details
   template:

@@ -1,3 +1,4 @@
+rita_lte: true
 logging_enabled: false
 logging_level: "WARN"
 logging_url: "https://stats.altheamesh.com:9999/compressed_sink/"
