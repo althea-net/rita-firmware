@@ -1,4 +1,4 @@
 source_dir: build/
 feeds_list:
-  - "src-git althea https://github.com/althea-net/althea-packages.git"
+      - "src-git althea git@github.com:althea-net/althea-packages-internal.git"
 conf_to_build: ea6350v3

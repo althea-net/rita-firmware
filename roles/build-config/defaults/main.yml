@@ -1,4 +1,4 @@
-rita_lte: true
+profile_to_use: "{{ conf_to_build if not rita_lte else conf_to_build[:-4] }}"
 logging_enabled: false
 logging_level: "WARN"
 logging_url: "https://stats.altheamesh.com:9999/compressed_sink/"
