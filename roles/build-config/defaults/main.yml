@@ -12,7 +12,7 @@ dropbear_wan_accessible: false
 ssh_port: 22
 password_auth: 0
 default_price: 100
-wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
+wireless_conf_path: "{{role_path}}/templates/{{profile_to_use}}-wireless.j2"
 
 mesh_subnets:
   - "f000::/4" # locally routable address and link local addresses, link local isn't forwarded anyways
