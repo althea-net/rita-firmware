@@ -6,3 +6,8 @@ config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
 {% endfor %}
+
+config interface 'backhaul6'
+	option ifname '@backhaul'
+	option proto 'dhcpv6'
+        
