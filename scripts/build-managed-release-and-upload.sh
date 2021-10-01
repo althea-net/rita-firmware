@@ -24,6 +24,7 @@ ansible-playbook -e @profiles/devices/wrt1900ac.yml -e @profiles/management/alth
 ansible-playbook -e @profiles/devices/ea7300v2.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/ea7300v1.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/ea7500v2.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/mr8300.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
 # ipq40xx
 ansible-playbook -e @profiles/devices/glb1300.yml -e @profiles/management/althea-managed.yml firmware-build.yml
