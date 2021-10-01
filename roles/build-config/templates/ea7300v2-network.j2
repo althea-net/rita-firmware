@@ -1,6 +1,6 @@
 config globals 'globals'
     option packet_steering '1'
-    option ula_prefix 'fd53:b760:3c85::/48'
+    option ula_prefix 'auto'
 
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'

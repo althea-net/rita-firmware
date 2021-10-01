@@ -1,5 +1,5 @@
 config globals 'globals'
-	option ula_prefix 'fd3b:a75b:a2fe::/48'
+	option ula_prefix 'auto'
 
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'

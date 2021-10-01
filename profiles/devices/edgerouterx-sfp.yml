@@ -26,6 +26,6 @@ real_interfaces:
   - dsa
 
 # Estimated max wireguard throughput in kbits/s
-est_max_throughput: 300000
+est_max_throughput: 200000
 
 rust_target: mipsel-unknown-linux-musl
