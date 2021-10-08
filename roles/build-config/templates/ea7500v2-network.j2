@@ -7,18 +7,3 @@ config interface 'rita_{{interface | replace(".","")}}'
         option ifname {{interface}}
         option proto static
 {% endfor %}
-
-config device 'lan_lan1_dev'
-        option name 'lan1'
-
-config device 'lan_lan2_dev'
-        option name 'lan2'
-
-config device 'lan_lan3_dev'
-        option name 'lan3'
-
-config device 'lan_lan4_dev'
-        option name 'lan4'
-
-config device 'wan_wan_dev'
-        option name 'wan'

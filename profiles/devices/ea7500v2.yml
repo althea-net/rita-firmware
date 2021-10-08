@@ -20,11 +20,7 @@ lan_interfaces: "lan1 lan2 lan3 lan4"
 
 # For sqm tuning
 real_interfaces:
-  - wan
-  - lan1
-  - lan2
-  - lan3
-  - lan4
+  - eth0
 
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 150000
