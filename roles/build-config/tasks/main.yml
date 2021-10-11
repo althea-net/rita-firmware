@@ -6,6 +6,7 @@
   file:
     path: "{{source_dir}}/files/etc/dropbear/"
     state: directory
+    mode: 0700
 
 - name: Add keys to login
   lineinfile:

@@ -1,5 +1,0 @@
-# sometimes during an upgrade this folder can get the wrong permissions which prevents SSH key logins
-
-chmod 700 /etc/dropbear
-
-exit 0
