@@ -1,10 +1,6 @@
 conf_to_build: espressobin-ultra
-target: "mvebu"
 device: "globalscale_espressobin_ultra"
 package_id: aarch64_cortex-a53
-image_name: "globalscale_spressobin_ultra"
-extension: img.gz
-image_path: "mvebu/cortexa53/openwrt-mvebu-cortexa53-globalscale_espressobin-ultra-squashfs-sdcard.img.gz"
 image_paths:
   - "mvebu/cortexa53/openwrt-mvebu-cortexa53-globalscale_espressobin-ultra-squashfs-sdcard.img.gz"
 supported: false

@@ -1,10 +1,6 @@
 conf_to_build: edgerouterx
-target: "ramips"
 device: "ubnt-erx"
 package_id: mipsel_24kc
-image_name: "mt7621"
-extension: bin
-image_path: "ramips/mt7621/openwrt-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.bin"
 image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.bin"
   - "ramips/mt7621/openwrt-ramips-mt7621-ubnt_edgerouter-x-initramfs-kernel.bin"

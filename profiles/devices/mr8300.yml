@@ -1,10 +1,6 @@
 conf_to_build: mr8300
-target: "ipq40xx"
 device: "linksys_mr8300"
 package_id: arm_cortex-a7_neon-vfpv4
-image_name:
-extension: .bin
-image_path: "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_mr8300-squashfs-sysupgrade.bin"
 image_paths:
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_mr8300-squashfs-sysupgrade.bin"
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_mr8300-squashfs-factory.bin"

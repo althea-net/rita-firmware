@@ -1,10 +1,9 @@
 conf_to_build: tplinkc7v2
-target: "ar71xx"
 device: "tplink_archer-c7-v2"
 package_id: mips_24kc
-image_name: generic
-extension: bin
-image_path: "ar71xx/generic/openwrt-ar71xx-generic-archer-c7-v2-squashfs-factory-us.bin"
+image_paths: 
+  - "ar71xx/generic/openwrt-ar71xx-generic-archer-c7-v2-squashfs-factory-us.bin"
+supported: false
 
 private_radio:
   - radio0

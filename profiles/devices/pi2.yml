@@ -1,12 +1,8 @@
 # Also supports pi3
 conf_to_build: pi2
-target: "brcm2708"
 device: "rpi-2"
 package_id: arm_cortex-a7_neon-vfpv4/
-image_name: "brcm2709"
-extension: img.gz
-squashfs: ""
-image_path: "brcm2708/bcm2709/openwrt-brcm2708-bcm2709-rpi-2-ext4-sdcard.img.gz"
+supported: false
 
 channel: 11
 

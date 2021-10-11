@@ -1,10 +1,6 @@
 conf_to_build: n750
-target: "ath79"
 device: "mynet-n750"
 package_id: mips_24kc
-image_name: generic
-extension: bin
-image_path: "ath79/generic/openwrt-ath79-generic-wd_mynet-n750-squashfs-sysupgrade.bin"
 image_paths:
   - "ath79/generic/openwrt-ath79-generic-wd_mynet-n750-squashfs-sysupgrade.bin"
   - "ath79/generic/openwrt-ath79-generic-wd_mynet-n750-squashfs-factory.bin"
