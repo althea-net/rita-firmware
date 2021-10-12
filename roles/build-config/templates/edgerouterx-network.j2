@@ -3,7 +3,7 @@ config globals 'globals'
 
 {% if wan_interface is defined %}
 config interface 'backhaul'
-        option ifname 'eth0'
+        option ifname '{{wan_interface}}'
         option proto 'dhcp'
         option ip6assign '60'
 {% endif %}
