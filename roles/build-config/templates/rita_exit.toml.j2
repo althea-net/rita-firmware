@@ -1,0 +1,90 @@
+db_uri = "{{database_uri}}"
+workers = "{{workers}}"
+description = "{{description}}"
+allowed_countries = {{allowed_country_codes}}
+remote_log = {{remote_log}}
+
+[payment]
+max_fee = "{{max_fee}}"
+local_fee = "0"
+eth_private_key = "{{eth_private_key}}"
+node_list = [{% for node in full_nodes %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
+buffer_period = 3
+system_chain = "{{system_chain}}"
+bridge_enabled = {{bridge_enabled}}
+debt_limit_enabled = {{debt_limit}}
+apply_incoming_credit_immediately = true
+forgive_on_reboot = false
+free_tier_throughput = {{free_tier_throughput}}
+
+[network]
+nickname = "{{nickname}}"
+mesh_ip = "{{exit_mesh_ip}}"
+bounty_ip = "{{exit_mesh_ip}}"
+babel_port = 6872
+rita_contact_port = 4874
+rita_hello_port = {{rita_port}}
+rita_dashboard_port = {{rita_dashboard_port}}
+rita_tick_interval = 5
+bounty_port = {{bounty_port}}
+wg_private_key_path = "/tmp/priv"
+wg_start_port = {{wg_start_port}}
+peer_interfaces = [{% for iface in (exit_direct_peer_interfaces + exit_direct_peer_vlans) %}"{{iface}}"{{ "," if not loop.last else "" }}{% endfor %}]
+manual_peers = []
+external_nic = "{{external_nic}}"
+conf_link_local = true
+default_route = []
+wg_private_key = "{{wg_private_key}}"
+wg_public_key = "{{wg_public_key}}"
+
+[exit_network]
+wg_private_key_path = "/tmp/exit-priv"
+wg_private_key = "{{wg_exit_private_key}}"
+wg_public_key = "{{wg_exit_public_key}}"
+wg_tunnel_port = {{firewall_start_port}}
+exit_hello_port = "{{exit_registration_port}}"
+exit_start_ip = "172.168.0.100"
+exit_price = {{exit_price_wei}}
+own_internal_ip = "{{internal_nat_ip}}"
+netmask = "{{internal_netmasq}}"
+entry_timeout = {{entry_timeout}}
+{% if geoip_api_key is defined %}
+geoip_api_key = "{{geoip_api_key}}"
+{% endif %}
+{% if geoip_api_user is defined %}
+geoip_api_user = "{{geoip_api_user}}"
+{% endif %}
+
+{% if mailer %}
+[verif_settings]
+type = "Email"
+
+[verif_settings.contents]
+from_address = "{{email_address}}"
+email_cooldown = 100
+smtp_url = "{{smtp_url}}"
+smtp_domain = "{{smtp_domain}}"
+smtp_username = "{{smtp_username}}"
+smtp_password = "{{smtp_password}}"
+test = false
+test_dir = ""
+{% elif phone %}
+[verif_settings]
+type = "Phone"
+
+[verif_settings.contents]
+auth_api_key = "{{phone_auth_api_key}}"
+notification_number = "{{send_number}}"
+twillio_account_id = "{{twillio_account_id}}"
+twillio_auth_token = "{{twillio_auth_token}}"
+{% else %}
+[verif_settings]
+type = "Off"
+{% endif %}
+
+[dao]
+oracle_enabled = false
+cache_timeout_seconds = 600
+node_list = [{% for node in full_nodes %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
+dao_addresses = []
+oracle_url = ""

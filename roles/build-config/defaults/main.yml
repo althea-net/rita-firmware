@@ -11,7 +11,8 @@ dropbear_wan_accessible: false
 ssh_port: 22
 password_auth: 0
 default_price: 100
-wireless_conf_path: "{{role_path}}/templates/{{conf_to_build}}-wireless.j2"
+device_template: "{{ conf_to_build if not device_template else device_template }}"
+wireless_conf_path: "{{role_path}}/templates/{{device_template}}-wireless.j2"
 
 mesh_subnets:
   - "f000::/4" # locally routable address and link local addresses, link local isn't forwarded anyways
@@ -32,3 +33,37 @@ hardcoded_interfaces:
   - "mesh"
 
 listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"
+
+
+### exit defaults
+
+rita_port: 4876
+rita_dashboard_port: 4877
+exit_registration_port: 4875
+bounty_port: 8888
+wg_start_port: 60000
+firewall_start_port: "{{ wg_start_port | int -1 }}"
+rita_exit_bin_url: "https://github.com/althea-mesh/althea_rs/releases/download/Beta18RC2/rita_exit"
+allowed_country_codes: "[]"
+mailer: false
+internal_nat_ip: 172.168.0.254
+internal_netmasq: "16"
+wireguard_version: ""
+exit_price_wei: 300000
+max_fee: 20000000
+system_chain: "Ethereum"
+workers: 1
+entry_timeout: 7776000
+debt_limit: "true"
+bridge_enabled: "false"
+notify_low_balance: "true"
+nickname: "Althea Exit"
+description: "Althea Exit Description" 
+primary: false 
+external_nic: "eth0" 
+wg_private_key: "" 
+wg_public_key: ""
+free_tier_throughput: 3000
+exit_direct_peer_interfaces: []
+exit_direct_peer_vlans: []
+remote_log: "true"

@@ -1,0 +1,50 @@
+rita_exit: true
+conf_to_build: "x86_64-exit"
+device_template: "x86_64"
+
+nickname: "Example Exit"
+
+wan_interface: "eth0"
+wan_proto: "static"
+wan_ipaddr: "1.1.1.2/24"
+wan_ip6addr: "fd00::1/8"
+wan_gateway: "1.1.1.1"
+wan_dns:
+  - "8.8.8.8"
+  - "8.8.4.4"
+
+exit_mesh_ip: "fd01::1/128"
+exit_mesh_subnet: "fd01::0/128"
+exit_mesh_subnet_len: 128
+
+eth_private_key: "..."
+
+fee_multiplier: 6000
+log_server: your.logs.com
+mailer: false
+email_address: "exit@example.com"
+smtp_url: "smtp.fastmail.com"
+smtp_domain: "mail.example.com"
+smtp_username: "exit@example.com"
+smtp_password: "..."
+geoip_api_key: "..."
+geoip_api_user: "..."
+phone: true
+phone_auth_api_key: "..."
+send_number: "+15555555555"
+twillio_account_id: "..."
+twillio_auth_token: "..."
+balance_notification_interval: 86400
+balance_notification_body: "Your Althea router has a low balance! Your service will be slow until more funds are added. Visit althea.net/top-up"
+database_uri: "postgresql://..."
+system_chain: "Xdai"
+full_nodes: ["https://dai.althea.net:443"]
+wg_exit_public_key: "..." 
+wg_exit_private_key: "..."
+allowed_country_codes: "['US']"
+exit_price_wei: 10000000
+debt_limit: true
+bridge_enabled: true
+max_fee: "500000000"
+enterprise: false
+standalone: false

@@ -1,17 +1,31 @@
 config globals 'globals'
-	option ula_prefix 'fd97:9c8c:c3f2::/48'
+	option ula_prefix 'auto'
 
+{% if wan_interface is defined %}
 config interface 'backhaul'
-	option ifname 'eth0'
-	option proto 'dhcp'
+	option ifname '{{wan_interface}}'
+	option proto {{ 'dhcp' if not wan_proto is defined else wan_proto }}
+{% if wan_ipaddr is defined %}
+	option ipaddr '{{wan_ipaddr}}'
+{% endif %}
+{% if wan_gateway is defined %}
+	option gateway '{{wan_gateway}}'
+{% endif %}
+{% for dns in wan_dns %}
+	list dns '{{dns}}'
+{% endfor %}
+{% endif %}
 
 config interface 'backhaul6'
 	option ifname '@backhaul'
-	option proto 'dhcpv6'
+	option proto {{ 'dhcpv6' if not wan_proto is defined else wan_proto }}
+{% if wan_ip6addr is defined %}
+	option ip6addr '{{wan_ip6addr}}'
+{% endif %}
 
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
-        option ifname {{interface}}
-        option proto static
-        option ip6addr fde6::1
+	option ifname {{interface}}
+	option proto static
+	option ip6addr fde6::1
 {% endfor %}
