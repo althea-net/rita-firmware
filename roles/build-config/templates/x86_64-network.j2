@@ -11,9 +11,11 @@ config interface 'backhaul'
 {% if wan_gateway is defined %}
 	option gateway '{{wan_gateway}}'
 {% endif %}
+{% if wan_dns is defined %}
 {% for dns in wan_dns %}
 	list dns '{{dns}}'
 {% endfor %}
+{% endif %}
 {% endif %}
 
 config interface 'backhaul6'

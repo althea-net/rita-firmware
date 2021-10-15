@@ -4,6 +4,9 @@ rita_type: "exit"
 conf_to_build: "x86_64-exit"
 device_template: "x86_64"
 
+feeds_list:
+  - "src-git althea https://github.com/althea-net/althea-packages.git;exit"
+
 ##### rita-exit.toml variables 
 
 allowed_country_codes: "['US']"

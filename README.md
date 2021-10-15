@@ -222,6 +222,8 @@ give you a proper error message. Drop by
 [our Matrix channel](https://riot.im/app/#/room/#althea:matrix.org) and let us
 know what happened. We'll be happy to help out.
 
+You might [clean the build folder](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem#cleaning_up) if you've made any changes and are starting over.
+
 ## There's no hardware config for my router
 
 Making a hardware config is a somewhat involved proccess. If you can read and
@@ -333,7 +335,7 @@ diesel migration run --database-url=""
 
 Now that everything is finally configured you can run ansible to build your exit server image
 
-> ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config.yml firmware-build.yml
+> ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
 
 
 
