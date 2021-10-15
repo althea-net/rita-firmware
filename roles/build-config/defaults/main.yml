@@ -1,3 +1,4 @@
+rita_type: "client"
 logging_enabled: false
 logging_level: "WARN"
 logging_url: "https://stats.altheamesh.com:9999/compressed_sink/"
@@ -35,35 +36,86 @@ hardcoded_interfaces:
 listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"
 
 
-### exit defaults
+####### exit defaults
 
-rita_port: 4876
-rita_dashboard_port: 4877
-exit_registration_port: 4875
-bounty_port: 8888
-wg_start_port: 60000
-firewall_start_port: "{{ wg_start_port | int -1 }}"
-rita_exit_bin_url: "https://github.com/althea-mesh/althea_rs/releases/download/Beta18RC2/rita_exit"
-allowed_country_codes: "[]"
-mailer: false
-internal_nat_ip: 172.168.0.254
-internal_netmasq: "16"
-wireguard_version: ""
-exit_price_wei: 300000
-max_fee: 20000000
-system_chain: "Ethereum"
-workers: 1
-entry_timeout: 7776000
-debt_limit: "true"
-bridge_enabled: "false"
-notify_low_balance: "true"
-nickname: "Althea Exit"
+allowed_country_codes: "['US']"
+#database_uri: "postgresql://..."
 description: "Althea Exit Description" 
-primary: false 
-external_nic: "eth0" 
-wg_private_key: "" 
-wg_public_key: ""
-free_tier_throughput: 3000
+remote_log: "false"
+workers: 1
+
+### [exit_network]
+entry_timeout: 7776000
+exit_hello_port: 4875
+exit_price: 10000000
+exit_start_ip: "172.168.0.100"
+#geoip_api_key: ""
+#geoip_api_user: ""
+own_internal_ip: "172.168.0.254"
+own_internal_netmask: 16
+wg_tunnel_port: 60000
+
+### [localization]
+display_currency_symbol: "true"
+wyre_enabled: "false"
+
+### [localization.support_number.code]
+support_number_code_source: "plus"
+support_number_code_value: 1
+
+### [localization.support_number.national]
+support_number_value: 8664258432
+support_number_zeroes: 0
+
+### [network]
+bounty_port: 8888
+exit_mesh_ip: "fd01::1/128"
+exit_metric_factor: 1900
 exit_direct_peer_interfaces: []
 exit_direct_peer_vlans: []
-remote_log: "true"
+nickname: "Althea Exit"
+rita_dashboard_port: 4877
+rita_hello_port: 4876
+wan_interface: "eth0"
+wan_proto: "dhcp"
+# wan_ipaddr: "1.1.1.2/24"
+# wan_ip6addr: "fd00::1/8"
+# wan_gateway: "1.1.1.1"
+# wan_dns:
+#   - "8.8.8.8"
+#   - "8.8.4.4"
+wg_private_key: "" 
+wg_public_key: ""
+wg_start_port: 60000
+
+### [network.shaper_settings]
+network_shaper_enabled: "true"
+
+### [payment]
+bridge_enabled: "true"
+debt_limit_enabled: "true"
+debt_limit_enabled: "true"
+eth_private_key: "0x0101010101010101010101010101010101010101"
+free_tier_throughput: 1000
+max_fee: 20000000
+full_nodes: ["https://dai.althea.net:443"]
+system_chain: "Xdai"
+
+### [verif_settings]
+mailer: false
+# email_address: "exit@example.com"
+# smtp_url: "smtp.fastmail.com"
+# smtp_domain: "mail.example.com"
+# smtp_username: "exit@example.com"
+# smtp_password: ""
+# balance_notification_interval: 86400
+# notify_low_balance: "true"
+# test: "false"
+# test_dir: ""
+phone: false
+# phone_auth_api_key: ""
+# send_number: "+15555555555"
+# twillio_account_id: ""
+# twillio_auth_token: ""
+# balance_notification_body: "Your Althea router has a low balance! Your service will be slow until more funds are added. Visit althea.net/top-up"
+

@@ -9,3 +9,5 @@ completed-images/
 workspace.code-workspace
 
 profiles/exit/us-west.yml
+
+profiles/exit/us-west.toml

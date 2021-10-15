@@ -144,13 +144,13 @@
   template:
     src: "rita.toml.j2"
     dest: "{{source_dir}}/files/etc/rita.toml"
-  when: not rita_exit
+  when: rita_type == "client"
 
 - name: Template the rita-exit config
   template:
     src: rita_exit.toml.j2
     dest: "{{source_dir}}/files/etc/rita-exit.toml"
-  when: rita_exit
+  when: rita_type == "exit"
 
 - name: Write out build details
   template:

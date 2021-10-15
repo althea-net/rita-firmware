@@ -1,59 +1,101 @@
-db_uri = "{{database_uri}}"
-workers = "{{workers}}"
-description = "{{description}}"
 allowed_countries = {{allowed_country_codes}}
+db_uri = "{{database_uri}}"
+description = "{{description}}"
 remote_log = {{remote_log}}
+workers = "{{workers}}"
 
-[payment]
-max_fee = "{{max_fee}}"
-local_fee = "0"
-eth_private_key = "{{eth_private_key}}"
-node_list = [{% for node in full_nodes %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
-buffer_period = 3
-system_chain = "{{system_chain}}"
-bridge_enabled = {{bridge_enabled}}
-debt_limit_enabled = {{debt_limit}}
-apply_incoming_credit_immediately = true
-forgive_on_reboot = false
-free_tier_throughput = {{free_tier_throughput}}
-
-[network]
-nickname = "{{nickname}}"
-mesh_ip = "{{exit_mesh_ip}}"
-bounty_ip = "{{exit_mesh_ip}}"
-babel_port = 6872
-rita_contact_port = 4874
-rita_hello_port = {{rita_port}}
-rita_dashboard_port = {{rita_dashboard_port}}
-rita_tick_interval = 5
-bounty_port = {{bounty_port}}
-wg_private_key_path = "/tmp/priv"
-wg_start_port = {{wg_start_port}}
-peer_interfaces = [{% for iface in (exit_direct_peer_interfaces + exit_direct_peer_vlans) %}"{{iface}}"{{ "," if not loop.last else "" }}{% endfor %}]
-manual_peers = []
-external_nic = "{{external_nic}}"
-conf_link_local = true
-default_route = []
-wg_private_key = "{{wg_private_key}}"
-wg_public_key = "{{wg_public_key}}"
 
 [exit_network]
-wg_private_key_path = "/tmp/exit-priv"
-wg_private_key = "{{wg_exit_private_key}}"
-wg_public_key = "{{wg_exit_public_key}}"
-wg_tunnel_port = {{firewall_start_port}}
-exit_hello_port = "{{exit_registration_port}}"
-exit_start_ip = "172.168.0.100"
-exit_price = {{exit_price_wei}}
-own_internal_ip = "{{internal_nat_ip}}"
-netmask = "{{internal_netmasq}}"
 entry_timeout = {{entry_timeout}}
+exit_hello_port = "{{exit_hello_port}}"
+exit_price = {{exit_price}}
+exit_start_ip = "{{exit_start_ip}}"
 {% if geoip_api_key is defined %}
 geoip_api_key = "{{geoip_api_key}}"
 {% endif %}
 {% if geoip_api_user is defined %}
 geoip_api_user = "{{geoip_api_user}}"
 {% endif %}
+netmask = {{own_internal_netmask}}
+own_internal_ip = "{{own_internal_ip}}"
+wg_private_key = "{{wg_exit_private_key}}"
+wg_private_key_path = "/tmp/exit-priv"
+wg_public_key = "{{wg_exit_public_key}}"
+wg_tunnel_port = {{wg_tunnel_port}}
+
+
+[localization]
+display_currency_symbol = {{display_currency_symbol}}
+wyre_enabled = {{wyre_enabled}}
+
+[localization.support_number.code]
+source = "{{support_number_code_source}}"
+value = {{support_number_code_value}}
+
+[localization.support_number.national]
+value = {{support_number_value}}
+zeros = {{support_number_zeroes}}
+
+[network]
+babel_port = 6872
+backup_created = false
+bounty_port = {{bounty_port}}
+discovery_ip = "ff02::1:8"
+{% if wan_interface is defined %}
+external_nic = "{{wan_interface}}"
+{% elif external_nic is defined %}
+external_nic = "{{external_nic}}"
+{% endif %}
+light_client_hello_port = 4878
+manual_peers = []
+mesh_ip = "{{exit_mesh_ip}}"
+metric_factor = "{{exit_metric_factor}}"
+nickname = "{{nickname}}"
+peer_interfaces = [{% for iface in (exit_direct_peer_interfaces + exit_direct_peer_vlans) %}"{{iface}}"{{ "," if not loop.last else "" }}{% endfor %}]
+rita_contact_port = 4874
+rita_dashboard_port = {{rita_dashboard_port}}
+rita_hello_port = {{rita_hello_port}}
+rita_tick_interval = 5
+usage_tracker_file = "/etc/rita-usage-tracker.json"
+user_set_release_feed = false
+wg_private_key = "{{wg_private_key}}"
+wg_private_key_path = "/tmp/priv"
+wg_public_key = "{{wg_public_key}}"
+wg_start_port = {{wg_start_port}}
+
+[network.shaper_settings]
+enabled = {{network_shaper_enabled}}
+max_speed = 10000
+min_speed = 50
+
+[payment]
+apply_incoming_credit_immediately = true
+balance_warning_level = "10000000000000000"
+bridge_enabled = {{bridge_enabled}}
+client_can_use_free_tier = true
+close_threshold = "-504000000000000000"
+debt_limit_enabled = {{debt_limit_enabled}}
+debts_file = "/etc/rita-debts.json"
+dynamic_fee_multiplier = 6000
+eth_private_key = "{{eth_private_key}}"
+forgive_on_reboot = false
+free_tier_throughput = {{free_tier_throughput}}
+fudge_factor = 0
+gas_price = "1000000000"
+light_client_fee = 0
+local_fee = 0
+max_fee = "{{max_fee}}"
+max_gas = "1000000000"
+min_gas = "1000000000"
+net_version = "100"
+node_list = [{% for node in full_nodes %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
+nonce = "1035843"
+pay_threshold = "126000000000000000"
+simulated_transaction_fee = 10
+simulated_transaction_fee_address = "0xEE8BBA37508cd6f9dB7c8AD0AE2b3DE0168c1b36"
+system_chain = "{{system_chain}}"
+withdraw_chain = "{{system_chain}}"
+
 
 {% if mailer %}
 [verif_settings]
@@ -66,6 +108,8 @@ smtp_url = "{{smtp_url}}"
 smtp_domain = "{{smtp_domain}}"
 smtp_username = "{{smtp_username}}"
 smtp_password = "{{smtp_password}}"
+balance_notification_interval = "{{balance_notification_interval}}"
+notify_low_balance = "{{notify_low_balance}}"
 test = false
 test_dir = ""
 {% elif phone %}
@@ -77,14 +121,9 @@ auth_api_key = "{{phone_auth_api_key}}"
 notification_number = "{{send_number}}"
 twillio_account_id = "{{twillio_account_id}}"
 twillio_auth_token = "{{twillio_auth_token}}"
+operator_notification_number = []
 {% else %}
 [verif_settings]
 type = "Off"
 {% endif %}
 
-[dao]
-oracle_enabled = false
-cache_timeout_seconds = 600
-node_list = [{% for node in full_nodes %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
-dao_addresses = []
-oracle_url = ""
