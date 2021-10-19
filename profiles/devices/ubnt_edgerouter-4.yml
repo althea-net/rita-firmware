@@ -1,0 +1,23 @@
+conf_to_build: ubnt_edgerouter-4
+device: "ubnt_edgerouter-4"
+package_id: mips64_octeonplus
+image_paths: 
+  - "octeon/generic-glibc/openwrt-octeon-ubnt_edgerouter-4-initramfs-kernel.bin"
+  - "octeon/generic-glibc/openwrt-octeon-ubnt_edgerouter-4-squashfs-sysupgrade.tar"
+supported: true
+
+listen_interfaces:
+  - eth0
+
+lan_interfaces: "eth1 eth2"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+  - eth2
+
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 500000
+
+rust_target: mips64-unknown-linux-gnuabi64

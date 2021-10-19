@@ -1,0 +1,19 @@
+config globals 'globals'
+	option ula_prefix 'auto'
+
+{% if wan_interface is defined %}
+config interface 'backhaul'
+        option ifname '{{wan_interface}}'
+        option proto 'dhcp'
+        option ip6assign '60'
+{% endif %}
+
+config interface 'backhaul6'
+	option ifname '@backhaul'
+	option proto 'dhcpv6'
+        
+{% for interface in listen_interfaces %}
+config interface 'rita_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+{% endfor %}
