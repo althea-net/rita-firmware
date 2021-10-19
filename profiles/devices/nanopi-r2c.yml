@@ -2,8 +2,8 @@ conf_to_build: nanopi-r2c
 device: "friendlyarm_nanopi-r2c"
 package_id: aarch64_generic
 image_paths:
-  - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2c-squashfs-sysupgrade.img.gz"
-  - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2c-ext4-sysupgrade.img.gz"
+  - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-squashfs-sysupgrade.img.gz"
+  - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-ext4-sysupgrade.img.gz"
 supported: true
 
 listen_interfaces:
@@ -22,8 +22,7 @@ real_interfaces:
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 500000
 
-rust_target: aarch64-unknown-linux-musl
-
+rust_target: aarch64-unknown-linux-gnu
 
 repo: https://github.com/althea-net/openwrt
 version: v21.02.0-r2c
