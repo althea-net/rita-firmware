@@ -30,3 +30,6 @@ real_interfaces:
 est_max_throughput: 150000
 
 rust_target: mipsel-unknown-linux-musl
+
+#repo: https://github.com/althea-net/openwrt
+version: c4e994011f56d30e031705c16c6b5c498c530852
