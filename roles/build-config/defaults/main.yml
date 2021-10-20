@@ -94,7 +94,6 @@ network_shaper_enabled: "true"
 ### [payment]
 bridge_enabled: "true"
 debt_limit_enabled: "true"
-debt_limit_enabled: "true"
 eth_private_key: "0x0101010101010101010101010101010101010101"
 free_tier_throughput: 1000
 max_fee: 20000000
