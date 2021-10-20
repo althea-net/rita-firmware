@@ -4,13 +4,25 @@
 # this may not always hold true
 
 # To flash just untar the ext4 image and write it to a flash drive
+
+# used to select which config 
 conf_to_build: x86_64
-device: "x86_64"
+
+# used in op tools and althea-firmware-release
+device: x86_64
+
+# used in /etc/customfeeds.conf path
 package_id: x86_64
+
+# used to copy images to completed-images upon completion
 image_paths:
-  - "x86/64/openwrt-x86-64-generic-squashfs-combined.img.gz"
-  - "x86/64/openwrt-x86-64-generic-squashfs-combined.vdi"
-  - "x86/64/openwrt-x86-64-generic-squashfs-combined.vmdk"
+  - "x86/64-glibc/openwrt-x86-64-generic-squashfs-combined.img.gz"
+  - "x86/64-glibc/openwrt-x86-64-generic-squashfs-combined.vdi"
+  - "x86/64-glibc/openwrt-x86-64-generic-squashfs-combined.vmdk"
+  - "x86/64-glibc/openwrt-x86-64-generic-ext4-combined.img.gz"
+  - "x86/64-glibc/openwrt-x86-64-generic-image.iso"
+
+
 supported: true
 
 channel: 11
@@ -44,4 +56,5 @@ real_interfaces:
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 10000000
 
-rust_target: x86_64-unknown-linux-gnu
+# rust_target: x86_64-unknown-linux-musl
+rust_target: x86_64-unknown-linux-gnu  
