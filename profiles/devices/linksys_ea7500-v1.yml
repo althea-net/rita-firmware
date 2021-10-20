@@ -1,0 +1,25 @@
+conf_to_build: linksys_ea7500-v1
+device: "linksys_ea7500-v1"
+package_id: arm_cortex-a15_neon-vfpv4
+image_paths:
+  - "ipq806x/generic/openwrt-ipq806x-generic-linksys_ea7500-v1-squashfs-sysupgrade.bin"
+  - "ipq806x/generic/openwrt-ipq806x-generic-linksys_ea7500-v1-squashfs-factory.binn"
+supported: true
+
+channel: 11
+five_ghz_channel: 36
+
+listen_interfaces:
+  - eth1
+
+lan_interfaces: "eth0.11 eth0.12 eth0.13 eth0.14"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 250000
+
+rust_target: armv7-unknown-linux-musleabihf
