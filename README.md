@@ -221,6 +221,8 @@ give you a proper error message. Drop by
 [our Matrix channel](https://riot.im/app/#/room/#althea:matrix.org) and let us
 know what happened. We'll be happy to help out.
 
+You might [clean the build folder](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem#cleaning_up) if you've made any changes and are starting over.
+
 ## There's no hardware config for my router
 
 Making a hardware config is a somewhat involved proccess. If you can read and
@@ -292,3 +294,91 @@ In that case you'll need to ssh in and edit `/etc/config/wireless` and enable th
 followed by `wifi restart`
 
 We may switch the firmwares to meshing on built in wifi by default if there's a larger demand for that.
+
+
+## Setting up an Exit server
+
+An Althea Exit server is essentially a WireGuard proxy server setup to integrate
+with the mesh network.
+
+Copy the file `profiles/exit/config-example.yml` to `profiles/exit/config.yml` and modify it as needed.
+
+There's a lot of data that goes into the config file for an exit.  
+
+If you configure your gateway with a url containing multiple DNS entires for each server Althea clients will automatically connect and failover. 
+
+If you don't want to run multiple servers simply remove that line.
+
+Next are authentication settings, we've included blank SMTP mail auth settings. If you leave mailer
+`true` you can fill out those details and have the exit send users emails to authorize. If you turn
+mailer to `false` it will disable authentication of new users.  
+If you set `phone` to `true` and include `phone_auth_api_key`, `twillio_account_id`, 
+and `twillio_auth_token`, it will send an auth code from `send_number`
+
+Finally you need to generate another set of keys and uncomment the appropriate blockchain full nodes and settings. 
+You must also select an arbitrary valid ipv6 address out of the fd00::/8 range
+
+When setting up a new postgres database you'll need to run the migrations [here](https://github.com/althea-net/althea_rs/tree/master/exit_db)
+
+```
+# install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# install diesel
+cargo install diesel_cli
+# clone althea_rs
+git clone https://github.com/althea-net/althea_rs
+# run the migrations
+cd althea_rs/exit_db
+diesel migration run --database-url=""
+```
+
+Now that everything is finally configured you can run ansible to build your exit server image
+
+> ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
+
+
+
+### Adding your new exit to an Althea client
+
+Currently we ship exits as part of the default config file in [the firmware](https://github.com/althea-net/althea-firmware/blob/master/roles/build-config/templates/rita.toml.j2#L29) but that's
+hardly the only way to configure one.
+
+You can manually edit the /etc/rita.toml file on a client and paste in a block like this
+
+```
+[exit_client.exits.test]
+registration_port = 4875
+description = "The Althea testing exit cluster. Unstable!"
+state = "New"
+[exit_client.exits.test.id]
+mesh_ip = "fd00::1337:1e0f"
+eth_address = "0x5aee3dff733f56cfe7e5390b9cc3a46a90ca1cfa"
+wg_public_key = "zgAlhyOQy8crB0ewrsWt3ES9SvFguwx5mq9i2KiknmA="
+```
+
+Replace the eth address with the public address of the private key you configured in the exit hosts file and the public key should be the value of `the wg_exit_public_key` likewise `mesh_ip`
+is the value of `exit_mesh_ip` as configured above. The description is arbitrary so put whatever you like.
+
+You can also use curl to directly insert a new exit
+
+```
+curl -vv -XPOST -H 'Content-Type: application/json' -d
+ "test_exit": {
+      "id": {
+        "mesh_ip": "fd00::1337:e4f",
+        "eth_address": "0xe4ad1f9aa23957d294d869b70fc8f28774df896e",
+        "wg_public_key": "1kKSpzdhI4kfqeMqch9I1bXqOUXeKN7EQBecVzW60ys=",
+      },
+      "registration_port": 4875,
+      "description": "An arbitrary testing exit",
+      "state": "New",
+    }
+192.168.10.1:4877/exits
+```
+
+Or even direct curl to a remote list of exits over https. This will load a file from the
+destination and extract a Json formatted list of exits (see the formatting of the previous request as an example).
+
+```
+curl 127.0.0.1:4877/exits/sync -H "Content-Type:application/json" -d '\{"url": "https://somewhere.safe"\}
+```
