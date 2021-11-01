@@ -48,7 +48,7 @@
 # but do remember it's possible
 - name: Template network interface configuration
   template:
-    src: "{{device_template}}-network.j2"
+    src: "{{final_device_template}}-network.j2"
     dest: "{{source_dir}}/files/etc/config/network"
 
 # Light client (phone) bootstrap network, used for phones to connect and open per-hop tunnels
@@ -97,7 +97,7 @@
 
 - name: Template wifi interface configuration
   template:
-    src: "{{device_template}}-wireless.j2"
+    src: "{{final_device_template}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
   when: wireless_conf_path is file
 

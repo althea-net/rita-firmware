@@ -12,8 +12,8 @@ dropbear_wan_accessible: false
 ssh_port: 22
 password_auth: 0
 default_price: 100
-device_template: "{{ conf_to_build if not device_template else device_template }}"
-wireless_conf_path: "{{role_path}}/templates/{{device_template}}-wireless.j2"
+final_device_template: "{{ conf_to_build if device_template is not defined else device_template }}"
+wireless_conf_path: "{{role_path}}/templates/{{final_device_template}}-wireless.j2"
 
 mesh_subnets:
   - "f000::/4" # locally routable address and link local addresses, link local isn't forwarded anyways
@@ -27,7 +27,7 @@ wifi_key: "ChangeMe"
 lan_ip: "192.168.10.1"
 pbs_ip: "192.168.30.1"
 
-# default to sae-mixed (WPA3/2), which depends on wpad-basic-wolfssl and is enabled by default in openwrt-21.02  
+# default to sae-mixed (WPA3/2), which depends on wpad-basic-wolfssl and is enabled by default in openwrt-21.02
 wifi_encryption: "sae-mixed"
 
 hardcoded_interfaces:
@@ -35,12 +35,11 @@ hardcoded_interfaces:
 
 listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"
 
-
 ####### exit defaults
 
 allowed_country_codes: "['US']"
 #database_uri: "postgresql://..."
-description: "Althea Exit Description" 
+description: "Althea Exit Description"
 remote_log: "false"
 workers: 1
 
@@ -84,7 +83,7 @@ wan_proto: "dhcp"
 # wan_dns:
 #   - "8.8.8.8"
 #   - "8.8.4.4"
-wg_private_key: "" 
+wg_private_key: ""
 wg_public_key: ""
 wg_start_port: 60000
 
