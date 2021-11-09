@@ -8,6 +8,7 @@ export HTTP_DIR=/usr/share/nginx/html/
 ansible-playbook -e @profiles/devices/edgerouterx.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/edgerouterx-sfp.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/tplinka6v3.yml -e @profiles/management/althea-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/cudy_wr2100.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/ea7300v2.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/ea7300v1.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/ea7500v2.yml -e @profiles/management/althea-managed.yml firmware-build.yml
