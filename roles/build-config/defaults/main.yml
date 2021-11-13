@@ -75,8 +75,8 @@ exit_direct_peer_vlans: []
 nickname: "Althea Exit"
 rita_dashboard_port: 4877
 rita_hello_port: 4876
-wan_interface: "eth0"
-wan_proto: "dhcp"
+#wan_interface: "eth0"
+#wan_proto: "dhcp"
 # wan_ipaddr: "1.1.1.2/24"
 # wan_ip6addr: "fd00::1/8"
 # wan_gateway: "1.1.1.1"
