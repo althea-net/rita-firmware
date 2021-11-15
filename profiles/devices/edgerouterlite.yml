@@ -1,10 +1,9 @@
 conf_to_build: edgerouterlite
-target: "octeon"
 device: "erlite"
 package_id: mipsel_24kc
-image_name: "generic-glibc"
-extension: tar
-image_path: "octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar"
+image_paths: 
+  - "octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar"
+supported: false
 
 listen_interfaces:
   - eth0

@@ -1,10 +1,6 @@
 conf_to_build: tplinka6v3
-target: "ramips"
 device: "tplink_archer-a6-v3"
 package_id: mipsel_24kc
-image_name: mt7621
-extension: bin
-image_path: "ramips/mt7621/openwrt-ramips-mt7621-tplink_archer-a6-v3-squashfs-factory.bin"
 image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-tplink_archer-a6-v3-squashfs-factory.bin"
   - "ramips/mt7621/openwrt-ramips-mt7621-tplink_archer-a6-v3-squashfs-sysupgrade.bin"

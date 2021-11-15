@@ -1,10 +1,6 @@
 conf_to_build: ea7300v1
-target: "ramips"
 device: "linksys_ea7300v1"
 package_id: mipsel_24kc
-image_name:
-extension: .bin
-image_path: "ramips/mt7621/openwrt-ramips-mt7621-linksys_ea7300-v1-squashfs-sysupgrade.bin"
 image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-linksys_ea7300-v1-squashfs-sysupgrade.bin"
   - "ramips/mt7621/openwrt-ramips-mt7621-linksys_ea7300-v1-squashfs-factory.bin"

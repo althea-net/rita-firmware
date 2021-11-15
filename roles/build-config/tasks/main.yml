@@ -48,7 +48,7 @@
 # but do remember it's possible
 - name: Template network interface configuration
   template:
-    src: "{{ profile_to_use }}-network.j2"
+    src: "{{final_device_template}}-network.j2"
     dest: "{{source_dir}}/files/etc/config/network"
 
 # Light client (phone) bootstrap network, used for phones to connect and open per-hop tunnels
@@ -97,7 +97,7 @@
 
 - name: Template wifi interface configuration
   template:
-    src: "{{ profile_to_use }}-wireless.j2"
+    src: "{{final_device_template}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
   when: wireless_conf_path is file
 
@@ -144,13 +144,13 @@
   template:
     src: "rita.toml.j2"
     dest: "{{source_dir}}/files/etc/rita.toml"
-  when: not rita_lte
+  when: rita_type == "client"
 
-- name: Template the Rita Tower configuration
+- name: Template the rita-exit config
   template:
-    src: "rita_tower.toml.j2"
-    dest: "{{source_dir}}/files/etc/rita_tower.toml"
-  when: rita_lte
+    src: rita_exit.toml.j2
+    dest: "{{source_dir}}/files/etc/rita-exit.toml"
+  when: rita_type == "exit"
 
 - name: Write out build details
   template:

@@ -1,12 +1,10 @@
 # 64bit target for the pi3
 conf_to_build: pi3-64
-target: "brcm2708"
 device: "rpi-3"
 package_id: aarch64_cortex-a53
-image_name: "bcm2710-glibc"
-extension: img.gz
-squashfs: ""
-image_path: "brcm2708/bcm2710-glibc/openwrt-brcm2708-bcm2710-rpi-3-ext4-factory.img.gz"
+image_paths: 
+  - "brcm2708/bcm2710-glibc/openwrt-brcm2708-bcm2710-rpi-3-ext4-factory.img.gz"
+supported: false
 
 channel: 11
 

@@ -1,10 +1,6 @@
 conf_to_build: ea7500v2
-target: "ramips"
 device: "linksys_ea7500v2"
 package_id: mipsel_24kc
-image_name:
-extension: .bin
-image_path: "ramips/mt7621/openwrt-ramips-mt7621-linksys_ea7500-v2-squashfs-sysupgrade.bin"
 image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-linksys_ea7500-v2-squashfs-sysupgrade.bin"
   - "ramips/mt7621/openwrt-ramips-mt7621-linksys_ea7500-v2-squashfs-factory.bin"

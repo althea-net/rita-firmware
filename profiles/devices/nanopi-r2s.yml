@@ -1,10 +1,6 @@
 conf_to_build: nanopi-r2s
-target: "rockchip"
 device: "friendlyarm_nanopi-r2s"
 package_id: aarch64_generic
-image_name: "armv8"
-extension: img.gz
-image_path: "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-ext4-sysupgrade.img.gz"
 image_paths:
   - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-squashfs-sysupgrade.img.gz"
   - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-ext4-sysupgrade.img.gz"

@@ -1,10 +1,6 @@
 conf_to_build: aircube
-target: "ath79"
 device: "ubnt_acb-isp"
 package_id: ath79
-image_name: generic
-extension: bin
-image_path: "ath79/generic/openwrt-ath79-generic-ubnt_acb-isp-squashfs-sysupgrade.bin"
 image_paths:
    - "ath79/generic/openwrt-ath79-generic-ubnt_acb-isp-squashfs-sysupgrade.bin"
 supported: false

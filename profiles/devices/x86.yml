@@ -5,12 +5,8 @@
 
 # To flash just untar the ext4 image and write it to a flash drive
 conf_to_build: x86
-target: "x86"
-device: "generic"
+device: "i386"
 package_id: i386_pentium4
-image_name: ""
-extension: img.gz
-image_path: "x86/generic/openwrt-x86-generic-combined-squashfs.img.gz"
 
 channel: 11
 five_ghz_channel: 36
