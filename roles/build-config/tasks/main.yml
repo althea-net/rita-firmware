@@ -152,6 +152,12 @@
     dest: "{{source_dir}}/files/etc/rita-exit.toml"
   when: rita_type == "exit"
 
+- name: Template the rita-lte config
+  template:
+    src: rita_tower.toml.j2
+    dest: "{{source_dir}}/files/etc/rita_tower.toml"
+  when: rita_type == "lte"
+
 - name: Write out build details
   template:
     src: "althea-firmware-release.j2"

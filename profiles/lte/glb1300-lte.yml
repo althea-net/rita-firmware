@@ -1,0 +1,3 @@
+rita_type: "lte"
+conf_to_build: "glb1300-lte"
+device_template: "glb1300"
