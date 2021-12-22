@@ -14,14 +14,12 @@ channel: 11
 five_ghz_channel: 36
 
 listen_interfaces:
-  - eth1.2
-  - eth1.3
-  - eth1.4
+  - eth0.1
 
-lan_interfaces: "eth1.5"
+lan_interfaces: "eth1.2 eth1.3 eth1.4 eth1.5"
 
 # Reference value, see network.j2 to modify
-wan_interface: "eth0.1"
+# wan_interface: "eth0.1"
 
 # For sqm tuning
 real_interfaces:
