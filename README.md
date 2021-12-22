@@ -1,3 +1,10 @@
+# INTERNAL BRANCH
+
+
+### LTE build
+    ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/lte/x86-lte.yml firmware-build.yml
+
+
 # Althea Firmware Builder
 
 This repo is dedicated to building custom OpenWRT firmware for Althea routers.

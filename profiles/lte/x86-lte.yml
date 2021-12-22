@@ -1,0 +1,6 @@
+rita_type: "lte"
+conf_to_build: "x86_64-lte"
+device_template: "x86_64"
+
+feeds_list:
+      - "src-git althea git@github.com:althea-net/althea-packages-internal.git;epc"
