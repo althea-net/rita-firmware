@@ -4,9 +4,6 @@ rita_type: "exit"
 conf_to_build: "x86_64-exit"
 device_template: "x86_64"
 
-feeds_list:
-  - "src-git althea https://github.com/althea-net/althea-packages.git;exit"
-
 ##### rita-exit.toml variables 
 
 allowed_country_codes: "['US']"
@@ -58,8 +55,8 @@ wan_proto: "dhcp"
 # wan_dns:
 #   - "8.8.8.8"
 #   - "8.8.4.4"
-wg_private_key: "..." 
-wg_public_key: "..."
+wg_private_key: "" 
+wg_public_key: ""
 
 ### [network.shaper_settings]
 
@@ -69,7 +66,7 @@ network_shaper_enabled: "true"
 
 bridge_enabled: "true"
 debt_limit_enabled: "true"
-eth_private_key: "0x..."
+eth_private_key: ""
 free_tier_throughput: 1000
 max_fee: 500000000
 full_nodes: ["https://dai.althea.net:443"]
