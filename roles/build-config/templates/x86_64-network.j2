@@ -20,7 +20,7 @@ config interface 'backhaul'
 
 config interface 'backhaul6'
 	option ifname '@backhaul'
-	option proto {{ 'dhcpv6' if not wan_proto is defined else wan_proto }}
+	option proto {{ 'dhcpv6' if not wan_6proto is defined else wan_6proto }}
 {% if wan_ip6addr is defined %}
 	option ip6addr '{{wan_ip6addr}}'
 {% endif %}
