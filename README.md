@@ -1,8 +1,10 @@
 # INTERNAL BRANCH
 
+To build LTE images, add an additional ansible override like:
 
-### LTE build
-    ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/lte/x86-lte.yml firmware-build.yml
+> ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/lte/x64-lte.yml firmware-build.yml
+
+> ansible-playbook -e @profiles/devices/blg1300.yml -e @profiles/management/althea-managed.yml -e @profiles/lte/glb1300-lte.yml firmware-build.yml
 
 
 # Althea Firmware Builder
