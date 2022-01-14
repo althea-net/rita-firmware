@@ -1,0 +1,8 @@
+CONFIG_TARGET_ipq806x=y
+CONFIG_TARGET_ipq806x_generic=y
+CONFIG_TARGET_ipq806x_generic_DEVICE_netgear_r7800=y
+CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-cron-jobs=y
+CONFIG_PACKAGE_althea-dash=y
+CONFIG_PACKAGE_althea-rust-binaries=y
+CONFIG_PACKAGE_althea-tools=y

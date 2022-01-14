@@ -4,7 +4,7 @@ package_id: arm_cortex-a9_vfpv3-d16
 image_paths:
   - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900ac-v1-squashfs-sysupgrade.bin"
   - "mvebu/cortexa9/openwrt-mvebu-cortexa9-linksys_wrt1900ac-v1-squashfs-factory.img"
-supported: true
+supported: false
 
 channel: 11
 five_ghz_channel: 36

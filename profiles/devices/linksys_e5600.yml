@@ -1,9 +1,9 @@
-conf_to_build: cudy_wr2100
-device: "cudy_wr2100"
+conf_to_build: linksys_e5600
+device: "linksys_e5600"
 package_id: mipsel_24kc
 image_paths:
-  - "ramips/mt7621/openwrt-ramips-mt7621-cudy_wr2100-initramfs-kernel.bin"
-  - "ramips/mt7621/openwrt-ramips-mt7621-cudy_wr2100-squashfs-sysupgrade.bin"
+  - "ramips/mt7621/openwrt-ramips-mt7621-linksys_e5600-squashfs-factory.bin"
+  - "ramips/mt7621/openwrt-ramips-mt7621-linksys_e5600-squashfs-sysupgrade.bin"
 supported: true
 
 private_radio:
