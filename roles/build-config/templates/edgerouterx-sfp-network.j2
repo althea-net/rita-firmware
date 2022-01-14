@@ -3,14 +3,27 @@ config globals 'globals'
 
 {% if wan_interface is defined %}
 config interface 'backhaul'
-        option ifname '{{wan_interface}}'
-        option proto 'dhcp'
-        option ip6assign '60'
+	option ifname '{{wan_interface}}'
+	option proto {{ 'dhcp' if not wan_proto is defined else wan_proto }}
+{% if wan_ipaddr is defined %}
+	option ipaddr '{{wan_ipaddr}}'
+{% endif %}
+{% if wan_gateway is defined %}
+	option gateway '{{wan_gateway}}'
+{% endif %}
+{% if wan_dns is defined %}
+{% for dns in wan_dns %}
+	list dns '{{dns}}'
+{% endfor %}
+{% endif %}
 {% endif %}
 
 config interface 'backhaul6'
 	option ifname '@backhaul'
-	option proto 'dhcpv6'
+	option proto {{ 'dhcpv6' if not wan_6proto is defined else wan_6proto }}
+{% if wan_ip6addr is defined %}
+	option ip6addr '{{wan_ip6addr}}'
+{% endif %}
 
 {% for interface in listen_interfaces %}
 config interface 'rita_{{interface | replace(".","")}}'
