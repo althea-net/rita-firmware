@@ -4,7 +4,7 @@ package_id: arm_cortex-a15_neon-vfpv4
 image_paths:
   - "ipq806x/generic/openwrt-ipq806x-generic-netgear_r7800-squashfs-sysupgrade.bin"
   - "ipq806x/generic/openwrt-ipq806x-generic-netgear_r7800-squashfs-factory.img"
-supported: true
+supported: false
 
 channel: 11
 five_ghz_channel: 36

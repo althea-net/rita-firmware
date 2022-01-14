@@ -4,7 +4,7 @@ package_id: aarch64_generic
 image_paths:
   - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2c-squashfs-sysupgrade.img.gz"
   - "rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r2c-ext4-sysupgrade.img.gz"
-supported: true
+supported: false
 
 listen_interfaces:
   - eth0

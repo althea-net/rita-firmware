@@ -4,7 +4,7 @@ package_id: mipsel_24kc
 image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-cudy_wr2100-initramfs-kernel.bin"
   - "ramips/mt7621/openwrt-ramips-mt7621-cudy_wr2100-squashfs-sysupgrade.bin"
-supported: false
+supported: true
 
 private_radio:
   - radio0

@@ -4,7 +4,7 @@ package_id: mips64_octeonplus
 image_paths: 
   - "octeon/generic-glibc/openwrt-octeon-ubnt_edgerouter-4-initramfs-kernel.bin"
   - "octeon/generic-glibc/openwrt-octeon-ubnt_edgerouter-4-squashfs-sysupgrade.tar"
-supported: true
+supported: false
 
 listen_interfaces:
   - eth0
