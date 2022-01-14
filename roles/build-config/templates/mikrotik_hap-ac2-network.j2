@@ -1,0 +1,34 @@
+config globals 'globals'
+	option ula_prefix 'auto'
+
+{% for interface in listen_interfaces %}
+config interface 'rita_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+{% endfor %}
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+
+# you can't use vlan 1 on this device, so we put port 1 on vlan 5
+config switch_vlan
+	option device 'switch0'
+	option vlan '11'
+	option ports '1 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '12'
+	option ports '2 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '13'
+	option ports '3 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '14'
+	option ports '4 0t'
