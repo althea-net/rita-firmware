@@ -25,6 +25,12 @@ config zone
 	option output		ACCEPT
 	option forward		REJECT
 
+config rule 
+	option name 		Reject-Rita-on-LAN
+	option src 			lan
+	option dest_port    4876
+	option target		REJECT
+
 # We need this zone to recieve mesh traffic
 config zone
 	option name		mesh
@@ -173,8 +179,6 @@ config rule
 	option src		lan
 	option dest_port	4878
 	option target		REJECT
-
-
 
 config rule
 	option name		Allow-Rita-Tunnels
