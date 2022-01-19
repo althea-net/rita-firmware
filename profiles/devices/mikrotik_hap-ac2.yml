@@ -15,9 +15,12 @@ channel: 11
 five_ghz_channel: 36
 
 listen_interfaces:
-  - wan
+  - eth1
 
-lan_interfaces: "lan1 lan2 lan3 lan4"
+# this device has a history of using low vlans and moving them around between
+# releases because of that we've moved our own vlans up to 10+ and set it up
+# such that port eth0.11 -> the switch (eth0) and port 1 (vlan 11 = 10 + port number 1)
+lan_interfaces: "eth0.11 eth0.12 eth0.13 eth0.14"
 
 # Reference value, see network.j2 to modify
 # wan_interface: "wan"
@@ -25,6 +28,7 @@ lan_interfaces: "lan1 lan2 lan3 lan4"
 # For sqm tuning
 real_interfaces:
   - eth0
+  - eth1
 
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 150000

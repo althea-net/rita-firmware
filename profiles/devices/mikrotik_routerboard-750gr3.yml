@@ -6,18 +6,14 @@ image_paths:
   - "ramips/mt7621/openwrt-ramips-mt7621-mikrotik_routerboard-750gr3-squashfs-sysupgrade.bin"
 supported: true
 
-# this device has a history of using low vlans and moving them around between
-# releases because of that we've moved our own vlans up to 10+ and set it up
-# such that port eth0.11 -> the switch (eth0) and port 1 (vlan 11 = 10 + port number 1)
 listen_interfaces:
-  - eth1
+  - wan
 
-lan_interfaces: "eth0.11 eth0.12 eth0.13 eth0.14"
+lan_interfaces: "lan2 lan3 lan4 lan5"
 
 # For sqm tuning
 real_interfaces:
   - eth0
-  - eth1
 
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 150000

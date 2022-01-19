@@ -2,8 +2,9 @@ conf_to_build: netgear_ex6100v2
 device: "netgear_ex6100v2"
 package_id: arm_cortex-a7_neon-vfpv4
 image_paths:
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-netgear_ex6100v2-squashfs-factory.img"
   - "ipq40xx/generic/openwrt-ipq40xx-generic-netgear_ex6100v2-squashfs-sysupgrade.bin"
-  - "ipq40xx/generic/openwrt-ipq40xx-generic-netgear_ex6100v2-squashfs-factory.bin"
+
 supported: true
 
 channel: 11
