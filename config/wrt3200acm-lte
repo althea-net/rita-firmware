@@ -1,0 +1,10 @@
+CONFIG_TARGET_mvebu=y
+CONFIG_TARGET_mvebu_cortexa9=y
+CONFIG_TARGET_mvebu_cortexa9_DEVICE_linksys_wrt3200acm=y
+CONFIG_GRUB_TITLE="Althea KeyLTE"
+CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-cron-jobs=y
+CONFIG_PACKAGE_althea-dash=y
+CONFIG_PACKAGE_althea-tools=y
+CONFIG_PACKAGE_open5gs=y
+CONFIG_PACKAGE_rita-lte=y

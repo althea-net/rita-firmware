@@ -1,0 +1,6 @@
+rita_type: "lte"
+conf_to_build: "wrt3200acm-lte"
+device_template: "wrt3200acm"
+
+feeds_list:
+      - "src-git althea git@github.com:althea-net/althea-packages-internal.git;epc"
