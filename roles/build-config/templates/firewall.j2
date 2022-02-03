@@ -7,6 +7,7 @@ config defaults
 config zone
 	option name		backhaul
 	list   network		'backhaul'
+	list   network		'lte'
 	option input		REJECT
 	option output		ACCEPT
 	option forward		REJECT
@@ -25,7 +26,7 @@ config zone
 	option output		ACCEPT
 	option forward		REJECT
 
-# We need this zone to recieve mesh traffic
+# We need this zone to receive mesh traffic
 config zone
 	option name		mesh
 {% for subnet in mesh_subnets %}
