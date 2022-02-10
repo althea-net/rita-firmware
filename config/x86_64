@@ -10,3 +10,4 @@ CONFIG_PACKAGE_althea-babeld=y
 CONFIG_PACKAGE_althea-cron-jobs=y
 CONFIG_PACKAGE_althea-dash=y
 CONFIG_PACKAGE_althea-rust-binaries=y
+CONFIG_PACKAGE_althea-tools=y
