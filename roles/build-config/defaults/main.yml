@@ -27,8 +27,9 @@ wifi_key: "ChangeMe"
 lan_ip: "192.168.10.1"
 pbs_ip: "192.168.30.1"
 
-# default to sae-mixed (WPA3/2), which depends on wpad-basic-wolfssl and is enabled by default in openwrt-21.02
-wifi_encryption: "sae-mixed"
+# should default to sae-mixed (WPA3/2), which depends on wpad-basic-wolfssl and is enabled by default in openwrt-21.02
+# due to high rate of incompatible devices default remains wpa2 only, this should be changed back in the future
+wifi_encryption: "psk2+tkip+ccmp"
 
 hardcoded_interfaces:
   - "mesh"
