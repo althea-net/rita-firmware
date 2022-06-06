@@ -78,40 +78,43 @@ ubuntu_deps:
   - curl
 
 fedora_deps:
-  - binutils
-  - bison
-  - bzip2
-  - flex
-  - gawk
-  - gcc
+  - binutils 
+  - bzip2 
+  - gcc 
   - gcc-c++
+  - gawk
   - gettext
   - git-core
+  - flex
+  - ncurses-devel
+  - ncurses-compat-libs
+  - zlib-devel
+  - zlib-static 
+  - make
+  - patch
+  - unzip
+  - perl-ExtUtils-MakeMaker
+  - perl-Thread-Queue
   - glibc
   - glibc-devel
   - glibc-static
-  - intltool
-  - libselinux-python
-  - make
-  - ncurses-compat-libs
-  - ncurses-devel
-  - npm
-  - openssl-devel
-  - patch
-  - perl-ExtUtils-MakeMaker
-  - perl-Thread-Queue
   - quilt
-  - sdcc
   - sed
+  - sdcc
+  - intltool
   - sharutils
-  - subversion
-  - systemtap-sdt-devel
-  - time
-  - unzip
+  - bison
   - wget
-  - zlib-devel
-  - zlib-static
+  - openssl-devel
+  - systemtap-sdt-devel
+  - npm
+  - time
   - curl
+  - which
+  - ansible
+  - rsync
+  - genisoimage
+  - qemu-img
 
 arch_deps:
   - automake
