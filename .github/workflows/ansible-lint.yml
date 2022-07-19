@@ -1,0 +1,26 @@
+name: Ansible linting
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ansible syntax check
+        run: |
+          pip3 install --user ansible
+          ansible-playbook -i hosts --syntax-check --list-tasks *.yml
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Ansible syntax check
+        run: |
+          pip3 install --user ansible ansible-lint
+          ansible-lint
