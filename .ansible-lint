@@ -1,0 +1,9 @@
+skip_list:
+  - var-spacing
+  - package-latest
+  - risky-file-permissions
+  - role-name
+  - command-instead-of-module
+  - no-changed-when
+  - no-handler
+  - fqcn-builtins
