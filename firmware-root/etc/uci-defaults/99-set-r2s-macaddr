@@ -1,0 +1,16 @@
+# The NanoPi R2S has a non-unique macaddr on its WAN chip.  The OpenWRT system generates a unique MAC and saves it in /etc/board.json
+# This script will pull it out and set it on the wan interface on first boot
+# See https://openwrt.org/docs/guide-developer/uci-defaults for more info on this way to set params at first boot
+
+# exit early if this is not an r2s
+DEVICE=$(grep device /etc/rita.toml | tr -d '"' | sed 's/device = //')
+[ "$DEVICE" != "friendlyarm_nanopi-r2s" ] && exit 0
+
+# get the macaddr from the board.json and insert it into the WAN interface, which is by default named rita_eth0
+MAC=`cat /etc/board.json | grep -A 10 network | grep -A 6 wan | grep macaddr | tr -d '"' | sed 's/\t*macaddr: //'`
+[ -n "$MAC" ] && {
+    uci set network.rita_eth0.macaddr=$MAC
+    uci commit network
+}
+
+exit 0
