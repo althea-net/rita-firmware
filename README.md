@@ -323,9 +323,44 @@ You must also select an arbitrary valid ipv6 address out of the fd00::/8 range
 
 When setting up a new postgres database you'll need to run the migrations [here](https://github.com/althea-net/althea_rs/tree/master/exit_db)
 
+Installing and running PostgreSQL is a large topic not fully described here.
+A simple TLDR to install locally on Fedora:
+```
+sudo dnf install postgresql-server
+sudo /usr/bin/postgresql-setup --initdb
+sudo systemctl enable postgresql.service
+sudo systemctl start postgresql.service
+
+sudo su - postgres 
+psql postgres
+postgres=# create database exitdb;
+postgres=# create user exituser with encrypted password 'exitpassword';
+postgres=# grant all privileges on database exitdb to exituser;
+postgres=# exit
+nano data/pg_hba.conf
+
+# make sure the following lines end with 'trust' or 'md5'
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+
+# now you should be able to do: 
+psql "postgresql://exituser:exitpassword@localhost/exitdb"
+```
+
+Assuming you have PostgreSQL running and a database URL, proceed:
+
 ```
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# you may need to install additional dependencies
+# fedora
+sudo dnf install libpq-devel community-mysql-devel
+
 # install diesel
 cargo install diesel_cli
 # clone althea_rs
