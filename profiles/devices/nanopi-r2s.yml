@@ -9,7 +9,7 @@ supported: true
 listen_interfaces:
   - eth0
 
-lan_interfaces: "eth1"
+lan_interfaces: "eth1 eth2"
 
 # Reference value, see network.j2 to modify
 # wan_interface: "wan"
