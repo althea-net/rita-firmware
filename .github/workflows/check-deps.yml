@@ -1,4 +1,4 @@
-name: Ansible linting
+name: Firmware Dependency Check
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  syntax:
+  deps:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,9 +19,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Ansible syntax check
-        run: |
-          pip3 install --user ansible ansible-lint
-          ansible-galaxy collection install -r requirements.yml
-          ansible-lint
+      - uses: addnab/docker-run-action@v3
+        with:
+          image: docker:latest
+          shell: bash
+          run: |
+            echo "first line"
+            echo "second line"

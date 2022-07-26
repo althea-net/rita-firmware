@@ -7,3 +7,10 @@ skip_list:
   - no-changed-when
   - no-handler
   - fqcn-builtins
+warn_list: # or 'skip_list' to silence them completely
+  - command-instead-of-shell # Use shell only when shell functionality is required.
+  - experimental # all rules tagged as experimental
+  - literal-compare # Don't compare to literal True/False.
+  - risky-shell-pipe # Shells that use pipes should set the pipefail option.
+  - unnamed-task # All tasks should be named.
+  - yaml # Violations reported by yamllint.
