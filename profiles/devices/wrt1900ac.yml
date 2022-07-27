@@ -11,7 +11,6 @@ five_ghz_channel: 36
 
 wifi_encryption: "psk2+ccmp"
 
-
 listen_interfaces:
   - wan
 
@@ -20,7 +19,7 @@ lan_interfaces: "lan1 lan2 lan3 lan4"
 # For sqm tuning
 real_interfaces:
   - eth0
-  
+
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 300000
 

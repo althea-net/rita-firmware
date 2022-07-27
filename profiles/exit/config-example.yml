@@ -89,4 +89,3 @@ phone: false
 # twillio_account_id: ""
 # twillio_auth_token: ""
 # balance_notification_body: "Your Althea router has a low balance! Your service will be slow until more funds are added. Visit althea.net/top-up"
-

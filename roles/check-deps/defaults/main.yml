@@ -78,9 +78,9 @@ ubuntu_deps:
   - curl
 
 fedora_deps:
-  - binutils 
-  - bzip2 
-  - gcc 
+  - binutils
+  - bzip2
+  - gcc
   - gcc-c++
   - gawk
   - gettext
@@ -89,7 +89,7 @@ fedora_deps:
   - ncurses-devel
   - ncurses-compat-libs
   - zlib-devel
-  - zlib-static 
+  - zlib-static
   - make
   - patch
   - unzip

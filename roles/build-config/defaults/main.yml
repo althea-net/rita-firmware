@@ -49,8 +49,8 @@ entry_timeout: 7776000
 exit_hello_port: 4875
 exit_price: 10000000
 exit_start_ip: "172.168.0.100"
-#geoip_api_key: ""
-#geoip_api_user: ""
+# geoip_api_key: ""
+# geoip_api_user: ""
 own_internal_ip: "172.168.0.254"
 own_internal_netmask: 16
 wg_tunnel_port: 60000
@@ -76,8 +76,8 @@ exit_direct_peer_vlans: []
 nickname: "Althea Exit"
 rita_dashboard_port: 4877
 rita_hello_port: 4876
-#wan_interface: "eth0"
-#wan_proto: "dhcp"
+# wan_interface: "eth0"
+# wan_proto: "dhcp"
 # wan_ipaddr: "1.1.1.2/24"
 # wan_ip6addr: "fd00::1/8"
 # wan_gateway: "1.1.1.1"
@@ -117,4 +117,3 @@ phone: false
 # twillio_account_id: ""
 # twillio_auth_token: ""
 # balance_notification_body: "Your Althea router has a low balance! Your service will be slow until more funds are added. Visit althea.net/top-up"
-
