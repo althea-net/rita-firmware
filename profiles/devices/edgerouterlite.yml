@@ -1,7 +1,7 @@
 conf_to_build: edgerouterlite
 device: "erlite"
 package_id: mipsel_24kc
-image_paths: 
+image_paths:
   - "octeon/generic-glibc/openwrt-octeon-erlite-squashfs-sysupgrade.tar"
 supported: false
 

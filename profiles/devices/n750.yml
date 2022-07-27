@@ -20,7 +20,7 @@ listen_interfaces:
 lan_interfaces: "eth0.1"
 
 # Reference value, see network.j2 to modify
-#wan_interface: "eth0.2"
+# wan_interface: "eth0.2"
 
 # For sqm tuning
 real_interfaces:
