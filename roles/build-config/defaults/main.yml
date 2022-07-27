@@ -39,7 +39,7 @@ listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"
 ####### exit defaults
 
 allowed_country_codes: "['US']"
-#database_uri: "postgresql://..."
+# database_uri: "postgresql://..."
 description: "Althea Exit Description"
 remote_log: "false"
 workers: 1
