@@ -16,5 +16,5 @@ jobs:
           image: fedora:latest
           shell: /bin/bash
           run: |
-            echo "first line"
-            echo "second line"
+            pip3 install --user ansible
+            ansible-galaxy collection install -r requirements.yml
