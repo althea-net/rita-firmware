@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Ansible syntax check
+      - name: Syntax check
         run: |
           pip3 install --user ansible
           ansible-playbook -i hosts --syntax-check --list-tasks *.yml
@@ -20,8 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Ansible syntax check
+      - name: Lint check
         run: |
           pip3 install --user ansible ansible-lint
-          ansible-galaxy collection install -r requirements.yaml
           ansible-lint

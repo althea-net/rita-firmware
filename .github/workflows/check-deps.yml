@@ -11,18 +11,10 @@ jobs:
   deps:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Ansible syntax check
-        run: |
-          pip3 install --user ansible
-          ansible-playbook -i hosts --syntax-check --list-tasks *.yml
-  lint:
-    runs-on: ubuntu-latest
-    steps:
       - uses: addnab/docker-run-action@v3
         with:
-          image: docker:latest
-          shell: bash
+          image: fedora:latest
+          shell: /bin/bash
           run: |
             echo "first line"
             echo "second line"
