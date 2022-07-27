@@ -23,4 +23,4 @@ jobs:
       - name: Lint check
         run: |
           pip3 install --user ansible ansible-lint
-          ansible-lint --progressive
+          ansible-lint
