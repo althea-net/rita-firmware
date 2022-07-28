@@ -1,0 +1,13 @@
+---
+roles:
+  - name: davidalger.stackdriver
+  - name: cyberark.conjur-host-identity
+  - name: geerlingguy.mysql
+  - name: geerlingguy.apache
+
+collections:
+  - name: community.zabbix
+  - name: community.proxysql
+  - name: community.mongodb
+  - name: infinidat.infinibox
+  - name: infoblox.nios_modules

@@ -1,7 +1,6 @@
 ---
 # Downloads and prepares the openwrt sources by applying patches
 
-
 - name: Create build directory
   file:
     path: "{{source_dir}}"
@@ -19,5 +18,5 @@
   shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default stable; {{ansible_env.HOME}}/.cargo/bin/rustup update"
 
 - name: Grab rust targets for hardware profile
-  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup target add {{rust_target}}"
+  command: "{{ansible_env.HOME}}/.cargo/bin/rustup target add {{rust_target}}"
   ignore_errors: true

@@ -6,7 +6,7 @@
   shell: "scp {{ssh_args}} {{source_dir}}/bin/targets/{{image_path}} root@\\[{{router_ip}}\\]:/tmp/sysupgrade.{{extension}}"
 
 - name: Apply the update, please cross your fingers and wait 5 minutes
-  shell: "ssh {{ssh_args}} root@{{router_ip}} sysupgrade -v -n /tmp/sysupgrade.{{extension}}"
+  command: "ssh {{ssh_args}} root@{{router_ip}} sysupgrade -v -n /tmp/sysupgrade.{{extension}}"
   ignore_errors: true
   async: 0
   poll: 0

@@ -1,7 +1,7 @@
 conf_to_build: ubnt_edgerouter-4
 device: "ubnt_edgerouter-4"
 package_id: mips64_octeonplus
-image_paths: 
+image_paths:
   - "octeon/generic-glibc/openwrt-octeon-ubnt_edgerouter-4-initramfs-kernel.bin"
   - "octeon/generic-glibc/openwrt-octeon-ubnt_edgerouter-4-squashfs-sysupgrade.tar"
 supported: false

@@ -1,7 +1,7 @@
 conf_to_build: aclite
 device: "ubnt-unifiac-lite"
 package_id: mips_24kc
-image_paths: 
+image_paths:
   - "ar71xx/generic/openwrt-ar71xx-generic-ubnt-unifiac-lite-squashfs-sysupgrade.bin"
 
 channel: 11

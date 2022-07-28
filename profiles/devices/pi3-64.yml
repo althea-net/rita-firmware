@@ -2,7 +2,7 @@
 conf_to_build: pi3-64
 device: "rpi-3"
 package_id: aarch64_cortex-a53
-image_paths: 
+image_paths:
   - "brcm2708/bcm2710-glibc/openwrt-brcm2708-bcm2710-rpi-3-ext4-factory.img.gz"
 supported: false
 

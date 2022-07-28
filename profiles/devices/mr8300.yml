@@ -21,7 +21,7 @@ lan_interfaces: "eth0.11 eth0.12 eth0.13 eth0.14"
 real_interfaces:
   - eth0
   - eth1
-  
+
 # Estimated max wireguard throughput in kbits/s
 est_max_throughput: 150000
 

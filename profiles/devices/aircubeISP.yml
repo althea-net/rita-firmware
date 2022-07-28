@@ -2,7 +2,7 @@ conf_to_build: aircube
 device: "ubnt_acb-isp"
 package_id: ath79
 image_paths:
-   - "ath79/generic/openwrt-ath79-generic-ubnt_acb-isp-squashfs-sysupgrade.bin"
+  - "ath79/generic/openwrt-ath79-generic-ubnt_acb-isp-squashfs-sysupgrade.bin"
 supported: false
 
 channel: 11
