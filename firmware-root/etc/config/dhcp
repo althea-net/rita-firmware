@@ -21,6 +21,8 @@ config dnsmasq
         list server '209.255.0.3'
         list server '9.9.9.10'
         list server '64.6.64.6'
+        list server '2606:4700:4700::1111'
+        list server '2001:4860:4860::8888'
 
 config dhcp 'lan'
         option interface 'lan'
