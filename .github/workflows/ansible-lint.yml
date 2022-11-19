@@ -23,4 +23,5 @@ jobs:
       - name: Lint check
         run: |
           pip3 install --user ansible ansible-lint
+          ansible-galaxy install -r requirements.yml
           ansible-lint
