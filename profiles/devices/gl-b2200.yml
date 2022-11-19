@@ -1,0 +1,32 @@
+conf_to_build: gl-b2200
+device: gl-b2200
+package_id: arm_cortex-a7_neon-vfpv4
+image_paths:
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-glinet_gl-b2200-squashfs-sysupgrade.bin"
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-glinet_gl-b2200-squashfs-emmc.img.gz"
+supported: true
+
+channel: 11
+# 5ghz note only 20mhz channel widths
+five_ghz_channel: 36
+
+listen_interfaces:
+  - eth1
+
+lan_interfaces: "eth0"
+
+# Reference value, see network.j2 to modify
+# wan_interface: "eth1"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 200000
+
+rust_target: armv7-unknown-linux-musleabihf
+
+version: v22.03.2
+feeds_list:
+  - "src-git althea https://github.com/althea-net/althea-packages.git;openwrt22"

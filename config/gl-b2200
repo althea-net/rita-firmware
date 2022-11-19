@@ -1,0 +1,8 @@
+CONFIG_TARGET_ipq40xx=y
+CONFIG_TARGET_ipq40xx_generic=y
+CONFIG_TARGET_ipq40xx_generic_DEVICE_glinet_gl-b2200=y
+CONFIG_PACKAGE_althea-babeld=y
+CONFIG_PACKAGE_althea-cron-jobs=y
+CONFIG_PACKAGE_althea-dash=y
+CONFIG_PACKAGE_althea-rust-binaries=y
+CONFIG_PACKAGE_althea-tools=y
