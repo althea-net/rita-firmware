@@ -12,7 +12,8 @@ jobs:
     container:
       image: debian
     steps:
-      - name: Prepare Sources
-        run: |
-          pip3 install --user ansible
-          ansible-playbook -i hosts prepare-sources.yml
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          # Required, playbook filepath
+          playbook: deploy.yml
