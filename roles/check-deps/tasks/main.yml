@@ -37,7 +37,7 @@
   become: true
 
 - name: Download rust setup script
-  shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+  command: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 - name: Install yarn
   command: "npm -g install yarn"

@@ -13,7 +13,7 @@
     dest: "{{source_dir}}/files/etc/dropbear/authorized_keys"
     line: "{{item}}"
     state: present
-    create: yes
+    create: true
   with_items: "{{keys_to_insert}}"
   when: insert_keys
 
