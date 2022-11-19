@@ -1,0 +1,30 @@
+conf_to_build: netgear_xr500
+device: "netgear_xr500"
+package_id: arm_cortex-a15_neon-vfpv4
+image_paths:
+  - "ipq806x/generic/openwrt-ipq806x-generic-netgear_xr500-squashfs-sysupgrade.bin"
+  - "ipq806x/generic/openwrt-ipq806x-generic-netgear_xr500-squashfs-factory.img"
+supported: true
+
+channel: 11
+five_ghz_channel: 36
+
+listen_interfaces:
+  - eth0.2
+
+lan_interfaces: "eth1.1"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 400000
+
+rust_target: armv7-unknown-linux-musleabihf
+
+version: v22.03.2
+feeds_list:
+  - "src-git althea https://github.com/althea-net/althea-packages.git;openwrt22"
+
