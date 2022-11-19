@@ -1,0 +1,18 @@
+name: Build dependencies
+
+on:
+  push:
+    branches:
+      - jrd/*
+  pull_request:
+
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: debian
+    steps:
+      - name: Prepare Sources
+        run: |
+          pip3 install --user ansible
+          ansible-playbook -i hosts prepare-sources.yml
