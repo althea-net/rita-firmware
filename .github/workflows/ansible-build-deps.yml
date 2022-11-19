@@ -3,7 +3,8 @@ name: Build dependencies
 on:
   push:
     branches:
-      - jrd/*
+      - main
+      - master
   pull_request:
 
 jobs:
@@ -11,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: debian
+      options: --user root
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
