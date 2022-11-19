@@ -5,7 +5,7 @@ package_id: aarch64_cortex-a53
 image_paths:
   - "bcm27xx/bcm2711/openwrt-bcm27xx-bcm2711-rpi-4-ext4-factory.img.gz"
   - "bcm27xx/bcm2711/openwrt-bcm27xx-bcm2711-rpi-4-squashfs-sysupgrade.img.gz"
-supported: yes
+supported: true
 
 channel: 11
 

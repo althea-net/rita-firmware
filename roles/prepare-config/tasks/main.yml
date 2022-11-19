@@ -5,8 +5,8 @@
   synchronize:
     src: firmware-root/
     dest: "{{source_dir}}/files/"
-    recursive: yes
-    delete: yes
+    recursive: true
+    delete: true
 
 - name: Check if feeds.conf exists
   stat:

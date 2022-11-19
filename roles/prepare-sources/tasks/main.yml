@@ -10,7 +10,7 @@
   git:
     repo: "{{repo}}"
     dest: "{{source_dir}}"
-    update: yes
+    update: true
     version: "{{version}}"
   register: source_version
 

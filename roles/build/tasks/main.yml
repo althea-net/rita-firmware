@@ -1,7 +1,8 @@
 ---
 # Builds the firmware
 
-- block:
+- name: Build firmware when not CI
+  block:
     - name: Download files required for build
       shell: "cd {{source_dir}}; make -j{{ansible_processor_vcpus|int}} download"
       register: download_result
@@ -50,4 +51,4 @@
       with_items: "{{image_paths}}"
       when: supported and copy_images
 
-  when: ci == False
+  when: not ci
