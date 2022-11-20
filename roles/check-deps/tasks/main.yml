@@ -30,7 +30,7 @@
   become: true
 
 - name: Install Archlinux Deps
-  pacman:
+  community.general.pacman:
     name: "{{arch_deps}}"
     state: present
   when: ansible_distribution == 'Archlinux'

@@ -2,7 +2,7 @@
 # Copies in the deltas for the Firmware
 
 - name: Sync items to be inserted into the root file system
-  synchronize:
+  ansible.posix.synchronize:
     src: firmware-root/
     dest: "{{source_dir}}/files/"
     recursive: true
@@ -38,6 +38,6 @@
     dest: "{{source_dir}}/.config"
 
 - name: Build the full config
-  make:
+  community.general.make:
     chdir: "{{source_dir}}/"
     target: defconfig
