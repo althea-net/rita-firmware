@@ -20,8 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Lint check
-        run: |
-          pip3 install --user ansible ansible-lint
-          ansible-galaxy install -r requirements.yml
-          ansible-lint
+      - name: Run ansible-lint
+        # replace `main` with any valid ref, or tags like `v6`
+        uses: ansible-community/ansible-lint-action@main
