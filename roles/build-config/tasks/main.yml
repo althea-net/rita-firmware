@@ -51,23 +51,6 @@
     src: "{{final_device_template}}-network.j2"
     dest: "{{source_dir}}/files/etc/config/network"
 
-# Light client (phone) bootstrap network, used for phones to connect and open per-hop tunnels
-# once a tunnel is opened they are attached to a Rita created and managed bridge which nats
-# the traffic out the door
-- name: Insert Phone bootstrap network
-  blockinfile:
-    insertbefore: BOF
-    marker: "#PBS"
-    path: "{{source_dir}}/files/etc/config/network"
-    block: |
-      config interface 'pbs'
-          option type 'bridge'
-          option ifname 'pbs-wlan'
-          option proto 'static'
-          option ipaddr '{{pbs_ip}}'
-          option netmask '255.255.255.0'
-          option ip6assign '60'
-
 - name: Insert Lan network
   blockinfile:
     insertbefore: BOF
@@ -116,22 +99,6 @@
           option encryption 'none'
           option mesh_fwding '0'
           option ifname 'mesh'
-          option disabled '1'
-  when: wireless_conf_path is file
-
-- name: Insert Light client interface for radio0
-  blockinfile:
-    insertafter: EOF
-    marker: "#PBS"
-    dest: "{{source_dir}}/files/etc/config/wireless"
-    block: |
-      config wifi-iface 'lightclient'
-          option device 'radio0'
-          option network 'pbs'
-          option mode 'ap'
-          option ssid 'AltheaMobile'
-          option encryption 'none'
-          option ifname 'pbs-wlan'
           option disabled '1'
   when: wireless_conf_path is file
 

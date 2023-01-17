@@ -19,13 +19,6 @@ config zone
 	option output		ACCEPT
 	option forward		ACCEPT
 
-config zone
-	option name		pbs
-	list   network		'pbs'
-	option input		REJECT
-	option output		ACCEPT
-	option forward		REJECT
-
 # We need this zone to receive mesh traffic
 config zone
 	option name		mesh
@@ -92,44 +85,6 @@ config rule
 	option family		ipv6
 	option target		ACCEPT
 
-# Allow essential incoming IPv6 ICMP traffic
-config rule
-	option name		Allow-ICMPv6-Input
-	option src		pbs
-	option proto		icmp
-	list icmp_type		echo-request
-	list icmp_type		echo-reply
-	list icmp_type		destination-unreachable
-	list icmp_type		packet-too-big
-	list icmp_type		time-exceeded
-	list icmp_type		bad-header
-	list icmp_type		unknown-header-type
-	list icmp_type		router-solicitation
-	list icmp_type		neighbour-solicitation
-	list icmp_type		router-advertisement
-	list icmp_type		neighbour-advertisement
-	option limit		1000/sec
-	option family		ipv6
-	option target		ACCEPT
-
-
-# Allow essential forwarded IPv6 ICMP traffic
-config rule
-	option name		Allow-ICMPv6-Forward
-	option src		pbs
-	option dest		*
-	option proto		icmp
-	list icmp_type		echo-request
-	list icmp_type		echo-reply
-	list icmp_type		destination-unreachable
-	list icmp_type		packet-too-big
-	list icmp_type		time-exceeded
-	list icmp_type		bad-header
-	list icmp_type		unknown-header-type
-	option limit		1000/sec
-	option family		ipv6
-	option target		ACCEPT
-
 # Dropbear does not listen here by default it may be enabled
 # by the user
 config rule
@@ -158,18 +113,6 @@ config rule
 	option target		ACCEPT
 
 config rule
-	option name		Allow-Rita-Payments
-	option src		pbs
-	option dest_port	4874
-	option target		ACCEPT
-
-config rule
-	option name		Allow-Rita-Light-Client-Hello
-	option src		pbs
-	option dest_port	4878
-	option target		ACCEPT
-
-config rule
 	option name		Reject-Rita-Light-Client-Hello
 	option src		lan
 	option dest_port	4878
@@ -184,23 +127,10 @@ config rule
 	option target		ACCEPT
 
 config rule
-	option name		Allow-Rita-Tunnels
-	option src		pbs
-	option dest_port	59999-65535
-	option target		ACCEPT
-
-config rule
 	option name		Allow-Rita-Autosetup
 	option src		mesh
 	option dest_port	4875
 	option target		ACCEPT
-
-config rule
-    option name     Allow-Rita-Autosetup-pbs
-    option src      pbs
-    option proto    tcp
-    option dest_port    4878
-    option target    ACCEPT
 
 # Dropbear does not listen here by default, it
 # may be enabled by the user
@@ -215,20 +145,6 @@ config rule
 	option src		backhaul
 	option proto		udp
 	option dest_port	68
-	option target		ACCEPT
-
-config rule
-	option name		Allow-DHCP-server-pbs
-	option src		pbs
-	option proto		udp
-	option dest_port	67
-	option target		ACCEPT
-
-config rule
-	option name		Allow-DNS-server
-	option src		pbs
-	option proto		udp
-	option dest_port	5353
 	option target		ACCEPT
 
 # Allow DHCPv6 replies
