@@ -1,0 +1,5 @@
+CONFIG_TARGET_ipq40xx=y
+CONFIG_TARGET_ipq40xx_generic=y
+CONFIG_TARGET_ipq40xx_generic_DEVICE_glinet_gl-b1300=y
+CONFIG_PACKAGE_rita-extender=y
+CONFIG_PACKAGE_althea-tools=y

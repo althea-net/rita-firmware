@@ -1,0 +1,16 @@
+config defaults
+	option tcp_ecn		1
+	option input		REJECT
+	option output		ACCEPT
+	option forward		REJECT
+
+config zone
+	option name		lan
+	list   network		'lan'
+	option input		ACCEPT
+	option output		ACCEPT
+	option forward		ACCEPT
+
+
+config include
+	option path /etc/firewall.user

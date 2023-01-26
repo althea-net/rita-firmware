@@ -1,4 +1,5 @@
 #!/bin/bash
+# builds packages and uploads them to a folder called rc (release candidate) on the updates server you can then move this rc folder to a folder named after the appropriate release
 set -ux
 cd $(dirname $0)/..
 export SERVER=updates
