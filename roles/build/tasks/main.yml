@@ -42,7 +42,14 @@
         src: "build/bin/targets/{{item}}"
         dest: "completed-images/{{ansible_date_time.date}}-{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-{{item | basename}}"
       with_items: "{{image_paths}}"
-      when: supported and copy_images
+      when: supported and copy_images and not extender
+
+    - name: Copy image to staging folder
+      copy:
+        src: "build/bin/targets/{{item}}"
+        dest: "completed-images/{{ansible_date_time.date}}-{{ansible_date_time.hour}}-{{ansible_date_time.minute}}-extender-{{item | basename}}"
+      with_items: "{{image_paths}}"
+      when: supported and copy_images and extender
 
     - name: Copy image to archive folder
       copy:

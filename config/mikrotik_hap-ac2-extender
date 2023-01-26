@@ -1,0 +1,6 @@
+CONFIG_TARGET_ipq40xx=y
+CONFIG_TARGET_ipq40xx_mikrotik=y
+CONFIG_TARGET_ipq40xx_mikrotik_DEVICE_mikrotik_hap-ac2=y
+CONFIG_PACKAGE_rita-extender=y
+CONFIG_PACKAGE_althea-tools=y
+CONFIG_PACKAGE_althea-usb=y

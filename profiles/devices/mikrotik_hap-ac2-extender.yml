@@ -1,0 +1,20 @@
+conf_to_build: mikrotik_hap-ac2-extender
+device: mikrotik_hap-ac2
+package_id: arm_cortex-a7_neon-vfpv4
+image_paths:
+  - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac2-initramfs-kernel.bin"
+  - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac2-squashfs-sysupgrade.bin"
+supported: true
+extender: true
+
+private_radio:
+  - radio0
+  - radio1
+
+channel: 11
+# 5ghz note only 20mhz channel widths
+five_ghz_channel: 36
+
+lan_interfaces: "eth1 eth0.11 eth0.12 eth0.13 eth0.14"
+
+rust_target: armv7-unknown-linux-musleabihf

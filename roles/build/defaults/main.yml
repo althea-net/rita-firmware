@@ -2,3 +2,4 @@ source_dir: build/
 ci: false
 supported: false
 copy_images: false
+extender: false

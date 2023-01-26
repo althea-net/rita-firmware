@@ -1,6 +1,5 @@
 ---
-# Builds the more sensitive and dynamic parts of the firmware root configuration
-# for example ssh keys are inserted in this role
+# This role builds the network and wireless configuration for the extender router
 
 - name: Create Dropbear folder
   file:
@@ -55,10 +54,8 @@
       config interface 'lan'
           option type 'bridge'
           option ifname '{{lan_interfaces}}'
-          option proto 'static'
-          option ipaddr '{{lan_ip}}'
-          option netmask '255.255.255.0'
-          option ip6assign '60'
+          option proto 'dhcp'
+
 
 # we insert boilerplate stuff into the network configs here for the sake of de-duplication
 - name: Insert Loopback network
@@ -78,52 +75,6 @@
     src: "{{final_device_template}}-wireless.j2"
     dest: "{{source_dir}}/files/etc/config/wireless"
   when: wireless_conf_path is file
-
-- name: Insert Mesh interface for radio0
-  blockinfile:
-    insertafter: EOF
-    marker: "#RITAEXTENDER"
-    dest: "{{source_dir}}/files/etc/config/wireless"
-    block: |
-      config wifi-iface 'althea-mesh'
-          option device 'radio0'
-          option network 'lan'
-          option mode 'mesh'
-          option mesh_id 'AltheaMesh'
-          option ssid 'AltheaMesh'
-          option encryption '{{wifi_encryption}}'
-          option mesh_fwding '0'
-          option ifname 'althea-mesh'
-          option disabled '0'
-  when: wireless_conf_path is file
-
-- name: Template the Babeld configuration
-  template:
-    src: "babeld.j2"
-    dest: "{{source_dir}}/files/etc/config/babeld"
-
-- name: Template the Rita configuration
-  template:
-    src: "rita.toml.j2"
-    dest: "{{source_dir}}/files/etc/rita.toml"
-  when: rita_type == "client"
-
-- name: Template the rita-exit config
-  template:
-    src: rita_exit.toml.j2
-    dest: "{{source_dir}}/files/etc/rita-exit.toml"
-  when: rita_type == "exit"
-
-- name: Write out build details
-  template:
-    src: "althea-firmware-release.j2"
-    dest: "{{source_dir}}/files/etc/althea-firmware-release"
-
-- name: Template any device specific scripts
-  template:
-    src: "{{custom_script}}.j2"
-    dest: "{{source_dir}}/files/etc/{{custom_script}}"
-  when: custom_script is defined
 
 - name: Template package update url
   template:
