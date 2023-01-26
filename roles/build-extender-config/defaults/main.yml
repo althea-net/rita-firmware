@@ -1,0 +1,14 @@
+source_dir: build
+disable_password_login: false
+remote_mesh_access: false
+insert_keys: false
+keys_to_insert:
+  - ""
+dropbear_wan_accessible: false
+ssh_port: 22
+password_auth: 0
+# should default to sae-mixed (WPA3/2), which depends on wpad-basic-wolfssl and is enabled by default in openwrt-21.02
+# due to high rate of incompatible devices default remains wpa2 only, this should be changed back in the future
+wifi_encryption: "psk2+tkip+ccmp"
+final_device_template: "{{ conf_to_build if device_template is not defined else device_template }}"
+wireless_conf_path: "{{role_path}}/templates/{{final_device_template}}-wireless.j2"
