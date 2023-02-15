@@ -26,17 +26,9 @@ config dnsmasq
 
 config dhcp 'lan'
         option interface 'lan'
-        option start '100'
-        option limit '150'
+        option start '10'
+        option limit '245'
         option leasetime '5d'
-        option dhcpv6 'server'
-        option ra 'server'
-
-config dhcp 'pbs'
-        option interface 'pbs'
-        option start '100'
-        option limit '150'
-        option leasetime '1d'
         option dhcpv6 'server'
         option ra 'server'
 
