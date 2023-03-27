@@ -16,6 +16,7 @@ config dnsmasq
         option nonwildcard '1'
         option localservice '1'
         option cachesize  '16192'
+        list server '172.168.0.254'
         list server '1.1.1.1'
         list server '8.8.4.4'
         list server '209.255.0.3'
