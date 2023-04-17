@@ -9,6 +9,7 @@ logging_level: "INFO"
 keys_to_insert:
   - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPzkV1FVvEFSMFsebt4q0up0oQ08aEZHJRlKPKKuDhcb justin@althea.net"
   - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmrh09L0amaD8SCqt5LYgA7X3AmVJmBPp8icIMT/ZUv thomas@althea.systems"
+  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3/SeRefJp1JIax8H1uDPv9c5865aSbEN13f6G26kOG pranay@althea.systems"
 wifi_ssid_two_ghz: AltheaHome-2.4
 wifi_ssid_five_ghz: AltheaHome-5
 wifi_disabled: 0
