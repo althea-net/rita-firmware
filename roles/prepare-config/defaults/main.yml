@@ -1,3 +1,4 @@
+rita_type: "client"
 source_dir: build/
 feeds_list:
   - "src-git althea https://github.com/althea-net/althea-packages.git"

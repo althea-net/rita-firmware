@@ -1,0 +1,20 @@
+rita_type: exit
+conf_to_build: wrt3200acm
+device: "linksys_wrt3200acm"
+package_id: arm_cortex-a9_vfpv3-d16
+image_paths:
+  - "mvebu/cortexa9-glibc/openwrt-mvebu-cortexa9-linksys_wrt3200acm-squashfs-sysupgrade.bin"
+  - "mvebu/cortexa9-glibc/openwrt-mvebu-cortexa9-linksys_wrt3200acm-squashfs-factory.img"
+supported: true
+
+channel: 11
+five_ghz_channel: 36
+
+wifi_encryption: "psk2+ccmp"
+
+listen_interfaces:
+  - wan
+
+lan_interfaces: "lan1 lan2 lan3 lan4"
+
+rust_target: armv7-unknown-linux-gnueabihf

@@ -32,8 +32,8 @@
 - name: Grab feeds
   shell: "cd {{source_dir}}; ./scripts/feeds install -a"
 
-- name: Copy in config
-  copy:
+- name: template in config
+  template:
     src: "config/{{conf_to_build}}"
     dest: "{{source_dir}}/.config"
 
