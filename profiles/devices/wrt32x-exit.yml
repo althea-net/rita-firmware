@@ -1,0 +1,15 @@
+rita_type: exit
+conf_to_build: wrt32x
+device: "linksys_wrt32x"
+package_id: arm_cortex-a9_vfpv3-d16
+image_paths:
+  - "mvebu/cortexa9-glibc/openwrt-mvebu-cortexa9-linksys_wrt32x-squashfs-sysupgrade.bin"
+  - "mvebu/cortexa9-glibc/openwrt-mvebu-cortexa9-linksys_wrt32x-squashfs-factory.img"
+supported: true
+
+listen_interfaces:
+  - wan
+
+lan_interfaces: "lan1 lan2 lan3 lan4"
+
+rust_target: armv7-unknown-linux-gnueabihf

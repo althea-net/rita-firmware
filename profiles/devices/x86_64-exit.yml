@@ -1,0 +1,44 @@
+# Config for generic x86_64 pc's, setup for 5 ports currently.
+# as a note PCI cards seem to start with eth0 as the first port on the
+# lowest number pci slot card, counting down, then returning to the mobo port
+# this may not always hold true
+
+# To flash just untar the ext4 image and write it to a flash drive
+
+rita_type: exit
+
+# used to select which config
+conf_to_build: x86_64
+
+# used in op tools and althea-firmware-release
+device: x86_64
+
+# used in /etc/customfeeds.conf path
+package_id: x86_64
+
+# used to copy images to completed-images upon completion
+image_paths:
+  - "x86/64/openwrt-x86-64-generic-squashfs-combined.img.gz"
+  - "x86/64/openwrt-x86-64-generic-squashfs-combined-efi.img.gz"
+  - "x86/64/openwrt-x86-64-generic-squashfs-combined.vdi"
+  - "x86/64/openwrt-x86-64-generic-squashfs-combined.vmdk"
+  # - "x86/64/openwrt-x86-64-generic-ext4-combined.img.gz"
+  # - "x86/64/openwrt-x86-64-generic-image.iso"
+
+supported: true
+
+listen_interfaces:
+  - eth2
+  - eth3
+  - eth4
+  - eth5
+  - eth6
+  - eth7
+  - eth8
+
+lan_interfaces: "eth1"
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth0"
+
+rust_target: x86_64-unknown-linux-gnu

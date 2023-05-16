@@ -21,4 +21,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: ansible-lint
-        uses: ansible-community/ansible-lint-action@main
+        uses: ansible-community/ansible-lint-action@@6.11.0

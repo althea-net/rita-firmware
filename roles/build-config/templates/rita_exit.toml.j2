@@ -1,5 +1,4 @@
 allowed_countries = {{allowed_country_codes}}
-db_uri = "{{database_uri}}"
 description = "{{description}}"
 remote_log = {{remote_log}}
 workers = "{{workers}}"
@@ -18,9 +17,7 @@ geoip_api_user = "{{geoip_api_user}}"
 {% endif %}
 netmask = {{own_internal_netmask}}
 own_internal_ip = "{{own_internal_ip}}"
-wg_private_key = "{{wg_exit_private_key}}"
 wg_private_key_path = "/tmp/exit-priv"
-wg_public_key = "{{wg_exit_public_key}}"
 wg_tunnel_port = {{wg_tunnel_port}}
 
 
@@ -39,7 +36,6 @@ zeros = {{support_number_zeroes}}
 [network]
 babel_port = 6872
 backup_created = false
-bounty_port = {{bounty_port}}
 discovery_ip = "ff02::1:8"
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
@@ -48,8 +44,6 @@ external_nic = "{{external_nic}}"
 {% endif %}
 light_client_hello_port = 4878
 manual_peers = []
-mesh_ip = "{{exit_mesh_ip}}"
-metric_factor = "{{exit_metric_factor}}"
 nickname = "{{nickname}}"
 peer_interfaces = [{% for iface in (exit_direct_peer_interfaces + exit_direct_peer_vlans) %}"{{iface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 rita_contact_port = 4874
@@ -66,7 +60,7 @@ wg_start_port = {{wg_start_port}}
 [network.shaper_settings]
 enabled = {{network_shaper_enabled}}
 max_speed = 10000
-min_speed = 50
+min_speed = 500
 
 [payment]
 apply_incoming_credit_immediately = true
