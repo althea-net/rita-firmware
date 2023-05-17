@@ -16,7 +16,7 @@ config dnsmasq
         option nonwildcard '1'
         option localservice '1'
         option cachesize  '16192'
-	list server '192.168.10.1'
+        list server '192.168.10.1'
 
 config dhcp 'lan'
         option interface 'lan'
