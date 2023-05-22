@@ -27,6 +27,6 @@ est_max_throughput: 200000
 
 rust_target: armv7-unknown-linux-musleabihf
 
-version: v22.03.2
+version: v22.03.5
 feeds_list:
   - "src-git althea https://github.com/althea-net/althea-packages.git;openwrt22"
