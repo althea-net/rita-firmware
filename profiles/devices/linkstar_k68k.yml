@@ -1,0 +1,29 @@
+conf_to_build: linkstar_h68k
+device: linkstar_h68k
+package_id: aarch64_generic
+image_paths:
+  - "rockchip/armv8/openwrt-rockchip-armv8-linkstar_h68k-squashfs-sysupgrade.img.gz"
+supported: false
+
+listen_interfaces:
+  - eth0
+
+lan_interfaces: "eth1 eth2 eth3"
+
+# Reference value, see network.j2 to modify
+# wan_interface: "eth0"
+
+# For sqm tuning
+real_interfaces:
+  - eth0
+  - eth1
+  - eth2
+  - eth3
+
+# Estimated max wireguard throughput in kbits/s
+est_max_throughput: 500000
+
+rust_target: aarch64-unknown-linux-musl
+
+repo: https://github.com/Linkstar-H-series/Openwrt
+version: master
