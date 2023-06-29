@@ -20,5 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install deps
+        run: ansible-galaxy collection install ansible.posix
       - name: ansible-lint
         uses: ansible-community/ansible-lint-action@main

@@ -1,29 +1,25 @@
-# Althea Firmware Builder
+# Rita Firmware Builder
 
-This repo is dedicated to building custom OpenWRT firmware for Althea routers.
+This repo is dedicated to building custom OpenWRT firmware for [Rita](https://github.com/althea-net/rita) routers.
 Similar to LibreMesh's [Lime-SDK](https://github.com/libremesh/lime-sdk) or
 SudoMesh's [SudoWRT](https://github.com/sudomesh/sudowrt-firmware) firmware
 builder. All of these perform much the same function, maintaining a series of
 config files, patches, and packages to insert into a OpenWRT firmware image.
 
-The Althea firmware builder deviates from existing efforts with a heavy reliance
+The Rita firmware builder deviates from existing efforts with a heavy reliance
 on Ansible instead of bash. This creates a pretty readable workflow and makes it
 very easy to apply delta changes onto a modified build directory. Allowing a
 dramatic reduction in build time as well as very flexible build options.
 
-Althea itself is an incentivized mesh system. This build system creates a firmware
-image preconfigured with Althea's fork of the Babeld mesh software as well as
-various utilities and tools to automatically pay mesh nodes for bandwidth.
-
 ---
 
-## Is this where I get Althea?
+## Is this where I get Rita?
 
-If you are an Althea user, talk to your local network organizer or [contact us](mailto:hello@althea.net) to buy a pre-flashed device.
-This page is for advanced users and network organizers.
+If you are a Rita user, talk to your local network operator or [buy a pre-flashed device](https://althea-routers.myshopify.com/).
+This page is for advanced users and network operators
 
-If you are an advanced user or a network organizer yes, this is where you get the firmware images
-to install Althea on routers. For supported devices we have special supported images, these firmware
+If you are an advanced user or a network operator yes, this is where you get the firmware images
+to install Rita on routers. For supported devices we have special supported images, these firmware
 images send some non-identifying data such as bug reports, crashes, and mesh status logs to Althea.
 
 Please see the [flashing](#flashing) and [what do I do now?](#so-i-flashed-the-firmware-what-do-i-do-now)
@@ -102,8 +98,8 @@ On Centos and RHEL:
 Once you have Ansible you can use it to manage the rest of the dependencies:
 
 ```
-git clone https://github.com/althea-mesh/althea-firmware
-cd althea-firmware
+git clone https://github.com/althea-net/rita-firmware
+cd rita-firmware
 ansible-playbook first-time-setup.yml -bK
 ```
 
@@ -221,7 +217,7 @@ emergency room based recovery modes. So the n600, n750, and dir860l.
 
 Follow the debugging instructions provided by the build playbook. That should
 give you a proper error message. Drop by
-[our Matrix channel](https://riot.im/app/#/room/#althea:matrix.org) and let us
+[our discord](https://althea-routers.myshopify.com/) and let us
 know what happened. We'll be happy to help out.
 
 You might [clean the build folder](https://openwrt.org/docs/guide-developer/build-system/use-buildsystem#cleaning_up) if you've made any changes and are starting over.
@@ -260,7 +256,7 @@ know. We'll do our best to add support.
 
 ## So I flashed the firmware, what do I do now?
 
-For typical use cases see the [Setting up your Althea router](https://forum.altheamesh.com/t/setting-up-your-new-althea-router/) guide.
+For typical use cases see the [Setting up your Rita router](https://forum.altheamesh.com/t/setting-up-your-new-althea-router/) guide.
 
 If you would like to do techncial debugging here are some tips and tricks.
 
@@ -282,13 +278,13 @@ WAN connection or your mesh neighbors router respectively.
 
 ### The meshing, how does that work?
 
-Babel, and by extension Althea works by building a L3 network out of L2 links, 'mesh ports' on
+Babel, and by extension Rita works by building a L3 network out of L2 links, 'mesh ports' on
 your router will have any link plugged into them search for peers and connect. For
 example if you simply use an ethernet cable to link the mesh ports of a set of routers they will
 connect to each other and pass connections between each other.
 
 In a real network point to point wireless links will be used. You can find instructions on how
-to both select radios and set them up in [the Althea network getting started guide](https://docs.google.com/document/d/1TeFIUjqG1I4DYxRrkpxk4yEUQoxhIVxkccYWwT5VQD8/edit)
+to both select radios and set them up in [the Rita network getting started guide](https://docs.google.com/document/d/1TeFIUjqG1I4DYxRrkpxk4yEUQoxhIVxkccYWwT5VQD8/edit)
 
 While point to point links are insurmountably superior to meshing with the built in device radios there may be some situations
 where you may want to do that for a hop or two to reduce the number of point to point links or otherwise make life easier.
@@ -301,7 +297,7 @@ We may switch the firmwares to meshing on built in wifi by default if there's a 
 
 ## Setting up an Exit server
 
-An Althea Exit server is essentially a WireGuard proxy server setup to integrate
+An Rita Exit server is essentially a WireGuard proxy server setup to integrate
 with the mesh network.
 
 Copy the file `profiles/exit/config-example.yml` to `profiles/exit/config.yml` and modify it as needed.
@@ -376,7 +372,7 @@ Now that everything is finally configured you can run ansible to build your exit
 
 
 
-### Adding your new exit to an Althea client
+### Adding your new exit to a Rita client
 
 Currently we ship exits as part of the default config file in [the firmware](https://github.com/althea-net/althea-firmware/blob/master/roles/build-config/templates/rita.toml.j2#L29) but that's
 hardly the only way to configure one.
