@@ -1,11 +1,17 @@
+# This is the standard release profile. This does collect error level info from the device
+# you can either disable logging or change the logging server
+
 default_exit: "test"
 insert_keys: false
-keys_to_insert: []
+logging_enabled: true
+logging_level: "ERROR"
 wifi_ssid_two_ghz: AltheaHome-2.4
 wifi_ssid_five_ghz: AltheaHome-5
 wifi_disabled: 0
 wifi_key: ChangeMe
+copy_images: true
 
 password_auth: "yes"
 
 release_feed: ""
+remote_mesh_access: false

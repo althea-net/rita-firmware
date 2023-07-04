@@ -1,6 +1,5 @@
-# This profile is for testing of Althea networks and as such enables remote management features
-# if you are deploying many devices under your control consider changing the keys and default
-# exit in order to redirect logs and allow universal access.
+# This profile is used by Hawk Networks INC for normal operations, so remote access is enabled and
+# ssh keys are inserted, you can use this as a template to build your own managed images
 
 default_exit: "test"
 insert_keys: true
