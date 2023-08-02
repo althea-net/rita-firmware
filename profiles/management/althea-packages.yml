@@ -1,0 +1,4 @@
+# do not copy images when building packages
+
+copy_images: false
+
