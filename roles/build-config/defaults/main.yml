@@ -29,6 +29,11 @@ lan_ip: "192.168.10.1"
 # should default to sae-mixed (WPA3/2), which depends on wpad-basic-wolfssl and is enabled by default in openwrt-21.02
 # due to high rate of incompatible devices default remains wpa2 only, this should be changed back in the future
 wifi_encryption: "psk2+tkip+ccmp"
+wifi_disabled: false
+wifi_ssid_two_ghz: "altheahome-2"
+wifi_ssid_five_ghz: "altheahome-5"
+default_exit: "us-west"
+release_feed: ""
 
 hardcoded_interfaces:
   - "mesh"
