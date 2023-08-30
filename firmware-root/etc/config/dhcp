@@ -12,7 +12,7 @@ config dnsmasq
         option authoritative '1'
         option readethers '0'
         option leasefile '/tmp/dhcp.leases'
-        option resolvfile '/tmp/resolv.conf.auto'
+        option resolvfile '/etc/resolv.conf'
         option nonwildcard '1'
         option localservice '1'
         option cachesize  '16192'
