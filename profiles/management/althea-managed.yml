@@ -6,10 +6,10 @@ insert_keys: true
 logging_enabled: true
 logging_level: "INFO"
 keys_to_insert:
-  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPzkV1FVvEFSMFsebt4q0up0oQ08aEZHJRlKPKKuDhcb justin@althea.net"
-  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICmrh09L0amaD8SCqt5LYgA7X3AmVJmBPp8icIMT/ZUv thomas@althea.systems"
-  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3/SeRefJp1JIax8H1uDPv9c5865aSbEN13f6G26kOG pranay@althea.systems"
-  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGBekcwKRBXfWWEYEYMG/j52xyvnMp/lEhDK1mPfBVX chiara@althea.systems"
+  - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIM0+UqR2A3hABDg4ZgVNXJafK6azoWMbUEmMVyODq8z7AAAABHNzaDo= pranay@althea.systems"
+  - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIClZDyDmJt6iR30PBlEII9EpwDPfpKB4Lnw+R5TnlRGSAAAABHNzaDo= chiara@althea.systems"
+  - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPaVT0XU/17bA7nMQTZb19cwxHNyy3pJE148I5QDAb9qAAAABHNzaDo= justin-primary@althea.net"
+  - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICwZzBR9ygQUbLSgXPNhhA6A/2f12MeUUduVwkaVh6+kAAAABHNzaDo= justin-secondary@althea.net"
 wifi_ssid_two_ghz: AltheaHome-2.4
 wifi_ssid_five_ghz: AltheaHome-5
 wifi_disabled: 0
