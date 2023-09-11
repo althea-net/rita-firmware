@@ -30,6 +30,7 @@ ansible-playbook -e @profiles/devices/glb1300.yml -e @profiles/management/hawk-m
 ansible-playbook -e @profiles/devices/ea6350v3.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/mr8300.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/mikrotik_hap-ac2.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/mikrotik_hap-ac3.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/netgear_ex6100v2.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 
 #broadcom
