@@ -11,7 +11,7 @@ wifi_disabled: 0
 wifi_key: ChangeMe
 copy_images: true
 
-password_auth: "yes"
+password_auth: "no"
 
 release_feed: ""
 remote_mesh_access: false
