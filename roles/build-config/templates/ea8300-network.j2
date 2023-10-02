@@ -1,0 +1,42 @@
+config globals 'globals'
+	option ula_prefix 'auto'
+
+#config device 'switch_dev'
+#	option name 'eth0'
+#	option macaddr '60:38:e0:a6:4f:73'
+
+#config device 'wan_dev'
+#    option name 'eth1'
+#    option macaddr '60:38:e0:a6:4f:72'
+
+{% for interface in listen_interfaces %}
+config interface 'rita_{{interface | replace(".","")}}'
+        option ifname {{interface}}
+        option proto static
+{% endfor %}
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '11'
+	option ports '1 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '12'
+	option ports '2 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '13'
+	option ports '3 0t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '14'
+	option ports '4 0t'
+	
