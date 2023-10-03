@@ -3,3 +3,4 @@ ci: false
 supported: false
 copy_images: false
 extender: false
+image_prefix: ""

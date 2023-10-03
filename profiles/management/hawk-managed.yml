@@ -20,3 +20,4 @@ password_auth: "no"
 
 release_feed: ""
 remote_mesh_access: true
+image_prefix: "hawk-managed-"
