@@ -16,3 +16,12 @@ jobs:
         run: |
           pip3 install --user ansible
           ansible-playbook -i hosts --syntax-check --list-tasks *.yml
+  build-x86:
+    needs: syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build x86 unmanaged firmware
+        run: |
+          pip3 install --user ansible
+          ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-release.yml firmware-build.yml
