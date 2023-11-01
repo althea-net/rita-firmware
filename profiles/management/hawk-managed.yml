@@ -10,6 +10,7 @@ keys_to_insert:
   - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIClZDyDmJt6iR30PBlEII9EpwDPfpKB4Lnw+R5TnlRGSAAAABHNzaDo= chiara@althea.systems"
   - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPaVT0XU/17bA7nMQTZb19cwxHNyy3pJE148I5QDAb9qAAAABHNzaDo= justin-primary@althea.net"
   - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICwZzBR9ygQUbLSgXPNhhA6A/2f12MeUUduVwkaVh6+kAAAABHNzaDo= justin-secondary@althea.net"
+  - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIBR8P2K6fwUSJiygGEYjnQej9q96CfTdCB4s+u+2kMwYAAAABHNzaDo= justin-tertiary@althea.net"
   - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIKIHutGmtkioT2o+EkmgakH0gv8Zyl83KuqU5v73UineAAAABHNzaDo= thomas-primary@althea.systems"
   - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPlLsiBAHAtJindxr9j9sLKlnwzY5t2U+FVuyuU5BqIQAAAABHNzaDo= thomas-secondary@althea.systems"
 wifi_ssid_two_ghz: AltheaHome-2.4
