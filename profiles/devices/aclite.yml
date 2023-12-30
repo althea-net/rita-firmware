@@ -15,10 +15,4 @@ lan_interfaces: "wlan0 wlan1"
 # Reference value, see network.j2 to modify
 wan_interface: ""
 
-# For sqm tuning
-real_interfaces:
-  - eth0
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 50000
-
 rust_target: mips-unknown-linux-musl

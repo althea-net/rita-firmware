@@ -18,11 +18,4 @@ lan_interfaces: "eth0.3"
 # Reference value, see network.j2 to modify
 wan_interface: "eth1"
 
-# For sqm tuning
-real_interfaces:
-  - eth0
-  - eth1
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 200000
-
 rust_target: armv7-unknown-linux-musleabihf

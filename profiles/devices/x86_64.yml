@@ -42,18 +42,4 @@ lan_interfaces: "eth1"
 # Reference value, see network.j2 to modify
 wan_interface: "eth0"
 
-# For sqm tuning
-real_interfaces:
-  - eth0
-  - eth1
-  - eth2
-  - eth3
-  - eth4
-  - eth5
-  - eth6
-  - eth7
-  - eth8
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 10000000
-
 rust_target: x86_64-unknown-linux-musl

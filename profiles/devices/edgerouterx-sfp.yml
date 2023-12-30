@@ -14,14 +14,4 @@ listen_interfaces:
 
 lan_interfaces: "eth0 eth1 eth2 eth3"
 
-# Reference value, see network.j2 to modify
-# wan_interface: "eth0"
-
-# For sqm tuning
-real_interfaces:
-  - dsa
-
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 200000
-
 rust_target: mipsel-unknown-linux-musl

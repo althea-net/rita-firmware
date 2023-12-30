@@ -11,13 +11,4 @@ listen_interfaces:
 
 lan_interfaces: "eth1 eth2"
 
-# For sqm tuning
-real_interfaces:
-  - eth0
-  - eth1
-  - eth2
-
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 500000
-
 rust_target: mips64-unknown-linux-gnuabi64

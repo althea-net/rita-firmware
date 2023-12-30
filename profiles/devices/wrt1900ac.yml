@@ -16,11 +16,4 @@ listen_interfaces:
 
 lan_interfaces: "lan1 lan2 lan3 lan4"
 
-# For sqm tuning
-real_interfaces:
-  - eth0
-
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 300000
-
 rust_target: armv7-unknown-linux-musleabihf

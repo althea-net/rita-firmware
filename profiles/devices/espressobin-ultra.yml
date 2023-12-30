@@ -15,14 +15,4 @@ lan_interfaces: "lan3"
 # Reference value, see network.j2 to modify
 wan_interface: "wan"
 
-# For sqm tuning
-real_interfaces:
-  - lan0
-  - lan1
-  - lan2
-  - lan3
-  - wan
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 500000
-
 rust_target: aarch64-unknown-linux-gnu

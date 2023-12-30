@@ -16,12 +16,4 @@ listen_interfaces:
 
 lan_interfaces: "lan1 lan2 lan3 lan4"
 
-# For sqm tuning
-# In openwrt-21.02 DSA, lan and wan ports are all on the eth0 CPU port
-real_interfaces:
-  - eth0
-
-# Estimated max wireguard throughput in kbits/s
-est_max_throughput: 400000
-
 rust_target: armv7-unknown-linux-musleabihf
