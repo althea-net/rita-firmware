@@ -8,11 +8,25 @@ on:
   pull_request:
 
 jobs:
-  syntax:
+  # Runs a syntax check only for the playbooks
+  syntax-basic:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Syntax check
+      - name: Syntax check playbooks
         run: |
           pip3 install --user ansible
           ansible-playbook -i hosts --syntax-check --list-tasks *.yml
+  # Runs a syntax check for all maangement and router combinations
+  syntax-all:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        management: ["althea-dev.yml", "althea-packages.yml", "althea-release.yml", "hawk-managed.yml"]
+        router: ["x86_64.yml", "nanopi-r2s.yml", "wrt3200acm.yml", "wrt32x.yml", "wrt1900acs.yml", "dl-wrtx36.yml", "glb1300.yml", "ea6350v3.yml", "mr8300.yml", "ea8300.yml", "mikrotik_hap-ac2.yml", "mikrotik_hap-ac3.yml", "netgear_ex6100v2.yml", "pi4-64.yml"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Syntax check playbooks
+        run: |
+          pip3 install --user ansible
+          ansible-playbook -i hosts --syntax-check -e @profiles/devices/${{matrix.router}} -e @profiles/management/${{matrix.management}} --list-tasks *.yml
