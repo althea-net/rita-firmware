@@ -1,7 +1,0 @@
----
-# A firmware upgrade playbook
-
-- hosts: localhost
-  connection: local
-  roles:
-    - upgrade
