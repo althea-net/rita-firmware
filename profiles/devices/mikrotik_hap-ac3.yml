@@ -3,7 +3,7 @@ device: mikrotik_hap-ac3
 package_id: arm_cortex-a7_neon-vfpv4
 image_paths:
   - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-initramfs-kernel.bin"
-  - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-squashfs-nand-sysupgrade.bin"
+  - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-squashfs-sysupgrade.bin"
 supported: true
 
 private_radio:
