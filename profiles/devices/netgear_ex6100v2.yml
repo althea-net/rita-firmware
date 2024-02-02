@@ -12,7 +12,7 @@ five_ghz_channel: 36
 
 # if the one eth port is set to mesh, then the dashboard is only accessible via the wifi
 listen_interfaces:
-  - eth0
+  - wan
 
 lan_interfaces: ""
 
