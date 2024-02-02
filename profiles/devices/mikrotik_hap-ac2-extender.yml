@@ -15,6 +15,6 @@ channel: 11
 # 5ghz note only 20mhz channel widths
 five_ghz_channel: 36
 
-lan_interfaces: "eth1 eth0.11 eth0.12 eth0.13 eth0.14"
+lan_interfaces: "wan lan1 lan2 lan3 lan4"
 
 rust_target: armv7-unknown-linux-musleabihf
