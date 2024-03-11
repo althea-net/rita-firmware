@@ -29,3 +29,5 @@ ansible-playbook -e @profiles/devices/netgear_ex6100v2.yml -e @profiles/manageme
 
 #broadcom
 ansible-playbook -e @profiles/devices/pi4-64.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
+
+rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/rc/
