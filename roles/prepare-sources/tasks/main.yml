@@ -15,7 +15,7 @@
   register: source_version
 
 - name: Update Rust
-  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default stable; {{ansible_env.HOME}}/.cargo/bin/rustup update"
+  shell: "{{ansible_env.HOME}}/.cargo/bin/rustup default 1.75; {{ansible_env.HOME}}/.cargo/bin/rustup update"
 
 - name: Grab rust targets for hardware profile
   command: "{{ansible_env.HOME}}/.cargo/bin/rustup target add {{rust_target}}"
