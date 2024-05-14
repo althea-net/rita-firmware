@@ -3,6 +3,7 @@ set -eux
 cd $(dirname $0)/..
 export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
+rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/rc/
 
 # desktops / servers
 ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
@@ -26,6 +27,7 @@ ansible-playbook -e @profiles/devices/ea8300.yml -e @profiles/management/hawk-ma
 ansible-playbook -e @profiles/devices/mikrotik_hap-ac2.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/mikrotik_hap-ac3.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/netgear_ex6100v2.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/linksys-whw03v2.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 
 #broadcom
 ansible-playbook -e @profiles/devices/pi4-64.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
