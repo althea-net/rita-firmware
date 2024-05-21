@@ -3,7 +3,6 @@ set -eux
 cd $(dirname $0)/..
 export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
-rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/rc/
 
 # desktops / servers
 ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
@@ -31,5 +30,3 @@ ansible-playbook -e @profiles/devices/linksys-whw03v2.yml -e @profiles/managemen
 
 #broadcom
 ansible-playbook -e @profiles/devices/pi4-64.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
-
-rsync -ahz --delete build/bin/packages $SERVER:$HTTP_DIR/rc/
