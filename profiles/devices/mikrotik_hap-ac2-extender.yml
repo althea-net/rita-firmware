@@ -5,7 +5,7 @@ image_paths:
   - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac2-initramfs-kernel.bin"
   - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac2-squashfs-sysupgrade.bin"
 supported: true
-extender: true
+rita_type: "extender"
 
 private_radio:
   - radio0

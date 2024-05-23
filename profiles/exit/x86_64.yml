@@ -1,16 +1,16 @@
-# Config for generic x86_64 pc's, setup for 5 ports currently.
+# Config for generic x86_64 pc's as an exit, setup for 5 ports currently.
 # as a note PCI cards seem to start with eth0 as the first port on the
 # lowest number pci slot card, counting down, then returning to the mobo port
 # this may not always hold true
 
-# To flash just untar the ext4 image and write it to a flash drive
-
+# To flash just untar the ext4 image and write it to a flash drive or internal disk
 rita_type: "exit"
+
 # used to select which config
 conf_to_build: x86_64-exit
 
 # used in op tools and althea-firmware-release
-device_template: x86_64
+device: x86_64
 
 # used in /etc/customfeeds.conf path
 package_id: x86_64

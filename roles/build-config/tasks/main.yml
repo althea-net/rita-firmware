@@ -93,7 +93,7 @@
 - name: Template the rita-exit config
   template:
     src: rita_exit.toml.j2
-    dest: "{{source_dir}}/files/etc/rita-exit.toml"
+    dest: "{{source_dir}}/files/etc/rita_exit.toml"
   when: rita_type == "exit"
 
 - name: Write out build details
