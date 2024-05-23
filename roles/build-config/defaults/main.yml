@@ -46,7 +46,7 @@ allowed_country_codes: "['US']"
 # database_uri: "postgresql://..."
 description: "Althea Exit Description"
 remote_log: "false"
-workers: 1
+workers: 4
 
 ### [exit_network]
 entry_timeout: 7776000
@@ -57,7 +57,8 @@ exit_start_ip: "172.168.0.100"
 # geoip_api_user: ""
 own_internal_ip: "172.168.0.254"
 own_internal_netmask: 16
-wg_tunnel_port: 60000
+wg_tunnel_port: 59999
+wg_v2_tunnel_port: 59998
 
 ### [localization]
 display_currency_symbol: "true"
@@ -72,8 +73,6 @@ support_number_value: 8664258432
 support_number_zeroes: 0
 
 ### [network]
-bounty_port: 8888
-exit_mesh_ip: "fd01::1/128"
 exit_metric_factor: 1900
 exit_direct_peer_interfaces: []
 exit_direct_peer_vlans: []
@@ -91,6 +90,8 @@ rita_hello_port: 4876
 wg_private_key: ""
 wg_public_key: ""
 wg_start_port: 60000
+# invalid placeholder replace with real value on Althea L1 once deployed
+registered_users_contract_addr: "0xEE8BBA37508cd6f9dB7c8AD0AE2b3DE0168c1b36"
 
 ### [network.shaper_settings]
 network_shaper_enabled: "true"
@@ -98,26 +99,7 @@ network_shaper_enabled: "true"
 ### [payment]
 bridge_enabled: "true"
 debt_limit_enabled: "true"
-eth_private_key: "0x0101010101010101010101010101010101010101"
 free_tier_throughput: 1000
 max_fee: 20000000
 full_nodes: ["https://dai.althea.net:443"]
 system_chain: "Xdai"
-
-### [verif_settings]
-mailer: false
-# email_address: "exit@example.com"
-# smtp_url: "smtp.fastmail.com"
-# smtp_domain: "mail.example.com"
-# smtp_username: "exit@example.com"
-# smtp_password: ""
-# balance_notification_interval: 86400
-# notify_low_balance: "true"
-# test: "false"
-# test_dir: ""
-phone: false
-# phone_auth_api_key: ""
-# send_number: "+15555555555"
-# twillio_account_id: ""
-# twillio_auth_token: ""
-# balance_notification_body: "Your Althea router has a low balance! Your service will be slow until more funds are added. Visit althea.net/top-up"

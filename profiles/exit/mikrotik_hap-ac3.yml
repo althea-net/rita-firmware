@@ -1,0 +1,29 @@
+rita_type: "exit"
+conf_to_build: "mikrotik_hap-ac3-exit"
+
+device: mikrotik_hap-ac3
+package_id: arm_cortex-a7_neon-vfpv4
+image_paths:
+  - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-initramfs-kernel.bin"
+  - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-squashfs-sysupgrade.bin"
+supported: true
+
+private_radio:
+  - radio0
+  - radio1
+
+channel: 11
+# 5ghz note only 20mhz channel widths
+five_ghz_channel: 36
+
+# Reference value, see network.j2 to modify
+wan_interface: "wan"
+
+listen_interfaces:
+  - lan2
+  - lan3
+  - lan4
+
+lan_interfaces: "lan1"
+
+rust_target: armv7-unknown-linux-musleabihf

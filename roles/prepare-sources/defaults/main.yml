@@ -1,3 +1,3 @@
 repo: https://github.com/openwrt/openwrt
-version: v23.05.3
+version: openwrt-23.05
 source_dir: build/

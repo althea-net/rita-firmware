@@ -1,13 +1,12 @@
 allowed_countries = {{allowed_country_codes}}
-db_uri = "{{database_uri}}"
 description = "{{description}}"
 remote_log = {{remote_log}}
-workers = "{{workers}}"
+workers = {{workers}}
 
 
 [exit_network]
 entry_timeout = {{entry_timeout}}
-exit_hello_port = "{{exit_hello_port}}"
+exit_hello_port = {{exit_hello_port}}
 exit_price = {{exit_price}}
 exit_start_ip = "{{exit_start_ip}}"
 {% if geoip_api_key is defined %}
@@ -18,38 +17,22 @@ geoip_api_user = "{{geoip_api_user}}"
 {% endif %}
 netmask = {{own_internal_netmask}}
 own_internal_ip = "{{own_internal_ip}}"
-wg_private_key = "{{wg_exit_private_key}}"
 wg_private_key_path = "/tmp/exit-priv"
-wg_public_key = "{{wg_exit_public_key}}"
 wg_tunnel_port = {{wg_tunnel_port}}
-
-
-[localization]
-display_currency_symbol = {{display_currency_symbol}}
-wyre_enabled = {{wyre_enabled}}
-
-[localization.support_number.code]
-source = "{{support_number_code_source}}"
-value = {{support_number_code_value}}
-
-[localization.support_number.national]
-value = {{support_number_value}}
-zeros = {{support_number_zeroes}}
+wg_v2_tunnel_port = {{wg_v2_tunnel_port}}
+registered_users_contract_addr = "{{registered_users_contract_addr}}"
 
 [network]
 babel_port = 6872
 backup_created = false
-bounty_port = {{bounty_port}}
 discovery_ip = "ff02::1:8"
 {% if wan_interface is defined %}
 external_nic = "{{wan_interface}}"
 {% elif external_nic is defined %}
 external_nic = "{{external_nic}}"
 {% endif %}
-light_client_hello_port = 4878
 manual_peers = []
-mesh_ip = "{{exit_mesh_ip}}"
-metric_factor = "{{exit_metric_factor}}"
+metric_factor = {{exit_metric_factor}}
 nickname = "{{nickname}}"
 peer_interfaces = [{% for iface in (exit_direct_peer_interfaces + exit_direct_peer_vlans) %}"{{iface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 rita_contact_port = 4874
@@ -58,9 +41,7 @@ rita_hello_port = {{rita_hello_port}}
 rita_tick_interval = 5
 usage_tracker_file = "/etc/rita-usage-tracker.json"
 user_set_release_feed = false
-wg_private_key = "{{wg_private_key}}"
 wg_private_key_path = "/tmp/priv"
-wg_public_key = "{{wg_public_key}}"
 wg_start_port = {{wg_start_port}}
 
 [network.shaper_settings]
@@ -75,9 +56,8 @@ bridge_enabled = {{bridge_enabled}}
 client_can_use_free_tier = true
 close_threshold = "-504000000000000000"
 debt_limit_enabled = {{debt_limit_enabled}}
-debts_file = "/etc/rita-debts.json"
+debts_file = "/etc/rita-exit-debts.json"
 dynamic_fee_multiplier = 6000
-eth_private_key = "{{eth_private_key}}"
 forgive_on_reboot = false
 free_tier_throughput = {{free_tier_throughput}}
 fudge_factor = 0
@@ -95,35 +75,3 @@ simulated_transaction_fee = 10
 simulated_transaction_fee_address = "0xEE8BBA37508cd6f9dB7c8AD0AE2b3DE0168c1b36"
 system_chain = "{{system_chain}}"
 withdraw_chain = "{{system_chain}}"
-
-
-{% if mailer %}
-[verif_settings]
-type = "Email"
-
-[verif_settings.contents]
-from_address = "{{email_address}}"
-email_cooldown = 100
-smtp_url = "{{smtp_url}}"
-smtp_domain = "{{smtp_domain}}"
-smtp_username = "{{smtp_username}}"
-smtp_password = "{{smtp_password}}"
-balance_notification_interval = "{{balance_notification_interval}}"
-notify_low_balance = "{{notify_low_balance}}"
-test = false
-test_dir = ""
-{% elif phone %}
-[verif_settings]
-type = "Phone"
-
-[verif_settings.contents]
-auth_api_key = "{{phone_auth_api_key}}"
-notification_number = "{{send_number}}"
-twillio_account_id = "{{twillio_account_id}}"
-twillio_auth_token = "{{twillio_auth_token}}"
-operator_notification_number = []
-{% else %}
-[verif_settings]
-type = "Off"
-{% endif %}
-
