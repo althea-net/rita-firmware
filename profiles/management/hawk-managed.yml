@@ -14,6 +14,8 @@ keys_to_insert:
   - "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPlLsiBAHAtJindxr9j9sLKlnwzY5t2U+FVuyuU5BqIQAAAABHNzaDo= thomas-secondary@althea.systems"
 wifi_ssid_two_ghz: AltheaHome-2
 wifi_ssid_five_ghz: AltheaHome-5
+exit_wifi_ssid_two_ghz: AltheaExit-2
+exit_wifi_ssid_five_ghz: AltheaExit-5
 wifi_disabled: 0
 wifi_key: ChangeMe
 copy_images: true

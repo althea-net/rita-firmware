@@ -7,6 +7,8 @@ logging_enabled: true
 logging_level: "ERROR"
 wifi_ssid_two_ghz: AltheaHome-2
 wifi_ssid_five_ghz: AltheaHome-5
+exit_wifi_ssid_two_ghz: AltheaExit-2
+exit_wifi_ssid_five_ghz: AltheaExit-5
 wifi_disabled: 0
 wifi_key: ChangeMe
 copy_images: true
