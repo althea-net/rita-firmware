@@ -22,8 +22,11 @@ ansible-playbook -e @profiles/devices/mr8300.yml -e @profiles/management/althea-
 ansible-playbook -e @profiles/devices/ea8300.yml -e @profiles/management/althea-release.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/mikrotik_hap-ac2.yml -e @profiles/management/althea-release.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/mikrotik_hap-ac3.yml -e @profiles/management/althea-release.yml firmware-build.yml
-ansible-playbook -e @profiles/devices/linksys-whw03v2.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/linksys-whw03v2.yml -e @profiles/management/althea-release.yml firmware-build.yml
 ansible-playbook -e @profiles/devices/netgear_ex6100v2.yml -e @profiles/management/althea-release.yml firmware-build.yml
 
 #broadcom
 ansible-playbook -e @profiles/devices/pi4-64.yml -e @profiles/management/althea-release.yml firmware-build.yml
+
+# ipq40xx on openwrt master
+ansible-playbook -e @profiles/devices/linksys-whw03.yml -e @profiles/management/althea-release.yml firmware-build.yml

@@ -1,0 +1,28 @@
+conf_to_build: linksys_whw03
+device: linksys_whw03
+package_id: arm_cortex-a7_neon-vfpv4
+image_paths:
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_whw03-squashfs-factory.bin"
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_whw03-squashfs-sysupgrade.bin"
+supported: true
+version: master
+
+private_radio:
+  - radio0
+  - radio1
+  - radio2
+
+# does not support channel 11
+channel: 1
+# note the first radio on this device must take channel 149
+# with the last device taking channel 36
+five_ghz_channel: 36
+five_ghz_channel_alt: 149
+
+listen_interfaces:
+  - wan
+
+lan_interfaces: "lan"
+
+
+rust_target: armv7-unknown-linux-musleabihf

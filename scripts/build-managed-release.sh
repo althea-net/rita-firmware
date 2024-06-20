@@ -30,3 +30,6 @@ ansible-playbook -e @profiles/devices/linksys-whw03v2.yml -e @profiles/managemen
 
 #broadcom
 ansible-playbook -e @profiles/devices/pi4-64.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
+
+# ipq40xx on openwrt master
+ansible-playbook -e @profiles/devices/linksys-whw03.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
