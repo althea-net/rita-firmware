@@ -1,3 +1,4 @@
 repo: https://github.com/openwrt/openwrt
 version: openwrt-23.05
 source_dir: build/
+apply_patches: false

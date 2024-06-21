@@ -5,6 +5,7 @@ image_paths:
   - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-initramfs-kernel.bin"
   - "ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_hap-ac3-squashfs-sysupgrade.bin"
 supported: true
+apply_patches: true
 
 private_radio:
   - radio0
