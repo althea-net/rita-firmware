@@ -5,12 +5,11 @@
 
 # To flash just untar the ext4 image and write it to a flash drive
 
-rita_type: "exit"
-# used to select which config
-conf_to_build: x86_64-exit
-
 # used in op tools and althea-firmware-release
-device_template: x86_64
+device: x86_64
+
+# used to select which config
+conf_to_build: x86_64
 
 # used in /etc/customfeeds.conf path
 package_id: x86_64
