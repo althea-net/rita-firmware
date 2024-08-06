@@ -23,6 +23,18 @@
     mode: 0600
   when: insert_keys
 
+- name: Create Button configuration folder
+  file:
+    path: "{{source_dir}}/files/etc/rc.button/"
+    state: directory
+  when: reset_button_alt
+
+- name: Template reset button configuration
+  template:
+    src: "rc.button.j2"
+    dest: "{{source_dir}}/files/etc/rc.button/reset"
+  when: reset_button_alt
+
 - name: Create the UCI config folder
   file:
     path: "{{source_dir}}/files/etc/config/"

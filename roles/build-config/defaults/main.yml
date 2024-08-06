@@ -104,20 +104,8 @@ max_fee: 20000000
 full_nodes: ["https://dai.althea.net:443"]
 system_chain: "Xdai"
 
-### [verif_settings]
-mailer: false
-# email_address: "exit@example.com"
-# smtp_url: "smtp.fastmail.com"
-# smtp_domain: "mail.example.com"
-# smtp_username: "exit@example.com"
-# smtp_password: ""
-# balance_notification_interval: 86400
-# notify_low_balance: "true"
-# test: "false"
-# test_dir: ""
-phone: false
-# phone_auth_api_key: ""
-# send_number: "+15555555555"
-# twillio_account_id: ""
-# twillio_auth_token: ""
-# balance_notification_body: "Your Althea router has a low balance! Your service will be slow until more funds are added. Visit althea.net/top-up"
+# enables alterante reset button behavior
+# False: Default behavior, all overlay data is reset and the device is wiped
+# True: Instead of resetting the device by deleting all overlay data it will reset the wifi config
+# and rita dashboard password, allowing access to the device without erasing it's data
+reset_button_alt: false
