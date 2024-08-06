@@ -19,6 +19,10 @@ exit_wifi_ssid_five_ghz: AltheaExit-5
 wifi_disabled: 0
 wifi_key: ChangeMe
 copy_images: true
+# enables alterante reset button behavior, specifically instead of
+# resetting the device by deleting all overlay data it will reset the wifi config
+# and rita dashboard password, allowing access to the device without erasing it's data
+reset_button_alt: true
 
 password_auth: "no"
 

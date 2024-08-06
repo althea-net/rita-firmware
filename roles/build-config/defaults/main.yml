@@ -101,3 +101,9 @@ free_tier_throughput: 1000
 max_fee: 20000000
 full_nodes: ["https://dai.althea.net:443"]
 system_chain: "Xdai"
+
+# enables alterante reset button behavior
+# False: Default behavior, all overlay data is reset and the device is wiped
+# True: Instead of resetting the device by deleting all overlay data it will reset the wifi config
+# and rita dashboard password, allowing access to the device without erasing it's data
+reset_button_alt: false
