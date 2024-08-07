@@ -5,7 +5,7 @@ image_paths:
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_whw03-squashfs-factory.bin"
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_whw03-squashfs-sysupgrade.bin"
 supported: true
-version: master
+version: 070b87e7ac48c8fcb48f7275658ccb9b5affc123
 
 private_radio:
   - radio0
