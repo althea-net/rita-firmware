@@ -1,0 +1,30 @@
+#!/bin/sh
+
+. /lib/functions.sh
+
+OVERLAY="$( grep ' /overlay ' /proc/mounts )"
+
+case "$ACTION" in
+timeout)
+        . /etc/diag.sh
+        set_state failsafe
+;;
+released)
+        if [ "$SEEN" -lt 1 ]
+        then
+                echo "REBOOT" > /dev/console
+                sync
+                reboot
+        elif [ "$SEEN" -ge 5 -a -n "$OVERLAY" ]
+        then
+                echo "ROUTER RESET" > /dev/console
+                rm /overlay/upper/etc/config/wireless
+                /etc/init.d/rita stop
+                sed -i 's/rita_dashboard_password.*//g' /etc/rita.toml
+                sync
+                reboot
+        fi
+;;
+esac
+
+return 0
