@@ -1,0 +1,20 @@
+rita_type: "exit"
+conf_to_build: "glb1300-exit"
+device: "gl-b1300"
+package_id: arm_cortex-a7_neon-vfpv4
+image_paths:
+  - "ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin"
+supported: true
+
+channel: 11
+# 5ghz note only 20mhz channel widths
+five_ghz_channel: 36
+
+wan_interface: "wan"
+
+listen_interfaces:
+  - wan
+
+lan_interfaces: "lan1 lan2"
+
+rust_target: armv7-unknown-linux-musleabihf
