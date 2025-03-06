@@ -3,7 +3,7 @@ conf_to_build: "glb1300-exit"
 device: "gl-b1300"
 package_id: arm_cortex-a7_neon-vfpv4
 image_paths:
-  - "ipq40xx/generic/openwrt-ipq40xx-glinet_gl-b1300-squashfs-sysupgrade.bin"
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
 supported: true
 
 channel: 11
