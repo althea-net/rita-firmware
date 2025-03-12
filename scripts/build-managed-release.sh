@@ -17,6 +17,7 @@ ansible-playbook -e @profiles/devices/wrt1900acs.yml -e @profiles/management/haw
 
 # ipq807x
 ansible-playbook -e @profiles/devices/dl-wrtx36.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/gl-mt6000.yml -e @profiles/management/hawk-managed.yml firmware-build.yml
 
 # ipq40xx
 ansible-playbook -e @profiles/devices/glb1300.yml -e @profiles/management/hawk-managed.yml firmware-build.yml

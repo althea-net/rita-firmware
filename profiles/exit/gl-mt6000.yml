@@ -1,0 +1,21 @@
+rita_type: "exit"
+conf_to_build: gl-mt6000-exit
+device: "gl-mt6000"
+package_id: aarch64_cortex-a53
+image_paths:
+  - "mediatek/filogic/openwrt-mediatek-filogic-glinet_gl-mt6000-squashfs-factory.bin"
+  - "mediatek/filogic/openwrt-mediatek-filogic-glinet_gl-mt6000-squashfs-sysupgrade.bin"
+supported: true
+
+channel: 11
+five_ghz_channel: 36
+
+listen_interfaces:
+  - eth1
+
+lan_interfaces: "lan1 lan2 lan3 lan4 lan5"
+
+# Reference value, see network.j2 to modify
+wan_interface: "eth1"
+
+rust_target: aarch64-unknown-linux-musl
