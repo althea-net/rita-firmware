@@ -1,11 +1,12 @@
 conf_to_build: linksys_whw03
 device: linksys_whw03
 package_id: arm_cortex-a7_neon-vfpv4
+apply_patches: false
 image_paths:
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_whw03-squashfs-factory.bin"
   - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_whw03-squashfs-sysupgrade.bin"
 supported: true
-version: 070b87e7ac48c8fcb48f7275658ccb9b5affc123
+version: v24.10.0
 
 private_radio:
   - radio0
