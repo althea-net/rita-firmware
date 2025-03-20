@@ -2,7 +2,6 @@ conf_to_build: gl-mt6000
 device: "gl-mt6000"
 package_id: aarch64_cortex-a53
 image_paths:
-  - "mediatek/filogic/openwrt-mediatek-filogic-glinet_gl-mt6000-squashfs-factory.bin"
   - "mediatek/filogic/openwrt-mediatek-filogic-glinet_gl-mt6000-squashfs-sysupgrade.bin"
 supported: true
 
