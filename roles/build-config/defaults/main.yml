@@ -35,10 +35,7 @@ wifi_ssid_five_ghz: "altheahome-5"
 default_exit: "us-west"
 release_feed: ""
 
-hardcoded_interfaces:
-  - "mesh"
-
-listen_interfaces_extended: "{{listen_interfaces + hardcoded_interfaces}}"
+listen_interfaces_extended: "{{listen_interfaces}}"
 
 ####### exit defaults
 
