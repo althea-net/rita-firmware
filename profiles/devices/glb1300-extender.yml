@@ -12,7 +12,6 @@ five_ghz_channel: 36
 
 lan_interfaces: "lan1 lan2"
 
-# Reference value, see network.j2 to modify
 wan_interface: "wan"
 
 # For sqm tuning

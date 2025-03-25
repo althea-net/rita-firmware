@@ -18,7 +18,6 @@ listen_interfaces:
 
 lan_interfaces: "eth1"
 
-# Reference value, see network.j2 to modify
 wan_interface: "eth0"
 
 rust_target: i586-unknown-linux-musl

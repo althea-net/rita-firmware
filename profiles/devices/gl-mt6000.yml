@@ -13,7 +13,4 @@ listen_interfaces:
 
 lan_interfaces: "lan1 lan2 lan3 lan4 lan5"
 
-# Reference value, see network.j2 to modify
-wan_interface: "eth1"
-
 rust_target: aarch64-unknown-linux-musl

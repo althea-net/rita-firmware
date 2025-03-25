@@ -12,7 +12,4 @@ listen_interfaces:
 
 lan_interfaces: "lan3"
 
-# Reference value, see network.j2 to modify
-wan_interface: "wan"
-
 rust_target: aarch64-unknown-linux-gnu

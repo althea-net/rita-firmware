@@ -12,7 +12,4 @@ listen_interfaces:
 
 lan_interfaces: "wlan0 wlan1"
 
-# Reference value, see network.j2 to modify
-wan_interface: ""
-
 rust_target: mips-unknown-linux-musl
