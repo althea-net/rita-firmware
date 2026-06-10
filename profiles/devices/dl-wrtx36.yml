@@ -2,8 +2,8 @@ conf_to_build: dl-wrtx36
 device: "dl-wrtx36"
 package_id: aarch64_cortex-a53
 image_paths:
-  - "ipq807x/generic/openwrt-ipq807x-generic-dynalink_dl-wrx36-squashfs-sysupgrade.bin"
-  - "ipq807x/generic/openwrt-ipq807x-generic-dynalink_dl-wrx36-squashfs-factory.ubi"
+  - "qualcommax/ipq807x/openwrt-qualcommax-ipq807x-dynalink_dl-wrx36-squashfs-sysupgrade.bin"
+  - "qualcommax/ipq807x/openwrt-qualcommax-ipq807x-dynalink_dl-wrx36-squashfs-factory.ubi"
 supported: true
 
 channel: 1
